@@ -1,19 +1,53 @@
-<html>
-    <body>
-        <p>Es una página que contiene un formulario de contacto. El formulario se implementará para que la información se envíe en forma de correo electrónico, usando la función mailto.</p>
-        <p>El formulario debe pedir al usuario los siguientes datos:</p>
-        <ul>
-            <li>Nombre</li>
-            <li>Dirección de email de contacto</li>
-            <li>Motivo de la consulta, con radio buttons:
-                <ul>
-                    <li>Evaluación</li>
-                    <li>Sugerencias</li>
-                    <li>Críticas</li>
-                </ul>
-            </li>
-            <li>Un checkbox para marcar junto a la frase: <b>Marque esta casilla para verificar que ha leído nuestros términos y condiciones del servicio”.</b>
-            <li>Un cuadro de texto para que el usuario escriba la consulta.</li>
-        </ul>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AWacate - Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              <a class="navbar-brand" href="index.html">AWacate</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="detalles.html">Detalles</a></li>
+                  <li><a href="bocetos.html">Bocetos</a></li>
+                  <li><a href="miembros.html">Miembros</a></li>
+                  <li><a href="planificacion.html">Planificación</a></li>
+                  <li class="active"><a href="contacto.html">Contacto</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  <div class="container-fluid" style="margin-top:60px">
+    <p>Es una página que contiene un formulario de contacto. El formulario se implementará para que la información se envíe en forma de correo electrónico, usando la función mailto.</p>
+    <p>El formulario debe pedir al usuario los siguientes datos:</p>
+    <ul>
+        <li>Nombre</li>
+        <li>Dirección de email de contacto</li>
+        <li>Motivo de la consulta, con radio buttons:
+            <ul>
+                <li>Evaluación</li>
+                <li>Sugerencias</li>
+                <li>Críticas</li>
+            </ul>
+        </li>
+        <li>Un checkbox para marcar junto a la frase: <b>Marque esta casilla para verificar que ha leído nuestros términos y condiciones del servicio”.</b>
+        <li>Un cuadro de texto para que el usuario escriba la consulta.</li>
+    </ul>
+  </div>
+</body>
 </html>
