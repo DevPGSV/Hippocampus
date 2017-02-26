@@ -1,0 +1,13 @@
+- Usar github para programar la web final
+- Usar boostrap
+- Usar jQuery & Ajax
+- Usar una API php pública y documentarla
+- Como base de datos usar mariaDB (MySQL)
+- Usar clean URLs gracias a un conjunto de reglas de redirección, tanto en .htaccess como para Caddyfile
+- Disponer de temas y módulos instalables
+- PHP7
+- Login normal (usuario, email, contraseña) y de terceros con Google, Twitter, Facebook, LinkedIn, ... (modular).
+- keyboard shorcuts
+- use breadcrumbs   https://www.w3schools.com/bootstrap/bootstrap_pagination.asp
+- páginas de configuracion y administración
+
