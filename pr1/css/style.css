@@ -1,0 +1,18 @@
+
+div.container-fluid#maincontainer {
+  margin-top:60px;
+}
+
+div.persondata > h1 {
+  padding-top: 60px;
+}
+
+div.persondata > img.persondata-picture {
+  height:200px;
+  width:200px;
+  margin:20px;
+}
+
+div.persondata > img.persondata-picture[src=""] {
+   background-color:pink;
+}
