@@ -115,9 +115,29 @@
     <div class="panel panel-default">
         <div class="panel-heading">Usuarios</div>
         <div class="panel-body">
-          <p>root, administrador, usuario</p>
+
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#users-root">Root</a></li>
+            <li><a data-toggle="tab" href="#users-administrador">Administrador</a></li>
+            <li><a data-toggle="tab" href="#users-usuario">Usuario</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="users-root" class="tab-pane fade in active">
+                <p>Es el usuario creado durante la instalación y configuración de la web.</p>
+                <p>Tiene permiso para realizar todas las acciones de administración y configuración.</p>
+            </div>
+            <div id="users-administrador" class="tab-pane fade">
+                <p>Usuarios creados (o promovidos) por la cuenta de root.</p>
+                <p>Tienen permiso para realizar todas las acciones de administración.</p>
+            </div>
+            <div id="users-usuario" class="tab-pane fade">
+                <p>Según la configuración, los usuarios podrás registrarse o deberán ser invitados.</p>
+                <p>Estos usuarios son los consumidores de la web. La usarán para acceder a los servicios ofrecidos.</p>
+            </div>
+          </div>
         </div>
     </div>
   </div>
+  <br><br><br>
 </body>
 </html>
