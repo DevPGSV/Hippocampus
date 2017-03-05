@@ -34,21 +34,40 @@
   </nav>
 
   <div class="container-fluid" style="margin-top:60px">
-    <p>Es una página que contiene un formulario de contacto. El formulario se implementará para que la información se envíe en forma de correo electrónico, usando la función mailto.</p>
-    <p>El formulario debe pedir al usuario los siguientes datos:</p>
-    <ul>
-        <li>Nombre</li>
-        <li>Dirección de email de contacto</li>
-        <li>Motivo de la consulta, con radio buttons:
-            <ul>
-                <li>Evaluación</li>
-                <li>Sugerencias</li>
-                <li>Críticas</li>
-            </ul>
-        </li>
-        <li>Un checkbox para marcar junto a la frase: <b>Marque esta casilla para verificar que ha leído nuestros términos y condiciones del servicio”.</b>
-        <li>Un cuadro de texto para que el usuario escriba la consulta.</li>
-    </ul>
+    <form action="mailto:admin@awacate.es" method="post" enctype="text/plain">
+      <!--Nombre - text -->
+       <div class="form-group">
+         <label for="name">Nombre:</label>
+         <input type="text" name="nombre" class="form-control" id="name" required>
+       </div>
+       <!--Dirección de email de contacto - email -->
+       <div class="form-group">
+         <label for="email">Dirección de email:</label>
+         <input type="email" name="email" class="form-control" id="email" required>
+       </div>
+       <!--Motivo de la consulta - radio buttons -->
+       <label>Motivo de la consulta:</label>
+        <br>
+        <div class="radio">
+          <label><input type="radio" name="tipodeconsulta" value="evaluacion">Evaluación</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="tipodeconsulta" value="sugerencia">Sugerencias</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="tipodeconsulta" value="critica">Críticas</label>
+          </div>
+      <!--Términos y condiciones - checkbox -->
+      <div class="checkbox">
+         <label><input type="checkbox" name="terminosycondiciones"> Marque esta casilla para verificar que ha leído nuestros términos y condiciones del servicio</label>
+       </div>
+      <!--Consulta - cuadro de texto -->
+      <div class="form-group">
+        <label for="consulta">Consulta:</label>
+        <textarea class="form-control" name="consulta" rows="5" id="consulta"></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Enviar</button>
+    </form>
   </div>
 </body>
 </html>
