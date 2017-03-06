@@ -3,6 +3,10 @@ div.container-fluid#maincontainer {
   margin-top:60px;
 }
 
+img#mainlogo {
+    width: 100%;
+}
+
 div.persondata > h1 {
   padding-top: 60px;
 }
