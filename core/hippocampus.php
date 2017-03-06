@@ -9,7 +9,9 @@ class Hippocampus {
   public function __construct() {
     global $_HARDCODED;
     $this->db = new Database($_HARDCODED['db']['database'], $_HARDCODED['db']['username'], $_HARDCODED['db']['password'], $_HARDCODED['db']['host']);
+  }
 
-    
+  public function run() {
+    require(__DIR__ . '/../themes/default/index.php');
   }
 }

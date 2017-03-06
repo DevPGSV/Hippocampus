@@ -4,4 +4,5 @@ ini_set('display_errors', 1);
 
 require_once(__DIR__ . '/core/hippocampus.php');
 
-new Hippocampus();
+$hc = new Hippocampus();
+$hc->run();
