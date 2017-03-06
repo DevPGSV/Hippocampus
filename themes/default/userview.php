@@ -1,5 +1,5 @@
 <html>
 <body>
-Output - Not logged in
+Output - Logged in
 </body>
 </html>
