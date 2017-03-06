@@ -33,15 +33,142 @@
       </div>
   </nav>
 
-  <div class="container-fluid" style="margin-top:60px">
-    <p>En esta página se debe describir la planificación del proyecto (tareas a realizar, ideas
-sobre cómo repartir el trabajo, plazos, etc.). El formato es libre, pero debe terminar con
-una tabla que resuma los hitos y sus fechas de terminación.
-Podéis tener en cuenta que a principios de abril tendréis que tener lista una versión
-navegable de la página (HTML + CSS, con aspecto final pero sin contenido real) y que a
-principios de mayo deberéis tener listo el diseño de la base de datos y la especificación
-detallada de toda la funcionalidad. A finales de mayo se presentarán los proyectos ya
-acabados.</p>
+  <div id="maincontainer" class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">Tareas</div>
+        <div class="panel-body">
+          <p>
+            A la hora de distruirnos el trabajo, tenemos aproximadamente unas 32 tareas que completar.
+            La gestión, el seguimiento del proyecto y el control de versiones lo realizamos a través de
+            <a href="https://github.com/DevPGSV/AW-Awacate/">Github</a>, donde también se pueden encontrar las tareas explicadas más detalladamente y quién está
+            asignado a cada una. En la presentación de la memoria final del proyecto, se adjuntará una tabla
+            con la relación del trabajo realizado por cada miembro del grupo y las tareas desarrolladas dentro
+            de la globalidad del proyecto.
+          </p>
+
+          <p>
+            Cada miembro del grupo se asigna la tarea con la que se sienta más a gusta o tenga más interés
+            en completar.
+          </p>
+
+          <p>
+            Tareas como la estructuración general de la web o el diseño e implementación de la interfaz de usuario
+            las llevan a cabo varias personas, mientras que las tareas de adaptación de servicios ya existentes
+            como Twitter o Github a módulos personalizables son llevadas a cabo por una persona para cada uno de los
+            servicios disponibles (Google Calendar, Campus Virtual, Geaportal, Google Classrom, etc.)</div>
+          </p>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Distribución del trabajo</div>
+        <div class="panel-body">
+          <p>
+            Para la realización de nuestro proyecto, necesitamos 4 roles de programador principales:
+            front-end, back-end, módulos propios (core) y módulos de terceros (non-core).
+          </p>
+
+          <p>
+            El programador front-end se encargará de diseñar e implementar:
+            <ul>
+              <li>estructura básica de la web</li>
+              <li>página principal para iniciar sesión o crear una cuenta nueva</li>
+              <li>interfaz de usuario principal (corresponde con la página de inicio con estructura de tablón)</li>
+            </ul>
+          </p>
+
+          <p>
+            El programador back-end se encargará de implementar:
+            <ul>
+              <li>estructura básica de la web</li>
+              <li>asistente de instalación de la aplicación web (similiar al asistente de instalación de Drupal o Wordpress)</li>
+              <li>administración de módulos</li>
+              <li>administración de la página del usuario</li>
+            </ul>
+          </p>
+
+          <p>
+            Diferenciamos entre dos tipos de módulos que podemos instalar, activar o desactivar en nuestra página personal:
+            <ul>
+              <li>módulos propios (core modules)</li>
+              <li>módulos de terceros (non-core modules)</li>
+            </ul>
+          </p>
+
+          <p>
+            Para más información acerca de estos módulos, se puede consultar la sección de <a href="detalles.html">Detalles</a>.
+          </p>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Plazos</div>
+        <div class="panel-body">
+          <p>
+            Como fechas a destacar, se fija el lunes 3 de abril y el lunes 8 de mayo. Para la primera fecha
+            se espera tener todo el diseño HTML y el estilo CSS completos y correctamente funcionando. Para la
+            segunda fecha se espera tener el diseño completo de las bases de datos y todos los módulos correctamente
+            funcionando. Hay que tener en cuenta de que en caso de existir algún servicio que no cuente con API,
+            nos encargaremos de crear una para poder comunicarnos con el servicio y ofrecer su integración con Hippocampus.
+          </p>
+
+          <p>
+            Por último, durante las dos últimas semanas, estaremos realizando pruebas para encontrar fallos y
+            corregirlos de cara a presentar como proyecto final una página completamente funcional.
+          </p>
+
+          <p>
+            Además, también será necesaria la redacción de una wiki que recoja las especificaciones detalladas
+            de todas las funcionalidades de la web.
+          </p>
+        </div>
+    </div>
+
+    <table class="table table-striped table-hover table-condensed table-responsive">
+      <thead>
+          <tr>
+              <th>Fecha</th>
+              <th>Objetivo</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>7 de marzo</td>
+              <td>Presentación de la idea de proyecto en el laboratorio</td>
+          </tr>
+          <tr>
+              <td>13 de marzo</td>
+              <td>Estructura de ejemplo de los módulos propios y de terceros</td>
+          </tr>
+          <tr>
+              <td>20 de marzo</td>
+              <td>Presentación de los modulos propios y de terceros desarrollados hasta el momento</td>
+          </tr>
+          <tr>
+              <td>27 de marzo</td>
+              <td>Finalización de los módulos propios y de terceros que quedaran por completar</td>
+          </tr>
+          <tr>
+              <td>3 de abril</td>
+              <td>Estructura HTML5 + CSS3 completa</td>
+          </tr>
+          <tr>
+              <td>10 de abril</td>
+              <td>Correción de errores en los módulos e implementación cliente/servidor</td>
+          </tr>
+          <tr>
+              <td>17 de abril</td>
+              <td>Implementación de diseño animado con Javascript</td>
+          </tr>
+          <tr>
+              <td>8 de mayo</td>
+              <td>Presentación del diseño completo de la base de datos y especificación detallada de todas las funcionalidades</td>
+          </tr>
+          <tr>
+              <td>22 de mayo</td>
+              <td>Presentación final del proyecto acabado en el laboratorio, puesta en común de conclusiones y elaboración de la memoria</td>
+          </tr>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>
