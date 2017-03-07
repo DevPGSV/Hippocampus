@@ -16,6 +16,7 @@ class Hippocampus {
   }
 
   public function run() {
+    session_start();
     require(__DIR__ . '/../themes/default/index.php');
   }
 }
