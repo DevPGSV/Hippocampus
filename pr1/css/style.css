@@ -8,7 +8,7 @@ img#mainlogo {
 }
 
 img.boceto {
-    width: 700px;
+    max-width: 600px;
 }
 
 div.persondata {
