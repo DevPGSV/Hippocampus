@@ -25,7 +25,7 @@ class Database {
       $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
       $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE , PDO::FETCH_ASSOC);
     } catch (PDOException $e) { // Debugging!
-      echo $e->getMessage();
+      echo $e->getMessage()."<br>\n";
       die('ERROR');
     }
   }
