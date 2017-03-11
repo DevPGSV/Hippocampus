@@ -15,6 +15,7 @@ class Database {
     $this->host     = $host;
 
     $this->dbConnect();
+    $this->databaseSetup();
   }
 
   private function dbConnect() {
@@ -27,6 +28,29 @@ class Database {
     } catch (PDOException $e) { // Debugging!
       echo $e->getMessage()."<br>\n";
       die('ERROR');
+    }
+  }
+
+  private function databaseSetup() { // Setup database when new database version is found
+    try {
+      $dbVersion='1';
+      $stmt = $this->db->prepare("SELECT * FROM config WHERE varkey='db.version'");
+      $stmt->execute();
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      if (!$rows[0]['value'] == $dbVersion) {
+        throw new Exception();
+      }
+    } catch (Exception $e) {
+      try {
+        $this->db->beginTransaction();
+        $sql = file_get_contents(__DIR__ . '/../tmp/hippocampus.sql');
+        $this->db->exec($sql);
+        $this->db->commit();
+      } catch (PDOException $e) {
+        $this->db->rollback();
+        die($e->getMessage());
+      }
+      die('Database updated. Please refresh.');
     }
   }
 }
