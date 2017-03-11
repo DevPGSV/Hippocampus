@@ -22,7 +22,7 @@ INSERT INTO `config` (`varkey`, `value`) VALUES
 ('site.name', 'Hippocampus'),
 ('site.theme', 'default'),
 ('site.url', 'http://hippocampus.dev'),
-('db.version', '1');
+('db.version', '2');
 
 -- --------------------------------------------------------
 
@@ -40,9 +40,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`) VALUES
-(0, 'root'),
-(1, 'administrator'),
-(2, 'user');
+(1, 'root'),
+(2, 'administrator'),
+(3, 'user');
 
 -- --------------------------------------------------------
 
@@ -83,9 +83,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `confirmedEmail`, `secretToken`, `role`) VALUES
-(0, 'root@awacate.dev', 0, '-', 0),
-(1, 'admin@awacate.dev', 0, '-', 1),
-(2, 'user@awacate.dev', 0, '-', 2);
+(1, 'root@awacate.dev', 0, '-', 1),
+(2, 'admin@awacate.dev', 0, '-', 2),
+(3, 'user@awacate.dev', 0, '-', 3);
 
 -- --------------------------------------------------------
 
@@ -226,12 +226,12 @@ ALTER TABLE `watchdog`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --

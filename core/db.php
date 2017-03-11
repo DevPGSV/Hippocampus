@@ -31,13 +31,24 @@ class Database {
     }
   }
 
+  public function getUserDataById($userId) {
+    $stmt = $this->db->prepare("SELECT * FROM users WHERE id=?");
+    $stmt->execute([$userId]);
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($rows) === 1) {
+      return $rows[0];
+    } else {
+      return false;
+    }
+  }
+
   private function databaseSetup() { // Setup database when new database version is found
     try {
-      $dbVersion='1';
+      $dbVersion='2';
       $stmt = $this->db->prepare("SELECT * FROM config WHERE varkey='db.version'");
       $stmt->execute();
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      if (!$rows[0]['value'] == $dbVersion) {
+      if ($rows[0]['value'] !== $dbVersion) {
         throw new Exception();
       }
     } catch (Exception $e) {
