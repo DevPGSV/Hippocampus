@@ -1,14 +1,9 @@
 <?php
 
-  return [
-    'features'=>[
-      'index',
-      'userview',
-    ],
-    'name' => 'Default',
-    
-
-  ];
-
-
- ?>
+return [
+  'features'=>[
+    'index',
+    'userview',
+  ],
+  'name' => 'Default',
+];

@@ -19,8 +19,12 @@ class Hippocampus {
 
   public function run() {
     $d = $this->themeManager->loadTheme('default');
-    echo $d->getIndexPath();
-    /*session_start();
-    require(__DIR__ . '/../themes/default/index.php');*/
+    session_start();
+    if (isset($_GET['loggedin'])) {
+      require(__DIR__ . '/../themes/'.$d->getUserviewPath());
+    } else {
+      require(__DIR__ . '/../themes/'.$d->getIndexPath());
+    }
+
   }
 }
