@@ -29,6 +29,39 @@ class Theme {
     }
   }
 
+  public function hasFeature($feature){
+    if(!in_array($feature, $this->features)){
+      return false;
+    }
+    else {
+      return $this->features[$feature];
+    }
+  }
+
+  public function getFeaturePath($feature){
+    switch($feature){
+      case 'index':
+        return $this->getIndexPath();
+      break;
+      case 'userview':
+        return $this->getUserviewPath();
+      break;
+      case 'style':
+        return $this->getStylePath();
+      break;
+      case 'javascript':
+        return $this->getJavascriptPath();
+      break;
+      case 'window':
+        return $this->getWindowPath();
+      break;
+      default:
+        return false;
+        break;
+    }
+
+  }
+
   public function getIndexPath(){
     return "$this->id/index.php";
   }

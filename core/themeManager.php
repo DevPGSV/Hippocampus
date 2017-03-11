@@ -3,6 +3,10 @@
 class ThemeManager {
   private $themePath = __DIR__ . '/../themes/';
   private $hc;
+  private $themeList = [
+    'default',
+  ];
+  private $themes=[];
 
   public function __construct($hc) {
     $this->hc = $hc;
@@ -17,5 +21,26 @@ class ThemeManager {
       }
     }
     return false;
+  }
+
+  public function loadAllThemes(){
+    foreach(scandir($this->themePath, true) as $t){
+      if(is_dir($this->themePath.$t)){
+        if($t != '.' && $t != '..'){
+          $aux = loadTheme($t);
+          if(!$aux){
+            $this->themes[$t] = $aux;
+          }
+        }
+      }
+    }
+  }
+
+  public function getFeaturePath($feature){
+    foreach($themeList as $t){
+      if($this->themes[$t]->hasFeature($feature)){
+        return $this->themes[$t]->getFeaturePath($feature);
+      }
+    }
   }
 }
