@@ -25,6 +25,9 @@ class Hippocampus {
     } else {
       require(__DIR__ . '/../themes/'.$d->getIndexPath());
     }
+  }
 
+  public function getDB() {
+    return $this->db;
   }
 }
