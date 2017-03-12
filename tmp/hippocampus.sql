@@ -2,12 +2,23 @@
 -- Database: `hippocampus`
 --
 
+DROP TABLE IF EXISTS `config`;
+DROP TABLE IF EXISTS `users-1auth`;
+DROP TABLE IF EXISTS `users-sync-fb`;
+DROP TABLE IF EXISTS `users-sync-google`;
+DROP TABLE IF EXISTS `users-sync-linkedin`;
+DROP TABLE IF EXISTS `users-sync-twitter`;
+DROP TABLE IF EXISTS `user-sessions`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `roles`;
+DROP TABLE IF EXISTS `watchdog`;
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `config`
 --
-DROP TABLE IF EXISTS `config`;
+
 CREATE TABLE `config` (
   `varkey` varchar(64) NOT NULL,
   `value` varchar(64) NOT NULL
@@ -22,14 +33,14 @@ INSERT INTO `config` (`varkey`, `value`) VALUES
 ('site.name', 'Hippocampus'),
 ('site.theme', 'default'),
 ('site.url', 'http://hippocampus.dev'),
-('db.version', '2');
+('db.version', '3');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `roles`
 --
-DROP TABLE IF EXISTS `roles`;
+
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `name` varchar(16) NOT NULL
@@ -49,7 +60,7 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 --
 -- Table structure for table `user-sessions`
 --
-DROP TABLE IF EXISTS `user-sessions`;
+
 CREATE TABLE `user-sessions` (
   `userid` int(11) NOT NULL,
   `device` varchar(64) NOT NULL,
@@ -69,7 +80,7 @@ CREATE TABLE `user-sessions` (
 --
 -- Table structure for table `users`
 --
-DROP TABLE IF EXISTS `users`;
+
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(32) NOT NULL,
@@ -83,16 +94,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `confirmedEmail`, `secretToken`, `role`) VALUES
-(1, 'root@awacate.dev', 0, '-', 1),
-(2, 'admin@awacate.dev', 0, '-', 2),
-(3, 'user@awacate.dev', 0, '-', 3);
+(1, 'root@hippocampus.dev', 0, '-', 1),
+(2, 'admin@hippocampus.dev', 0, '-', 2),
+(3, 'user@hippocampus.dev', 0, '-', 3);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `users-1auth`
 --
-DROP TABLE IF EXISTS `users-1auth`;
+
 CREATE TABLE `users-1auth` (
   `id` int(11) NOT NULL,
   `pw` char(64) NOT NULL,
@@ -105,7 +116,7 @@ CREATE TABLE `users-1auth` (
 --
 -- Table structure for table `users-sync-fb`
 --
-DROP TABLE IF EXISTS `users-sync-fb`;
+
 CREATE TABLE `users-sync-fb` (
   `userid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -115,7 +126,7 @@ CREATE TABLE `users-sync-fb` (
 --
 -- Table structure for table `users-sync-google`
 --
-DROP TABLE IF EXISTS `users-sync-google`;
+
 CREATE TABLE `users-sync-google` (
   `userid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -125,7 +136,7 @@ CREATE TABLE `users-sync-google` (
 --
 -- Table structure for table `users-sync-linkedin`
 --
-DROP TABLE IF EXISTS `users-sync-linkedin`;
+
 CREATE TABLE `users-sync-linkedin` (
   `userid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -135,7 +146,7 @@ CREATE TABLE `users-sync-linkedin` (
 --
 -- Table structure for table `users-sync-twitter`
 --
-DROP TABLE IF EXISTS `users-sync-twitter`;
+
 CREATE TABLE `users-sync-twitter` (
   `userid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -145,7 +156,7 @@ CREATE TABLE `users-sync-twitter` (
 --
 -- Table structure for table `watchdog`
 --
-DROP TABLE IF EXISTS `watchdog`;
+
 CREATE TABLE `watchdog` (
   `id` int(11) NOT NULL,
   `sessionid` int(11) DEFAULT NULL,

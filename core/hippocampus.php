@@ -10,17 +10,21 @@ class Hippocampus {
 
   private $db;
   private $themeManager;
+  private $userManager;
 
   public function __construct() {
     global $_HARDCODED;
+    session_start();
     $this->db = new Database($_HARDCODED['db']['database'], $_HARDCODED['db']['username'], $_HARDCODED['db']['password'], $_HARDCODED['db']['host']);
     $this->themeManager = new ThemeManager($this);
+    $this->userManager  = new UserManager($this);
   }
 
   public function run() {
     $d = $this->themeManager->loadTheme('default');
-    session_start();
-    if (isset($_GET['loggedin'])) {
+
+    $u = $this->userManager->getLoggedInUser();
+    if ($u) {
       require(__DIR__ . '/../themes/'.$d->getUserviewPath());
     } else {
       require(__DIR__ . '/../themes/'.$d->getIndexPath());
