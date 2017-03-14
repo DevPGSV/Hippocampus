@@ -5,6 +5,7 @@ require_once(__DIR__ . '/user.php');
 require_once(__DIR__ . '/userManager.php');
 require_once(__DIR__ . '/themeManager.php');
 require_once(__DIR__ . '/theme.php');
+require_once(__DIR__ . '/utils.php');
 
 class Hippocampus {
 
