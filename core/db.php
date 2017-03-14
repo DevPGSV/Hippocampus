@@ -102,6 +102,7 @@ class Database {
 
   /// TODO
   public function registerNewUser(&$user) {
+    // After adding user, update its id!
     return false;
   }
 
