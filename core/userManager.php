@@ -22,6 +22,4 @@ class UserManager {
         return false;
       }
     }
-
-    // $this->hc->getDB()->getUserDataById($uid)
 }
