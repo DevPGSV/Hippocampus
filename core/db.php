@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__ . '/user.php');
+
 class Database {
   private $database;
   private $username;
@@ -64,4 +66,42 @@ class Database {
       die('Database updated. Please refresh.');
     }
   }
+
+  public function getUserById($userid) {
+    $stmt = $this->db->prepare("SELECT * FROM users WHERE id=:id");
+    $stmt->bindValue(':id', $userid, PDO::PARAM_INT);
+    $stmt->execute();
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($rows) === 1) {
+      $uData = $rows[0];
+      $u = new User($this->hc, $uData['id'], $uData['email'], $uData['confirmedEmail'], $uData['secretToken'], $uData['role']);
+      return $u;
+    }
+    throw new Exception('No user with that id');
+    return false;
+  }
+
+  /// TODO
+  public function registerNewUser(&$user) {
+    return false;
+  }
+
+  /// TODO
+  public function createNewUserSession($user, $device, $alc, $dvc, $activeSession, $firstUserSession, $lastUseSession, $firstUseCoordLat, $firstUseCoordLong, $useragent) {
+    // if $user is User, $user = its id
+    return false;
+  }
+
+  /// TODO
+  public function getUserSessionByAlc($alc) {
+    return false;
+  }
+
+  /// TODO
+  public function updateUserSessionDvc($user, $alc, $newDvc) {
+    // if $user is User, $user = its id
+    return false;
+  }
+
+
 }
