@@ -35,4 +35,8 @@ class Hippocampus {
   public function getDB() {
     return $this->db;
   }
+
+  public function getUserManager() {
+    return $this->userManager;
+  }
 }
