@@ -91,8 +91,8 @@ class Database {
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($rows) === 1) {
-      $data = $rows[0]; // id, pw, salt, csalt
-      return $data;
+      $data = $rows[0];
+      return $data; // id, pw, salt, csalt
     }
     throw new Exception('No user with that id');
     return false;
@@ -110,9 +110,17 @@ class Database {
     else throw new Exception('Invalid id');
     return false;
   }
-
-  /// TODO
+  
   public function getUserSessionByAlc($alc) {
+    $stmt = $this->db->prepare("SELECT * FROM user-sessions WHERE alc=:alc");
+    $stmt->bindValue(':alc', $alc, PDO::PARAM_STR);
+    $stmt->execute();
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($rows) === 1) {
+      $data = $rows[0];
+      return $data; // userid, device, alc, dvc, ip, activeSession, firstUseSession, lastUseSession, firstUseCoordLat, firstUseCoordLong, useragent
+    }
+    throw new Exception('No user session with that alc');
     return false;
   }
 
