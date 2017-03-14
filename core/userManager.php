@@ -18,9 +18,17 @@ class UserManager {
     /// TODO
     public function checkLoggedInUser() {
       if (isset($_GET['loggedin'])) {
-        $this->loggedinUser = $this->hc->getDB()->getUserById(3);
+        $this->loggedinUser = $this->getUserById(3);
       } else {
         $this->loggedinUser = false;
       }
+    }
+
+    public function getUserById($userid) {
+      return $this->hc->getDB()->getUserById($userid);
+    }
+
+    public function registerNewUser(&$user) {
+      $this->hc->getDB()->registerNewUser($user);
     }
 }
