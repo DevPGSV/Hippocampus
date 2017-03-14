@@ -16,7 +16,7 @@ class Hippocampus {
   public function __construct() {
     global $_HARDCODED;
     session_start();
-    $this->db = new Database($_HARDCODED['db']['database'], $_HARDCODED['db']['username'], $_HARDCODED['db']['password'], $_HARDCODED['db']['host']);
+    $this->db = new Database($this, $_HARDCODED['db']['database'], $_HARDCODED['db']['username'], $_HARDCODED['db']['password'], $_HARDCODED['db']['host']);
     $this->themeManager = new ThemeManager($this);
     $this->userManager  = new UserManager($this);
   }

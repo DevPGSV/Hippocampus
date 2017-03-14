@@ -8,9 +8,11 @@ class Database {
   private $password;
   private $host;
 
+  private $hc;
   private $db;
 
-  public function __construct($database, $username, $password, $host = 'localhost') {
+  public function __construct($hc, $database, $username, $password, $host = 'localhost') {
+    $this->hc       = $hc;;
     $this->database = $database;
     $this->username = $username;
     $this->password = $password;
@@ -110,7 +112,7 @@ class Database {
     else throw new Exception('Invalid id');
     return false;
   }
-  
+
   public function getUserSessionByAlc($alc) {
     $stmt = $this->db->prepare("SELECT * FROM user-sessions WHERE alc=:alc");
     $stmt->bindValue(':alc', $alc, PDO::PARAM_STR);
