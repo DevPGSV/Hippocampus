@@ -81,6 +81,23 @@ class Database {
     return false;
   }
 
+  public function getUser1AuthData($user) {
+    if ($user instanceof User) $userid = $user->getId();
+    else if (is_int($user))    $userid = $user;
+    else throw new Exception('Invalid id');
+
+    $stmt = $this->db->prepare("SELECT * FROM users-1auth WHERE id=:id");
+    $stmt->bindValue(':id', $userid, PDO::PARAM_INT);
+    $stmt->execute();
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($rows) === 1) {
+      $data = $rows[0]; // id, pw, salt, csalt
+      return $data;
+    }
+    throw new Exception('No user with that id');
+    return false;
+  }
+
   /// TODO
   public function registerNewUser(&$user) {
     return false;
@@ -88,7 +105,9 @@ class Database {
 
   /// TODO
   public function createNewUserSession($user, $device, $alc, $dvc, $activeSession, $firstUserSession, $lastUseSession, $firstUseCoordLat, $firstUseCoordLong, $useragent) {
-    // if $user is User, $user = its id
+    if ($user instanceof User) $userid = $user->getId();
+    else if (is_int($user))    $userid = $user;
+    else throw new Exception('Invalid id');
     return false;
   }
 
@@ -99,7 +118,9 @@ class Database {
 
   /// TODO
   public function updateUserSessionDvc($user, $alc, $newDvc) {
-    // if $user is User, $user = its id
+    if ($user instanceof User) $userid = $user->getId();
+    else if (is_int($user))    $userid = $user;
+    else throw new Exception('Invalid id');
     return false;
   }
 
