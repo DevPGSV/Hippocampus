@@ -4,22 +4,23 @@ require_once(__DIR__ . '/user.php');
 class UserManager {
 
     private $hc;
+    private $loggedinUser;
 
     public function __construct($hc) {
       $this->hc = $hc;
+      $this->checkLoggedInUser();
     }
 
     public function getLoggedInUser() {
+      return $this->loggedinUser;
+    }
+
+    /// TODO
+    public function checkLoggedInUser() {
       if (isset($_GET['loggedin'])) {
-        $uData = $this->hc->getDB()->getUserDataById(3);
-        if ($uData) {
-          $u = new User($this->hc, $uData['id'], $uData['email'], $uData['confirmedEmail'], $uData['secretToken'], $uData['role']);
-          return $u;
-        } else {
-          return false;
-        }
+        $this->loggedinUser = $this->hc->getDB()->getUserById(3);
       } else {
-        return false;
+        $this->loggedinUser = false;
       }
     }
 }
