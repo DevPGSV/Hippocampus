@@ -7,5 +7,6 @@ $_HARDCODED = [
     'password' => 'hippocampus',
     'database' => 'hippocampus',
     'host' => 'localhost',
-  ]
+  ],
+  'siteSecretToken' => 't4s1hj56s6'
 ];
