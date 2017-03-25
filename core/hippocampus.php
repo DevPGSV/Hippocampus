@@ -22,13 +22,13 @@ class Hippocampus {
   }
 
   public function run() {
-    $d = $this->themeManager->loadTheme('default');
+    $this->themeManager->loadAllThemes();
 
     $u = $this->userManager->getLoggedInUser();
     if ($u) {
-      require(__DIR__ . '/../themes/'.$d->getUserviewPath());
+      require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('userview'));
     } else {
-      require(__DIR__ . '/../themes/'.$d->getIndexPath());
+      require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('index'));
     }
   }
 

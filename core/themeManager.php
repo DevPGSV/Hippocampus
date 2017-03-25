@@ -27,8 +27,8 @@ class ThemeManager {
     foreach(scandir($this->themePath, true) as $t){
       if(is_dir($this->themePath.$t)){
         if($t != '.' && $t != '..'){
-          $aux = loadTheme($t);
-          if(!$aux){
+          $aux = $this->loadTheme($t);
+          if($aux){
             $this->themes[$t] = $aux;
           }
         }
@@ -37,7 +37,7 @@ class ThemeManager {
   }
 
   public function getFeaturePath($feature){
-    foreach($themeList as $t){
+    foreach($this->themeList as $t){
       if($this->themes[$t]->hasFeature($feature)){
         return $this->themes[$t]->getFeaturePath($feature);
       }

@@ -16,6 +16,7 @@ class Theme {
   public function __construct($hc, $id, $features) {
     $this->hc = $hc;
     $this->id = $id;
+    $this->setFeatures($features);
   }
 
   public function setFeatures($features) {
