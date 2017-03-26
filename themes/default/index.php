@@ -4,17 +4,12 @@
 <script src="themes/default/js/scripts.js"></script>
 
 <head>
-<<<<<<< HEAD
 
     <title>Formulario de login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <link rel="stylesheet" href="themes/default/css/style.css">
 
-=======
-  <link rel="stylesheet" type="text/css" href="<?php echo 'themes/'.$hc->themeManager->getFeaturePath('style'); ?>">
-  <script src="<?php echo 'themes/'.$hc->themeManager->getFeaturePath('javascript'); ?>"></script>
->>>>>>> origin/devel
 </head>
 <body>
   <form action="">
