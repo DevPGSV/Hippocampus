@@ -22,6 +22,7 @@ class Hippocampus {
   }
 
   public function run() {
+    global $hc;
     $this->themeManager->loadAllThemes();
 
     $u = $this->userManager->getLoggedInUser();
