@@ -1,9 +1,9 @@
 <html lang="es">
 
-<link rel="stylesheet" type="text/css" href="themes/default/css/style.css">
-<script src="themes/default/js/scripts.js"></script>
-
 <head>
+
+  <link rel="stylesheet" type="text/css" href="themes/default/css/style.css">
+  <script src="themes/default/js/scripts.js"></script>
 
     <title>Formulario de login</title>
     <meta charset="UTF-8">
