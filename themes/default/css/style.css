@@ -6,9 +6,13 @@
 }
 
 body {
-  background: #DEDEDE;
   display: flex;
   min-height: 100vh;
+  background: url(http://i.imgur.com/rNPUArc.jpg);/*no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
 }
 
 form {
@@ -25,14 +29,6 @@ h2 {
   text-align: center;
   margin-bottom: 20px;
   color: rgba(0,0,0,0.5);
-}
-
-body {
-  background: url(http://i.imgur.com/rNPUArc.jpg);
-}
-
-fondo {
-  position: absolute; top: 0; left: 0; width: 100%; z-index: -1;
 }
 
 input {
@@ -69,5 +65,101 @@ input[type="submit"]:active { //momento en el que se hace click
 @media (max-width:480px) {
   form {
     width:95%;
+  }
+}
+
+/*body#user{
+ background-color: #000000;
+ padding: 0px;
+ margin: 0px;
+}
+
+#gradient
+{
+width: 100%;
+height: 800px;
+padding: 0px;
+margin: 0px;
+}
+
+.clear {
+clear:both;
+}
+.main {
+width:500px;
+}
+.top {
+background: gray;
+width: 100%;
+height: 92px;
+}
+.left {
+float:left;
+width: 150px;
+height: 100%;
+background: white;
+opacity: 0.8;
+}
+.right {
+float:right;
+width: 100%;
+height: 500px;
+
+background: yellow;
+}
+*/
+
+.page {
+  margin: 20px 0
+}
+
+.wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 20px;
+  min-height: 600px;
+}
+
+.content-wrapper {
+  float: left;
+  width: 100%;
+}
+
+.content {
+  margin-right: 320px;
+  clear: both;
+  overflow: auto;
+  background: #1abc9c;
+  background: rgba(26,188,156, 0.4);
+  min-height: 600px;
+}
+
+.sidebar {
+  position: relative;
+  width: 320px;
+  margin-left: -320px;
+  float: right;
+  overflow: hidden;
+  background: #2c3e50;
+  background: rgba(44,62,80, 0.4);
+  color: #eee;
+  min-height: 600px;
+}
+
+a{
+  display: block;
+  text-align:center;
+  margin: 10px auto;
+  width: 100%;
+  color: #2c3e50;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .content {
+    margin-right: 0;
   }
 }
