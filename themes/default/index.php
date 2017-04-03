@@ -30,7 +30,7 @@
       </div>
 
       <br width="50%">
-  
+
         <input type="checkbox" name="forgotpasswd" id="squaredThree">    Olvidé mi contraseña
           <br>
 

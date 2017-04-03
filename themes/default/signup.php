@@ -19,7 +19,7 @@
 
 </head>
 <body>
-  <form action="">
+  <form action="" method="POST">
     <h2>Bienvenido a Hippocampus</h2>
 
     <div class="input-group">
