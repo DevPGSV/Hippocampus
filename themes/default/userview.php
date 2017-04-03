@@ -18,24 +18,43 @@
 
 <body id="user">
 
-
   <div class="page">
     <div class="wrapper">
-      <div class="content-wrapper">
+      <!--<div class="content-wrapper">
         <div class="content">
           <h1>Content</h1>
           <p>&larr; Responsive Width &rarr;</p>
         </div>
-      </div>
+      </div>-->
       <div class="sidebar">
+
+        <!-- This is new-->
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+
+          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+          <script>
+          function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+          }
+
+          function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+          }
+          </script>
+        <!-- This ends new -->
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-
-
-<body>
 
 <!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -58,10 +77,10 @@
 
 					<div class="collapse navbar-collapse" id="barraBasica">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-							<li><a href="#"> Portfólio </a></li>
-							<li><a href="#"> Matérias </a></li>
-							<li><a href="#"> Contato </a></li>
+							<li class="active"><a href="#"> Home <span class="sr-only">(current)</span></a></li>
+							<li><a href="#"> Aplicaciones </a></li>
+							<li><a href="#"> Algo </a></li>
+							<li><a href="#"> Algo </a></li>
 						</ul>
 					</div>
 				</div>
@@ -71,8 +90,6 @@
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        <h2>Page sidebar</h2>
-        <p>&larr; Fixed Width &rarr;</p>
       </div>
     </div>
   </div>
