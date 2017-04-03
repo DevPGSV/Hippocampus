@@ -38,6 +38,10 @@
 
     <input type="submit" value="Ingresar">
 
+    <br />
+    <P ALIGN=center> ¿Aún no tienes tu cuenta? <a href="themes/default/signup.php">Regístrate</a> </p>
+
   </form>
+
 </body>
 </html>
