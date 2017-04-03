@@ -30,28 +30,35 @@
     <br width="50%">
 
     <div class="input-group">
+
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                 <input type="text" placeholder="Email" name="email" id="email">
+
     </div>
 
     <br width="50%">
 
     <div class="input-group">
+
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input type="text" placeholder="Usuario" name="usuario" id="usuario">
+
     </div>
 
     <br width="50%">
 
     <div class="input-group">
+
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                 <input type="password" placeholder="Contraseña" name="password" id="password">
+
     </div>
 
     <br width="50%">
 
     <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
                 <input type="password" placeholder="Confirme su contraseña" name="confirmpassword" id="confirmpassword">
     </div>
 
@@ -63,7 +70,12 @@
 
     <input type="submit" onclick="return validaRegistro(this.form);" value="Crear cuenta">
 
+    </div>
+
+    <br width="50%">
+
   </form>
+
 </body>
 
 <script type="application/javascript">
