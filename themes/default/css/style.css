@@ -214,3 +214,10 @@ a{
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+#register {
+  color: white;
+}
+#register:hover {
+  color: #2600FF;
+}

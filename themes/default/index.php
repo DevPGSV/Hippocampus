@@ -39,7 +39,7 @@
     <input type="submit" value="Ingresar">
 
     <br />
-    <P ALIGN=center> ¿Aún no tienes tu cuenta? <a href="themes/default/signup.php">Regístrate</a> </p>
+    <P ALIGN="center"> ¿Aún no tienes tu cuenta? <a id="register" href="themes/default/signup.php">Regístrate</a> </p>
 
   </form>
 
