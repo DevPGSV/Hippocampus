@@ -58,7 +58,7 @@ input[type="submit"]:hover {
   opacity: 1;
 }
 
-input[type="submit"]:active { //momento en el que se hace click
+input[type="submit"]:active { /*momento en el que se hace click*/
   transform: scale(0.95);
 }
 
