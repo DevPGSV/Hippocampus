@@ -79,10 +79,11 @@
 </body>
 
 <script type="application/javascript">
+    validemail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     document.getElementById('email').addEventListener("change", function () {
         if (!validemail.test(this.value)) {
             document.getElementById('email').style.border = "2px solid red";
-            this.focus();
+            //this.focus();
         } else {
             document.getElementById('email').style.border = "2px solid green";;
         }
