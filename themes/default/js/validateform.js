@@ -1,6 +1,6 @@
 
 // Expresión para validar email
-validemail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+//validemail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
 /**
 * Validar el formulario de registro de usuario.
@@ -12,17 +12,38 @@ function validaRegistro(form) {
        return false;
    }
 
+   // Validar el campo email
+   validemail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+   if (!validemail.test(form.email.value)) {
+       alert('El formato de email es incorrecto. Por favor, inténtelo de nuevo.');
+       return false;
+   }
+
+   // Validar el campo nombre de usuario
+    validuser = /^([a-zA-Z0-9]{4,20})+$/;
+    if(!validuser.test(form.usuario.value)) {
+       alert("El nombre de usuario debe contener solo caracteres alfanuméricos y tener una longitud entre 4 y 20 caracteres. Por favor, inténtelo de nuevo.");
+       return false;
+    }
+
+   // Validar el campo contraseña
    if (form.password.value != "" && form.confirmpassword.value != "") {
 
         // Validar el tamaño de la contraseña
         if (form.password.value.length < 8) {
           alert('La contraseña debe tener al menos 8 caracteres. Por favor, inténtelo de nuevo.');
-          form.password.focus();
+          //form.password.focus();
+          return false;
+        }
+
+        if (form.password.value.length > 20) {
+          alert('La contraseña debe tener como máximo 20 caracteres. Por favor, inténtelo de nuevo.');
+          //form.password.focus();
           return false;
         }
 
         // Validar composición de la contraseña
-        var validpassword = /(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9].{8,20}/;
+        validpassword = /(?=.*[0-9])(?=.*[¡!¿?@#$%^&*/\+_<>])(?=.*[a-z])(?=.*[A-Z]).{8,20}/;
         if (!validpassword.test(form.password.value)) {
           alert('La contraseña debe contener al menos un número, una letra minúscula, una mayúscula y un caracter espcecial. Por favor, inténtelo de nuevo.');
           return false;
@@ -48,14 +69,6 @@ function validaRegistro(form) {
         // Limpiar los campos contraseña y confirmación de la pagina de registro.
         form.password.value = "";
         form.confirmpassword.value = "";
-    }
-
-    // Validar el campo usuario
-    validusername = /^(?=.*[.-])\w+$/;
-    if(!validusername.test(form.username.value)) {
-        alert("El nombre de usuario debe contener solo letras, números, guiones o puntos. Por favor, inténtelo de nuevo.");
-        form.username.focus();
-        return false;
     }
 
     // Si todo ha ido bien, enviar el formulario.
