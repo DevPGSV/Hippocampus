@@ -16,7 +16,7 @@
   <script src="themes/"></script>
 </head>
 
-<body id="user">
+<body>
 
   <div class="page">
     <div class="wrapper">
