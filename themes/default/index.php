@@ -40,7 +40,7 @@
 			<input type="submit" value="Ingresar">
 
 			<br />
-			<p align="center"> ¿Aún no tienes tu cuenta? <a id="register" href="/register">Regístrate</a> </p>
+			<p align="center"> ¿Aún no tienes tu cuenta? <a id="register" href="register">Regístrate</a> </p>
 
 		</form>
 

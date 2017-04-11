@@ -29,7 +29,7 @@ class Hippocampus {
     if ($u) {
       require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('userview'));
     } else {
-      if (!empty($_GET['p']) && $_GET['p'] === '/register')  {
+      if (!empty($_GET['p']) && ($_GET['p'] === '/register' || $_GET['p'] === 'register'))  {
         require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('register'));
       } else {
         require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('index'));
