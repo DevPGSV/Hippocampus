@@ -26,71 +26,79 @@
           <p>&larr; Responsive Width &rarr;</p>
         </div>
       </div>-->
-      <div class="sidebar">
 
-        <!-- This is new-->
-          <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-          </div>
+       <div class="sidebar">
 
-          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+         <!--<nav id="main-nav" class="main-nav">
+           <ul>
+             <li class="home">
+               <a href="/"><
+                 <svg class="icon-nav-home" width="26px" height="26px">
+                   <use xlink:href="#icon-nav-home"></use>
+                 </svg>
+                 <span>Home</span>
+               </a>
+             </li>
+             <li class="videos">
+               <a href="/"><
+                 <svg class="icon-nav-video" width="26px" height="26px">
+                   <use xlink:href="#icon-nav-video"></use>
+                 </svg>
+                 <span>Home</span>
+               </a>
+             </li>
+           </ul>
+         </nav> -->
 
-          <script>
-          function openNav() {
-              document.getElementById("mySidenav").style.width = "250px";
-          }
+            <div id="sidebar-wrapper">
+                <ul id="sidebar_menu" class="sidebar-nav">
+                  <li class="sidebar-brand"><a id="menu-toggle" href="#"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></a></li>
+                </ul>
+                <ul class="sidebar-nav" id="sidebar">
+                  <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                  <ul class="sidebar-nav" id="sidebar">
+                    <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                    <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                  </ul>
+                  <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                  <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+               </ul>
+            </div>
 
-          function closeNav() {
-              document.getElementById("mySidenav").style.width = "0";
-          }
-          </script>
-        <!-- This ends new -->
+             <!-- This ends new -->
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+              <nav class="navbar navbar-default">
+              				<div class="container-fluid">
+              					<div class="navbar-header">
+              						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barraBasica">
+              							<span class="sr-only">Toggle navigation</span>
+              							<span class="icon-bar"></span>
+              							<span class="icon-bar"></span>
+              							<span class="icon-bar"></span>
+              						</button>
+              						<a class="navbar-brand" href="#">Site</a>
+              					</div>
 
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+              					<div class="collapse navbar-collapse" id="barraBasica">
+              						<ul class="nav navbar-nav">
+              							<li class="active"><a href="#"> Home <span class="sr-only">(current)</span></a></li>
+              							<li><a href="#"> Aplicaciones </a></li>
+              							<li><a href="#"> Algo </a></li>
+              							<li><a href="#"> Algo </a></li>
+              						</ul>
+              					</div>
+              				</div>
+              </nav>
 
-
-<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-
-<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barraBasica">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="#">Site</a>
-					</div>
-
-					<div class="collapse navbar-collapse" id="barraBasica">
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="#"> Home <span class="sr-only">(current)</span></a></li>
-							<li><a href="#"> Aplicaciones </a></li>
-							<li><a href="#"> Algo </a></li>
-							<li><a href="#"> Algo </a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-
-		<!--<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>-->
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		        <!--<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>-->
+              <div id="content">
+                  <div class="column"></div>
+                  <div class="column"></div>
+                  <div class="column"></div>
+              </div>
+		        <!-- Latest compiled and minified JavaScript -->
       </div>
+    </div>
     </div>
   </div>
 

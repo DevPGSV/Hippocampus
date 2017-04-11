@@ -59,3 +59,8 @@ function updateGradient() {
 }
 
 setInterval(updateGradient,10);
+
+$("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+});

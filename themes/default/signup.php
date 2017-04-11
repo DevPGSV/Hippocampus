@@ -7,7 +7,6 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="js/scripts.js"></script>
 		<script src="js/validateform.js" type="application/javascript"></script>
 
