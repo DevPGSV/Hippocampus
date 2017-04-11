@@ -5,6 +5,12 @@
 	box-sizing: border-box;
 }
 
+#blackLine {
+	background: #252525;
+	
+	width: 100%;
+}
+
 body {
 	display: flex;
 	background-color: #000000;
@@ -174,6 +180,14 @@ a {
 	overflow-x: hidden;
 	transition: 0.5s;
 	padding-top: 60px;
+}
+
+.container-fluid > .navbar-collapse,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse,
+.container > .navbar-header {
+    margin-right: 75px;
+    margin-left: 0px;
 }
 
 .sidenav a {
@@ -364,10 +378,11 @@ a {
 
 #content{
 
-width:100%;
+width: calc(100% - 75px);
 height:100%;
 background:rgba(0,0,0,0.5);
 opacity: 0.6;
+margin-left: 75px;
 
 }
 .column{

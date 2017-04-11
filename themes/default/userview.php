@@ -52,16 +52,17 @@
 
             <div id="sidebar-wrapper">
                 <ul id="sidebar_menu" class="sidebar-nav">
-                  <li class="sidebar-brand"><a id="menu-toggle" href="#"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></a></li>
+                  <li class="sidebar-brand"><a id="menu-toggle" href="#"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span></a></li>
                 </ul>
                 <ul class="sidebar-nav" id="sidebar">
-                  <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                  <li><a>Algo<span class="glyphicon glyphicon-user"></span></a></li>
                   <ul class="sidebar-nav" id="sidebar">
-                    <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
-                    <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                    <li><a>Algo<span class="glyphicon glyphicon-search"></span></a></li>
+                    <li><a>Algo<span class="glyphicon glyphicon-heart"></span></a></li>
                   </ul>
-                  <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
-                  <li><a>Algo<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                  <li><a>Algo<span class="glyphicon glyphicon-music"></span></a></li>
+                  <li><a>Algo<span class="glyphicon glyphicon-list-alt"></span></a></li>
+                  <li><a>Algo<span class="glyphicon glyphicon-envelope"></span></a></li>
                </ul>
             </div>
 
@@ -83,9 +84,13 @@
               						<ul class="nav navbar-nav">
               							<li class="active"><a href="#"> Home <span class="sr-only">(current)</span></a></li>
               							<li><a href="#"> Aplicaciones </a></li>
-              							<li><a href="#"> Algo </a></li>
-              							<li><a href="#"> Algo </a></li>
+              							<li><a href="#"> Administración </a></li>
               						</ul>
+                          <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-bullhorn"></span></a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+                          </ul>
               					</div>
               				</div>
               </nav>
