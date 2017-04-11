@@ -5,6 +5,7 @@ class Theme {
   private $id;
   private $features = [
     'index'     => false,
+    'register'  => false,
     'userview'  => false,
     'style'     => false,
     'javascript'=> false,
@@ -44,6 +45,9 @@ class Theme {
       case 'index':
         return $this->getIndexPath();
       break;
+      case 'register':
+        return $this->getRegisterPath();
+      break;
       case 'userview':
         return $this->getUserviewPath();
       break;
@@ -65,6 +69,10 @@ class Theme {
 
   public function getIndexPath(){
     return "$this->id/index.php";
+  }
+
+  public function getRegisterPath(){
+    return "$this->id/signup.php";
   }
 
   public function getUserviewPath(){
