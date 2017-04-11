@@ -211,3 +211,25 @@ a {
 #register:hover {
 	color: deepskyblue;
 }
+
+
+/* STYLE FOR THE ADMINISTRATION PANEL */
+
+#accordion {
+	margin-top: 30 px;
+}
+
+#accordion .panel-default {
+	background-color: rgba(255,255,255,0.3);
+}
+
+#accordion .panel-default > .panel-heading {
+  background-color: rgba(255,255,255,0.2);
+}
+
+#accordion .panel-title {
+	color: white;
+}
+#tab-usersadmin {
+	margin-top: 30px;
+}
