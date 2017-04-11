@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once(__DIR__ . '/core/hippocampus.php');
+require_once(__DIR__ . '/core/utils.php');
 
 $hc = new Hippocampus();
 
@@ -11,7 +12,8 @@ $answer = [];
 /// TODO
 switch($_GET['action']) {
   case 'getSalt':
-    if (empty($_POST['user'])) die('No user');
+    //if (empty($_POST['user'])) die('No user');
+    echo json_encode(['csalt'=>Utils::randStr(32)]);
     // return csalt
     break;
   case 'login':
@@ -24,6 +26,7 @@ switch($_GET['action']) {
     break;
   case 'register':
     // check credentials, create user, log in user?, return status
+
     if (empty($_POST['nombre'])) $answer['msg']='No nombre';
     else if (empty($_POST['email'])) $answer['msg']='No email';
     else if (empty($_POST['usuario'])) $answer['msg']='No usuario';
@@ -52,9 +55,6 @@ switch($_GET['action']) {
         $answer['msg'][]='La contraseña debe contener al menos un número, una letra minúscula, una mayúscula y un caracter espcecial; y tener entre 8 y 20 caracteres. Por favor, inténtelo de nuevo.';
       }
     }
-
-
-
     break;
   default:
     die('Unkown action');

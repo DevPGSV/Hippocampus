@@ -16,33 +16,33 @@
 
 	<body>
 
-		<form action="">
-			<h2>Bienvenido a Hippocampus</h2>
-			<div class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input type="text" placeholder="Usuario" name="usuario">
-			</div>
+			<form action="">
+				<h2>Bienvenido a Hippocampus</h2>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" placeholder="Usuario" name="usuario">
+				</div>
 
-			<br width="50%"> <!-- salto de linea -->
+				<br width="50%"> <!-- salto de linea -->
 
-			<div class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" placeholder="Contraseña" name="password">
-			</div>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					<input type="password" placeholder="Contraseña" name="password">
+				</div>
 
-			<br width="50%">
+				<br width="50%">
 
-			<input type="checkbox" name="forgotpasswd" id="squaredThree">    Olvidé mi contraseña
-			<br>
+				<input type="checkbox" name="forgotpasswd" id="squaredThree">    Olvidé mi contraseña
+				<br>
 
-			<br width="50%">
+				<br width="50%">
 
-			<input type="submit" value="Ingresar">
+				<input type="submit" value="Ingresar">
 
-			<br />
-			<p align="center"> ¿Aún no tienes tu cuenta? <a id="register" href="register">Regístrate</a> </p>
+				<br />
+				<p align="center"> ¿Aún no tienes tu cuenta? <a id="register" href="register">Regístrate</a> </p>
 
-		</form>
+			</form>
 
 	</body>
 
