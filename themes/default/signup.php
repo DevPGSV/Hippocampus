@@ -16,11 +16,12 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
 
 		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<script src="http://point-at-infinity.org/jssha256/jssha256.js"></script>
 
 	</head>
 
 	<body>
-		<form action="" method="POST">
+		<form action="" method="POST" id="form-register">
 			<h2>Bienvenido a Hippocampus</h2>
 
 			<div class="input-group">
@@ -62,7 +63,7 @@
 
 			<br width="50%">
 
-			<input type="submit" onclick="return validaRegistro(this.form);" value="Crear cuenta">
+			<input type="submit" value="Crear cuenta">
 
 			<br width="50%">
 
