@@ -152,9 +152,9 @@ class Database {
 
       $stmt = $this->db->prepare("INSERT INTO users (username, email, confirmedEmail, secretToken, role) VALUES(:username, :email, :confirmedEmail, :secretToken, :role)");
       $stmt->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
-      $stmt->bindValue(':email', $user->getUsername(), PDO::PARAM_STR);
-      $stmt->bindValue(':confirmedEmail', $user->getUsername(), PDO::PARAM_BOOL);
-      $stmt->bindValue(':secretToken', $user->getUsername(), PDO::PARAM_STR);
+      $stmt->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
+      $stmt->bindValue(':confirmedEmail', (bool)$user->isConfirmedEmail(), PDO::PARAM_INT);
+      $stmt->bindValue(':secretToken', $user->getSecretToken(), PDO::PARAM_STR);
       $stmt->bindValue(':role', $user->getRole(), PDO::PARAM_INT);
       $stmt->execute();
       $uid = $this->db->lastInsertId();

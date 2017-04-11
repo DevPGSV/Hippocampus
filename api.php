@@ -103,7 +103,7 @@ switch($_GET['action']) {
       break;
     }
 
-    $u = new User($hc, -1, $_POST['usuario'], $_POST['email'], false, 0, 3);
+    $u = new User($hc, -1, $_POST['usuario'], $_POST['email'], false, '-', 3);
     $salt = Utils::randStr(32);
     $pw = hash('sha256', $salt.$_POST['password']);
     $s = $hc->getDB()->registerNewUser($u, $pw, $salt, $_SESSION['csalt']);
