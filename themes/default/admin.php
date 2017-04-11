@@ -40,28 +40,60 @@
                     </h2>
                   </div>
                   <div id="crear" class="panel-collapse collapse in">
-                    <div class="panel-body">
+                    <div class="panel-body form-group">
 
-                        <input type="text" placeholder="Usuario" name="usuario" id="usuario">
-
-                				<input type="email" placeholder="Email" name="email" id="email">
-
-                        <input type="text" placeholder="Rol" name="rol" id="rol">
-
+                        <input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario" data-toggle="tooltip" data-placement="top" title="Entre 4 y 20 caracteres">
+                        <br>
+                				<input type="email" class="form-control" placeholder="Email" name="email" id="email">
+                        <br>
+                        <input type="checkbox" name="rol" value="false" id="checkbox-admin"><label id="label-admin">   Hacer administrador</label><br>
+                        <input type="submit" value="Crear" id="button-crear">
                     </div>
                   </div>
                 </div>
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h2 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#borrar">BORRAR UN USUARIO</a>
+                      <a data-toggle="collapse" data-parent="#accordion" href="#editar">EDITAR UN USUARIO</a>
                     </h2>
                   </div>
-                  <div id="borrar" class="panel-collapse collapse">
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.</div>
+                  <div id="editar" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <table class="table table-hover table-condensed table-responsive">
+                          <thead>
+                            <tr>
+                              <th>Username</th>
+                              <th>Rol</th>
+                              <th>Email</th>
+                              <th class= "glyphs-users">Editar</th>
+                              <th class= "glyphs-users">Eliminar</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>John</td>
+                              <td>Doe</td>
+                              <td>john@example.com</td>
+                              <td class= "glyphs-users"><span class="glyphicon glyphicon-pencil"></span></td>
+                              <td class= "glyphs-users"><span class="glyphicon glyphicon-trash"></span></td>
+                            </tr>
+                            <tr>
+                              <td>Mary</td>
+                              <td>Moe</td>
+                              <td>mary@example.com</td>
+                              <td class= "glyphs-users"><span class="glyphicon glyphicon-pencil"></span></td>
+                              <td class= "glyphs-users"><span class="glyphicon glyphicon-trash"></span></td>
+                            </tr>
+                            <tr>
+                              <td>July</td>
+                              <td>Dooley</td>
+                              <td>july@example.com</td>
+                              <td class= "glyphs-users"><span class="glyphicon glyphicon-pencil"></span></td>
+                              <td class= "glyphs-users"><span class="glyphicon glyphicon-trash"></span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
                   </div>
                  </div>
                 </div>

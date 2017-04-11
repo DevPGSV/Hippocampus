@@ -73,6 +73,8 @@ String.prototype.hashCode = function(){
 
 $( document ).ready(function() {
 
+    $('[data-toggle="tooltip"]').tooltip();
+
   $("#form-register").submit(function(e) {
 
 
