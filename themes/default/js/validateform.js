@@ -29,23 +29,10 @@ function validaRegistro(form) {
    // Validar el campo contraseña
    if (form.password.value != "" && form.confirmpassword.value != "") {
 
-        // Validar el tamaño de la contraseña
-        if (form.password.value.length < 8) {
-          alert('La contraseña debe tener al menos 8 caracteres. Por favor, inténtelo de nuevo.');
-          //form.password.focus();
-          return false;
-        }
-
-        if (form.password.value.length > 20) {
-          alert('La contraseña debe tener como máximo 20 caracteres. Por favor, inténtelo de nuevo.');
-          //form.password.focus();
-          return false;
-        }
-
         // Validar composición de la contraseña
-        validpassword = /(?=.*[0-9])(?=.*[¡!¿?@#$%^&*/\+_<>])(?=.*[a-z])(?=.*[A-Z]).{8,20}/;
+        validpassword = /(?=.*[0-9])(?=.*[¡!¿?@#$%^&*\/\+_<>])(?=.*[a-z])(?=.*[A-Z]).{8,20}/;
         if (!validpassword.test(form.password.value)) {
-          alert('La contraseña debe contener al menos un número, una letra minúscula, una mayúscula y un caracter espcecial. Por favor, inténtelo de nuevo.');
+          alert('La contraseña debe contener al menos un número, una letra minúscula, una mayúscula y un caracter espcecial; y tener entre 8 y 20 caracteres. Por favor, inténtelo de nuevo.');
           return false;
         }
 

@@ -31,7 +31,10 @@ class Hippocampus {
     } else {
       if (!empty($_GET['p']) && ($_GET['p'] === '/register' || $_GET['p'] === 'register'))  {
         require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('register'));
-      } else {
+      } else if (!empty($_GET['p']) && ($_GET['p'] === '/admin' || $_GET['p'] === 'admin')){
+          require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('admin'));
+      }
+      else {
         require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('index'));
       }
     }

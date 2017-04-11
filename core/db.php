@@ -46,6 +46,28 @@ class Database {
     }
   }
 
+  public function getUserDataByUsername($user) {
+    $stmt = $this->db->prepare("SELECT * FROM users WHERE username=?");
+    $stmt->execute([$user]);
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($rows) === 1) {
+      return $rows[0];
+    } else {
+      return false;
+    }
+  }
+
+  public function getUserDataByEmail($email) {
+    $stmt = $this->db->prepare("SELECT * FROM users WHERE email=?");
+    $stmt->execute([$email]);
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($rows) === 1) {
+      return $rows[0];
+    } else {
+      return false;
+    }
+  }
+
   private function databaseSetup() { // Setup database when new database version is found
     try {
       $dbVersion='3';
