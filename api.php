@@ -12,8 +12,28 @@ $answer = [];
 /// TODO
 switch($_GET['action']) {
   case 'getSalt':
-    //if (empty($_POST['user'])) die('No user');
-    echo json_encode(['csalt'=>Utils::randStr(32)]);
+    if (empty($_POST['username'])) {
+      if (empty($_SESSION['csalt'])) {
+        $_SESSION['csalt'] = Utils::randStr(32);
+      }
+      $answer = [
+        'status' => 'ok',
+        'csalt' => $_SESSION['csalt'],
+      ];
+    } else {
+      if ($uData = $hc->getDB()->getUserDataByUsername($_POST['username'], true)) {
+        $answer = [
+          'status' => 'ok',
+          'csalt' => $uData['csalt'],
+        ];
+      } else {
+        $answer = [
+          'status' => 'error',
+          'msg' => 'User not found',
+        ];
+      }
+    }
+    echo json_encode($answer);
     // return csalt
     break;
   case 'login':
@@ -84,7 +104,11 @@ switch($_GET['action']) {
     }
 
     $u = new User($hc, -1, $_POST['usuario'], $_POST['email'], false, 0, 3);
-    $s = $hc->getDB()->registerNewUser($u);
+    $salt = Utils::randStr(32);
+    $pw = hash('sha256', $salt.$_POST['password']);
+    $s = $hc->getDB()->registerNewUser($u, $pw, $salt, $_SESSION['csalt']);
+    $_SESSION['csalt'] = '';
+    unset($_SESSION['csalt']);
     if ($s) {
       $answer['status'] = 'ok';
       $answer['msg'] = 'User created';

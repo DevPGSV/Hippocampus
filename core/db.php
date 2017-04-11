@@ -35,8 +35,13 @@ class Database {
     }
   }
 
-  public function getUserDataById($userId) {
-    $stmt = $this->db->prepare("SELECT * FROM users WHERE id=?");
+  public function getUserDataById($userId, $join1auth = false) {
+    if ($join1auth) {
+      $sql = "SELECT * FROM users JOIN `users-1auth` ON users.id = `users-1auth.id` WHERE id=?";
+    } else {
+      $sql = "SELECT * FROM users WHERE id=?";
+    }
+    $stmt = $this->db->prepare($sql);
     $stmt->execute([$userId]);
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($rows) === 1) {
@@ -46,8 +51,13 @@ class Database {
     }
   }
 
-  public function getUserDataByUsername($user) {
-    $stmt = $this->db->prepare("SELECT * FROM users WHERE username=?");
+  public function getUserDataByUsername($user, $join1auth = false) {
+    if ($join1auth) {
+      $sql = "SELECT * FROM users JOIN `users-1auth` ON users.id = `users-1auth.id` WHERE username=?";
+    } else {
+      $sql = "SELECT * FROM users WHERE username=?";
+    }
+    $stmt = $this->db->prepare($sql);
     $stmt->execute([$user]);
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($rows) === 1) {
@@ -57,8 +67,13 @@ class Database {
     }
   }
 
-  public function getUserDataByEmail($email) {
-    $stmt = $this->db->prepare("SELECT * FROM users WHERE email=?");
+  public function getUserDataByEmail($email, $join1auth = false) {
+    if ($join1auth) {
+      $sql = "SELECT * FROM users JOIN `users-1auth` ON users.id = `users-1auth.id` WHERE email=?";
+    } else {
+      $sql = "SELECT * FROM users WHERE email=?";
+    }
+    $stmt = $this->db->prepare($sql);
     $stmt->execute([$email]);
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($rows) === 1) {
@@ -123,9 +138,42 @@ class Database {
   }
 
   /// TODO
-  public function registerNewUser(&$user) {
-    // After adding user, update its id!
-    return false;
+  public function registerNewUser(&$user, $pw, $salt, $csalt) {
+    if ($this->getUserDataByUsername($user->getUsername())) {
+      throw new Exception('Username already registered');
+      return false;
+    } else if ($this->getUserDataByEmail($user->getEmail())) {
+      throw new Exception('Email  already registered');
+      return false;
+    }
+
+    try {
+      $this->db->beginTransaction();
+
+      $stmt = $this->db->prepare("INSERT INTO users (username, email, confirmedEmail, secretToken, role) VALUES(:username, :email, :confirmedEmail, :secretToken, :role)");
+      $stmt->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
+      $stmt->bindValue(':email', $user->getUsername(), PDO::PARAM_STR);
+      $stmt->bindValue(':confirmedEmail', $user->getUsername(), PDO::PARAM_BOOL);
+      $stmt->bindValue(':secretToken', $user->getUsername(), PDO::PARAM_STR);
+      $stmt->bindValue(':role', $user->getRole(), PDO::PARAM_INT);
+      $stmt->execute();
+      $uid = $this->db->lastInsertId();
+      $user->setId($uid);
+
+      $stmt = $this->db->prepare("INSERT INTO `users-1auth` (id, pw, salt, csalt) VALUES(:id, :pw, :salt, :csalt)");
+      $stmt->bindValue(':id', $user->getId(), PDO::PARAM_INT);
+      $stmt->bindValue(':pw', $pw, PDO::PARAM_STR);
+      $stmt->bindValue(':salt', $salt, PDO::PARAM_STR);
+      $stmt->bindValue(':csalt', $csalt, PDO::PARAM_STR);
+      $stmt->execute();
+
+      $this->db->commit();
+      return true;
+    } catch (PDOException $e) {
+      $this->db->rollback();
+      error_log($e->getMessage());
+      return false;
+    }
   }
 
   /// TODO
