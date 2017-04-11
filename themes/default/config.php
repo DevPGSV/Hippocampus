@@ -7,6 +7,8 @@ return [
     'style',
     'javascript',
     'window',
+    'register',
+    'admin'
   ],
   'name' => 'Default',
 ];

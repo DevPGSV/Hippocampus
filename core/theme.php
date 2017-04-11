@@ -5,10 +5,12 @@ class Theme {
   private $id;
   private $features = [
     'index'     => false,
+    'register'  => false,
     'userview'  => false,
     'style'     => false,
     'javascript'=> false,
     'window'    => false,
+    'admin'    => false,
   ];
 
   private $hc;
@@ -44,6 +46,9 @@ class Theme {
       case 'index':
         return $this->getIndexPath();
       break;
+      case 'register':
+        return $this->getRegisterPath();
+      break;
       case 'userview':
         return $this->getUserviewPath();
       break;
@@ -56,6 +61,9 @@ class Theme {
       case 'window':
         return $this->getWindowPath();
       break;
+      case 'admin':
+        return $this->getAdminPath();
+      break;
       default:
         return false;
         break;
@@ -65,6 +73,10 @@ class Theme {
 
   public function getIndexPath(){
     return "$this->id/index.php";
+  }
+
+  public function getRegisterPath(){
+    return "$this->id/signup.php";
   }
 
   public function getUserviewPath(){
@@ -81,6 +93,10 @@ class Theme {
 
   public function getWindowPath(){
     return "$this->id/window.php";
+  }
+
+  public function getAdminPath(){
+    return "$this->id/admin.php";
   }
 
 }

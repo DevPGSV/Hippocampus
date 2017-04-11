@@ -29,7 +29,14 @@ class Hippocampus {
     if ($u) {
       require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('userview'));
     } else {
-      require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('index'));
+      if (!empty($_GET['p']) && ($_GET['p'] === '/register' || $_GET['p'] === 'register'))  {
+        require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('register'));
+      } else if (!empty($_GET['p']) && ($_GET['p'] === '/admin' || $_GET['p'] === 'admin')){
+          require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('admin'));
+      }
+      else {
+        require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('index'));
+      }
     }
   }
 
