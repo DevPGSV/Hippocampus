@@ -33,7 +33,7 @@ INSERT INTO `config` (`varkey`, `value`) VALUES
 ('site.name', 'Hippocampus'),
 ('site.theme', 'default'),
 ('site.url', 'http://hippocampus.dev'),
-('db.version', '3');
+('db.version', '4');
 
 -- --------------------------------------------------------
 
@@ -83,6 +83,7 @@ CREATE TABLE `user-sessions` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `username` varchar(32) NOT NULL,
   `email` varchar(32) NOT NULL,
   `confirmedEmail` tinyint(1) NOT NULL,
   `secretToken` varchar(32) NOT NULL,
@@ -93,10 +94,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `confirmedEmail`, `secretToken`, `role`) VALUES
-(1, 'root@hippocampus.dev', 0, '-', 1),
-(2, 'admin@hippocampus.dev', 0, '-', 2),
-(3, 'user@hippocampus.dev', 0, '-', 3);
+INSERT INTO `users` (`id`, `username`, `email`, `confirmedEmail`, `secretToken`, `role`) VALUES
+(1, 'root', 'root@hippocampus.dev', 0, '-', 1),
+(2, 'admin','admin@hippocampus.dev', 0, '-', 2),
+(3, 'user','user@hippocampus.dev', 0, '-', 3);
 
 -- --------------------------------------------------------
 

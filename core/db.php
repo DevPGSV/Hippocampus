@@ -70,7 +70,7 @@ class Database {
 
   private function databaseSetup() { // Setup database when new database version is found
     try {
-      $dbVersion='3';
+      $dbVersion='4';
       $stmt = $this->db->prepare("SELECT * FROM config WHERE varkey='db.version'");
       $stmt->execute();
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
