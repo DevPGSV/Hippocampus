@@ -98,7 +98,7 @@ class Database {
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($rows) === 1) {
       $uData = $rows[0];
-      $u = new User($this->hc, $uData['id'], $uData['email'], $uData['confirmedEmail'], $uData['secretToken'], $uData['role']);
+      $u = new User($this->hc, $uData['id'], $uData['username'], $uData['email'], $uData['confirmedEmail'], $uData['secretToken'], $uData['role']);
       return $u;
     }
     throw new Exception('No user with that id');

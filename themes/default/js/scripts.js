@@ -41,7 +41,7 @@ function updateGradient() {
 	var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
 	var color2 = "rgb("+r2+","+g2+","+b2+")";
 
-	$('body').css({
+	$('body2').css({
 		background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
 			background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
 
@@ -90,7 +90,6 @@ $( document ).ready(function() {
       data: [],
       success: function(data)
       {
-
         SHA256_init();
         SHA256_write(data['csalt']+$("#form-register input#password").val());
         var hashedPasswordDigest = SHA256_finalize();
@@ -98,7 +97,7 @@ $( document ).ready(function() {
         var formData = {
           'nombre': $("#form-register input#nombre").val(),
           'email': $("#form-register input#email").val(),
-          'usario': $("#form-register input#usuario").val(),
+          'usuario': $("#form-register input#usuario").val(),
           'password': hashedPassword, // hash & salt
           // 'confirmpassword': $("#form-register input#confirmpassword").val(), // dont send
         };
@@ -110,11 +109,10 @@ $( document ).ready(function() {
           data: formData,
           success: function(data2)
           {
-            console.log(data2);
-            alert(data2); // show response from the php script.
+            console.log(data2['status']);
+            console.log(data2['msg']); // show response from the php script.
           }
         });
-        console.log("");
       }
     });
 

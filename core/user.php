@@ -5,14 +5,16 @@ class User {
     private $hc;
 
     private $id;
+    private $user;
     private $email;
     private $confirmedEmail;
     private $secretToken;
     private $role;
 
-    public function __construct($hc, $id, $email, $confirmedEmail, $secretToken, $role) {
+    public function __construct($hc, $id, $username, $email, $confirmedEmail, $secretToken, $role) {
       $this->hc             = $hc;
       $this->id             = $id;
+      $this->username       = $username;
       $this->email          = $email;
       $this->confirmedEmail = $confirmedEmail;
       $this->secretToken    = $secretToken;
@@ -21,6 +23,10 @@ class User {
 
     public function getId() {
       return $this->id;
+    }
+
+    public function getUsername() {
+      return $this->username;
     }
 
     public function getEmail() {
