@@ -10,6 +10,7 @@ class Theme {
     'style'     => false,
     'javascript'=> false,
     'window'    => false,
+    'admin'    => false,
   ];
 
   private $hc;
@@ -60,6 +61,9 @@ class Theme {
       case 'window':
         return $this->getWindowPath();
       break;
+      case 'admin':
+        return $this->getAdminPath();
+      break;
       default:
         return false;
         break;
@@ -89,6 +93,10 @@ class Theme {
 
   public function getWindowPath(){
     return "$this->id/window.php";
+  }
+
+  public function getAdminPath(){
+    return "$this->id/admin.php";
   }
 
 }

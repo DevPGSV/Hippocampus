@@ -8,6 +8,7 @@
 
 		<link rel="stylesheet" type="text/css" href="themes/default/css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+
 		<script src="themes/default/js/scripts.js"></script>
 		<script src="themes/default/js/validateform.js" type="application/javascript"></script>
 
@@ -24,50 +25,51 @@
 		<form action="" method="POST" id="form-register">
 			<h2>Bienvenido a Hippocampus</h2>
 
-			<div class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-				<input type="text" placeholder="Nombre" name="nombre" id="nombre">
-			</div>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+					<input type="text" placeholder="Nombre" name="nombre" id="nombre">
+				</div>
 
-			<br width="50%">
+				<br width="50%">
 
-			<div class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-				<input type="text" placeholder="Email" name="email" id="email">
-			</div>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+					<input type="text" placeholder="Email" name="email" id="email">
+				</div>
 
-			<br width="50%">
+				<br width="50%">
 
-			<div class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input type="text" placeholder="Usuario" name="usuario" id="usuario">
-			</div>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" placeholder="Usuario" name="usuario" id="usuario">
+				</div>
 
-			<br width="50%">
+				<br width="50%">
 
-			<div class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" placeholder="Contraseña" name="password" id="password">
-			</div>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					<input type="password" placeholder="Contraseña" name="password" id="password">
+				</div>
 
-			<br width="50%">
+				<br width="50%">
 
-			<div class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" placeholder="Confirme su contraseña" name="confirmpassword" id="confirmpassword">
-			</div>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					<input type="password" placeholder="Confirme su contraseña" name="confirmpassword" id="confirmpassword">
+				</div>
 
-			<br width="50%">
+				<br width="50%">
 
-			<div class="g-recaptcha" align="center" data-sitekey="6LekVhsUAAAAAGJmHKj_RSg7wWzmlephZt2wPpvs"></div>
+				<div class="g-recaptcha" align="center" data-sitekey="6LekVhsUAAAAAGJmHKj_RSg7wWzmlephZt2wPpvs"></div>
 
-			<br width="50%">
+				<br width="50%">
+
 
 			<input type="submit" value="Crear cuenta">
 
-			<br width="50%">
+				<br width="50%">
 
-		</form>
+			</form>
 
 	</body>
 
