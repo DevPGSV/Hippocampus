@@ -20,7 +20,7 @@ var step = 0;
 var colorIndices = [0,1,2,3];
 
 // Transition speed
-var gradientSpeed = 0.002;
+var gradientSpeed = 0.010;
 
 function updateGradient() {
 	if ( $===undefined ) return;
@@ -58,7 +58,7 @@ function updateGradient() {
 	}
 }
 
-setInterval(updateGradient,10);
+setInterval(updateGradient,40);
 
 String.prototype.hashCode = function(){
 	var hash = 0;
