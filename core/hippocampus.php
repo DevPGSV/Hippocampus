@@ -35,8 +35,17 @@ class Hippocampus
                 require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('register'));
             } elseif (!empty($_GET['p']) && ($_GET['p'] === '/admin' || $_GET['p'] === 'admin')) {
                 require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('admin'));
-            } else {
+            } elseif (!empty($_GET['p']) && ($_GET['p'] === '/style.css' || $_GET['p'] === 'style.css')) {
+                header("Content-type: text/css");
+                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('style'));
+            } elseif (!empty($_GET['p']) && ($_GET['p'] === '/scripts.js' || $_GET['p'] === 'scripts.js')) {
+                header('Content-Type: application/javascript');
+                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('javascript'));
+            } elseif (empty($_GET['p']) || ($_GET['p'] === '/' || $_GET['p'] === '/index.php')) {
                 require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('index'));
+            } else {
+                echo '404';
+                print_r($_GET);
             }
         }
     }

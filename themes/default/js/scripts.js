@@ -166,6 +166,10 @@ function formRegister(e) {
         dataType: 'json',
         data: formData,
         success: function(data2) {
+          if (data2['status'] == 'ok') { // User was created
+            alert();
+            window.location.replace("index.php");
+          }
           console.log('Status: ' + data2['status']);
           console.log('Message: '); // show response from the php script.
           console.log(data2['msg']);

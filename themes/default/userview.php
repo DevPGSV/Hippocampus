@@ -10,8 +10,8 @@
   <script src='//www.google.com/recaptcha/api.js'></script>
   <script src="//point-at-infinity.org/jssha256/jssha256.js"></script>
 
-  <script src="themes/default/js/scripts.js"></script>
-  <link rel="stylesheet" type="text/css" href="themes/default/css/style.css">
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <div class="page sidebar-expansible" id="mainpage">
