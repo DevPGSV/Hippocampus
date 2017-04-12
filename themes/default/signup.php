@@ -1,25 +1,19 @@
 <html lang="es">
 
-	<head>
+<head>
+  <title>Formulario de registro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='//www.google.com/recaptcha/api.js'></script>
+  <script src="//point-at-infinity.org/jssha256/jssha256.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="themes/default/css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-
-		<script src="themes/default/js/scripts.js"></script>
-		<script src="themes/default/js/validateform.js" type="application/javascript"></script>
-
-		<title>Formulario de registro</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
-
-		<script src='https://www.google.com/recaptcha/api.js'></script>
-		<script src="http://point-at-infinity.org/jssha256/jssha256.js"></script>
-
-	</head>
+  <script src="themes/default/js/scripts.js"></script>
+  <link rel="stylesheet" type="text/css" href="themes/default/css/style.css">
+</head>
 
 	<body>
 		<form action="" method="POST" id="form-register">
@@ -78,9 +72,8 @@
 		document.getElementById('email').addEventListener("change", function () {
 			if (!validemail.test(this.value)) {
 				document.getElementById('email').style.border = "2px solid red";
-				//this.focus();
 			} else {
-				document.getElementById('email').style.border = "2px solid green";;
+				document.getElementById('email').style.border = "2px solid green";
 			}
 		}, false);
 	</script>
