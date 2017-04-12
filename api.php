@@ -8,7 +8,7 @@ require_once(__DIR__ . '/core/utils.php');
 $hc = new Hippocampus();
 
 if (empty($_GET['action'])) {
-    die('No action');
+    die('no_action');
 }
 $answer = [];
 /// TODO
@@ -31,16 +31,15 @@ switch ($_GET['action']) {
         } else {
             $answer = [
           'status' => 'error',
-          'msg' => 'User not found',
+          'msg' => 'user_not_found',
         ];
         }
     }
     echo json_encode($answer);
-    // return csalt
     break;
   case 'login':
     if (empty($_POST['user'])) {
-        $answer['msg']='No user';
+        $answer['msg']='no_user';
     }
     if (empty($_POST['pw'])) {
         $answer['msg']='No password';
@@ -55,23 +54,23 @@ switch ($_GET['action']) {
     $answer['status']='ok';
     if (empty($_POST['nombre'])) {
         $answer['status']='error';
-        $answer['msg'][]='No nombre';
+        $answer['msg'][]='no_name';
     }
     if (empty($_POST['email'])) {
-        $answer['msg'][]='No email';
+        $answer['msg'][]='no_email';
         $answer['status']='error';
     }
     if (empty($_POST['usuario'])) {
-        $answer['msg'][]='No usuario';
+        $answer['msg'][]='no_usuario';
         $answer['status']='error';
     }
     if (empty($_POST['password'])) {
-        $answer['msg'][]='No password';
+        $answer['msg'][]='no_password';
         $answer['status']='error';
     }
     if ($answer['status'] == 'error') {
         if (count($answer['msg']) === 0) {
-            $answer['msg'] = 'Unknown';
+            $answer['msg'] = 'unknown';
         }
         echo json_encode($answer);
         break;
@@ -103,7 +102,7 @@ switch ($_GET['action']) {
 
     if ($answer['status'] == 'error') {
         if (count($answer['msg']) === 0) {
-            $answer['msg'] = 'Unknown';
+            $answer['msg'] = 'unknown';
         }
         echo json_encode($answer);
         break;
@@ -117,15 +116,15 @@ switch ($_GET['action']) {
     unset($_SESSION['csalt']);
     if ($s) {
         $answer['status'] = 'ok';
-        $answer['msg'] = 'User created';
+        $answer['msg'] = 'user_created';
     } else {
         $answer['status'] = 'error';
-        $answer['msg'] = 'Error creating user';
+        $answer['msg'] = 'unknown';
     }
 
     echo json_encode($answer);
     break;
   default:
-    die('Unkown action');
+    die('unkown_action');
     break;
 }
