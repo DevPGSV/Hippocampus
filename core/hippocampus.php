@@ -27,26 +27,31 @@ class Hippocampus
         global $hc;
         $this->themeManager->loadAllThemes();
 
-        $u = $this->userManager->getLoggedInUser();
-        if ($u) {
-            require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('userview'));
-        } else {
-            if (!empty($_GET['p']) && ($_GET['p'] === '/register' || $_GET['p'] === 'register')) {
-                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('register'));
-            } elseif (!empty($_GET['p']) && ($_GET['p'] === '/admin' || $_GET['p'] === 'admin')) {
-                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('admin'));
-            } elseif (!empty($_GET['p']) && ($_GET['p'] === '/style.css' || $_GET['p'] === 'style.css')) {
-                header("Content-type: text/css");
-                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('style'));
-            } elseif (!empty($_GET['p']) && ($_GET['p'] === '/scripts.js' || $_GET['p'] === 'scripts.js')) {
-                header('Content-Type: application/javascript');
-                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('javascript'));
-            } elseif (empty($_GET['p']) || ($_GET['p'] === '/' || $_GET['p'] === '/index.php')) {
-                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('index'));
+
+        if (!empty($_GET['p']) && ($_GET['p'] === '/register' || $_GET['p'] === 'register')) {
+            require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('register'));
+        } elseif (!empty($_GET['p']) && ($_GET['p'] === '/admin' || $_GET['p'] === 'admin')) {
+            require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('admin'));
+        } elseif (!empty($_GET['p']) && ($_GET['p'] === '/style.css' || $_GET['p'] === 'style.css')) {
+            header("Content-type: text/css");
+            require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('style'));
+        } elseif (!empty($_GET['p']) && ($_GET['p'] === '/scripts.js' || $_GET['p'] === 'scripts.js')) {
+            header('Content-Type: application/javascript');
+            require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('javascript'));
+        } elseif (empty($_GET['p']) || ($_GET['p'] === '/' || $_GET['p'] === '/index.php' || $_GET['p'] === '/home' || $_GET['p'] === 'home')) {
+            $u = $this->userManager->getLoggedInUser();
+            if ($u) {
+                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('userview'));
             } else {
-                echo '404';
-                print_r($_GET);
+                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('index'));
             }
+        } elseif (empty($_GET['p']) || ($_GET['p'] === '/logout' || $_GET['p'] === 'logout')) {
+            $this->userManager->logOutUser();
+            header('Location: home');
+            echo 'Logged out! <a href="home">Home</a>';
+        } else {
+            echo "404<br>\n";
+            print_r($_GET);
         }
     }
 

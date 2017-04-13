@@ -33,7 +33,7 @@ INSERT INTO `config` (`varkey`, `value`) VALUES
 ('site.name', 'Hippocampus'),
 ('site.theme', 'default'),
 ('site.url', 'http://hippocampus.dev'),
-('db.version', '4');
+('db.version', '5');
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE `user-sessions` (
   `device` varchar(64) NOT NULL,
   `alc` varchar(64) NOT NULL COMMENT 'Auto Login Cookie',
   `dvc` varchar(64) NOT NULL COMMENT 'Dynamic Value Cookie',
-  `ip` varchar(16) NOT NULL,
+  `ip` varchar(45) NOT NULL,
   `activeSession` tinyint(1) NOT NULL,
   `firstUseSession` int(11) NOT NULL,
   `lastUseSession` int(11) NOT NULL,
@@ -111,6 +111,14 @@ CREATE TABLE `users-1auth` (
   `salt` varchar(32) NOT NULL,
   `csalt` varchar(32) NOT NULL COMMENT 'Salt sent to the client. The password is hashed once in the client with this salt. Then it is hashed again in the server.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Dumping data for table `users-1auth`
+--
+
+INSERT INTO `users-1auth` (`id`, `pw`, `salt`, `csalt`) VALUES
+(3, '43c3d78da0e34f4c1c4ee7d663642a47a6bbc4283b8b47be06abf7a1a9efe4ab', '94cdb1a2d74e6a63ba741058c03a79e4', '02fa9bc91c79c547db157d22f0cbdd5e');
 
 -- --------------------------------------------------------
 
@@ -185,7 +193,7 @@ ALTER TABLE `roles`
 -- Indexes for table `user-sessions`
 --
 ALTER TABLE `user-sessions`
-  ADD PRIMARY KEY (`userid`,`device`,`alc`) USING BTREE;
+  ADD PRIMARY KEY (`userid`,`alc`) USING BTREE;
 
 --
 -- Indexes for table `users`

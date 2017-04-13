@@ -68,7 +68,8 @@
                     <ul class="nav navbar-nav navbar-right">
                       <li><a href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-bullhorn"><span class="badge">5</span></span></a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-user" title="<?php echo $u->getEmail(); ?>"></span></a></li>
+                      <li><a href="#"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
+                      <li><a href="logout"><span class="glyphicon glyphicon-off" title="Log out"></span></a></li>
                     </ul>
                 </div>
             </div>

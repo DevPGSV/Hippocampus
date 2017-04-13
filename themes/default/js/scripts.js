@@ -140,6 +140,12 @@ function validaRegistro(form) {
   return true;
 }
 
+function showModal(title, body) {
+  $("#dummyModal-title").html(title);
+  $("#dummyModal-body").html(body);
+  $("#dummyModal").modal();
+}
+
 // Function called when the register from is submitted
 function formRegister(e) {
   var url = "api.php";
@@ -149,32 +155,95 @@ function formRegister(e) {
     dataType: 'json',
     data: [],
     success: function(data) {
-      SHA256_init();
-      SHA256_write(data['csalt'] + $("#form-register input#password").val());
-      var hashedPasswordDigest = SHA256_finalize();
-      var hashedPassword = array_to_hex_string(hashedPasswordDigest);
-      var formData = {
-        'nombre': $("#form-register input#nombre").val(),
-        'email': $("#form-register input#email").val(),
-        'usuario': $("#form-register input#usuario").val(),
-        'password': hashedPassword,
-      };
-      console.log(formData);
-      $.ajax({
-        type: "POST",
-        url: url + "?action=register",
-        dataType: 'json',
-        data: formData,
-        success: function(data2) {
-          if (data2['status'] == 'ok') { // User was created
-            alert();
-            window.location.replace("index.php");
+      if (data['status'] == 'ok') {
+        SHA256_init();
+        SHA256_write(data['csalt'] + $("#form-register input#password").val());
+        var hashedPasswordDigest = SHA256_finalize();
+        var hashedPassword = array_to_hex_string(hashedPasswordDigest);
+        var formData = {
+          'nombre': $("#form-register input#nombre").val(),
+          'email': $("#form-register input#email").val(),
+          'usuario': $("#form-register input#usuario").val(),
+          'password': hashedPassword,
+        };
+        $.ajax({
+          type: "POST",
+          url: url + "?action=register",
+          dataType: 'json',
+          data: formData,
+          success: function(data2) {
+            if (data2['status'] == 'ok') { // User was created
+              showModal("Welcome!", "You are now a member of Hippocampus!");
+              window.location.replace("home");
+            } else if (data2['status'] == 'error') {
+              var errorMessage = "";
+              data2['msg'].forEach(function(element, index, array) {
+                errorMessage += element + "\n";
+              });
+              showModal("Error registering...", errorMessage.replace(/(?:\r\n|\r|\n)/g, '<br />'));
+            } else {
+              console.log('Status: ' + data2['status']);
+            }
           }
-          console.log('Status: ' + data2['status']);
-          console.log('Message: '); // show response from the php script.
-          console.log(data2['msg']);
+        });
+      } else if (data['status'] == 'error') {
+        showModal("Error requesting data...", errorMessage.replace(/(?:\r\n|\r|\n)/g, '<br />'));
+      } else {
+        console.log('Status: ' + data['status']);
+      }
+    }
+  });
+}
+
+// Function called when the login from is submitted
+function formLogin(e) {
+  var url = "api.php";
+  $.ajax({
+    type: "POST",
+    url: url + "?action=getSalt",
+    dataType: 'json',
+    data: {
+      'username': $("#form-login input#usuario").val(),
+    },
+    success: function(data) {
+      if (data['status'] == 'ok') {
+        hashedPassword = '';
+        if ($("#form-login input#password").val() != '') {
+          SHA256_init();
+          SHA256_write(data['csalt'] + $("#form-login input#password").val());
+          var hashedPasswordDigest = SHA256_finalize();
+          var hashedPassword = array_to_hex_string(hashedPasswordDigest);
         }
-      });
+        var formData = {
+          'username': $("#form-login input#usuario").val(),
+          'password': hashedPassword,
+        };
+        console.log(formData);
+        $.ajax({
+          type: "POST",
+          url: url + "?action=login",
+          dataType: 'json',
+          data: formData,
+          success: function(data2) {
+            if (data2['status'] == 'ok') { // User was created
+              window.location.replace("home");
+            } else if (data2['status'] == 'error') {
+              var errorMessage = "";
+              data2['msg'].forEach(function(element, index, array) {
+                errorMessage += element + "\n";
+              });
+              showModal("Error login...", errorMessage.replace(/(?:\r\n|\r|\n)/g, '<br />'));
+            } else {
+              console.log('Status: ' + data2['status']);
+            }
+          }
+        });
+
+      } else if (data['status'] == 'error') {
+        showModal("Error!", data['msg'].replace(/(?:\r\n|\r|\n)/g, '<br />'));
+      } else {
+        console.log('Status: ' + data['status']);
+      }
     }
   });
 }
@@ -200,5 +269,10 @@ $(document).ready(function() {
       return false;
     }
     return formRegister(e);
+  });
+
+  $("#form-login").submit(function(e) {
+    e.preventDefault();
+    return formLogin(e);
   });
 });

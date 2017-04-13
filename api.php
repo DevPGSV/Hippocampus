@@ -19,32 +19,77 @@ switch ($_GET['action']) {
             $_SESSION['csalt'] = Utils::randStr(32);
         }
         $answer = [
-        'status' => 'ok',
-        'csalt' => $_SESSION['csalt'],
-      ];
+          'status' => 'ok',
+          'csalt' => $_SESSION['csalt'],
+        ];
     } else {
         if ($uData = $hc->getDB()->getUserDataByUsername($_POST['username'], true)) {
             $answer = [
-          'status' => 'ok',
-          'csalt' => $uData['csalt'],
-        ];
+              'status' => 'ok',
+              'csalt' => $uData['csalt'],
+            ];
         } else {
             $answer = [
-          'status' => 'error',
-          'msg' => 'user_not_found',
-        ];
+              'status' => 'error',
+              'msg' => 'user_not_found',
+            ];
         }
     }
     echo json_encode($answer);
     break;
   case 'login':
-    if (empty($_POST['user'])) {
-        $answer['msg']='no_user';
+    $_SESSION['csalt'] = '';
+    unset($_SESSION['csalt']);
+    $answer['status'] = 'ok';
+    $answer['msg'] = [];
+    if (empty($_POST['username'])) {
+        $answer['status'] = 'error';
+        $answer['msg'][] = 'no_user';
     }
-    if (empty($_POST['pw'])) {
-        $answer['msg']='No password';
+    if (empty($_POST['password'])) {
+        $answer['status'] = 'error';
+        $answer['msg'][] = 'no_password';
     }
-    // check credentials, set cookies, log in user, return status
+    if ($answer['status'] == 'error') {
+        echo json_encode($answer);
+        break;
+    }
+    if ($uData = $hc->getDB()->getUserDataByUsername($_POST['username'], true)) {
+        $salt = $uData['salt'];
+        $pw = hash('sha256', $salt.$_POST['password']);
+        if ($pw !== $uData['pw']) {
+            $answer['status'] = 'error';
+            $answer['msg'][] = 'incorrect_password';
+        } else {
+            $device = 'DeviceName?';
+            $device = trim(substr($device, 0, 64));
+            $alc = Utils::randStr(32);
+            $dvc = Utils::randStr(32);
+            $ip = $_SERVER['REMOTE_ADDR'];
+            $firstUseSession = $lastUseSession = time();
+            $firstUseCoordLat = 0.0;
+            $firstUseCoordLong = 0.0;
+            $useragent = trim(substr($_SERVER['HTTP_USER_AGENT'], 0, 256));
+
+            if ($hc->getDB()->createNewUserSession($uData['id'], $device, $alc, $dvc, $ip, true, $firstUseSession, $lastUseSession, $firstUseCoordLat, $firstUseCoordLong, $useragent)) {
+                setcookie('alc', $alc, 0, '/');
+                setcookie('dvc', $dvc, 0, '/');
+                $_SESSION['alc'] = $alc;
+                $_SESSION['dvc'] = $dvc;
+                $_SESSION['device'] = $device;
+
+                $answer['status'] = 'ok';
+                $answer['msg'][] = 'logged_in';
+            } else {
+                $answer['status'] = 'error';
+                $answer['msg'][] = 'error_creating_session';
+            }
+        }
+    } else {
+        $answer['status'] = 'error';
+        $answer['msg'][] = 'user_not_found';
+    }
+    echo json_encode($answer);
     break;
   case 'logout':
     // logout user: set cookies, end user session, return status
@@ -61,7 +106,7 @@ switch ($_GET['action']) {
         $answer['status']='error';
     }
     if (empty($_POST['usuario'])) {
-        $answer['msg'][]='no_usuario';
+        $answer['msg'][]='no_user';
         $answer['status']='error';
     }
     if (empty($_POST['password'])) {
