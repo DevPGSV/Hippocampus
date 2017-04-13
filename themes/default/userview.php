@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='//www.google.com/recaptcha/api.js'></script>
-  <script src="//point-at-infinity.org/jssha256/jssha256.js"></script>
 
+  <script src="lib/jssha256/jssha256.js"></script>
   <script src="scripts.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
