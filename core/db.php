@@ -28,15 +28,29 @@ class Database
     private function dbConnect()
     {
         // Check $this->host and $this->database are alphanumeric (with underscores and dashes allowed)
-    try {//
-      $this->db = new PDO("mysql:host=$this->host;dbname=$this->database;charset=utf8", $this->username, $this->password);
-        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    } catch (PDOException $e) { // Debugging!
-      echo $e->getMessage()."<br>\n";
-        die('ERROR');
+      try {//
+        $this->db = new PDO("mysql:host=$this->host;dbname=$this->database;charset=utf8", $this->username, $this->password);
+          $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+          $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+      } catch (PDOException $e) { // Debugging!
+        echo $e->getMessage()."<br>\n";
+          die('ERROR');
+      }
     }
+
+    public function getConfigValue($varkey)
+    {
+        $sql = "SELECT * FROM config WHERE varkey=:varkey";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':varkey', $varkey, PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (count($rows) === 1) {
+            return $rows[0]['value'];
+        } else {
+            return false;
+        }
     }
 
     public function getUserDataById($userId, $join1auth = false)
@@ -93,7 +107,7 @@ class Database
     private function databaseSetup()
     { // Setup database when new database version is found
       try {
-          $dbVersion='5';
+          $dbVersion='6';
           $stmt = $this->db->prepare("SELECT * FROM config WHERE varkey='db.version'");
           $stmt->execute();
           $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

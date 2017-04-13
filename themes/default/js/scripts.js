@@ -156,6 +156,7 @@ function formRegister(e) {
     data: [],
     success: function(data) {
       if (data['status'] == 'ok') {
+        var gresponse = grecaptcha.getResponse();
         SHA256_init();
         SHA256_write(data['csalt'] + $("#form-register input#password").val());
         var hashedPasswordDigest = SHA256_finalize();
@@ -165,6 +166,7 @@ function formRegister(e) {
           'email': $("#form-register input#email").val(),
           'usuario': $("#form-register input#usuario").val(),
           'password': hashedPassword,
+          'g-recaptcha-response': gresponse,
         };
         $.ajax({
           type: "POST",
@@ -179,6 +181,9 @@ function formRegister(e) {
               var errorMessage = "";
               data2['msg'].forEach(function(element, index, array) {
                 errorMessage += element + "\n";
+                if (element == 'error_recaptcha') {
+                  grecaptcha.reset();
+                }
               });
               showModal("Error registering...", errorMessage.replace(/(?:\r\n|\r|\n)/g, '<br />'));
             } else {

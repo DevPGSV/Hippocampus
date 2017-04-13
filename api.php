@@ -120,6 +120,19 @@ switch ($_GET['action']) {
         echo json_encode($answer);
         break;
     }
+    if ($hc->getDB()->getConfigValue('site.recaptcha.active') == 'true') {
+        $gRecaptchaValidation = checkGoogleRecaptcha($hc->getDB()->getConfigValue('site.recaptcha.secret'), $_POST['g-recaptcha-response']);
+        if (!$gRecaptchaValidation['success']) {
+            $answer['status']='error';
+            $answer['msg'][]='error_recaptcha';
+            if (!empty($gRecaptchaValidation['error-codes'])) {
+                foreach ($gRecaptchaValidation['error-codes'] as $gCaptchaErrorCode) {
+                    $answer['msg'][]='recaptcha_'.$gCaptchaErrorCode;
+                }
+            }
+        }
+    }
+
     if ($hc->getDB()->getUserDataByUsername($_POST['usuario'])!== false) {
         $answer['msg'][]='Ese user ya existe, por favor prueba de nuevo.';
         $answer['status']='error';
@@ -172,4 +185,28 @@ switch ($_GET['action']) {
   default:
     die('unkown_action');
     break;
+}
+
+
+
+
+
+function checkGoogleRecaptcha($secret, $response, $remoteip = false)
+{
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $params = [
+      'secret' => $secret,
+      'response' => $response,
+    ];
+    if ($remoteip !== false) {
+        $params['remoteip'] = $remoteip;
+    }
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return json_decode($result, true);
 }

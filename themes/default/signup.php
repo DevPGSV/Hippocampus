@@ -49,7 +49,11 @@
     </div>
     <br>
 
-    <div class="g-recaptcha" align="center" data-sitekey="6LekVhsUAAAAAGJmHKj_RSg7wWzmlephZt2wPpvs"></div>
+    <?php
+    if ($hc->getDB()->getConfigValue('site.recaptcha.active') == 'true') {
+        echo '<div class="g-recaptcha" align="center" data-sitekey="'.$hc->getDB()->getConfigValue('site.recaptcha.public').'"></div>';
+    }
+    ?>
     <br>
     <input type="submit" value="Crear cuenta">
     <br>
