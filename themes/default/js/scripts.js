@@ -257,6 +257,26 @@ $(document).ready(function() {
 
   setupBackgroundGradient();
 
+  $("#sidebar.sidebar-nav-items>li").draggable({
+    revert: true,
+    helper: "clone",
+  });
+
+
+  $(".userview-content-column").droppable({
+    accept: "#sidebar.sidebar-nav-items>li",
+    classes: {
+      "ui-droppable-active": "custom-state-active"
+    },
+    drop: function(event, ui) {
+      //recycleImage(ui.draggable);
+      console.log(ui.draggable.html());
+      $(this).append(ui.draggable.html() + "<br>\n");
+    }
+  });
+
+
+
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("active");
