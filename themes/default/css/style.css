@@ -219,6 +219,7 @@ a {
 
 #register {
 	color: white;
+	font-size: 18px;
 }
 
 #register:hover {
@@ -264,6 +265,7 @@ a {
 .glyphs-users{
 	text-align: center;
 }
+/*******************************************************/
 
 /*sideVar Css*/
 
