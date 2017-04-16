@@ -9,6 +9,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Actor'>
   <script src='//www.google.com/recaptcha/api.js'></script>
 
   <script src="lib/jssha256/jssha256.js"></script>
@@ -16,6 +17,8 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <?php include_once("themes/default/css/apps-icons.svg"); ?>
+
   <div class="page sidebar-expansible" id="mainpage">
 
       <div class="sidebar dont-select">
@@ -25,22 +28,52 @@
           </ul>
           <ul class="sidebar-nav sidebar-nav-items" id="sidebar">
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo aaa</span><span class="glyphicon glyphicon-user"></span>
+              <span class="sidebar-item-text">CV</span><svg class="icon ucm"><use xlink:href="#ucm"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo a</span><span class="glyphicon glyphicon-search"></span>
+              <span class="sidebar-item-text">Biblioteca</span><svg class="icon library"><use xlink:href="#library"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo</span><span class="glyphicon glyphicon-heart"></span>
+              <span class="sidebar-item-text">Gmail</span><svg class="icon gmail"><use xlink:href="#gmail"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo qqqhq</span><span class="glyphicon glyphicon-music"></span>
+              <span class="sidebar-item-text">Drive</span><svg class="icon drive"><use xlink:href="#drive"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo yu</span><span class="glyphicon glyphicon-list-alt"></span>
+              <span class="sidebar-item-text">Calendar</span><svg class="icon calendar"><use xlink:href="#calendar"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text"></span><span class="glyphicon glyphicon-envelope"></span>
+              <span class="sidebar-item-text">Classroom</span><svg class="icon classroom"><use xlink:href="#classroom"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Github</span><svg class="icon github"><use xlink:href="#github"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Bolotweet</span><svg class="icon bolotweet"><use xlink:href="#bolotweet"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Facebook</span><svg class="icon facebook"><use xlink:href="#facebook"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Twitter</span><svg class="icon twitter"><use xlink:href="#twitter"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Mensajes</span><svg class="icon chat"><use xlink:href="#chat"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Asociaciones</span><svg class="icon asociations"><use xlink:href="#asociations"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Cafetería</span><svg class="icon coffee"><use xlink:href="#coffee"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Software</span><svg class="icon software"><use xlink:href="#software"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Ajustes</span><svg class="icon settings"><use xlink:href="#settings"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Ayuda</span><svg class="icon about"><use xlink:href="#about"></use></svg>
             </span></a></li>
           </ul>
         </div>
