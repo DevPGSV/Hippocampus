@@ -101,15 +101,102 @@
                         <li><a href="admin">Administración</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-bullhorn"><span class="badge">5</span></span></a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
+                      <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-plus"></span></a></li>
+                      <li><a data-toggle="pill" href="#menu2"><span class="glyphicon glyphicon-bullhorn"><span class="badge">5</span></span></a></li>
+                      <li><a data-toggle="pill" href="#menu3"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
                       <li><a href="logout"><span class="glyphicon glyphicon-off" title="Log out"></span></a></li>
                     </ul>
                 </div>
-            </div>
-          </nav>
-        </div>
+
+                <div class="tab-content">
+                    <div id="menu1" class="tab-pane fade">
+                      <h3>Configuración de columnas</h3>
+                      <p> ¿Cuántas columnas quieres mostrar? </p>
+                        <select>
+                          <option value="volvo">1</option>
+                          <option value="saab">2</option>
+                          <option value="opel">3</option>
+                        </select>
+                        <p></p>
+                    </div>
+
+                    <div id="menu2" class="tab-pane fade">
+                      <h3>Notificaciones</h3>
+                      <p>Aquí tienen que ir las notificaciones</p>
+                    </div>
+
+                      <div id="menu3" class="tab-pane fade">
+
+                      <div class="container">
+                          <h1>Editar tu perfil</h1>
+                        	<hr>
+                      	<div class="row">
+                            <!-- left column -->
+                            <div class="col-md-3">
+                              <div class="text-center">
+                                <a href="http://imgur.com/cTCsZeR"><img src="http://i.imgur.com/cTCsZeR.png" title="source: imgur.com" /></a>
+                                <!--<h6>Sube una nueva imagen</h6>
+
+                                <input class="form-control" type="file">-->
+                              </div>
+                            </div>
+
+                            <!-- edit form column -->
+                              <div class="col-md-9 personal-info">
+                                <!--<div class="alert alert-info alert-dismissable">
+                                  <a class="panel-close close" data-dismiss="alert">×</a>
+                                  <i class="fa fa-coffee"></i>
+                                   Puedes cambiar tus datos desde el menú de Administración
+                                 </div>-->
+                                <div id="alerta"><h3>Información de la cuenta</h3></div>
+
+                                <form class="form-horizontal" role="form">
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Nombre</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" value="User" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Apellidos</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" value="Lastname" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Correo electrónico</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" value="user@gmail.com" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Nombre de usuario</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" value="username" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Contraseña</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" value="11111122333" type="password">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Confirmar contraseña</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" value="11111122333" type="password">
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                          </div>
+                        </div>
+                        <hr>
+                      </div>
+                    </div>
+              </div>
+            </nav>
+          </div>
         <div class="row" id="userview-content">
           <?php
           for ($i = 0; $i < 3; $i++) {

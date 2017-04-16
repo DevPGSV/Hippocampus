@@ -434,3 +434,11 @@ input[type="submit"]:active {
   width: 40px;
   height: 40px;
 }
+
+/**********************
+   User Menu Style
+**********************/
+
+#alerta {
+  text-indent: 290px;
+}
