@@ -70,12 +70,7 @@
                     <ul class="nav navbar-nav navbar-right">
                       <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-plus"></span></a></li>
                       <li><a data-toggle="pill" href="#menu2"><span class="glyphicon glyphicon-bullhorn"><span class="badge">5</span></span></a></li>
-                      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"></a><ul class="dropdown-manu">
-                        <li>
-                          <a href="#">Hola</a>
-                        </li>
-                       </ul>
-                        <a data-toggle="pill" href="#menu3"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
+                      <li><a data-toggle="pill" href="#menu3"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
                       <li><a href="logout"><span class="glyphicon glyphicon-off" title="Log out"></span></a></li>
                     </ul>
                 </div>
@@ -83,7 +78,7 @@
                 <div class="tab-content">
                     <div id="menu1" class="tab-pane fade">
                       <h3>Configuración de columnas</h3>
-                      <p>  ¿Cuantas columnas quieres mostrar? </p>
+                      <p> ¿Cuántas columnas quieres mostrar? </p>
                         <select>
                           <option value="volvo">1</option>
                           <option value="saab">2</option>
@@ -114,62 +109,61 @@
                             </div>
 
                             <!-- edit form column -->
-                            <div class="col-md-9 personal-info">
-                              <div class="alert alert-info alert-dismissable">
-                                <a class="panel-close close" data-dismiss="alert">×</a>
-                                <i class="fa fa-coffee"></i>
-                                 Puedes cambiar tus datos desde el menú de Administración
-                            </div>
-                              <div id="alerta"><h3>Información de la cuenta</h3></div>
+                              <div class="col-md-9 personal-info">
+                                <!--<div class="alert alert-info alert-dismissable">
+                                  <a class="panel-close close" data-dismiss="alert">×</a>
+                                  <i class="fa fa-coffee"></i>
+                                   Puedes cambiar tus datos desde el menú de Administración
+                                 </div>-->
+                                <div id="alerta"><h3>Información de la cuenta</h3></div>
 
-                              <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                  <label class="col-lg-3 control-label">Nombre</label>
-                                  <div class="col-lg-8">
-                                    <input class="form-control" value="User" type="text">
+                                <form class="form-horizontal" role="form">
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Nombre</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" value="User" type="text">
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-lg-3 control-label">Apellidos</label>
-                                  <div class="col-lg-8">
-                                    <input class="form-control" value="Lastname" type="text">
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Apellidos</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" value="Lastname" type="text">
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-lg-3 control-label">Correo electrónico</label>
-                                  <div class="col-lg-8">
-                                    <input class="form-control" value="user@gmail.com" type="text">
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Correo electrónico</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" value="user@gmail.com" type="text">
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-md-3 control-label">Nombre de usuario</label>
-                                  <div class="col-md-8">
-                                    <input class="form-control" value="username" type="text">
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Nombre de usuario</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" value="username" type="text">
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-md-3 control-label">Contraseña</label>
-                                  <div class="col-md-8">
-                                    <input class="form-control" value="11111122333" type="password">
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Contraseña</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" value="11111122333" type="password">
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-md-3 control-label">Confirmar contraseña</label>
-                                  <div class="col-md-8">
-                                    <input class="form-control" value="11111122333" type="password">
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Confirmar contraseña</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" value="11111122333" type="password">
+                                    </div>
                                   </div>
-                                </div>
-                              </form>
-                            </div>
+                                </form>
+                              </div>
+                          </div>
                         </div>
+                        <hr>
                       </div>
-                      <hr>
                     </div>
-                  </div>
-
-            </div>
-          </nav>
-        </div>
+              </div>
+            </nav>
+          </div>
         <div class="row" id="userview-content">
           <?php
           for ($i = 0; $i < 3; $i++) {
