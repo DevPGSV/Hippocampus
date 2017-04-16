@@ -82,10 +82,17 @@
 
                 <div class="tab-content">
                     <div id="menu1" class="tab-pane fade">
-                      
+                      <h3>Configuración de columnas</h3>
+                      <p>  ¿Cuantas columnas quieres mostrar? </p>
+                        <select>
+                          <option value="volvo">1</option>
+                          <option value="saab">2</option>
+                          <option value="opel">3</option>
+                        </select>
+                        <p></p>
                     </div>
-                    <div id="menu2" class="tab-pane fade">
 
+                    <div id="menu2" class="tab-pane fade">
                       <h3>Notificaciones</h3>
                       <p>Aquí tienen que ir las notificaciones</p>
                     </div>
