@@ -68,12 +68,31 @@
                         <li><a href="admin">Administración</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-bullhorn"><span class="badge">5</span></span></a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
+                      <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-plus"></span></a></li>
+                      <li><a data-toggle="pill" href="#menu2"><span class="glyphicon glyphicon-bullhorn"><span class="badge">5</span></span></a></li>
+                      <li><a data-toggle="pill" href="#menu3"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
                       <li><a href="logout"><span class="glyphicon glyphicon-off" title="Log out"></span></a></li>
                     </ul>
                 </div>
+
+                <div class="tab-content">
+                    <div id="menu1" class="tab-pane fade">
+                      <h3>Configuración de columnas</h3>
+                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                      <h3>Notificaciones</h3>
+                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    </div>
+                    <div id="menu3" class="tab-pane fade">
+                      <h3>Eustakio Pérez Benítez</h3>
+                      <p>Aquí se supone que va tu foto</p>
+                      <p>Y tu nombre</p>
+                      <p>Y tu info</p>
+                      <p>Bla Bla Bla</p>
+                    </div>
+                  </div>
+
             </div>
           </nav>
         </div>
