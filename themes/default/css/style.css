@@ -404,3 +404,12 @@ input[type="submit"]:active {
 .glyphs-users {
   text-align: center;
 }
+
+
+/**********************
+   User Menu Style
+**********************/
+
+#alerta {
+  text-indent: 60px;
+}
