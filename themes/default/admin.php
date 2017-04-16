@@ -103,5 +103,7 @@
                <p>Tienen permiso para realizar todas las acciones de administración.</p>
            </div>
          </div>
+
+				 <a href="index.php" target="_blank">Volver a Home</a>
   </body>
 </html>
