@@ -79,6 +79,9 @@
         </div>
       </div>
 
+      <div id="logo" class="container-fluid">
+        <a href="http://imgur.com/tV6e0n7"><img id="img" src="http://i.imgur.com/tV6e0n7.png" title="source: imgur.com" /></a>
+      </div>
 
       <div class="container-fluid">
         <div class="row">
@@ -97,7 +100,7 @@
                 <div class="collapse navbar-collapse" id="barraBasica">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Aplicaciones</a></li>
+                        <!--<li><a href="#">Aplicaciones</a></li>-->
                         <li><a href="admin">Administración</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

@@ -451,3 +451,13 @@ input[type="submit"]:active {
 #alerta {
     text-indent: 290px;
 }
+
+/**********************
+   Logo div Style
+**********************/
+
+#img {
+    width: 100%;
+    height: 150px;
+    opacity: 0.5;
+}
