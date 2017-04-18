@@ -15,6 +15,7 @@
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Actor'>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -99,6 +100,7 @@
 				 <!-- ADMINISTRAR PAGINA -->
 
            <div id="admin-page" class="tab-pane fade">
+<<<<<<< HEAD
 	             <div class="container panel-group" id="accordion2">
 								 <!-- PANEL NOMBRE-->
 	                <div class="panel panel-default">
@@ -184,5 +186,6 @@
 					 <!-- END-ADMINISTRAR PAGINA -->
 				 </div>
   </div>
- </body>
+				 <a href="index.php" target="_blank">Volver a Home</a>
+  </body>
 </html>

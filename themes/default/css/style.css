@@ -3,7 +3,7 @@
 **********************/
 
 * {
-  font-family: sans-serif;
+  font-family: 'Actor';
 }
 
 body,
@@ -52,8 +52,8 @@ body {
 
 .page>.container-fluid {
   padding: 0;
-  width: calc(100% - 55px);
-  margin-left: 55px;
+  width: calc(100% - 100px);
+  margin-left: 100px;
 }
 
 
@@ -97,13 +97,21 @@ body {
      Sidebar Style
 **********************/
 
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 .sidebar {
   background: rgba(44, 62, 80, 0.4);
+  opacity: 0.9;
   color: #eee;
-  width: 55px;
+  width: 100px;
   height: 100%;
   top: 0px;
   position: fixed;
+  overflow: auto;
+
 }
 
 .sidebar-wrapper {
@@ -123,7 +131,8 @@ body {
 }
 
 .sidebar-nav li {
-  line-height: 40px;
+  line-height: 60px;
+  opacity: 1;
 }
 
 .sidebar-nav li a {
@@ -132,8 +141,9 @@ body {
   border-bottom: 1px solid #1A1A1A;
   display: block;
   width: 100%;
-  height: 40px;
+  height: 60px;
   text-decoration: none;
+  align: left;
   /*
   -webkit-transition: background .5s;
   -moz-transition: background .5s;
@@ -143,16 +153,19 @@ body {
   */
 }
 
-.sidebar-nav li a .glyphicon {
+.sidebar-nav li a .icon {
+  width: 50%;
   margin-top: 10px;
+  margin-left: 5px;
+  text-align: right;
 }
 
 .sidebar-nav li a .sidebar-item-text {
   display: none;
+  width: 50%;
 }
 
 .sidebar-nav.sidebar-nav-head li {
-  margin-bottom: 30px;
   font-size: 18px;
   text-align: center;
 }
@@ -163,7 +176,7 @@ body {
   cursor: context-menu;
   height: 50px;
   border: 0px;
-  border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 0px;
 }
 
 .sidebar-nav.sidebar-nav-head li a:hover {
@@ -172,7 +185,7 @@ body {
 }
 
 .sidebar-nav.sidebar-nav-items li a .sidebar-item-content {
-  float: right;
+  float: left;
   white-space: nowrap;
   overflow: hidden;
   height: 100%;
@@ -181,10 +194,9 @@ body {
 .sidebar-nav.sidebar-nav-items li a {
   color: #999;
   background: #252525;
-  text-align: right;
-  text-indent: 20px;
-  padding-right: 20px;
-  cursor: move;
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: pointer;
 }
 
 .sidebar-nav.sidebar-nav-items li a:hover {
@@ -201,6 +213,15 @@ body {
   transition: width .5s, margin-left .5s;
 }
 
+.sidebar>.page,
+.container-fluid>.page {
+  -webkit-transition: width .5s, margin-left .5s;
+  -moz-transition: width .5s, margin-left .5s;
+  -o-transition: width .5s, margin-left .5s;
+  -ms-transition: width .5s, margin-left .5s;
+  transition: width .5s, margin-left .5s;
+}
+
 @media only screen and (min-width: 1000px) {
   .page.sidebar-expansible>.sidebar .sidebar-nav li a .sidebar-item-text {
     display: inline;
@@ -209,11 +230,11 @@ body {
     text-align: right;
   }
   .page.sidebar-expansible>.sidebar {
-    width: 150px;
+    width: 160px;
   }
   .page.sidebar-expansible>.container-fluid {
-    width: calc(100% - 150px);
-    margin-left: 150px;
+    width: calc(100% - 160px);
+    margin-left: 160px;
   }
 }
 
@@ -252,7 +273,7 @@ body {
 }
 
 .page>.container-fluid .navbar {
-  margin: 0;
+  margin: 10px;
 }
 
 
@@ -398,4 +419,21 @@ input[type="submit"]:active {
 
 .table-admin {
   cursor: default;
+}
+
+/********************************/
+
+.icon {
+  display: inline-block;
+  float: right;
+  width: 40px;
+  height: 40px;
+}
+
+/**********************
+   User Menu Style
+**********************/
+
+#alerta {
+  text-indent: 290px;
 }

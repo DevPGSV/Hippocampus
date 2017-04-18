@@ -9,6 +9,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Actor'>
   <script src='//www.google.com/recaptcha/api.js'></script>
 
   <script src="lib/jssha256/jssha256.js"></script>
@@ -16,6 +17,8 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <?php include_once("themes/default/css/apps-icons.svg"); ?>
+
   <div class="page sidebar-expansible" id="mainpage">
 
       <div class="sidebar dont-select">
@@ -25,22 +28,52 @@
           </ul>
           <ul class="sidebar-nav sidebar-nav-items" id="sidebar">
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo aaa</span><span class="glyphicon glyphicon-user"></span>
+              <span class="sidebar-item-text">CV</span><svg class="icon ucm"><use xlink:href="#ucm"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo a</span><span class="glyphicon glyphicon-search"></span>
+              <span class="sidebar-item-text">Biblioteca</span><svg class="icon library"><use xlink:href="#library"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo</span><span class="glyphicon glyphicon-heart"></span>
+              <span class="sidebar-item-text">Gmail</span><svg class="icon gmail"><use xlink:href="#gmail"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo qqqhq</span><span class="glyphicon glyphicon-music"></span>
+              <span class="sidebar-item-text">Drive</span><svg class="icon drive"><use xlink:href="#drive"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Algo yu</span><span class="glyphicon glyphicon-list-alt"></span>
+              <span class="sidebar-item-text">Calendar</span><svg class="icon calendar"><use xlink:href="#calendar"></use></svg>
             </span></a></li>
             <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text"></span><span class="glyphicon glyphicon-envelope"></span>
+              <span class="sidebar-item-text">Classroom</span><svg class="icon classroom"><use xlink:href="#classroom"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Github</span><svg class="icon github"><use xlink:href="#github"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Bolotweet</span><svg class="icon bolotweet"><use xlink:href="#bolotweet"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Facebook</span><svg class="icon facebook"><use xlink:href="#facebook"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Twitter</span><svg class="icon twitter"><use xlink:href="#twitter"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Mensajes</span><svg class="icon chat"><use xlink:href="#chat"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Asociaciones</span><svg class="icon asociations"><use xlink:href="#asociations"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Cafetería</span><svg class="icon coffee"><use xlink:href="#coffee"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Software</span><svg class="icon software"><use xlink:href="#software"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Ajustes</span><svg class="icon settings"><use xlink:href="#settings"></use></svg>
+            </span></a></li>
+            <li><a><span class="sidebar-item-content">
+              <span class="sidebar-item-text">Ayuda</span><svg class="icon about"><use xlink:href="#about"></use></svg>
             </span></a></li>
           </ul>
         </div>
@@ -68,15 +101,102 @@
                         <li><a href="admin">Administración</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-bullhorn"><span class="badge">5</span></span></a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
+                      <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-plus"></span></a></li>
+                      <li><a data-toggle="pill" href="#menu2"><span class="glyphicon glyphicon-bullhorn"><span class="badge">5</span></span></a></li>
+                      <li><a data-toggle="pill" href="#menu3"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
                       <li><a href="logout"><span class="glyphicon glyphicon-off" title="Log out"></span></a></li>
                     </ul>
                 </div>
-            </div>
-          </nav>
-        </div>
+
+                <div class="tab-content">
+                    <div id="menu1" class="tab-pane fade">
+                      <h3>Configuración de columnas</h3>
+                      <p> ¿Cuántas columnas quieres mostrar? </p>
+                        <select>
+                          <option value="volvo">1</option>
+                          <option value="saab">2</option>
+                          <option value="opel">3</option>
+                        </select>
+                        <p></p>
+                    </div>
+
+                    <div id="menu2" class="tab-pane fade">
+                      <h3>Notificaciones</h3>
+                      <p>Aquí tienen que ir las notificaciones</p>
+                    </div>
+
+                      <div id="menu3" class="tab-pane fade">
+
+                      <div class="container">
+                          <h1>Editar tu perfil</h1>
+                        	<hr>
+                      	<div class="row">
+                            <!-- left column -->
+                            <div class="col-md-3">
+                              <div class="text-center">
+                                <a href="http://imgur.com/cTCsZeR"><img src="http://i.imgur.com/cTCsZeR.png" title="source: imgur.com" /></a>
+                                <!--<h6>Sube una nueva imagen</h6>
+
+                                <input class="form-control" type="file">-->
+                              </div>
+                            </div>
+
+                            <!-- edit form column -->
+                              <div class="col-md-9 personal-info">
+                                <!--<div class="alert alert-info alert-dismissable">
+                                  <a class="panel-close close" data-dismiss="alert">×</a>
+                                  <i class="fa fa-coffee"></i>
+                                   Puedes cambiar tus datos desde el menú de Administración
+                                 </div>-->
+                                <div id="alerta"><h3>Información de la cuenta</h3></div>
+
+                                <form class="form-horizontal" role="form">
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Nombre</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" value="User" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Apellidos</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" value="Lastname" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Correo electrónico</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" value="user@gmail.com" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Nombre de usuario</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" value="username" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Contraseña</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" value="11111122333" type="password">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Confirmar contraseña</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" value="11111122333" type="password">
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                          </div>
+                        </div>
+                        <hr>
+                      </div>
+                    </div>
+              </div>
+            </nav>
+          </div>
         <div class="row" id="userview-content">
           <?php
           for ($i = 0; $i < 3; $i++) {
