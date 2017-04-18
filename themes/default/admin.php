@@ -48,7 +48,7 @@
                  <div id="crear-admin" class="panel-collapse collapse in active">
                     <div class="panel-body form-group">
 
-                        <input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario" data-toggle="tooltip" data-placement="top" title="Entre 4 y 20 caracteres">
+                        <input type="text" class="form-control" placeholder="Usuario" name="usuario" data-toggle="tooltip" class="tooltip tooltip-top tooltip-arrow"  data-placement="top" title="Entre 4 y 20 caracteres">
                         <br>
                 				<input type="email" class="form-control" placeholder="Email" name="email" id="email">
                         <br>
@@ -58,8 +58,6 @@
                   </div>
                 </div>
 								<!-- END -CREAR USER! -->
-
-
 
 								<!-- EDITAR USER! -->
                 <div class="panel panel-default">
@@ -78,13 +76,25 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <td>John</td><td>user</td><td>john@example.com</td><td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td><td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user"></span></td>
+                              <td>John</td>
+															<td>user</td>
+															<td>john@example.com</td>
+															<td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td>
+															<td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user"></span></td>
                             </tr>
                             <tr>
-                              <td>Mary</td><td>user</td><td>mary@example.com</td><td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td><td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user"></span></td>
+                              <td>Mary</td>
+															<td>user</td>
+															<td>mary@example.com</td>
+															<td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td>
+															<td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user"></span></td>
                             </tr>
                             <tr>
-                              <td>July</td><td>admin</td><td>july@example.com</td><td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td><td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user"></span></td>
+                              <td>July</td>
+															<td>admin</td>
+															<td>july@example.com</td>
+															<td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td>
+															<td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user"></span></td>
                             </tr>
                           </tbody>
                         </table>
@@ -95,7 +105,6 @@
                 </div>
            </div>
 				 <!-- END-ADMINISTRAR USUARIOS-->
-
 
 				 <!-- ADMINISTRAR PAGINA -->
 
@@ -117,7 +126,6 @@
 	                    </div>
 	                  </div>
 	                </div>
-
 
 									<!-- PANEL LOGO-->
 	                <div class="panel panel-default">
@@ -145,7 +153,6 @@
 	                  </div>
 	                 </div>
 
-
 									 <!-- PANEL TEMA -->
 									 <div class="panel panel-default">
 										 <div class="panel-heading">
@@ -155,11 +162,27 @@
 										 </div>
 										 <div id="tema-admin" class="panel-collapse collapse">
 											 <div class="panel-body">
-												 <div class="list-group">
-													 <a href="#" class="list-group-item active">Default</a>
-													 <a href="#" class="list-group-item">Tema 1</a>
-													 <a href="#" class="list-group-item">Tema 2</a>
-												 </div>
+												 <table class="table table-hover table-condensed table-responsive table-admin">
+													 <thead>
+                             <tr>
+                               <th>Tema</th><th class= "glyphs-users">Activar</th>
+                             </tr>
+                           </thead>
+													 <tbody>
+														 <tr>
+                               <td>Default</td>
+ 															 <td class= "glyphs-users"><span class="glyphicon glyphicon-eye-open admin-active-theme"></span></td>
+														</tr>
+														<tr>
+															<td>Tema 1</td>
+														  <td class= "glyphs-users"><span class="glyphicon glyphicon-eye-close admin-unactive-theme"></span></td>
+													 </tr>
+													 <tr>
+														 <td>Tema 2</td>
+														 <td class= "glyphs-users"><span class="glyphicon glyphicon-eye-close admin-unactive-theme"></span></td>
+													</tr>
+													</tbody>
+												</table>
 											 </div>
 										 </div>
 										</div>
@@ -173,7 +196,27 @@
 										 </div>
 										 <div id="module-admin" class="panel-collapse collapse">
 											 <div class="panel-body">
-
+												 <table class="table table-hover table-condensed table-responsive table-admin">
+													 <thead>
+                             <tr>
+                               <th>Módulo</th><th class= "glyphs-users">Activar</th>
+                             </tr>
+                           </thead>
+													 <tbody>
+														 <tr>
+                               <td>Módulo 1</td>
+ 															 <td class= "glyphs-users"><span class="glyphicon glyphicon-ok-sign admin-active-module"></span></td>
+														</tr>
+														<tr>
+															<td>Módulo 2</td>
+														  <td class= "glyphs-users"><span class="glyphicon glyphicon-plus-sign admin-unactive-module"></span></td>
+													 </tr>
+													 <tr>
+														 <td>Módulo 3</td>
+														 <td class= "glyphs-users"><span class="glyphicon glyphicon-plus-sign admin-unactive-module"></span></td>
+													</tr>
+													</tbody>
+												</table>
 											 </div>
 										 </div>
 										</div>
@@ -184,7 +227,7 @@
 
 					 <!-- END-ADMINISTRAR PAGINA -->
 				 </div>
-		 <a href="index.php">Volver a Home</a>
-  </div>
+		  <a href="index.php" id="homelinkadmin"><span class="glyphicon glyphicon-circle-arrow-left"></span> HOME </a>
+		</div>
   </body>
 </html>

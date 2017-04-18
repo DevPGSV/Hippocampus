@@ -271,6 +271,65 @@ $(document).ready(function() {
    });
   });
 
+$(".admin-unactive-theme").click(function(){
+    var popup = $('<div title="Activar"><p>¿Está seguro de querer activar este tema? </p></div>');
+    popup.dialog({
+                 modal: true,
+                 width: 600,
+                 closeOnEscape: true,
+                 buttons: {
+                  "Activar": function() {
+                    alert("El tema ha sido establecido.");
+                    $(this).dialog("close");
+                  },
+                 },
+     });
+});
+ $(".admin-active-theme").click(function(){
+     var popup = $('<div title="Desactivar"><p>¿Está seguro de querer desactivar este tema? </p></div>');
+     popup.dialog({
+        modal: true,
+        width: 600,
+        closeOnEscape: true,
+        buttons: {
+         "Desactivar": function() {
+           alert("El tema ha sido desactivado.");
+           $(this).dialog("close");
+         },
+        },
+     });
+});
+ $(".admin-unactive-module").click(function(){
+   var popup = $('<div title="Activar"><p>¿Está seguro de querer activar este módulo? </p></div>');
+   popup.dialog({
+                modal: true,
+                width: 600,
+                closeOnEscape: true,
+                buttons: {
+                 "Activar": function() {
+                   alert("El tema ha sido establecido.");
+                   $(this).dialog("close");
+                 },
+                },
+    });
+  });
+
+ $(".admin-active-module").click(function(){
+   var popup = $('<div title="Desactivar"><p>¿Está seguro de querer desactivar este módulo? </p></div>');
+   popup.dialog({
+                modal: true,
+                width: 600,
+                closeOnEscape: true,
+                buttons: {
+                 "Desactivar": function() {
+                   alert("El tema ha sido desactivado.");
+                   $(this).dialog("close");
+                 },
+                },
+    });
+  });
+
+
   $(document).on('change', ':file', function() {
     var input = $(this),
     numFiles = input.get(0).files ? input.get(0).files.length : 1,

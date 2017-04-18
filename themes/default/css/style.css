@@ -3,36 +3,35 @@
 **********************/
 
 * {
-  font-family: 'Actor';
+    font-family: 'Actor';
 }
 
-body,
-html {
-  height: 100%;
-  margin: 0;
+body, html {
+    height: 100%;
+    margin: 0;
 }
 
 body {
-  padding: 0px;
-  margin: 0px;
-  display: flex;
-  background-color: #000000;
-  height: 100%;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    background-color: #000000;
+    height: 100%;
 }
 
 .dont-select {
-  /* iOS Safari */
-  -webkit-touch-callout: none;
-  /* Safari */
-  -webkit-user-select: none;
-  /* Konqueror HTML */
-  -khtml-user-select: none;
-  /* Firefox */
-  -moz-user-select: none;
-  /* Internet Explorer/Edge */
-  -ms-user-select: none;
-  /* Non-prefixed version, currently supported by Chrome and Opera */
-  user-select: none;
+    /* iOS Safari */
+    -webkit-touch-callout: none;
+    /* Safari */
+    -webkit-user-select: none;
+    /* Konqueror HTML */
+    -khtml-user-select: none;
+    /* Firefox */
+    -moz-user-select: none;
+    /* Internet Explorer/Edge */
+    -ms-user-select: none;
+    /* Non-prefixed version, currently supported by Chrome and Opera */
+    user-select: none;
 }
 
 
@@ -41,19 +40,18 @@ body {
 **********************/
 
 .page {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
-.page>.sidebar,
-.page>.container-fluid {
-  float: left;
+.page>.sidebar, .page>.container-fluid {
+    float: left;
 }
 
 .page>.container-fluid {
-  padding: 0;
-  width: calc(100% - 100px);
-  margin-left: 100px;
+    padding: 0;
+    width: calc(100% - 100px);
+    margin-left: 100px;
 }
 
 
@@ -62,34 +60,34 @@ body {
 **********************/
 
 .page>.container-fluid>.row {
-  margin-left: 0px;
-  margin-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .page .glyphicon .badge {
-  margin-left: 5px;
+    margin-left: 5px;
 }
 
 .page>.container-fluid #userview-content {
-  height: calc(100% - 52px);
-  padding: 10px;
+    height: calc(100% - 52px);
+    padding: 10px;
 }
 
 .page>.container-fluid #userview-content .userview-content-column-wrapper {
-  background: rgba(0, 0, 0, 0.2);
-  height: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: white;
+    background: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
 }
 
 .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-content-column {
-  background: rgba(0, 0, 0, 0.7);
-  height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
 }
 
 .page>.container-fluid #userview-content .userview-content-column-wrapper:hover .userview-content-column {
-  border: 5px dashed red;
+    border: 5px dashed red;
 }
 
 
@@ -98,53 +96,54 @@ body {
 **********************/
 
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */
 }
 
 .sidebar {
-  background: rgba(44, 62, 80, 0.4);
-  opacity: 0.9;
-  color: #eee;
-  width: 100px;
-  height: 100%;
-  top: 0px;
-  position: fixed;
-  overflow: auto;
-
+    background: rgba(44, 62, 80, 0.4);
+    opacity: 0.9;
+    color: #eee;
+    width: 100px;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+    overflow: auto;
 }
 
 .sidebar-wrapper {
-  width: 100%;
-  background: #222;
-  height: 100%;
-  /*transition: all .4s ease 0s;*/
+    width: 100%;
+    background: #222;
+    height: 100%;
+    /*transition: all .4s ease 0s;*/
 }
 
 .sidebar-nav {
-  display: block;
-  float: left;
-  width: 100%;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: block;
+    float: left;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .sidebar-nav li {
-  line-height: 60px;
-  opacity: 1;
+    line-height: 60px;
+    opacity: 1;
 }
 
 .sidebar-nav li a {
-  color: #999999;
-  border-top: 1px solid #373737;
-  border-bottom: 1px solid #1A1A1A;
-  display: block;
-  width: 100%;
-  height: 60px;
-  text-decoration: none;
-  align: left;
-  /*
+    color: #999999;
+    border-top: 1px solid #373737;
+    border-bottom: 1px solid #1A1A1A;
+    display: block;
+    width: 100%;
+    height: 60px;
+    text-decoration: none;
+    align: left;
+    /*
   -webkit-transition: background .5s;
   -moz-transition: background .5s;
   -o-transition: background .5s;
@@ -154,126 +153,124 @@ body {
 }
 
 .sidebar-nav li a .icon {
-  width: 50%;
-  margin-top: 10px;
-  margin-left: 5px;
-  text-align: right;
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 5px;
+    text-align: right;
 }
 
 .sidebar-nav li a .sidebar-item-text {
-  display: none;
-  width: 50%;
+    display: none;
+    width: 50%;
 }
 
 .sidebar-nav.sidebar-nav-head li {
-  font-size: 18px;
-  text-align: center;
+    font-size: 18px;
+    text-align: center;
 }
 
 .sidebar-nav.sidebar-nav-head li a {
-  background-color: #c3c3c3;
-  color: black;
-  cursor: context-menu;
-  height: 50px;
-  border: 0px;
-  border-bottom-right-radius: 0px;
+    background-color: #c3c3c3;
+    color: black;
+    cursor: context-menu;
+    height: 50px;
+    border: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .sidebar-nav.sidebar-nav-head li a:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .sidebar-nav.sidebar-nav-items li a .sidebar-item-content {
-  float: left;
-  white-space: nowrap;
-  overflow: hidden;
-  height: 100%;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 100%;
 }
 
 .sidebar-nav.sidebar-nav-items li a {
-  color: #999;
-  background: #252525;
-  padding-right: 10px;
-  padding-left: 10px;
-  cursor: pointer;
+    color: #999;
+    background: #252525;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
 }
 
 .sidebar-nav.sidebar-nav-items li a:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.page>.sidebar,
-.page>.container-fluid {
-  -webkit-transition: width .5s, margin-left .5s;
-  -moz-transition: width .5s, margin-left .5s;
-  -o-transition: width .5s, margin-left .5s;
-  -ms-transition: width .5s, margin-left .5s;
-  transition: width .5s, margin-left .5s;
+.page>.sidebar, .page>.container-fluid {
+    -webkit-transition: width .5s, margin-left .5s;
+    -moz-transition: width .5s, margin-left .5s;
+    -o-transition: width .5s, margin-left .5s;
+    -ms-transition: width .5s, margin-left .5s;
+    transition: width .5s, margin-left .5s;
 }
 
-.sidebar>.page,
-.container-fluid>.page {
-  -webkit-transition: width .5s, margin-left .5s;
-  -moz-transition: width .5s, margin-left .5s;
-  -o-transition: width .5s, margin-left .5s;
-  -ms-transition: width .5s, margin-left .5s;
-  transition: width .5s, margin-left .5s;
+.sidebar>.page, .container-fluid>.page {
+    -webkit-transition: width .5s, margin-left .5s;
+    -moz-transition: width .5s, margin-left .5s;
+    -o-transition: width .5s, margin-left .5s;
+    -ms-transition: width .5s, margin-left .5s;
+    transition: width .5s, margin-left .5s;
 }
 
 @media only screen and (min-width: 1000px) {
-  .page.sidebar-expansible>.sidebar .sidebar-nav li a .sidebar-item-text {
-    display: inline;
-  }
-  .page.sidebar-expansible>.sidebar .sidebar-nav.sidebar-nav-items li a {
-    text-align: right;
-  }
-  .page.sidebar-expansible>.sidebar {
-    width: 160px;
-  }
-  .page.sidebar-expansible>.container-fluid {
-    width: calc(100% - 160px);
-    margin-left: 160px;
-  }
+    .page.sidebar-expansible>.sidebar .sidebar-nav li a .sidebar-item-text {
+        display: inline;
+    }
+    .page.sidebar-expansible>.sidebar .sidebar-nav.sidebar-nav-items li a {
+        text-align: right;
+    }
+    .page.sidebar-expansible>.sidebar {
+        width: 160px;
+    }
+    .page.sidebar-expansible>.container-fluid {
+        width: calc(100% - 160px);
+        margin-left: 160px;
+    }
 }
 
 @media only screen and (min-width: 1150px) {
-  .page.sidebar-expansible .sidebar {
-    width: 200px;
-  }
-  .page.sidebar-expansible>.container-fluid {
-    width: calc(100% - 200px);
-    margin-left: 200px;
-  }
+    .page.sidebar-expansible .sidebar {
+        width: 200px;
+    }
+    .page.sidebar-expansible>.container-fluid {
+        width: calc(100% - 200px);
+        margin-left: 200px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-  .sidebar {
-    display: none;
-  }
-  .page>.container-fluid {
-    width: 100%;
-    margin-left: 0px;
-  }
+    .sidebar {
+        display: none;
+    }
+    .page>.container-fluid {
+        width: 100%;
+        margin-left: 0px;
+    }
 }
 
 #register {
-	color: white;
-	font-size: 18px;
+    color: white;
+    font-size: 18px;
 }
+
 
 /**********************
     Top navbar Style
 **********************/
 
 .navbar li a {
-  cursor: pointer;
-
+    cursor: pointer;
 }
 
 .page>.container-fluid .navbar {
-  margin: 10px;
+    margin: 10px;
 }
 
 
@@ -290,72 +287,74 @@ body {
 */
 
 form {
-  margin: auto;
-  width: 50%;
-  max-width: 500px;
-  background: rgba(255, 255, 255, 0.6);
-  padding: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
 }
 
 h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 input {
-  display: block;
-  padding: 10px;
-  width: 100%;
-  font-size: 20px;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
 }
 
 input[type="checkbox"] {
-  width: auto;
-  display: inline;
-  cursor: pointer;
+    width: auto;
+    display: inline;
+    cursor: pointer;
 }
 
 input[type="submit"] {
-  background: linear-gradient(#41FFD0, #4440FF);
-  border: 0;
-  color: white;
-  opacity: 0.8;
-  cursor: pointer;
-  border-radius: 20px;
-  margin-bottom: 0;
+    background: linear-gradient(#41FFD0, #4440FF);
+    border: 0;
+    color: white;
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 0;
 }
+
+
 /*******************************************************/
 
 input[type="submit"]:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 input[type="submit"]:active {
-  /*Momento en el que se hace click*/
-  transform: scale(0.95);
+    /*Momento en el que se hace click*/
+    transform: scale(0.95);
 }
 
 @media (max-width:768px) {
-  form {
-    width: 75%;
-  }
+    form {
+        width: 75%;
+    }
 }
 
 @media (max-width:480px) {
-  form {
-    width: 95%;
-  }
+    form {
+        width: 95%;
+    }
 }
 
 #register {
-  color: white;
+    color: white;
 }
 
 #register:hover {
-  color: deepskyblue;
+    color: deepskyblue;
 }
 
 
@@ -363,77 +362,92 @@ input[type="submit"]:active {
    Admin Panel  Style
 **********************/
 
-#accordion1,#accordion2  {
-  margin-top: 30 px;
+#accordion1, #accordion2 {
+    margin-top: 30 px;
 }
 
-#accordion1 .panel-default,#accordion2 .panel-default {
-  background-color: rgba(255, 255, 255, 0.3);
+#accordion1 .panel-default, #accordion2 .panel-default {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-#accordion1 .panel-default>.panel-heading,#accordion2 .panel-default>.panel-heading {
-  background-color: rgba(255, 255, 255, 0.2);
+#accordion1 .panel-default>.panel-heading, #accordion2 .panel-default>.panel-heading {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-#accordion1 .panel-title,#accordion2 .panel-title {
-  color: white;
+#accordion1 .panel-title, #accordion2 .panel-title {
+    color: white;
 }
 
 #tab-admin {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 #label-admin {
-  color: #544F4F;
-  font-weight: normal;
+    color: #544F4F;
+    font-weight: normal;
+    font-size: 18px;
 }
 
 #checkbox-admin {
-  width: 40px;
+    width: 40px;
 }
 
 .button-crear {
-  max-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .glyphs-users {
-  text-align: center;
+    text-align: center;
 }
 
 #ul-admin {
-  margin-top: 20px;
-}
-.admin-title {
-  color: aqua;
+    margin-top: 20px;
 }
 
-.admin-edit-user,.admin-erase-user{
-  color: #155fa7;
-  cursor: pointer;
+.admin-title {
+    color: aqua;
+    font-size: 1.6em;
 }
+
+.admin-edit-user, .admin-erase-user, .admin-active-module, .admin-unactive-module, .admin-active-theme, .admin-unactive-theme {
+    color: #155fa7;
+    cursor: pointer;
+}
+
 #edit-popup>title {
-  color: blue;
+    color: blue;
 }
 
 .table-admin {
-  cursor: default;
+    cursor: default;
 }
+
+#homelinkadmin {
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+}
+
+
 
 /********************************/
 
 .icon {
-  display: inline-block;
-  float: right;
-  width: 40px;
-  height: 40px;
+    display: inline-block;
+    float: right;
+    width: 40px;
+    height: 40px;
 }
+
 
 /**********************
    User Menu Style
 **********************/
 
 #alerta {
-  text-indent: 290px;
+    text-indent: 290px;
 }
