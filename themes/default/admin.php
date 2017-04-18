@@ -100,7 +100,6 @@
 				 <!-- ADMINISTRAR PAGINA -->
 
            <div id="admin-page" class="tab-pane fade">
-<<<<<<< HEAD
 	             <div class="container panel-group" id="accordion2">
 								 <!-- PANEL NOMBRE-->
 	                <div class="panel panel-default">
@@ -185,7 +184,7 @@
 
 					 <!-- END-ADMINISTRAR PAGINA -->
 				 </div>
+				 				 <a href="index.php" target="_blank">Volver a Home</a>
   </div>
-				 <a href="index.php" target="_blank">Volver a Home</a>
   </body>
 </html>
