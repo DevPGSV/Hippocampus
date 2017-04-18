@@ -184,7 +184,7 @@
 
 					 <!-- END-ADMINISTRAR PAGINA -->
 				 </div>
-				 				 <a href="index.php" target="_blank">Volver a Home</a>
+		 <a href="index.php">Volver a Home</a>
   </div>
   </body>
 </html>
