@@ -255,6 +255,46 @@ function formLogin(e) {
 
 $(document).ready(function() {
 
+  $(".admin-edit-user").click(function(){
+
+  var popup = $('<div id="edit-popup" title="Editar"><p>Usuario: </p><input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario" data-toggle="tooltip" data-placement="top" title="Entre 4 y 20 caracteres"><br><p>Rol: </p><input type="text" class="form-control" placeholder="Rol" name="rol" id="rol"><br><p>Email: </p><input type="email" class="form-control" placeholder="Email" name="email" id="email"></div>');
+  popup.dialog({
+               modal: true,
+               width: 600,
+               closeOnEscape: true,
+               buttons: {
+                "Guardar": function() {
+                  alert("Tus ajustes han sido guardados");
+                  $(this).dialog("close");
+                },
+               },
+   });
+  });
+
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+  $(".admin-erase-user").click(function(){
+
+  var popup = $('<div title="Eliminar"><p>¿Está seguro de querer eliminar este usuario? </p></div>');
+  popup.dialog({
+               modal: true,
+               width: 600,
+               closeOnEscape: true,
+               buttons: {
+                "Eliminar": function() {
+                  alert("El usuario ha sido eliminado");
+                  $(this).dialog("close");
+                },
+               },
+    });
+   });
+
+
   setupBackgroundGradient();
 
   $("#sidebar.sidebar-nav-items>li").draggable({
