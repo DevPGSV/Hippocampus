@@ -19,8 +19,7 @@
 </head>
 
 	<body>
-
-			<form action="" method="POST" id="form-login">
+        <a href="http://imgur.com/961SrDv"><img id="hippo-izq" src="http://i.imgur.com/961SrDv.gif" title="source: imgur.com" /></a>			<form action="" method="POST" id="form-login">
 				<h2>Bienvenido a Hippocampus</h2>
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -62,8 +61,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-	</body>
+      <a href="http://imgur.com/pQLItby"><img id="hippo-der" src="http://i.imgur.com/pQLItby.gif" title="source: imgur.com" /></a>	</body>
 
 </html>
