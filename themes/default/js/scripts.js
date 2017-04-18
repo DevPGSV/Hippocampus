@@ -307,7 +307,7 @@ $(".admin-unactive-theme").click(function(){
                 closeOnEscape: true,
                 buttons: {
                  "Activar": function() {
-                   alert("El tema ha sido establecido.");
+                   alert("El módulo ha sido desactivado.");
                    $(this).dialog("close");
                  },
                 },
@@ -322,7 +322,7 @@ $(".admin-unactive-theme").click(function(){
                 closeOnEscape: true,
                 buttons: {
                  "Desactivar": function() {
-                   alert("El tema ha sido desactivado.");
+                   alert("El módulo ha sido activado.");
                    $(this).dialog("close");
                  },
                 },
