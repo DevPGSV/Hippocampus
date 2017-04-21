@@ -74,7 +74,6 @@ body {
 }
 
 .page>.container-fluid #userview-content .userview-content-column-wrapper {
-    background: rgba(0, 0, 0, 0.2);
     height: 100%;
     padding-left: 10px;
     padding-right: 10px;
