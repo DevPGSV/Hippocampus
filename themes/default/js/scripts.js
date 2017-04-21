@@ -400,3 +400,38 @@ $(".admin-unactive-theme").click(function(){
     return formLogin(e);
   });
 });
+
+//Sube el menu de editar perfil y añadir columnas 
+$(function() {
+
+    var active = $('[data-toggle="pill"]').parents('.active').length;
+    var tabClicked = false;
+
+    // Closes current active tab (toggle and pane):
+    var close = function() {
+        $('[data-toggle="pill"]').parent().removeClass('active');
+        $('.tab-pane.active').removeClass('active');
+        active = null;
+    }
+
+    // Closing active tab when clicking on toggle:
+    $('[data-toggle=pill]').click(function(){
+        if ($(this).parent().hasClass('active')){
+            $($(this).attr("href")).toggleClass('active');
+        } else {
+            tabClicked = true;
+            active = this;
+        }
+    });
+
+    // Closing active tab when clicking outside tab context (toggle and pane):
+    $(document).on('click.bs.tab.data-api', function(event) {
+        if(active && !tabClicked && !$(event.target).closest('.tab-pane.active').length) {
+            close();
+        }
+
+        tabClicked = false;
+    });
+
+ 
+});
