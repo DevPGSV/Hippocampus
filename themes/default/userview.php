@@ -103,9 +103,19 @@
                         <!--<li><a href="#">Aplicaciones</a></li>-->
                         <li><a href="admin">Administración</a></li>
                     </ul>
+
                     <ul class="nav navbar-nav navbar-right">
                       <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-plus"></span></a></li>
-                      <li><a data-toggle="pill" href="#menu2"><span class="glyphicon glyphicon-bullhorn"><span class="badge">5</span></span></a></li>
+                      
+                      <!-- MENU NOTIFICACIONES -->
+                      <li><div class="dropdown" id="div-menu2"><button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn"><span class="badge">4</span></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li role="presentation " class="notification-text-inside"><svg class="notification-icon gmail"><use xlink:href="#gmail"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">  Tienes 1 mensaje nuevo.</a></li>
+                          <li role="presentation " class="notification-text-inside"><svg class="notification-icon bolotweet"><use xlink:href="#bolotweet"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">  Tienes 1 mensaje nuevo.</a></li>
+                          <li role="presentation"><svg class="notification-icon ucm"><use xlink:href="#ucm"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">    Tienes 2 nuevos mensajes.</a></li>
+                        </ul></div></li>
+                        <!-- END MENU NOTIFICACIONES -->
+
                       <li><a data-toggle="pill" href="#menu3"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
                       <li><a href="logout"><span class="glyphicon glyphicon-off" title="Log out"></span></a></li>
                     </ul>
@@ -121,11 +131,6 @@
                           <option value="opel">3</option>
                         </select>
                         <p></p>
-                    </div>
-
-                    <div id="menu2" class="tab-pane fade">
-                      <h3>Notificaciones</h3>
-                      <p>Aquí tienen que ir las notificaciones</p>
                     </div>
 
                       <div id="menu3" class="tab-pane fade">
