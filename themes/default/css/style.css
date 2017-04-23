@@ -444,7 +444,7 @@ input[type="submit"]:active {
 }
 
 #accordion1 .panel-default, #accordion2 .panel-default {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(30, 28, 28, 0.33);
 }
 
 #accordion1 .panel-default>.panel-heading, #accordion2 .panel-default>.panel-heading {
@@ -484,12 +484,12 @@ input[type="submit"]:active {
 }
 
 .admin-title {
-    color: aqua;
+    color: white;
     font-size: 1.6em;
 }
 
 .admin-edit-user, .admin-erase-user, .admin-active-module, .admin-unactive-module, .admin-active-theme, .admin-unactive-theme {
-    color: #155fa7;
+    color: white;
     cursor: pointer;
 }
 
