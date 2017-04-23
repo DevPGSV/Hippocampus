@@ -554,3 +554,31 @@ input[type="submit"]:active {
     width:500px; /* you can use % */
     height: auto;
 }
+
+.btn-xl1 {
+    padding: 45px 40px;
+    background-image: url('http://i.imgur.com/2DDdcrM.jpg');
+    background-repeat: no-repeat;
+    background-size: 80px 90px;
+}
+
+.btn-xl2 {
+    padding: 45px 40px;
+    background-image: url('http://i.imgur.com/J92i0fr.jpg');
+    background-repeat: no-repeat;
+    background-size: 80px 90px;
+}
+
+.btn-xl3 {
+    padding: 45px 40px;
+    background-image: url('http://i.imgur.com/piVHFoJ.jpg');
+    background-repeat: no-repeat;
+    background-size: 80px 90px;
+}
+
+.btn-xl4 {
+    padding: 45px 40px;
+    background-image: url('http://i.imgur.com/Ae9HYG5.jpg');
+    background-repeat: no-repeat;
+    background-size: 80px 90px;
+}

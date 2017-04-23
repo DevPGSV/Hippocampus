@@ -127,11 +127,19 @@
                     <div id="menu1" class="tab-pane fade">
                       <h3>Configuración de columnas</h3>
                       <p> ¿Cuántas columnas quieres mostrar? </p>
-                        <select>
-                          <option value="volvo">1</option>
-                          <option value="saab">2</option>
-                          <option value="opel">3</option>
-                        </select>
+                        <button button type="button" class="btn btn-link btn-xl1" onclick="myFunctionForThis(1)">
+                      
+                        </button>
+                         <button button type="button" class="btn btn-link btn-xl2 " onclick="myFunctionForThis(2)">
+                                             
+                        </button>
+                         <button button type="button" class="btn btn-link btn-xl3" onclick="myFunctionForThis(3)">
+                       
+                        </button>
+                         <button button type="button" class="btn btn-link btn-xl4 " onclick="myFunctionForThis(4)">
+                      
+                        </button>
+
                         <p></p>
                     </div>
 
