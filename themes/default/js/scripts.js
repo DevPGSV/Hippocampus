@@ -255,6 +255,10 @@ function formLogin(e) {
 
 $(document).ready(function() {
 
+  setTimeout(function(){
+    $('#toplogo').hide();
+  }, 2000);
+
   $(".admin-edit-user").click(function(){
 
   var popup = $('<div id="edit-popup" title="Editar"><p>Usuario: </p><input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario" data-toggle="tooltip" data-placement="top" title="Entre 4 y 20 caracteres"><br><p>Rol: </p><input type="text" class="form-control" placeholder="Rol" name="rol" id="rol"><br><p>Email: </p><input type="email" class="form-control" placeholder="Email" name="email" id="email"></div>');
@@ -401,7 +405,7 @@ $(".admin-unactive-theme").click(function(){
   });
 });
 
-//Sube el menu de editar perfil y añadir columnas 
+//Sube el menu de editar perfil y añadir columnas
 $(function() {
 
     var active = $('[data-toggle="pill"]').parents('.active').length;
@@ -433,5 +437,5 @@ $(function() {
         tabClicked = false;
     });
 
- 
+
 });

@@ -79,8 +79,8 @@
         </div>
       </div>
 
-      <div id="logo" class="container-fluid">
-        <a href="http://imgur.com/yJuHskd"><img id="img" src="http://i.imgur.com/yJuHskd.png" title="source: imgur.com" /></a>
+      <div id="toplogo" class="container-fluid">
+        <a href="home"><img src="http://i.imgur.com/yJuHskd.png" title="Hippocampus"></a>
       </div>
 
       <div class="container-fluid">
@@ -128,16 +128,16 @@
                       <h3>Configuración de columnas</h3>
                       <p> ¿Cuántas columnas quieres mostrar? </p>
                         <button button type="button" class="btn btn-link btn-xl1" onclick="myFunctionForThis(1)">
-                      
+
                         </button>
                          <button button type="button" class="btn btn-link btn-xl2 " onclick="myFunctionForThis(2)">
-                                             
+
                         </button>
                          <button button type="button" class="btn btn-link btn-xl3" onclick="myFunctionForThis(3)">
-                       
+
                         </button>
                          <button button type="button" class="btn btn-link btn-xl4 " onclick="myFunctionForThis(4)">
-                      
+
                         </button>
 
                         <p></p>
