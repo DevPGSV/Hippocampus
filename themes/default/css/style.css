@@ -288,13 +288,15 @@ body {
 }
 
 .page>.container-fluid .navbar {
-    margin: 10px;
+  background-color: rgba(0, 0, 0, 0.14);
+  border-color: transparent;
+  margin: 10px;
 }
 
 #menu2{
   background-color: transparent;
   box-sizing: border-box;
-  color: rgb(85, 85, 85);
+  color: white; /*rgb(85, 85, 85);*/
   cursor: pointer;
   display: block;
   font-family: "Actor";
@@ -308,12 +310,12 @@ body {
   padding-right: 15px;
   padding-top: 15px;
   position: relative;
-  text-decoration: none;
-  text-decoration-color: rgb(85, 85, 85);
+  text-decoration: rgba(183, 176, 176, 0.31);
+  text-decoration-color: rgba(183, 176, 176, 0.31);
   text-decoration-line: none;
   text-decoration-style: solid;
   /* quitando lo de button */
-  border-bottom-color: none;
+  border-bottom-color: rgba(183, 176, 176, 0.31);
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-style: none;;
@@ -323,13 +325,13 @@ body {
   border-image-slice: 100% 100% 100% 100%;
   border-image-source: none;
   border-image-width: 1 1 1 1;
-  border-left-color: rgb(140, 140, 140);
+  border-left-color: rgba(183, 176, 176, 0.31);
   border-left-style: none;
   border-left-width: 1px;
-  border-right-color: rgb(140, 140, 140);
+  border-right-color: rgba(183, 176, 176, 0.31);
   border-right-style: none;
   border-right-width: 0px;
-  border-top-color: rgb(140, 140, 140);
+  border-top-color: rgba(183, 176, 176, 0.31);
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-top-style: none;
@@ -340,8 +342,8 @@ div#menu2.dropdown {
   padding: 0px;
 }
 
-div#div-menu2.dropdown.open {
-    background-color: rgb(231, 231, 231);
+div#div-menu2.dropdown.open, .navbar-default .navbar-nav > .active > a {
+    background-color: rgba(239, 234, 234, 0.35) !important;
 }
 
 div#div-menu2.dropdown.open .dropdown-menu > li{
@@ -358,6 +360,14 @@ div#div-menu2.dropdown.open .dropdown-menu > li{
 div#div-menu2.dropdown.open .dropdown-menu > li.notification-text-inside {
   border-bottom: solid #a2a0a0;
   border-bottom-width: 1.5px;
+}
+
+.navbar-element {
+  color: white !important;
+}
+
+.navbar-main-title, .navbar-element {
+  font-size: 18px !important;
 }
 
 /**********************
@@ -453,7 +463,7 @@ input[type="submit"]:active {
 }
 
 #accordion1 .panel-default, #accordion2 .panel-default {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(30, 28, 28, 0.33);
 }
 
 #accordion1 .panel-default>.panel-heading, #accordion2 .panel-default>.panel-heading {
@@ -493,12 +503,12 @@ input[type="submit"]:active {
 }
 
 .admin-title {
-    color: aqua;
+    color: white;
     font-size: 1.6em;
 }
 
 .admin-edit-user, .admin-erase-user, .admin-active-module, .admin-unactive-module, .admin-active-theme, .admin-unactive-theme {
-    color: #155fa7;
+    color: white;
     cursor: pointer;
 }
 

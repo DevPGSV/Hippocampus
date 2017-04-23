@@ -132,21 +132,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Top Menu</a>
+                    <a class="navbar-brand" href="#"></a><!-- HE QUITADO TOP MENU-->
                 </div>
 
                 <div class="collapse navbar-collapse" id="barraBasica">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#"  class=" navbar-element navbar-main-title">Home</a></li> <!-- HE QUITADO ACTIVE Y <a href="#">-->
                         <!--<li><a href="#">Aplicaciones</a></li>-->
-                        <li><a href="admin">Administración</a></li>
+                        <li><a href="admin" class="navbar-element navbar-main-title">Administración</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-plus"></span></a></li>
+                      <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-plus navbar-element"></span></a></li>
 
                       <!-- MENU NOTIFICACIONES -->
-                      <li><div class="dropdown" id="div-menu2"><button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn"><span class="badge">4</span></span></button>
+                      <li><div class="dropdown" id="div-menu2"><button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn navbar-element"><span class="badge">4</span></span></button>
                         <ul class="dropdown-menu" role="menu">
                           <li role="presentation " class="notification-text-inside"><svg class="notification-icon gmail"><use xlink:href="#gmail"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">  Tienes 1 mensaje nuevo.</a></li>
                           <li role="presentation " class="notification-text-inside"><svg class="notification-icon bolotweet"><use xlink:href="#bolotweet"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">  Tienes 1 mensaje nuevo.</a></li>
@@ -155,9 +155,9 @@
                       <!-- END MENU NOTIFICACIONES -->
 
                       <!-- MENU PERFIL -->
-                      <li><a data-toggle="pill" href="#menu3"><span class="glyphicon glyphicon-user" title="<?php echo $u->getUsername(); ?>"></span></a></li>
+                      <li><a data-toggle="pill" href="#menu3"><span class="glyphicon glyphicon-user navbar-element" title="<?php echo $u->getUsername(); ?>"></span></a></li>
                       <!-- END MENU PERFIL -->
-                      <li><a href="logout"><span class="glyphicon glyphicon-off" title="Log out"></span></a></li>
+                      <li><a href="logout"><span class="glyphicon glyphicon-off navbar-element" title="Log out"></span></a></li>
                     </ul>
                 </div>
 
