@@ -37,30 +37,38 @@ class UserManager
             $this->logOutUser();
             return;
         }
+        try {
+          $userSession = $this->hc->getDB()->getUserSessionByAlc($_SESSION['alc']); // userid, device, alc, dvc, ip, activeSession, firstUseSession, lastUseSession, firstUseCoordLat, firstUseCoordLong, useragent
 
-        $userSession = $this->hc->getDB()->getUserSessionByAlc($_SESSION['alc']); // userid, device, alc, dvc, ip, activeSession, firstUseSession, lastUseSession, firstUseCoordLat, firstUseCoordLong, useragent
+          if (!$userSession) {
+              $this->logOutUser();
+              return;
+          }
 
-        if (!$userSession) {
-            $this->logOutUser();
-            return;
-        }
-
-        if (
-          $userSession['alc'] !== $_SESSION['alc'] ||
-          $userSession['dvc'] !== $_SESSION['dvc'] ||
-          $userSession['ip']  !== $_SERVER['REMOTE_ADDR'] ||
-          $userSession['useragent'] !== trim(substr($_SERVER['HTTP_USER_AGENT'], 0, 256)) ||
-          !$userSession['activeSession']
-        ) {
-            $this->logOutUser();
-            return;
-        }
-        $this->loggedinUser = $this->getUserById($userSession['userid']);
-
-        $newDvc = Utils::randStr(32);
-        if ($this->hc->getDB()->updateUserSessionDvc($userSession['userid'], $userSession['alc'], $newDvc)) {
-            $_SESSION['dvc'] = $newDvc;
-            setcookie('dvc', $newDvc, 0, '/');
+          if (
+            $userSession['alc'] !== $_SESSION['alc'] ||
+            $userSession['dvc'] !== $_SESSION['dvc'] ||
+            $userSession['ip']  !== $_SERVER['REMOTE_ADDR'] ||
+            $userSession['useragent'] !== trim(substr($_SERVER['HTTP_USER_AGENT'], 0, 256)) ||
+            !$userSession['activeSession']
+          ) {
+              $this->logOutUser();
+              return;
+          }
+          $this->loggedinUser = $this->getUserById($userSession['userid']);
+          /*
+          $newDvc = Utils::randStr(32);
+          if ($this->hc->getDB()->updateUserSessionDvc($userSession['userid'], $userSession['alc'], $newDvc)) {
+              $_SESSION['dvc'] = $newDvc;
+              setcookie('dvc', $newDvc, 0, '/');
+          }
+          */
+        } catch (Exception $e) {
+          error_log($e->getMessage());
+          $_SESSION['alc'] = '';
+          $this->logOutUser();
+          echo "Logged out user. Try again. Error thrown:\n\n";
+          throw $e;
         }
     }
 

@@ -92,6 +92,7 @@ switch ($_GET['action']) {
     echo json_encode($answer);
     break;
   case 'logout':
+    $hc->getUserManager()->logOutUser();
     // logout user: set cookies, end user session, return status
     break;
   case 'register':
@@ -180,6 +181,31 @@ switch ($_GET['action']) {
         $answer['msg'] = 'unknown';
     }
 
+    echo json_encode($answer);
+    break;
+  case 'setWindowBox':
+    $u = $hc->getUserManager()->getLoggedInUser();
+    if ($u) {
+      $boxes = $hc->getDB()->getUserDataById($u->getId())['boxesconfig'];
+      $r = $_POST['row'];
+      $c = $_POST['col'];
+      if (!empty($boxes[$r]) && !empty($boxes[$r][$c])) {
+        $boxes[$r][$c] = $_POST['service'];
+        if ($hc->getDB()->updateWindowBoxService($u, $boxes)) {
+          $answer['status'] = 'ok';
+          $answer['msg'] = 'windowbox_updated';
+        } else {
+          $answer['status'] = 'error';
+          $answer['msg'] = 'unknown';
+        }
+      } else {
+        $answer['status'] = 'error';
+        $answer['msg'] = 'invalid_coord_in_grid';
+      }
+    } else {
+      $answer['status'] = 'error';
+      $answer['msg'] = 'not_logged_in';
+    }
     echo json_encode($answer);
     break;
   default:

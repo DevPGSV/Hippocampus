@@ -253,6 +253,44 @@ function formLogin(e) {
   });
 }
 
+function updateBoxContents(box) {
+  box.html('Loading...');
+  $.ajax({
+    type: "POST",
+    url: 'window',
+    dataType: 'html',
+    data: {
+      'row': box.attr('data-boxrow'),
+      'col': box.attr('data-boxcol'),
+      'content': box.attr('data-boxcontent'),
+    },
+    success: function(data) {
+      box.html(data);
+    },
+  });
+}
+
+function setBoxContents(box, service) {
+  $.ajax({
+    type: "POST",
+    url: 'api.php?action=setWindowBox',
+    dataType: 'json',
+    data: {
+      'row': box.attr('data-boxrow'),
+      'col': box.attr('data-boxcol'),
+      'service': service,
+    },
+    success: function(data) {
+      if (data['status'] === 'ok') {
+        updateBoxContents(box);
+      } else {
+        alert(data['msg']);
+      }
+    },
+  });
+
+}
+
 $(document).ready(function() {
 
   setTimeout(function(){
@@ -332,14 +370,6 @@ $(document).ready(function() {
     });
   });
 
-
-  $(document).on('change', ':file', function() {
-    var input = $(this),
-    numFiles = input.get(0).files ? input.get(0).files.length : 1,
-    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-    input.trigger('fileselect', [numFiles, label]);
-  });
-
   $(".admin-erase-user").click(function(){
     var popup = $('<div title="Eliminar"><p>¿Está seguro de querer eliminar este usuario? </p></div>');
     popup.dialog({
@@ -353,6 +383,13 @@ $(document).ready(function() {
         },
       },
     });
+  });
+
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
   });
 
 
@@ -371,9 +408,14 @@ $(document).ready(function() {
     },
     drop: function(event, ui) {
       //recycleImage(ui.draggable);
-      console.log(ui.draggable.html());
-      $(this).append(ui.draggable.html() + "<br>\n");
+      console.log(ui.draggable.find('span').attr('data-service'));
+      setBoxContents($(this), ui.draggable.find('span').attr('data-service'));
     }
+  });
+
+  $(".userview-content-column").each(function(index) {
+    var box = $(this);
+    updateBoxContents(box);
   });
 
 

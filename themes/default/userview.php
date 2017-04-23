@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Actor'>
-  <script src='//www.google.com/recaptcha/api.js'></script>
+  <!--<script src='//www.google.com/recaptcha/api.js'></script>-->
 
   <script src="lib/jssha256/jssha256.js"></script>
   <script src="scripts.js"></script>
@@ -27,54 +27,92 @@
             <li><a id="mainsidebar-toogle"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
           </ul>
           <ul class="sidebar-nav sidebar-nav-items" id="sidebar">
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">CV</span><svg class="icon ucm"><use xlink:href="#ucm"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Biblioteca</span><svg class="icon library"><use xlink:href="#library"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Gmail</span><svg class="icon gmail"><use xlink:href="#gmail"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Drive</span><svg class="icon drive"><use xlink:href="#drive"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Calendar</span><svg class="icon calendar"><use xlink:href="#calendar"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Classroom</span><svg class="icon classroom"><use xlink:href="#classroom"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Github</span><svg class="icon github"><use xlink:href="#github"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Bolotweet</span><svg class="icon bolotweet"><use xlink:href="#bolotweet"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Facebook</span><svg class="icon facebook"><use xlink:href="#facebook"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Twitter</span><svg class="icon twitter"><use xlink:href="#twitter"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Mensajes</span><svg class="icon chat"><use xlink:href="#chat"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Asociaciones</span><svg class="icon asociations"><use xlink:href="#asociations"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Cafetería</span><svg class="icon coffee"><use xlink:href="#coffee"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Software</span><svg class="icon software"><use xlink:href="#software"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Ajustes</span><svg class="icon settings"><use xlink:href="#settings"></use></svg>
-            </span></a></li>
-            <li><a><span class="sidebar-item-content">
-              <span class="sidebar-item-text">Ayuda</span><svg class="icon about"><use xlink:href="#about"></use></svg>
-            </span></a></li>
+            <?php
+            $sidebartabs = [
+              'cv' => [
+                'icon' => 'ucm',
+                'text' => 'CV',
+              ],
+              'library' => [
+                'icon' => 'library',
+                'text' => 'Biblioteca',
+              ],
+              'gmail' => [
+                'icon' => 'gmail',
+                'text' => 'Gmail',
+              ],
+              'drive' => [
+                'icon' => 'drive',
+                'text' => 'Drive',
+              ],
+              'calendar' => [
+                'icon' => 'calendar',
+                'text' => 'Calendar',
+              ],
+              'classroom' => [
+                'icon' => 'classroom',
+                'text' => 'Classroom',
+              ],
+              'github' => [
+                'icon' => 'github',
+                'text' => 'Github',
+              ],
+              'bolotweet' => [
+                'icon' => 'bolotweet',
+                'text' => 'Bolotweet',
+              ],
+              'facebook' => [
+                'icon' => 'facebook',
+                'text' => 'Facebook',
+              ],
+              'twitter' => [
+                'icon' => 'twitter',
+                'text' => 'Twitter',
+              ],
+              'chat' => [
+                'icon' => 'chat',
+                'text' => 'Mensajes',
+              ],
+              'chat' => [
+                'icon' => 'chat',
+                'text' => 'Mensajes',
+              ],
+              'asociations' => [
+                'icon' => 'asociations',
+                'text' => 'Asociaciones',
+              ],
+              'coffee' => [
+                'icon' => 'coffee',
+                'text' => 'Cafetería',
+              ],
+              'software' => [
+                'icon' => 'software',
+                'text' => 'Software',
+              ],
+              'settings' => [
+                'icon' => 'settings',
+                'text' => 'Ajustes',
+              ],
+              'about' => [
+                'icon' => 'about',
+                'text' => 'Ayuda',
+              ],
+            ];
+            foreach ($sidebartabs as $sidebartabid => $sidebartabdata) {
+              echo '
+            <li>
+              <a>
+                <span class="sidebar-item-content" data-service="'.$sidebartabid.'">
+                  <svg class="icon '.$sidebartabdata['icon'].'">
+                    <use xlink:href="#'.$sidebartabdata['icon'].'">
+                    </use>
+                  </svg>
+                  <span class="sidebar-item-text">'.$sidebartabdata['text'].'</span>
+                </span>
+              </a>
+            </li>';
+            }
+            ?>
           </ul>
         </div>
       </div>
@@ -127,20 +165,10 @@
                     <div id="menu1" class="tab-pane fade">
                       <h3>Configuración de columnas</h3>
                       <p> ¿Cuántas columnas quieres mostrar? </p>
-                        <button button type="button" class="btn btn-link btn-xl1" onclick="myFunctionForThis(1)">
-
-                        </button>
-                         <button button type="button" class="btn btn-link btn-xl2 " onclick="myFunctionForThis(2)">
-
-                        </button>
-                         <button button type="button" class="btn btn-link btn-xl3" onclick="myFunctionForThis(3)">
-
-                        </button>
-                         <button button type="button" class="btn btn-link btn-xl4 " onclick="myFunctionForThis(4)">
-
-                        </button>
-
-                        <p></p>
+                      <button button type="button" class="btn btn-link btn-xl1" onclick="myFunctionForThis(1)"></button>
+                      <button button type="button" class="btn btn-link btn-xl2" onclick="myFunctionForThis(2)"></button>
+                      <button button type="button" class="btn btn-link btn-xl3" onclick="myFunctionForThis(3)"></button>
+                      <button button type="button" class="btn btn-link btn-xl4" onclick="myFunctionForThis(4)"></button>
                     </div>
 
                     <!-- MENU PERFIL -->
@@ -153,7 +181,7 @@
                            <!-- left column -->
                            <div class="col-md-3">
                              <div class="text-center">
-                               <a href="http://imgur.com/cTCsZeR"><img src="http://i.imgur.com/cTCsZeR.png" title="source: imgur.com" /></a>
+                               <img src="http://i.imgur.com/cTCsZeR.png">
                                <!--<h6>Sube una nueva imagen</h6>
 
                                <input class="form-control" type="file">-->
@@ -185,25 +213,25 @@
                                  <div class="form-group">
                                    <label class="col-lg-3 control-label">Correo electrónico</label>
                                    <div class="col-lg-8">
-                                     <input class="form-control" value="user@gmail.com" type="text">
+                                     <input class="form-control" value="<?php echo $u->getEmail(); ?>" type="text">
                                    </div>
                                  </div>
                                  <div class="form-group">
                                    <label class="col-md-3 control-label">Nombre de usuario</label>
                                    <div class="col-md-8">
-                                     <input class="form-control" value="username" type="text">
+                                     <input class="form-control" value="<?php echo $u->getUsername(); ?>" type="text">
                                    </div>
                                  </div>
                                  <div class="form-group">
                                    <label class="col-md-3 control-label">Contraseña</label>
                                    <div class="col-md-8">
-                                     <input class="form-control" value="11111122333" type="password">
+                                     <input class="form-control" value="" type="password">
                                    </div>
                                  </div>
                                  <div class="form-group">
                                    <label class="col-md-3 control-label">Confirmar contraseña</label>
                                    <div class="col-md-8">
-                                     <input class="form-control" value="11111122333" type="password">
+                                     <input class="form-control" value="" type="password">
                                    </div>
                                  </div>
                                </form>
@@ -218,15 +246,22 @@
               </div>
             </nav>
           </div>
-        <div class="row" id="userview-content">
-          <?php
-          for ($i = 0; $i < 3; $i++) {
-              echo '<div class="col-sm-4 userview-content-column-wrapper">
-                <div class="userview-content-column" style=""></div>
-                </div>';
-          }
-          ?>
-        </div>
+          <div id="userview-content">
+            <?php
+            $rows = $hc->db->getUserDataById($u->getId())['boxesconfig'];
+            $rowNumber = count($rows);
+            foreach ($rows as $r => $row) {
+              echo '<div class="row row'.$rowNumber.'">';
+              $colSize = floor(12/count($row));
+              foreach ($row as $c => $colum) {
+                  echo '<div class="col-sm-'.$colSize.' userview-content-column-wrapper">
+                    <div class="userview-content-column" data-boxrow="'.$r.'" data-boxcol="'.$c.'" data-boxcontent="'.$colum.'">Loading...</div>
+                    </div>';
+              }
+              echo '</div>';
+            }
+            ?>
+          </div>
       </div>
   </div>
   <?php /*

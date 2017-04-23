@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Actor'>
-  <script src='//www.google.com/recaptcha/api.js'></script>
+  <!--<script src='//www.google.com/recaptcha/api.js'></script>-->
 
   <script src="lib/jssha256/jssha256.js"></script>
   <script src="scripts.js"></script>
@@ -19,7 +19,8 @@
 </head>
 
 	<body>
-        <a href="http://imgur.com/961SrDv"><img id="hippo-izq" src="http://i.imgur.com/961SrDv.gif" title="source: imgur.com" /></a>			<form action="" method="POST" id="form-login">
+      <img id="hippo-izq" src="http://i.imgur.com/961SrDv.gif">
+      <form action="" method="POST" id="form-login">
 				<h2>Bienvenido a Hippocampus</h2>
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -41,6 +42,7 @@
 				<br>
 				<p align="center"> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
 			</form>
+      <img id="hippo-der" src="http://i.imgur.com/pQLItby.gif"></body>
 
       <!-- Modal -->
       <div class="modal fade" id="dummyModal" role="dialog">
@@ -49,18 +51,17 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title" id="dummyModal-title">Modal Header</h4>
+              <h4 class="modal-title" id="dummyModal-title">?</h4>
             </div>
             <div class="modal-body" id="dummyModal-body">
-              <p>Some text in the modal.</p>
+              <p>???</p>
             </div>
             <!--
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             -->
-            </div>
           </div>
         </div>
-      <a href="http://imgur.com/pQLItby"><img id="hippo-der" src="http://i.imgur.com/pQLItby.gif" title="source: imgur.com" /></a>	</body>
+      </div>
 
 </html>

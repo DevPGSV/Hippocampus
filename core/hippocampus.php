@@ -49,6 +49,13 @@ class Hippocampus
             $this->userManager->logOutUser();
             header('Location: home');
             echo 'Logged out! <a href="home">Home</a>';
+        } elseif (empty($_GET['p']) || ($_GET['p'] === '/window' || $_GET['p'] === 'window')) {
+            $u = $this->userManager->getLoggedInUser();
+            if ($u) {
+                require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('window'));
+            } else {
+                echo '404! Window.';
+            }
         } else {
             echo "404<br>\n";
             print_r($_GET);
