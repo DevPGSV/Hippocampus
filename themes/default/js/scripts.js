@@ -479,3 +479,10 @@ $(function() {
 
 
 });
+
+// Animated sidebar menu icon
+$(document).ready(function(){
+  $('#menu-nav-icon').click(function(){
+    $(this).toggleClass('open');
+  });
+});

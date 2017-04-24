@@ -24,11 +24,19 @@
       <div class="sidebar dont-select">
         <div class="sidebar-wrapper">
           <ul class="sidebar-nav sidebar-nav-head">
-            <li><a id="mainsidebar-toogle"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
+            <li><a id="mainsidebar-toogle"> <div id="menu-nav-icon">
+                                              <span></span>
+                                              <span></span>
+                                              <span></span>
+                                            </div></a></li>
           </ul>
           <ul class="sidebar-nav sidebar-nav-items" id="sidebar">
             <?php
             $sidebartabs = [
+              'home' => [
+                'icon' => 'home',
+                'text' => 'Inicio',
+              ],
               'cv' => [
                 'icon' => 'ucm',
                 'text' => 'CV',
