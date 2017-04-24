@@ -266,7 +266,10 @@
               $colSize = floor(12/count($row));
               foreach ($row as $c => $colum) {
                   echo '<div class="col-sm-'.$colSize.' userview-content-column-wrapper">
-                    <div class="userview-window-toolbar"> wolap </div>
+                    <div class="userview-window-toolbar">
+                      <div class="userview-window-toolbar-service"> Nombre del servicio </div>
+                      <div class="userview-window-toolbar-icons"> <a href="localhost"><span class="glyphicon glyphicon-new-window"></span></a> <a href="localhost"><span class="glyphicon glyphicon-resize-full"></span></a> </div>
+                    </div>
                     <div class="userview-content-column" data-boxrow="'.$r.'" data-boxcol="'.$c.'" data-boxcontent="'.$colum.'">Loading...</div>
                     </div>';
               }
