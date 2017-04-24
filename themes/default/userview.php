@@ -99,7 +99,7 @@
               ],
             ];
             foreach ($sidebartabs as $sidebartabid => $sidebartabdata) {
-              echo '
+                echo '
             <li>
               <a>
                 <span class="sidebar-item-content" data-service="'.$sidebartabid.'">
@@ -147,10 +147,10 @@
                       <ul class="dropdown-menu" role="menu" id="column-menu">
                         <h3>Configuración de columnas</h3>
                         <p> ¿Cuántas columnas quieres mostrar? </p>
-                        <button button type="button" class="btn btn-link btn-xl1" onclick="myFunctionForThis(1)"></button>
-                        <button button type="button" class="btn btn-link btn-xl2" onclick="myFunctionForThis(2)"></button>
-                        <button button type="button" class="btn btn-link btn-xl3" onclick="myFunctionForThis(3)"></button>
-                        <button button type="button" class="btn btn-link btn-xl4" onclick="myFunctionForThis(4)"></button>
+                        <button button type="button" class="btn btn-link btn-xl1" onclick="setBoxLayout([1])"></button>
+                        <button button type="button" class="btn btn-link btn-xl2" onclick="setBoxLayout([2])"></button>
+                        <button button type="button" class="btn btn-link btn-xl3" onclick="setBoxLayout([3])"></button>
+                        <button button type="button" class="btn btn-link btn-xl4" onclick="setBoxLayout([2,2])"></button>
                       </ul></div></li>
                       <!-- END MENU NOTIFICACIONES -->
 
@@ -251,18 +251,18 @@
             $rows = $hc->db->getUserDataById($u->getId())['boxesconfig'];
             $rowNumber = count($rows);
             foreach ($rows as $r => $row) {
-              echo '<div class="row row'.$rowNumber.'">';
-              $colSize = floor(12/count($row));
-              foreach ($row as $c => $colum) {
-                  echo '<div class="col-sm-'.$colSize.' userview-content-column-wrapper">
+                echo '<div class="row row'.$rowNumber.'">';
+                $colSize = floor(12/count($row));
+                foreach ($row as $c => $colum) {
+                    echo '<div class="col-sm-'.$colSize.' userview-content-column-wrapper">
                     <div class="userview-window-toolbar">
                       <div class="userview-window-toolbar-service"> Nombre del servicio </div>
                       <div class="userview-window-toolbar-icons"> <a href=""><span class="glyphicon glyphicon-new-window"></span></a> <a href=""><span class="glyphicon glyphicon-resize-full"></span></a> </div>
                     </div>
                     <div class="userview-content-column" data-boxrow="'.$r.'" data-boxcol="'.$c.'" data-boxcontent="'.$colum.'">Loading...</div>
                     </div>';
-              }
-              echo '</div>';
+                }
+                echo '</div>';
             }
             ?>
           </div>

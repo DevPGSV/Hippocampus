@@ -254,18 +254,19 @@ function formLogin(e) {
 }
 
 function updateBoxContents(box) {
-  box.html('Loading...');
+  box.find('.userview-content-column').html('Loading...');
   $.ajax({
     type: "POST",
     url: 'window',
     dataType: 'html',
     data: {
-      'row': box.attr('data-boxrow'),
-      'col': box.attr('data-boxcol'),
-      'content': box.attr('data-boxcontent'),
+      'row': box.find('.userview-content-column').attr('data-boxrow'),
+      'col': box.find('.userview-content-column').attr('data-boxcol'),
+      'content': box.find('.userview-content-column').attr('data-boxcontent'),
     },
     success: function(data) {
-      box.html(data);
+      box.find('.userview-content-column').html(data);
+      box.find('.userview-window-toolbar').find('.userview-window-toolbar-service').html(box.find('.userview-content-column').attr('data-boxcontent'));
     },
   });
 }
@@ -276,12 +277,13 @@ function setBoxContents(box, service) {
     url: 'api.php?action=setWindowBox',
     dataType: 'json',
     data: {
-      'row': box.attr('data-boxrow'),
-      'col': box.attr('data-boxcol'),
+      'row': box.find('.userview-content-column').attr('data-boxrow'),
+      'col': box.find('.userview-content-column').attr('data-boxcol'),
       'service': service,
     },
     success: function(data) {
       if (data['status'] === 'ok') {
+        box.find('.userview-content-column').attr('data-boxcontent', service);
         updateBoxContents(box);
       } else {
         alert(data['msg']);
@@ -312,8 +314,8 @@ function setBoxLayout(layout) {
 $(document).ready(function() {
 
   setTimeout(function() {
-    $('#toplogo').hide();
-  }, 2000);
+    $('#toplogo').fadeOut();
+  }, 1000);
 
   $(".admin-edit-user").click(function() {
     var popup = $('<div id="edit-popup" title="Editar"><p>Usuario: </p><input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario" data-toggle="tooltip" data-placement="top" title="Entre 4 y 20 caracteres"><br><p>Rol: </p><input type="text" class="form-control" placeholder="Rol" name="rol" id="rol"><br><p>Email: </p><input type="email" class="form-control" placeholder="Email" name="email" id="email"></div>');
@@ -419,19 +421,18 @@ $(document).ready(function() {
   });
 
 
-  $(".userview-content-column").droppable({
+  $(".userview-content-column-wrapper").droppable({
     accept: "#sidebar.sidebar-nav-items>li",
     classes: {
       "ui-droppable-active": "custom-state-active"
     },
     drop: function(event, ui) {
-      //recycleImage(ui.draggable);
       console.log(ui.draggable.find('span').attr('data-service'));
       setBoxContents($(this), ui.draggable.find('span').attr('data-service'));
     }
   });
 
-  $(".userview-content-column").each(function(index) {
+  $(".userview-content-column-wrapper").each(function(index) {
     var box = $(this);
     updateBoxContents(box);
   });
