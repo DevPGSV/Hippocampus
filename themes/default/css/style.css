@@ -71,6 +71,11 @@ body {
 .page>.container-fluid #userview-content .row {
     height: calc(100% - 72px);
     padding: 10px;
+    margin: 10px;
+}
+
+.page>.container-fluid #userview-content .row:first-child {
+    margin-top: 0px;
 }
 
 .page>.container-fluid #userview-content .row2 {
@@ -91,9 +96,9 @@ body {
 
 
 .page>.container-fluid #userview-content .row .userview-content-column-wrapper {
-    height: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+    height: calc(100% - 40px);
+    padding-left: 5px;
+    padding-right: 5px;
     color: white;
 }
 
@@ -102,20 +107,40 @@ body {
     height: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 
-.page>.container-fluid #userview-content .userview-content-column-wrapper:hover .userview-content-column {
-    border: 5px dashed red;
-}
 
 .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-window-toolbar {
   width:100%;
-  background-color: red;
+  height: 40px;
+  background-color: #252525;
+  opacity: 0.9;
   border-top-right-radius:10px;
   border-top-left-radius:10px;
-  padding: 4px;
-  padding-left: 6px;
+  padding: 10px;
+}
+
+.page>.container-fluid #userview-content .userview-content-column-wrapper .userview-window-toolbar .userview-window-toolbar-service {
+  width: 80%;
+  float: left;
+  padding: 2px;
+}
+
+.page>.container-fluid #userview-content .userview-content-column-wrapper .userview-window-toolbar .userview-window-toolbar-icons {
+  width: 20%;
+  float: right;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.page>.container-fluid #userview-content .userview-content-column-wrapper .userview-window-toolbar .userview-window-toolbar-icons .glyphicon {
+  margin-left: 10px;
+  float: right;
+}
+
+.userview-window-toolbar-icons a {
+  color: #999999;
 }
 
 /**********************
