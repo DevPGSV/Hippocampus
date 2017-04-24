@@ -19,30 +19,57 @@
 </head>
 
 	<body>
+
+    <div class="outer">
+      <div class="middle">
+        <div class="inner">
+    <div class=".col-md-4">
       <a><img id="hippo-izq" src="http://i.imgur.com/961SrDv.gif"></a>
-      <form action="" method="POST" id="form-login">
-				<h2>Bienvenido a Hippocampus</h2>
-				<div class="input-group">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-					<input type="text" placeholder="Usuario" name="usuario" id="usuario">
-				</div>
-				<br>
+    </div>
+  </div>
+</div>
+</div>
 
-				<div class="input-group">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-					<input type="password" placeholder="Contraseña" name="password" id="password">
-				</div>
-				<br>
+    <div id="divi" class=".col-md-4">
+      <div class="outer">
+        <div class="middle">
+          <div class="inner">
+            <form action="" method="POST" id="form-login">
+              <h2>Bienvenido a Hippocampus</h2>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" placeholder="Usuario" name="usuario" id="usuario">
+              </div>
+              <br>
 
-				<input type="checkbox" name="forgotpasswd" id="squaredThree">    Olvidé mi contraseña
-				<br>
-				<br>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" placeholder="Contraseña" name="password" id="password">
+              </div>
+              <br>
 
-				<input type="submit" value="Ingresar">
-				<br>
-				<p align="center"> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
-			</form>
+              <input type="checkbox" name="forgotpasswd" id="squaredThree">    Olvidé mi contraseña
+              <br>
+              <br>
+
+              <input type="submit" value="Ingresar">
+              <br>
+              <p align="center"> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="middle">
+        <div class="inner">
+    <div class=".col-md-4">
       <a><img id="hippo-der" src="http://i.imgur.com/pQLItby.gif"></a>
+    </div>
+  </div>
+</div>
+</div>
 
       <!-- Modal -->
       <div class="modal fade" id="dummyModal" role="dialog">
