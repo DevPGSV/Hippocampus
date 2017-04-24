@@ -36,7 +36,7 @@ INSERT INTO `config` (`varkey`, `value`) VALUES
 ('site.recaptcha.public', '6Lcm-hwUAAAAAPMqEpMVBzUgJdQZ7vAjQSys5O4Q'),
 ('site.recaptcha.secret', '6Lcm-hwUAAAAAJt1AgOsEkl8VoLEeVnygVkzJT5q'),
 ('site.recaptcha.active', 'false'),
-('db.version', '6');
+('db.version', '7');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,11 @@ CREATE TABLE `users` (
   `email` varchar(32) NOT NULL,
   `confirmedEmail` tinyint(1) NOT NULL,
   `secretToken` varchar(32) NOT NULL,
-  `role` int(11) NOT NULL
+  `role` int(11) NOT NULL,
+  `boxesconfig` varchar(128) NOT NULL DEFAULT '[["none", "none", "none"]]',
+  `name` varchar(32) NOT NULL DEFAULT 'NAME',
+  `surname` varchar(32) NOT NULL DEFAULT 'SURNAME',
+  `profilepic` varchar(32) NOT NULL DEFAULT 'PROFILEPICPATH'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

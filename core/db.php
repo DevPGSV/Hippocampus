@@ -64,6 +64,7 @@ class Database
         $stmt->execute([$userId]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (count($rows) === 1) {
+            $rows[0]['boxesconfig'] = json_decode($rows[0]['boxesconfig'], true);
             return $rows[0];
         } else {
             return false;
@@ -81,6 +82,7 @@ class Database
         $stmt->execute([$user]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (count($rows) === 1) {
+            $rows[0]['boxesconfig'] = json_decode($rows[0]['boxesconfig'], true);
             return $rows[0];
         } else {
             return false;
@@ -98,6 +100,7 @@ class Database
         $stmt->execute([$email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (count($rows) === 1) {
+            $rows[0]['boxesconfig'] = json_decode($rows[0]['boxesconfig'], true);
             return $rows[0];
         } else {
             return false;
@@ -107,7 +110,7 @@ class Database
     private function databaseSetup()
     { // Setup database when new database version is found
       try {
-          $dbVersion='6';
+          $dbVersion='7';
           $stmt = $this->db->prepare("SELECT * FROM config WHERE varkey='db.version'");
           $stmt->execute();
           $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -259,6 +262,24 @@ class Database
         $stmt->bindValue(':dvc', $newDvc, PDO::PARAM_STR);
         $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
         $stmt->bindValue(':alc', $alc, PDO::PARAM_STR);
+        return $stmt->execute();
+    }
+
+    public function updateWindowBoxService($user, $services)
+    {
+        if ($user instanceof User) {
+            $userid = $user->getId();
+        } elseif (is_int($user)) {
+            $userid = $user;
+        } else {
+            throw new Exception('Invalid id');
+        }
+
+        $boxesconfig = json_encode($services);
+
+        $stmt = $this->db->prepare("UPDATE `users` SET boxesconfig=:boxesconfig WHERE id=:userid");
+        $stmt->bindValue(':boxesconfig', $boxesconfig, PDO::PARAM_STR);
+        $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
         return $stmt->execute();
     }
 }

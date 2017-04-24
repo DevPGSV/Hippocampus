@@ -71,7 +71,7 @@ switch ($_GET['action']) {
             $firstUseCoordLong = 0.0;
             $useragent = trim(substr($_SERVER['HTTP_USER_AGENT'], 0, 256));
 
-            if ($hc->getDB()->createNewUserSession($uData['id'], $device, $alc, $dvc, $ip, true, $firstUseSession, $lastUseSession, $firstUseCoordLat, $firstUseCoordLong, $useragent)) {
+            if ($hc->getDB()->createNewUserSession((int)$uData['id'], $device, $alc, $dvc, $ip, true, $firstUseSession, $lastUseSession, $firstUseCoordLat, $firstUseCoordLong, $useragent)) {
                 setcookie('alc', $alc, 0, '/');
                 setcookie('dvc', $dvc, 0, '/');
                 $_SESSION['alc'] = $alc;
@@ -92,6 +92,7 @@ switch ($_GET['action']) {
     echo json_encode($answer);
     break;
   case 'logout':
+    $hc->getUserManager()->logOutUser();
     // logout user: set cookies, end user session, return status
     break;
   case 'register':
@@ -180,6 +181,69 @@ switch ($_GET['action']) {
         $answer['msg'] = 'unknown';
     }
 
+    echo json_encode($answer);
+    break;
+  case 'setWindowBox':
+    $u = $hc->getUserManager()->getLoggedInUser();
+    if ($u) {
+        $boxes = $hc->getDB()->getUserDataById($u->getId())['boxesconfig'];
+        $r = $_POST['row'];
+        $c = $_POST['col'];
+        if (!empty($boxes[$r]) && !empty($boxes[$r][$c])) {
+            $boxes[$r][$c] = $_POST['service'];
+            if ($hc->getDB()->updateWindowBoxService($u, $boxes)) {
+                $answer['status'] = 'ok';
+                $answer['msg'] = 'windowbox_updated';
+            } else {
+                $answer['status'] = 'error';
+                $answer['msg'] = 'unknown';
+            }
+        } else {
+            $answer['status'] = 'error';
+            $answer['msg'] = 'invalid_coord_in_grid';
+        }
+    } else {
+        $answer['status'] = 'error';
+        $answer['msg'] = 'not_logged_in';
+    }
+    echo json_encode($answer);
+    break;
+  case 'updateWindowLayout':
+    $u = $hc->getUserManager()->getLoggedInUser();
+    if ($u) {
+        $boxes = $hc->getDB()->getUserDataById($u->getId())['boxesconfig'];
+        $layout = $_POST['layout'];
+        $listOfServices = [];
+        foreach ($boxes as $rows) {
+            foreach ($rows as $service) {
+                $listOfServices[] = $service;
+            }
+        }
+        $serviceCounter = 0;
+        $boxes = [];
+        foreach ($layout as $cols) {
+            $rowData = [];
+            for ($i = 0; $i < $cols; $i++) {
+                if ($serviceCounter < count($listOfServices)) {
+                    $rowData[] = $listOfServices[$serviceCounter];
+                    $serviceCounter++;
+                } else {
+                    $rowData[] = 'none';
+                }
+            }
+            $boxes[] = $rowData;
+        }
+        if ($hc->getDB()->updateWindowBoxService($u, $boxes)) {
+            $answer['status'] = 'ok';
+            $answer['msg'] = 'windowbox_updated';
+        } else {
+            $answer['status'] = 'error';
+            $answer['msg'] = 'unknown';
+        }
+    } else {
+        $answer['status'] = 'error';
+        $answer['msg'] = 'not_logged_in';
+    }
     echo json_encode($answer);
     break;
   default:

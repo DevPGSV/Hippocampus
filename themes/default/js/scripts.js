@@ -253,9 +253,191 @@ function formLogin(e) {
   });
 }
 
+function updateBoxContents(box) {
+  box.find('.userview-content-column').html('Loading...');
+  $.ajax({
+    type: "POST",
+    url: 'window',
+    dataType: 'html',
+    data: {
+      'row': box.find('.userview-content-column').attr('data-boxrow'),
+      'col': box.find('.userview-content-column').attr('data-boxcol'),
+      'content': box.find('.userview-content-column').attr('data-boxcontent'),
+    },
+    success: function(data) {
+      box.find('.userview-content-column').html(data);
+      box.find('.userview-window-toolbar').find('.userview-window-toolbar-service').html(box.find('.userview-content-column').attr('data-boxcontent'));
+    },
+  });
+}
+
+function setBoxContents(box, service) {
+  $.ajax({
+    type: "POST",
+    url: 'api.php?action=setWindowBox',
+    dataType: 'json',
+    data: {
+      'row': box.find('.userview-content-column').attr('data-boxrow'),
+      'col': box.find('.userview-content-column').attr('data-boxcol'),
+      'service': service,
+    },
+    success: function(data) {
+      if (data['status'] === 'ok') {
+        box.find('.userview-content-column').attr('data-boxcontent', service);
+        updateBoxContents(box);
+      } else {
+        alert(data['msg']);
+      }
+    },
+  });
+}
+
+function setBoxLayout(layout) {
+  $.ajax({
+    type: "POST",
+    url: 'api.php?action=updateWindowLayout',
+    dataType: 'json',
+    data: {
+      'layout': layout,
+    },
+    success: function(data) {
+      console.log(data);
+      if (data['status'] === 'ok') {
+        location.reload();
+      } else {
+        alert(data['msg']);
+      }
+    },
+  });
+}
+
 $(document).ready(function() {
 
+  setTimeout(function() {
+    $('#toplogo').fadeOut();
+  }, 1000);
+
+  $(".admin-edit-user").click(function() {
+    var popup = $('<div id="edit-popup" title="Editar"><p>Usuario: </p><input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario" data-toggle="tooltip" data-placement="top" title="Entre 4 y 20 caracteres"><br><p>Rol: </p><input type="text" class="form-control" placeholder="Rol" name="rol" id="rol"><br><p>Email: </p><input type="email" class="form-control" placeholder="Email" name="email" id="email"></div>');
+    popup.dialog({
+      modal: true,
+      width: 600,
+      closeOnEscape: true,
+      buttons: {
+        "Guardar": function() {
+          alert("Tus ajustes han sido guardados");
+          $(this).dialog("close");
+        },
+      },
+    });
+  });
+
+  $(".admin-unactive-theme").click(function() {
+    var popup = $('<div title="Activar"><p>¿Está seguro de querer activar este tema? </p></div>');
+    popup.dialog({
+      modal: true,
+      width: 600,
+      closeOnEscape: true,
+      buttons: {
+        "Activar": function() {
+          alert("El tema ha sido establecido.");
+          $(this).dialog("close");
+        },
+      },
+    });
+  });
+  $(".admin-active-theme").click(function() {
+    var popup = $('<div title="Desactivar"><p>¿Está seguro de querer desactivar este tema? </p></div>');
+    popup.dialog({
+      modal: true,
+      width: 600,
+      closeOnEscape: true,
+      buttons: {
+        "Desactivar": function() {
+          alert("El tema ha sido desactivado.");
+          $(this).dialog("close");
+        },
+      },
+    });
+  });
+  $(".admin-unactive-module").click(function() {
+    var popup = $('<div title="Activar"><p>¿Está seguro de querer activar este módulo? </p></div>');
+    popup.dialog({
+      modal: true,
+      width: 600,
+      closeOnEscape: true,
+      buttons: {
+        "Activar": function() {
+          alert("El módulo ha sido desactivado.");
+          $(this).dialog("close");
+        },
+      },
+    });
+  });
+
+  $(".admin-active-module").click(function() {
+    var popup = $('<div title="Desactivar"><p>¿Está seguro de querer desactivar este módulo? </p></div>');
+    popup.dialog({
+      modal: true,
+      width: 600,
+      closeOnEscape: true,
+      buttons: {
+        "Desactivar": function() {
+          alert("El módulo ha sido activado.");
+          $(this).dialog("close");
+        },
+      },
+    });
+  });
+
+  $(".admin-erase-user").click(function() {
+    var popup = $('<div title="Eliminar"><p>¿Está seguro de querer eliminar este usuario? </p></div>');
+    popup.dialog({
+      modal: true,
+      width: 600,
+      closeOnEscape: true,
+      buttons: {
+        "Eliminar": function() {
+          alert("El usuario ha sido eliminado");
+          $(this).dialog("close");
+        },
+      },
+    });
+  });
+
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+      numFiles = input.get(0).files ? input.get(0).files.length : 1,
+      label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+
   setupBackgroundGradient();
+
+  $("#sidebar.sidebar-nav-items>li").draggable({
+    revert: true,
+    helper: "clone",
+  });
+
+
+  $(".userview-content-column-wrapper").droppable({
+    accept: "#sidebar.sidebar-nav-items>li",
+    classes: {
+      "ui-droppable-active": "custom-state-active"
+    },
+    drop: function(event, ui) {
+      console.log(ui.draggable.find('span').attr('data-service'));
+      setBoxContents($(this), ui.draggable.find('span').attr('data-service'));
+    }
+  });
+
+  $(".userview-content-column-wrapper").each(function(index) {
+    var box = $(this);
+    updateBoxContents(box);
+  });
+
+
 
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
@@ -279,5 +461,47 @@ $(document).ready(function() {
   $("#form-login").submit(function(e) {
     e.preventDefault();
     return formLogin(e);
+  });
+});
+
+//Sube el menu de editar perfil y añadir columnas
+$(function() {
+
+  var active = $('[data-toggle="pill"]').parents('.active').length;
+  var tabClicked = false;
+
+  // Closes current active tab (toggle and pane):
+  var close = function() {
+    $('[data-toggle="pill"]').parent().removeClass('active');
+    $('.tab-pane.active').removeClass('active');
+    active = null;
+  }
+
+  // Closing active tab when clicking on toggle:
+  $('[data-toggle=pill]').click(function() {
+    if ($(this).parent().hasClass('active')) {
+      $($(this).attr("href")).toggleClass('active');
+    } else {
+      tabClicked = true;
+      active = this;
+    }
+  });
+
+  // Closing active tab when clicking outside tab context (toggle and pane):
+  $(document).on('click.bs.tab.data-api', function(event) {
+    if (active && !tabClicked && !$(event.target).closest('.tab-pane.active').length) {
+      close();
+    }
+
+    tabClicked = false;
+  });
+
+
+});
+
+// Animated sidebar menu icon
+$(document).ready(function() {
+  $('#menu-nav-icon').click(function() {
+    $(this).toggleClass('open');
   });
 });
