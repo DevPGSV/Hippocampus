@@ -19,7 +19,7 @@
 </head>
 
 	<body>
-      <img id="hippo-izq" src="http://i.imgur.com/961SrDv.gif">
+      <a><img id="hippo-izq" src="http://i.imgur.com/961SrDv.gif"></a>
       <form action="" method="POST" id="form-login">
 				<h2>Bienvenido a Hippocampus</h2>
 				<div class="input-group">
@@ -42,7 +42,7 @@
 				<br>
 				<p align="center"> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
 			</form>
-      <img id="hippo-der" src="http://i.imgur.com/pQLItby.gif"></body>
+      <a><img id="hippo-der" src="http://i.imgur.com/pQLItby.gif"></a>
 
       <!-- Modal -->
       <div class="modal fade" id="dummyModal" role="dialog">
@@ -63,5 +63,5 @@
           </div>
         </div>
       </div>
-
+  </body>
 </html>
