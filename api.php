@@ -71,7 +71,7 @@ switch ($_GET['action']) {
             $firstUseCoordLong = 0.0;
             $useragent = trim(substr($_SERVER['HTTP_USER_AGENT'], 0, 256));
 
-            if ($hc->getDB()->createNewUserSession($uData['id'], $device, $alc, $dvc, $ip, true, $firstUseSession, $lastUseSession, $firstUseCoordLat, $firstUseCoordLong, $useragent)) {
+            if ($hc->getDB()->createNewUserSession((int)$uData['id'], $device, $alc, $dvc, $ip, true, $firstUseSession, $lastUseSession, $firstUseCoordLat, $firstUseCoordLong, $useragent)) {
                 setcookie('alc', $alc, 0, '/');
                 setcookie('dvc', $dvc, 0, '/');
                 $_SESSION['alc'] = $alc;
