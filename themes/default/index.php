@@ -20,22 +20,15 @@
 
 	<body>
 
-    <div class="outer">
-      <div class="middle">
-        <div class="inner">
-    <div class=".col-md-4">
-      <a><img id="hippo-izq" src="http://i.imgur.com/961SrDv.gif"></a>
-    </div>
-  </div>
-</div>
-</div>
+            <a><img id="hippo-izq" src="http://i.imgur.com/961SrDv.gif"></a>
 
-    <div id="divi" class=".col-md-4">
-      <div class="outer">
-        <div class="middle">
-          <div class="inner">
             <form action="" method="POST" id="form-login">
-              <h2>Bienvenido a Hippocampus</h2>
+              <h2 id="bienvenido">Bienvenido a Hippocampus</h2>
+
+              <div class="container-fluid">
+                <a href="home"><img id="logo-ini" src="http://i.imgur.com/yJuHskd.png" title="Hippocampus"></a>
+              </div>
+
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input type="text" placeholder="Usuario" name="usuario" id="usuario">
@@ -56,20 +49,10 @@
               <br>
               <p align="center"> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="outer">
-      <div class="middle">
-        <div class="inner">
-    <div class=".col-md-4">
-      <a><img id="hippo-der" src="http://i.imgur.com/pQLItby.gif"></a>
+            <a><img id="hippo-der" src="http://i.imgur.com/pQLItby.gif"></a>
+
     </div>
-  </div>
-</div>
-</div>
 
       <!-- Modal -->
       <div class="modal fade" id="dummyModal" role="dialog">
