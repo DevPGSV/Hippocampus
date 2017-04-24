@@ -144,7 +144,18 @@
 
                     <ul class="nav navbar-nav navbar-right">
                       <li><a data-toggle="pill" href="#menu1"><span class="glyphicon glyphicon-plus navbar-element"></span></a></li>
+                      <!-- MENU COLUMNAS -->
+                      <li><div class="dropdown" id="div-menu1"><button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><span class="glyphicon glyphicon-plus navbar-element"></span></button>
+                      <ul class="dropdown-menu" role="menu" id="column-menu">
+                        <h3>Configuración de columnas</h3>
+                        <p> ¿Cuántas columnas quieres mostrar? </p>
+                        <button button type="button" class="btn btn-link btn-xl1" onclick="myFunctionForThis(1)"></button>
+                        <button button type="button" class="btn btn-link btn-xl2" onclick="myFunctionForThis(2)"></button>
+                        <button button type="button" class="btn btn-link btn-xl3" onclick="myFunctionForThis(3)"></button>
+                        <button button type="button" class="btn btn-link btn-xl4" onclick="myFunctionForThis(4)"></button>
+                      </ul></div></li>
 
+                      <!-- END MENU NOTIFICACIONES -->
                       <!-- MENU NOTIFICACIONES -->
                       <li><div class="dropdown" id="div-menu2"><button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn navbar-element"><span class="badge">4</span></span></button>
                         <ul class="dropdown-menu" role="menu">
@@ -162,14 +173,14 @@
                 </div>
 
                 <div class="tab-content">
-                    <div id="menu1" class="tab-pane fade">
+                    <!--<div id="menu1" class="tab-pane fade">
                       <h3>Configuración de columnas</h3>
                       <p> ¿Cuántas columnas quieres mostrar? </p>
                       <button button type="button" class="btn btn-link btn-xl1" onclick="myFunctionForThis(1)"></button>
                       <button button type="button" class="btn btn-link btn-xl2" onclick="myFunctionForThis(2)"></button>
                       <button button type="button" class="btn btn-link btn-xl3" onclick="myFunctionForThis(3)"></button>
                       <button button type="button" class="btn btn-link btn-xl4" onclick="myFunctionForThis(4)"></button>
-                    </div>
+                    </div>-->
 
                     <!-- MENU PERFIL -->
                      <div id="menu3" class="tab-pane fade">

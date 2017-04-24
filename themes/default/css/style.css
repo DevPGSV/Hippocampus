@@ -304,7 +304,7 @@ body {
   margin: 10px;
 }
 
-#menu2{
+#menu2, #menu1{
   background-color: transparent;
   box-sizing: border-box;
   color: white; /*rgb(85, 85, 85);*/
@@ -349,15 +349,15 @@ body {
   border-top-width: 0px;
 }
 
-div#menu2.dropdown {
+div#menu2.dropdown, div#menu1.dropdown  {
   padding: 0px;
 }
 
-div#div-menu2.dropdown.open, .navbar-default .navbar-nav > .active > a {
+div#div-menu2.dropdown.open, .navbar-default .navbar-nav > .active > a , div#div-menu1.dropdown.open, .navbar-default .navbar-nav > .active > a {
     background-color: rgba(239, 234, 234, 0.35) !important;
 }
 
-div#div-menu2.dropdown.open .dropdown-menu > li{
+div#div-menu2.dropdown.open .dropdown-menu > li, div#div-menu1.dropdown.open .dropdown-menu > li{
   margin-left: 10px;
   display: -moz-inline-box;
   margin-bottom: 2px;
@@ -368,7 +368,7 @@ div#div-menu2.dropdown.open .dropdown-menu > li{
   display: inline-block;
 }
 
-div#div-menu2.dropdown.open .dropdown-menu > li.notification-text-inside {
+div#div-menu2.dropdown.open .dropdown-menu > li.notification-text-inside , div#div-menu1.dropdown.open .dropdown-menu > li.notification-text-inside{
   border-bottom: solid #a2a0a0;
   border-bottom-width: 1.5px;
 }
