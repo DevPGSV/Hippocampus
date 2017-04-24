@@ -164,6 +164,7 @@
                       <!-- END MENU NOTIFICACIONES -->
 
                       <!-- MENU PERFIL -->
+
                       <li><div class="dropdown" id="div-menu3"><button class="btn btn-default dropdown-toggle" type="button" id="menu3" data-toggle="dropdown"><span class="glyphicon glyphicon-user navbar-element"></span></button>
                         <ul class="dropdown-menu" role="menu" id="perfil-menu">
                           <div class="container">
