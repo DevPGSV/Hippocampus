@@ -100,12 +100,13 @@ body {
 .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-content-column {
     background: rgba(0, 0, 0, 0.7);
     height: 100%;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .page>.container-fluid #userview-content .userview-content-column-wrapper:hover .userview-content-column {
     border: 5px dashed red;
 }
-
 
 /**********************
      Sidebar Style
@@ -576,14 +577,16 @@ input[type="submit"]:active {
 
 .btn-xl1 {
     padding: 45px 40px;
-    background-image: url('http://i.imgur.com/2DDdcrM.jpg');
+    background-image: url('http://i.imgur.com/2DDdcrM.png');
+    /*background-image: url('http://i.imgur.com/2DDdcrM.jpg');*/
     background-repeat: no-repeat;
     background-size: 80px 90px;
 }
 
 .btn-xl2 {
     padding: 45px 40px;
-    background-image: url('http://i.imgur.com/J92i0fr.jpg');
+    background-image: url('http://i.imgur.com/nYhZG6j.jpg');
+    /*background-image: url('http://i.imgur.com/J92i0fr.jpg');*/
     background-repeat: no-repeat;
     background-size: 80px 90px;
 }
