@@ -372,25 +372,16 @@ div#div-menu2.dropdown.open .dropdown-menu > li.notification-text-inside {
 }
 
 /**********************
-     No idea Style
+   Form login Style
 **********************/
 
-
-/*
-#blackLine {
-  background: #252525;
-  width: 100%;
-}
-*/
-
 form {
-    margin: auto;
-    width: 50%;
-    max-width: 500px;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
+  margin: auto;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 }
 
 h2 {
@@ -421,7 +412,6 @@ input[type="submit"] {
     border-radius: 20px;
     margin-bottom: 0;
 }
-
 
 /*******************************************************/
 
