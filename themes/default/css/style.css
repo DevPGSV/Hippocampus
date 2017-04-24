@@ -390,13 +390,13 @@ form {
   height: auto;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1500px) {
   form{
     margin: auto;
     background: rgba(255, 255, 255, 0.6);
     padding: 15px;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 7px;
+    border-radius: 10px;
   }
 
   #hippo-der {
@@ -414,13 +414,39 @@ form {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   form{
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 7px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    border-radius: 10px;
+    margin: auto;
+  }
+
+  #hippo-der {
+    display: none;
+  }
+
+  #hippo-izq {
+    display: none;
+  }
+
+  #bienvenido {
+    display: none;
+  }
+
+  #logo-ini {
+    display: inline;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  form{
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: auto;
   }
 
   #hippo-der {
