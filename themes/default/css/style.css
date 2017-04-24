@@ -585,8 +585,8 @@ input[type="submit"]:active {
 
 .btn-xl2 {
     padding: 45px 40px;
-    background-image: url('http://i.imgur.com/nYhZG6j.jpg');
-    /*background-image: url('http://i.imgur.com/J92i0fr.jpg');*/
+    /*background-image: url('http://i.imgur.com/nYhZG6j.jpg');*/
+    background-image: url('http://i.imgur.com/J92i0fr.jpg');
     background-repeat: no-repeat;
     background-size: 80px 90px;
 }
