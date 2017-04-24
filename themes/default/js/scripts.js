@@ -288,16 +288,34 @@ function setBoxContents(box, service) {
       }
     },
   });
+}
 
+function setBoxLayout(layout) {
+  $.ajax({
+    type: "POST",
+    url: 'api.php?action=updateWindowLayout',
+    dataType: 'json',
+    data: {
+      'layout': layout,
+    },
+    success: function(data) {
+      console.log(data);
+      if (data['status'] === 'ok') {
+        location.reload();
+      } else {
+        alert(data['msg']);
+      }
+    },
+  });
 }
 
 $(document).ready(function() {
 
-  setTimeout(function(){
+  setTimeout(function() {
     $('#toplogo').hide();
   }, 2000);
 
-  $(".admin-edit-user").click(function(){
+  $(".admin-edit-user").click(function() {
     var popup = $('<div id="edit-popup" title="Editar"><p>Usuario: </p><input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario" data-toggle="tooltip" data-placement="top" title="Entre 4 y 20 caracteres"><br><p>Rol: </p><input type="text" class="form-control" placeholder="Rol" name="rol" id="rol"><br><p>Email: </p><input type="email" class="form-control" placeholder="Email" name="email" id="email"></div>');
     popup.dialog({
       modal: true,
@@ -312,7 +330,7 @@ $(document).ready(function() {
     });
   });
 
-  $(".admin-unactive-theme").click(function(){
+  $(".admin-unactive-theme").click(function() {
     var popup = $('<div title="Activar"><p>¿Está seguro de querer activar este tema? </p></div>');
     popup.dialog({
       modal: true,
@@ -326,7 +344,7 @@ $(document).ready(function() {
       },
     });
   });
-  $(".admin-active-theme").click(function(){
+  $(".admin-active-theme").click(function() {
     var popup = $('<div title="Desactivar"><p>¿Está seguro de querer desactivar este tema? </p></div>');
     popup.dialog({
       modal: true,
@@ -340,7 +358,7 @@ $(document).ready(function() {
       },
     });
   });
-  $(".admin-unactive-module").click(function(){
+  $(".admin-unactive-module").click(function() {
     var popup = $('<div title="Activar"><p>¿Está seguro de querer activar este módulo? </p></div>');
     popup.dialog({
       modal: true,
@@ -355,7 +373,7 @@ $(document).ready(function() {
     });
   });
 
-  $(".admin-active-module").click(function(){
+  $(".admin-active-module").click(function() {
     var popup = $('<div title="Desactivar"><p>¿Está seguro de querer desactivar este módulo? </p></div>');
     popup.dialog({
       modal: true,
@@ -370,7 +388,7 @@ $(document).ready(function() {
     });
   });
 
-  $(".admin-erase-user").click(function(){
+  $(".admin-erase-user").click(function() {
     var popup = $('<div title="Eliminar"><p>¿Está seguro de querer eliminar este usuario? </p></div>');
     popup.dialog({
       modal: true,
@@ -387,8 +405,8 @@ $(document).ready(function() {
 
   $(document).on('change', ':file', function() {
     var input = $(this),
-    numFiles = input.get(0).files ? input.get(0).files.length : 1,
-    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+      numFiles = input.get(0).files ? input.get(0).files.length : 1,
+      label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
     input.trigger('fileselect', [numFiles, label]);
   });
 
@@ -448,34 +466,41 @@ $(document).ready(function() {
 //Sube el menu de editar perfil y añadir columnas
 $(function() {
 
-    var active = $('[data-toggle="pill"]').parents('.active').length;
-    var tabClicked = false;
+  var active = $('[data-toggle="pill"]').parents('.active').length;
+  var tabClicked = false;
 
-    // Closes current active tab (toggle and pane):
-    var close = function() {
-        $('[data-toggle="pill"]').parent().removeClass('active');
-        $('.tab-pane.active').removeClass('active');
-        active = null;
+  // Closes current active tab (toggle and pane):
+  var close = function() {
+    $('[data-toggle="pill"]').parent().removeClass('active');
+    $('.tab-pane.active').removeClass('active');
+    active = null;
+  }
+
+  // Closing active tab when clicking on toggle:
+  $('[data-toggle=pill]').click(function() {
+    if ($(this).parent().hasClass('active')) {
+      $($(this).attr("href")).toggleClass('active');
+    } else {
+      tabClicked = true;
+      active = this;
+    }
+  });
+
+  // Closing active tab when clicking outside tab context (toggle and pane):
+  $(document).on('click.bs.tab.data-api', function(event) {
+    if (active && !tabClicked && !$(event.target).closest('.tab-pane.active').length) {
+      close();
     }
 
-    // Closing active tab when clicking on toggle:
-    $('[data-toggle=pill]').click(function(){
-        if ($(this).parent().hasClass('active')){
-            $($(this).attr("href")).toggleClass('active');
-        } else {
-            tabClicked = true;
-            active = this;
-        }
-    });
-
-    // Closing active tab when clicking outside tab context (toggle and pane):
-    $(document).on('click.bs.tab.data-api', function(event) {
-        if(active && !tabClicked && !$(event.target).closest('.tab-pane.active').length) {
-            close();
-        }
-
-        tabClicked = false;
-    });
+    tabClicked = false;
+  });
 
 
+});
+
+// Animated sidebar menu icon
+$(document).ready(function() {
+  $('#menu-nav-icon').click(function() {
+    $(this).toggleClass('open');
+  });
 });

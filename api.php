@@ -186,25 +186,63 @@ switch ($_GET['action']) {
   case 'setWindowBox':
     $u = $hc->getUserManager()->getLoggedInUser();
     if ($u) {
-      $boxes = $hc->getDB()->getUserDataById($u->getId())['boxesconfig'];
-      $r = $_POST['row'];
-      $c = $_POST['col'];
-      if (!empty($boxes[$r]) && !empty($boxes[$r][$c])) {
-        $boxes[$r][$c] = $_POST['service'];
-        if ($hc->getDB()->updateWindowBoxService($u, $boxes)) {
-          $answer['status'] = 'ok';
-          $answer['msg'] = 'windowbox_updated';
+        $boxes = $hc->getDB()->getUserDataById($u->getId())['boxesconfig'];
+        $r = $_POST['row'];
+        $c = $_POST['col'];
+        if (!empty($boxes[$r]) && !empty($boxes[$r][$c])) {
+            $boxes[$r][$c] = $_POST['service'];
+            if ($hc->getDB()->updateWindowBoxService($u, $boxes)) {
+                $answer['status'] = 'ok';
+                $answer['msg'] = 'windowbox_updated';
+            } else {
+                $answer['status'] = 'error';
+                $answer['msg'] = 'unknown';
+            }
         } else {
-          $answer['status'] = 'error';
-          $answer['msg'] = 'unknown';
+            $answer['status'] = 'error';
+            $answer['msg'] = 'invalid_coord_in_grid';
         }
-      } else {
-        $answer['status'] = 'error';
-        $answer['msg'] = 'invalid_coord_in_grid';
-      }
     } else {
-      $answer['status'] = 'error';
-      $answer['msg'] = 'not_logged_in';
+        $answer['status'] = 'error';
+        $answer['msg'] = 'not_logged_in';
+    }
+    echo json_encode($answer);
+    break;
+  case 'updateWindowLayout':
+    $u = $hc->getUserManager()->getLoggedInUser();
+    if ($u) {
+        $boxes = $hc->getDB()->getUserDataById($u->getId())['boxesconfig'];
+        $layout = $_POST['layout'];
+        $listOfServices = [];
+        foreach ($boxes as $rows) {
+            foreach ($rows as $service) {
+                $listOfServices[] = $service;
+            }
+        }
+        $serviceCounter = 0;
+        $boxes = [];
+        foreach ($layout as $cols) {
+            $rowData = [];
+            for ($i = 0; $i < $cols; $i++) {
+                if ($serviceCounter < count($listOfServices)) {
+                    $rowData[] = $listOfServices[$serviceCounter];
+                    $serviceCounter++;
+                } else {
+                    $rowData[] = 'none';
+                }
+            }
+            $boxes[] = $rowData;
+        }
+        if ($hc->getDB()->updateWindowBoxService($u, $boxes)) {
+            $answer['status'] = 'ok';
+            $answer['msg'] = 'windowbox_updated';
+        } else {
+            $answer['status'] = 'error';
+            $answer['msg'] = 'unknown';
+        }
+    } else {
+        $answer['status'] = 'error';
+        $answer['msg'] = 'not_logged_in';
     }
     echo json_encode($answer);
     break;
