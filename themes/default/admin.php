@@ -1,16 +1,3 @@
-<!-- ADMINNNNNNN BITCH
--Administrar usuarios
-  -crear usuarios
-  -borrar usuarios
-  -editar usuarios (cambiar roles)
-
--Apariencia de la página
-  -tema
-  -fondo
-  -logo
-  -nombre
-	-Administrar temas y modulos (activarlos, desactivarlos, instalar nuevos, desinstalarlos)
--->
 <html lang="es">
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
