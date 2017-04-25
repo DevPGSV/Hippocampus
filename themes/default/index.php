@@ -20,7 +20,7 @@
 
 	<body>
 
-            <a><img id="hippo-izq" src="img/pQLItby.gif"></a>
+            <a><img id="hippo-izq" src="img/961SrDv.gif"></a>
 
             <form action="" method="POST" id="form-login">
               <h2 id="bienvenido">Bienvenido a Hippocampus</h2>
@@ -66,10 +66,6 @@
             <div class="modal-body" id="dummyModal-body">
               <p>???</p>
             </div>
-            <!--
-            <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            -->
           </div>
         </div>
       </div>
