@@ -189,13 +189,6 @@
 
                                 <!-- edit form column -->
                                   <div class="col-md-9 personal-info" id="info-column">
-                                    <!--<div class="alert alert-info alert-dismissable">
-                                      <a class="panel-close close" data-dismiss="alert">×</a>
-                                      <i class="fa fa-coffee"></i>
-                                       Puedes cambiar tus datos desde el menú de Administración
-                                     </div>
-                                    <div id="alerta"><h3>Información de la cuenta</h3></div>-->
-
                                     <form class="form-horizontal" role="form">
                                       <div class="form-group part-perfil">
                                         <label class="col-lg-3 control-label simple-part">Nombre</label>
