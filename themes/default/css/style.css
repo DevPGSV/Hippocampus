@@ -66,6 +66,16 @@
     margin-left: 5px;
   }
 
+  #userview-content {
+    height: 99.5vh;
+    padding-bottom: 10px;
+  }
+
+  #main-body-userview {
+    overflow: hidden;
+    height: inherit;
+  }
+
   .page>.container-fluid #userview-content .row {
     margin: 10px;
     margin-top: 50px;
@@ -467,7 +477,6 @@
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     border-bottom-style: none;
-    ;
     border-bottom-width: 0px;
     border-image-outset: 0 0 0 0;
     border-image-repeat: stretch stretch;
@@ -522,7 +531,6 @@
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     border-bottom-style: none;
-    ;
     border-bottom-width: 0px;
     border-image-outset: 0 0 0 0;
     border-image-repeat: stretch stretch;
@@ -598,7 +606,6 @@
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     border-bottom-style: none;
-    ;
     border-bottom-width: 0px;
     border-image-outset: 0 0 0 0;
     border-image-repeat: stretch stretch;
@@ -771,7 +778,7 @@
     border-radius: 20px;
     margin-bottom: 0;
   }
-  /*******************************************************/
+  
   /**********************
      Register Style
 **********************/

@@ -121,7 +121,7 @@
         <a href="home"><img src="http://i.imgur.com/yJuHskd.png" title="Hippocampus"></a>
       </div>
 
-      <div class="container-fluid">
+      <div class="container-fluid" id="main-body-userview">
         <div class="row">
           <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -132,12 +132,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"></a><!-- HE QUITADO TOP MENU-->
+                    <a class="navbar-brand" href="#"></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="barraBasica">
                     <ul class="nav navbar-nav">
-                        <li><a href="#"  class=" navbar-element navbar-main-title">Home</a></li> <!-- HE QUITADO ACTIVE -->
+                        <li><a href="#"  class=" navbar-element navbar-main-title">Home</a></li>
                         <li><a href="admin" class="navbar-element navbar-main-title">Administración</a></li>
                     </ul>
 
@@ -257,7 +257,7 @@
                     echo '<div class="col-sm-'.$colSize.' userview-content-column-wrapper">
                     <div class="userview-window-toolbar">
                       <div class="userview-window-toolbar-service"> Nombre del servicio </div>
-                      <div class="userview-window-toolbar-icons"> <a href=""><span class="glyphicon glyphicon-new-window"></span></a> <a href=""><span class="glyphicon glyphicon-resize-full"></span></a> </div>
+                      <div class="userview-window-toolbar-icons"><a href="#"><span class="glyphicon glyphicon-new-window"></span></a> <a href="#"><span class="glyphicon glyphicon-resize-full"></span></a> </div>
                     </div>
                     <div class="userview-content-column" data-boxrow="'.$r.'" data-boxcol="'.$c.'" data-boxcontent="'.$colum.'">Loading...</div>
                     </div>';
