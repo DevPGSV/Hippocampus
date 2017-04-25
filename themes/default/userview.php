@@ -118,7 +118,7 @@
       </div>
 
       <div id="toplogo" class="container-fluid">
-        <a href="home"><img src="http://i.imgur.com/yJuHskd.png" title="Hippocampus"></a>
+        <a href="home"><img src="img/yJuHskd.png" title="Hippocampus"></a>
       </div>
 
       <div class="container-fluid" id="main-body-userview">
@@ -173,7 +173,7 @@
                                 <!-- left column -->
                                 <div class="col-md-3" id="pic-column">
                                   <div class="text-center">
-                                    <img src="http://i.imgur.com/cTCsZeR.png" id="foto-perfil">
+                                    <img src="img/cTCsZeR.png" id="foto-perfil">
                                     <h6>Sube una nueva imagen</h6>
                                     <!--<input class="form-control" type="file">-->
                                     <div class="input-group" id="perfil-foto-input">

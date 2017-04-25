@@ -20,13 +20,13 @@
 
 	<body>
 
-            <a><img id="hippo-izq" src="http://i.imgur.com/961SrDv.gif"></a>
+            <a><img id="hippo-izq" src="img/pQLItby.gif"></a>
 
             <form action="" method="POST" id="form-login">
               <h2 id="bienvenido">Bienvenido a Hippocampus</h2>
 
               <div class="container-fluid">
-                <a href="home"><img id="logo-ini" src="http://i.imgur.com/yJuHskd.png" title="Hippocampus"></a>
+                <a href="home"><img id="logo-ini" src="img/yJuHskd.png" title="Hippocampus"></a>
               </div>
 
               <div class="input-group">
@@ -50,7 +50,7 @@
               <p align="center"> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
             </form>
 
-            <a><img id="hippo-der" src="http://i.imgur.com/pQLItby.gif"></a>
+            <a><img id="hippo-der" src="img/pQLItby.gif"></a>
 
     </div>
 
