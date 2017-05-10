@@ -28,81 +28,12 @@
           </ul>
           <ul class="sidebar-nav sidebar-nav-items" id="sidebar">
             <?php
-            $sidebartabs = [
-              'cv' => [
-                'icon' => 'ucm',
-                'text' => 'CV',
-              ],
-              'library' => [
-                'icon' => 'library',
-                'text' => 'Biblioteca',
-              ],
-              'gmail' => [
-                'icon' => 'gmail',
-                'text' => 'Gmail',
-              ],
-              'drive' => [
-                'icon' => 'drive',
-                'text' => 'Drive',
-              ],
-              'calendar' => [
-                'icon' => 'calendar',
-                'text' => 'Calendar',
-              ],
-              'classroom' => [
-                'icon' => 'classroom',
-                'text' => 'Classroom',
-              ],
-              'github' => [
-                'icon' => 'github',
-                'text' => 'Github',
-              ],
-              'bolotweet' => [
-                'icon' => 'bolotweet',
-                'text' => 'Bolotweet',
-              ],
-              'facebook' => [
-                'icon' => 'facebook',
-                'text' => 'Facebook',
-              ],
-              'twitter' => [
-                'icon' => 'twitter',
-                'text' => 'Twitter',
-              ],
-              'chat' => [
-                'icon' => 'chat',
-                'text' => 'Mensajes',
-              ],
-              'chat' => [
-                'icon' => 'chat',
-                'text' => 'Mensajes',
-              ],
-              'asociations' => [
-                'icon' => 'asociations',
-                'text' => 'Asociaciones',
-              ],
-              'coffee' => [
-                'icon' => 'coffee',
-                'text' => 'Cafetería',
-              ],
-              'software' => [
-                'icon' => 'software',
-                'text' => 'Software',
-              ],
-              'settings' => [
-                'icon' => 'settings',
-                'text' => 'Ajustes',
-              ],
-              'about' => [
-                'icon' => 'about',
-                'text' => 'Ayuda',
-              ],
-            ];
-            foreach ($sidebartabs as $sidebartabid => $sidebartabdata) {
+            $sidebartabs = $hc->getSidebarTabs();
+            foreach ($sidebartabs as $sidebartabdata) {
                 echo '
             <li>
               <a>
-                <span class="sidebar-item-content" data-service="'.$sidebartabid.'">
+                <span class="sidebar-item-content" data-service="'.$sidebartabdata['id'].'">
                   <svg class="icon '.$sidebartabdata['icon'].'">
                     <use xlink:href="#'.$sidebartabdata['icon'].'">
                     </use>

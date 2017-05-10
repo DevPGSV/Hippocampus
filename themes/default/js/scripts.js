@@ -258,15 +258,20 @@ function updateBoxContents(box) {
   $.ajax({
     type: "POST",
     url: 'window',
-    dataType: 'html',
+    dataType: 'json',
     data: {
       'row': box.find('.userview-content-column').attr('data-boxrow'),
       'col': box.find('.userview-content-column').attr('data-boxcol'),
       'content': box.find('.userview-content-column').attr('data-boxcontent'),
     },
     success: function(data) {
-      box.find('.userview-content-column').html(data);
-      box.find('.userview-window-toolbar').find('.userview-window-toolbar-service').html(box.find('.userview-content-column').attr('data-boxcontent'));
+      box.find('.userview-content-column').html(data.html);
+      //box.find('.userview-window-toolbar').find('.userview-window-toolbar-service').html(box.find('.userview-content-column').attr('data-boxcontent'));
+      box.find('.userview-window-toolbar').find('.userview-window-toolbar-service').html(data.title);
+      box.find('[data-updatewindowboxservice]').css('color', '#4d91de').css('text-decoration', 'underline');
+      box.find('[data-updatewindowboxservice]').click(function(e) {
+        setBoxContents(box, $(this).attr('data-updatewindowboxservice'));
+      });
     },
   });
 }
@@ -461,6 +466,12 @@ $(document).ready(function() {
   $("#form-login").submit(function(e) {
     e.preventDefault();
     return formLogin(e);
+  });
+
+  $('[data-updatewindowboxservice]').click(function(e) {
+    console.log(this);
+    console.log($(this));
+    console.log($(this).attr('data-updatewindowboxservice'));
   });
 });
 
