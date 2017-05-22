@@ -160,7 +160,8 @@
           padding-top: 0px;
       }
   }
-  /**********************
+
+/**********************
      Sidebar Style
 **********************/
 
@@ -422,7 +423,8 @@
       color: white;
       font-size: 18px;
   }
-  /**********************
+
+/**********************
     Top navbar Style
 **********************/
 
@@ -497,6 +499,7 @@
       margin-top: 6px;
       padding-top: 0px;
   }
+
   /*** BOTON NOTIFICACIONES ***/
 
   #menu2 {
@@ -567,6 +570,7 @@
       border-bottom: solid #a2a0a0;
       border-bottom-width: 1.5px;
   }
+
   /*** BOTON PERFIL ***/
 
   #menu3 {
@@ -654,7 +658,8 @@
       padding-top: 5px;
       text-align: center;
   }
-  /**********************
+
+/**********************
    Form login Style
 **********************/
 
@@ -768,7 +773,8 @@
       border-radius: 20px;
       margin-bottom: 0;
   }
-  /**********************
+
+/**********************
      Register Style
 **********************/
 
@@ -800,7 +806,8 @@
   #register:hover {
       color: deepskyblue;
   }
-  /**********************
+
+/**********************
    Admin Panel  Style
 **********************/
 
@@ -873,8 +880,9 @@
       bottom: 20px;
       right: 50px;
   }
-  /**********************
-   Icons Style
+
+/**********************
+     Icons Style
 **********************/
 
   .icon {
@@ -890,14 +898,16 @@
       width: 30px;
       height: 30px;
   }
-  /**********************
+
+/**********************
    User Menu Style
 **********************/
 
   #alerta {
       text-indent: 290px;
   }
-  /**********************
+
+/**********************
    Logo div Style
 **********************/
 
@@ -945,4 +955,47 @@
       background-image: url('img/MVwplil.png');
       background-repeat: no-repeat;
       background-size: 80px 90px;
+  }
+
+  a.hideDisplay{
+    position: relative; /* This makes everything work.*/
+    /* Allows you to layer overlapping elements. */
+    z-index: 20;
+    color: #000;
+    text-decoration: none
+  }
+
+  a.hideDisplay:hover{
+    /* Allows you to layer overlapping elements. */
+    z-index: 30;
+  }
+
+  a.hideDisplay span.showDisplayOnHover{
+    display: none
+  }
+
+/* This will only display itself when the
+* user hovers the mouse over the anchor. */
+  a.hideDisplay:hover span.showDisplayOnHover{
+    display: block;
+    position: absolute;
+    font-size: 18px;
+
+    /* This sets the height of a line of text in the box. */
+    line-height: 25px;
+
+    /* These position the box where it needs to go. */
+  top: 5px;
+  left: 20px;
+
+  /* These adjust the size of the box when it appears. */
+  width: auto;
+  padding: 10px;
+
+  border: 1px solid #666666;
+  background-color: #c0cedd;
+  
+  /* text color */
+  color: #000000;
+  text-align: left;
   }
