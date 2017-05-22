@@ -52,6 +52,18 @@
 
             <a><img id="hippo-der" src="img/pQLItby.gif"></a>
 
+            <a class="hideDisplay">
+            
+              <span class="showDisplayOnHover">
+                Heading
+                <span class="showBodyOfDisplayOnHover">
+                  <p>
+                    Bienvenido a Hippocampus
+                  </p>
+                </span>
+              </span>
+            </a>
+
     </div>
 
       <!-- Modal -->
