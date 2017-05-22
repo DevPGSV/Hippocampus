@@ -632,7 +632,7 @@
   }
 
   #foto-perfil {
-      width: 70%;
+      max-width: 70%;
       border-radius: 90px;
   }
 

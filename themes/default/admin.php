@@ -35,7 +35,7 @@
                  <div id="crear-admin" class="panel-collapse collapse in active">
                     <div class="panel-body form-group">
 
-                        <input type="text" class="form-control" placeholder="Usuario" name="usuario" data-toggle="tooltip" class="tooltip tooltip-top tooltip-arrow"  data-placement="top" title="Entre 4 y 20 caracteres">
+                        <input type="text" class="form-control" placeholder="Usuario" name="usuario"  class="tooltip tooltip-top tooltip-arrow"  data-placement="top" title="Entre 4 y 20 caracteres">
                         <br>
                 				<input type="email" class="form-control" placeholder="Email" name="email" id="email">
                         <br>
