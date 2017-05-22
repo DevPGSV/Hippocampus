@@ -36,13 +36,13 @@
 
     <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-      <input type="text" placeholder="Usuario" name="usuario" id="usuario">
+      <input type="text" placeholder="Usuario"  name="usuario" id="usuario"  title="Entre 4 y 20 caracteres" >
     </div>
     <br>
 
     <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-      <input type="password" placeholder="Contraseña" name="password" id="password">
+      <input type="password" placeholder="Contraseña" name="password" id="password" title="La contraseña debe contener al menos un número, una letra minúscula, una mayúscula y un caracter espcecial y tener entre 8 y 20 caracteres">
     </div>
     <br>
 
@@ -60,6 +60,7 @@
     <br>
     <input type="submit" value="Crear cuenta">
     <br>
+    <p align="center"> ¿Ya tienes cuenta?<br><a id="home" href="home">Inicia sesión</a> </p>
   </form>
 
   <!-- Modal -->
