@@ -25,6 +25,10 @@ class Database
         $this->databaseSetup();
     }
 
+    public function getDBo() {
+      return $this->db;
+    }
+
     private function dbConnect()
     {
         // Check $this->host and $this->database are alphanumeric (with underscores and dashes allowed)
@@ -51,6 +55,17 @@ class Database
         } else {
             return false;
         }
+    }
+
+    public function setConfigValue($varkey, $value)
+    {
+        $sql = "INSERT INTO config (varkey, value) VALUES(:varkey, :value) ON DUPLICATE KEY UPDATE varkey=:varkey2, value=:value2";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':varkey', $varkey, PDO::PARAM_STR);
+        $stmt->bindValue(':value', $value, PDO::PARAM_STR);
+        $stmt->bindValue(':varkey2', $varkey, PDO::PARAM_STR);
+        $stmt->bindValue(':value2', $value, PDO::PARAM_STR);
+        return $stmt->execute();
     }
 
     public function getUserDataById($userId, $join1auth = false)

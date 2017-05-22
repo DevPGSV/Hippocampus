@@ -19,11 +19,23 @@ class ModuleManager
       if (is_dir($this->modulesPath.$id)) {
           if (is_file($this->modulesPath.$id.'/'.$id.'.php')) {
               require($this->modulesPath.$id.'/'.$id.'.php');
-              $t = new $id($this->hc);
-              return $t;
+              if ($this->setupModule($id)) {
+                $t = new $id($this->hc);
+                return $t;
+              }
           }
       }
       return false;
+  }
+
+  public function setupModule($mid) {
+    if ($this->hc->getDB()->getConfigValue('module.'.$mid.'.setup') !== 'true') {
+      if ($mid::setup($this->hc)) {
+        return $this->hc->getDB()->setConfigValue('module.'.$mid.'.setup', 'true');
+      }
+      return false;
+    }
+    return true;
   }
 
   public function loadAllModules()
@@ -77,6 +89,7 @@ abstract class HC_Module {
   public function __construct(Hippocampus $hc) {
     $this->hc = $hc;
   }
+  public static function setup($hc) { return true; }
   protected function registerWindowCallback($identifier, $callback) {
     $this->windowRegistrations[] = [
       'identifier' => $identifier,
