@@ -410,7 +410,7 @@
 
   @media only screen and (max-width: 768px) {
       /* 768 */
-      
+
       #main-body-userview {
           overflow: auto;
       }
@@ -685,7 +685,6 @@
   }
 
   #logo-ini {
-      display: none;
       max-width: 100%;
       height: auto;
   }
@@ -698,6 +697,17 @@
           border: 1px solid rgba(0, 0, 0, 0.2);
           border-radius: 10px;
       }
+      #bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #000000;
+        color: #FFFFFF;
+        float: right;
+        padding: 30px;
+        border-radius: 12px;
+
+      }
       #hippo-der {
           min-width: 150px;
       }
@@ -705,7 +715,6 @@
           min-width: 150px;
       }
       #logo-ini {
-          display: none;
           max-width: 100%;
           height: auto;
       }
@@ -1006,7 +1015,7 @@
 
   border: 1px solid #666666;
   background-color: #c0cedd;
-  
+
   /* text color */
   color: #000000;
   text-align: left;

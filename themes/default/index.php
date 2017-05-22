@@ -19,11 +19,9 @@
 </head>
 
 	<body>
-
             <a><img id="hippo-izq" src="img/961SrDv.gif"></a>
 
             <form action="" method="POST" id="form-login">
-              <h2 id="bienvenido">Bienvenido a Hippocampus</h2>
 
               <div class="container-fluid">
                 <a href="home"><img id="logo-ini" src="img/yJuHskd.png" title="Hippocampus"></a>
@@ -53,7 +51,7 @@
             <a><img id="hippo-der" src="img/pQLItby.gif"></a>
 
             <a class="hideDisplay">
-            
+
               <span class="showDisplayOnHover">
                 Heading
                 <span class="showBodyOfDisplayOnHover">
@@ -63,7 +61,7 @@
                 </span>
               </span>
             </a>
-
+            <button id=bottom> ¿QUIÉNES SOMOS? <span class="glyphicon glyphicon-home"><i class="glyphicon glyphicon-leaf"></i></span> </button>
     </div>
 
       <!-- Modal -->

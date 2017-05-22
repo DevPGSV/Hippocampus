@@ -516,3 +516,10 @@ $(document).ready(function() {
     $(this).toggleClass('open');
   });
 });
+
+//function for opening text of the index bottom (quiénes somos)
+$(document).ready(function(){
+    $("who").click(function(){
+        $("info").text("Hello world!");
+    });
+});
