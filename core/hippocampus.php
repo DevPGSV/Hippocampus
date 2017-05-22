@@ -4,6 +4,7 @@ require_once(__DIR__ . '/db.php');
 require_once(__DIR__ . '/user.php');
 require_once(__DIR__ . '/userManager.php');
 require_once(__DIR__ . '/themeManager.php');
+require_once(__DIR__ . '/moduleManager.php');
 require_once(__DIR__ . '/theme.php');
 require_once(__DIR__ . '/utils.php');
 
@@ -12,14 +13,16 @@ class Hippocampus
     private $db;
     private $themeManager;
     private $userManager;
+    private $moduleManager;
 
     public function __construct()
     {
         global $_HARDCODED;
         session_start();
         $this->db = new Database($this, $_HARDCODED['db']['database'], $_HARDCODED['db']['username'], $_HARDCODED['db']['password'], $_HARDCODED['db']['host']);
-        $this->themeManager = new ThemeManager($this);
-        $this->userManager  = new UserManager($this);
+        $this->themeManager   = new ThemeManager($this);
+        $this->userManager    = new UserManager($this);
+        $this->moduleManager  = new ModuleManager($this);
     }
 
     public function run()
@@ -70,5 +73,99 @@ class Hippocampus
     public function getUserManager()
     {
         return $this->userManager;
+    }
+
+    public function getModuleManager()
+    {
+        return $this->moduleManager;
+    }
+
+    public function getSidebarTabs() {
+      $sidebarTabs = [
+
+        1 => [
+          'icon' => 'ucm',
+          'text' => 'CV',
+          'id' => 'cv',
+        ],
+        2 => [
+          'icon' => 'library',
+          'text' => 'Biblioteca',
+          'id' => 'library',
+        ],
+        3 => [
+          'icon' => 'gmail',
+          'text' => 'Gmail',
+          'id' => 'gmail',
+        ],
+        4 => [
+          'icon' => 'drive',
+          'text' => 'Drive',
+          'id' => 'drive',
+        ],
+        5 => [
+          'icon' => 'calendar',
+          'text' => 'Calendar',
+          'id' => 'calendar',
+        ],
+        6 => [
+          'icon' => 'classroom',
+          'text' => 'Classroom',
+          'id' => 'classroom',
+        ],
+        7 => [
+          'icon' => 'github',
+          'text' => 'Github',
+          'id' => 'github',
+        ],
+        8 => [
+          'icon' => 'bolotweet',
+          'text' => 'Bolotweet',
+          'id' => 'bolotweet',
+        ],
+        9 => [
+          'icon' => 'facebook',
+          'text' => 'Facebook',
+          'id' => 'facebook',
+        ],
+        10 => [
+          'icon' => 'twitter',
+          'text' => 'Twitter',
+          'id' => 'twitter',
+        ],
+        11 => [
+          'icon' => 'chat',
+          'text' => 'Mensajes',
+          'id' => 'chat',
+        ],
+        12 => [
+          'icon' => 'asociations',
+          'text' => 'Asociaciones',
+          'id' => 'asociations',
+        ],
+        13 => [
+          'icon' => 'coffee',
+          'text' => 'Cafetería',
+          'id' => 'coffee',
+        ],
+        14 => [
+          'icon' => 'software',
+          'text' => 'Software',
+          'id' => 'software',
+        ],
+        99 => [
+          'icon' => 'settings',
+          'text' => 'Ajustes',
+          'id' => 'settings',
+        ],
+        100 => [
+          'icon' => 'about',
+          'text' => 'Ayuda',
+          'id' => 'about',
+        ],
+      ];
+      $this->moduleManager->onCreatingSidebar($sidebarTabs);
+      //ksort($sidebarTabs, SORT_NUMERIC);
+      return $sidebarTabs;
     }
 }
