@@ -408,6 +408,14 @@
       }
   }
 
+  @media only screen and (max-width: 768px) {
+      /* 768 */
+      
+      #main-body-userview {
+          overflow: auto;
+      }
+  }
+
   @media only screen and (max-width: 600px) {
       /* 600 */
       .sidebar {
@@ -417,7 +425,11 @@
           width: 100%;
           margin-left: 0px;
       }
+      #main-body-userview {
+          overflow: auto;
+      }
   }
+
 
   #register {
       color: white;
