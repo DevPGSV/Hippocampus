@@ -138,11 +138,6 @@ class Hippocampus
           'text' => 'Mensajes',
           'id' => 'chat',
         ],
-        12 => [
-          'icon' => 'asociations',
-          'text' => 'Asociaciones',
-          'id' => 'asociations',
-        ],
         13 => [
           'icon' => 'coffee',
           'text' => 'Cafetería',

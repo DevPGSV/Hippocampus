@@ -1020,3 +1020,14 @@
   color: #000000;
   text-align: left;
   }
+
+  /**********************
+    Asociaciones module
+  **********************/
+  #asoci{
+    color: blue;
+  }
+
+  #librelab{
+    color: #cc0066;
+  }
