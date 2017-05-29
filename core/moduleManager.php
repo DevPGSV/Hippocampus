@@ -7,6 +7,7 @@ class ModuleManager
   private $hc;
   private $modules = [];
   private $windowRegistrations = [];
+  private $apiRegistrations = [];
 
   public function __construct($hc)
   {
@@ -55,6 +56,12 @@ class ModuleManager
                           'cb' => $wr['cb'],
                         ];
                       }
+                      foreach($aux->getApiRegistrations() as $ar) {
+                        $this->apiRegistrations[$ar['identifier']] = [
+                          'module' => $t,
+                          'cb' => $wr['cb'],
+                        ];
+                      }
                   }
               }
           }
@@ -86,6 +93,7 @@ class ModuleManager
 abstract class HC_Module {
   protected $hc;
   private $windowRegistrations = [];
+  private $apiRegistrations = [];
   public function __construct(Hippocampus $hc) {
     $this->hc = $hc;
   }
@@ -98,6 +106,15 @@ abstract class HC_Module {
   }
   public function getWindowRegistrations() {
     return $this->windowRegistrations;
+  }
+  protected function registerApiCallback($identifier, $callback) {
+    $this->apiRegistrations[] = [
+      'identifier' => $identifier,
+      'cb' => $callback,
+    ];
+  }
+  public function getApiRegistrations() {
+    return $this->apiRegistrations;
   }
   public function onCreatingSidebar(&$sidebar) {}
   public function onCreatingNotifications(&$notifications) {}

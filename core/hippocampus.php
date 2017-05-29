@@ -128,11 +128,6 @@ class Hippocampus
           'text' => 'Facebook',
           'id' => 'facebook',
         ],
-        10 => [
-          'icon' => 'twitter',
-          'text' => 'Twitter',
-          'id' => 'twitter',
-        ],
         11 => [
           'icon' => 'chat',
           'text' => 'Mensajes',
