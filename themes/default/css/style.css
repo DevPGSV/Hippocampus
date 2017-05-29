@@ -1021,6 +1021,13 @@
   text-align: left;
   }
 
+  .windowicon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    margin-top: -4px;
+  }
+
   /**********************
     Asociaciones module
   **********************/
@@ -1030,4 +1037,22 @@
 
   #librelab{
     color: #cc0066;
+  }
+
+  /**********************
+    Bolotweet module
+  **********************/
+
+  .loginbutton {
+      display: block;
+      padding: 10px;
+      width: 100%;
+      font-size: 20px;
+      background: linear-gradient(#41FFD0, #4440FF);
+      border: 0;
+      color: white !important;
+      opacity: 0.8;
+      cursor: pointer;
+      border-radius: 20px;
+      margin-bottom: 0;
   }
