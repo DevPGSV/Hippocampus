@@ -143,11 +143,6 @@ class Hippocampus
           'text' => 'Cafetería',
           'id' => 'coffee',
         ],
-        14 => [
-          'icon' => 'software',
-          'text' => 'Software',
-          'id' => 'software',
-        ],
         99 => [
           'icon' => 'settings',
           'text' => 'Ajustes',
