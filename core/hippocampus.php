@@ -118,11 +118,6 @@ class Hippocampus
           'text' => 'Github',
           'id' => 'github',
         ],
-        8 => [
-          'icon' => 'bolotweet',
-          'text' => 'Bolotweet',
-          'id' => 'bolotweet',
-        ],
         9 => [
           'icon' => 'facebook',
           'text' => 'Facebook',
