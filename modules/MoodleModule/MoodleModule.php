@@ -49,8 +49,12 @@ class MoodleModule extends HC_Module {
 
     return [
       //'html' => '<iframe src="http://localhost/moodle/login" width="100%" height="100%"></iframe>',
-      'html' => '<iframe src="http://localhost/moodle/" width="100%" height="100%"></iframe>',  
-      'title' => 'Campus Virtual',
+      'html' => '<iframe src="http://localhost/moodle/" width="100%" height="100%"></iframe>',
+      'title' => '<svg class="icon ucm windowicon">
+        <use xlink:href="#ucm">
+        </use>
+      </svg>
+      Campus Virtual',
     ];
   }
 
