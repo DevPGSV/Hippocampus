@@ -44,7 +44,7 @@ class IdentityModule extends HC_Module {
 
                       <h4><small>Bienvenido/a al Portal de Servicios de Gestión De Usuario de Hippocampus</small></h4>
                       <hr>
-                      <h2>Importatnte</h2>
+                      <h2>Importante</h2>
                       <p>En esta seccion podrás ver y modificar datos de tu perfil. En la parte izquierda de esta página se muestran los accesos a los servicios que corresponden a tu perfil si echas en falta todos o alguno de los servicios que esperabas tener disponibles contacta con nosotros. </p>
                       <hr>
                       <br><br>
@@ -54,10 +54,10 @@ class IdentityModule extends HC_Module {
                   </div>
                 ',
       'title' => '<svg class="icon about windowicon">
-        <use xlink:href="#about">
-        </use>
-      </svg>
-      Gestor de identidad',
+                    <use xlink:href="#about">
+                    </use>
+                  </svg>
+                  Gestor de identidad',
     ];
   }
 
@@ -118,7 +118,11 @@ class IdentityModule extends HC_Module {
                     </div>
                   </div>
                 ',
-      'title' => 'Gestor de identidad',
+      'title' => '<svg class="icon about windowicon">
+                    <use xlink:href="#about">
+                    </use>
+                  </svg>
+                  Gestor de identidad',
     ];
   }
 
