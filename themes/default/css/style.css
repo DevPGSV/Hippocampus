@@ -24,27 +24,27 @@
     width: 100%;
   }
 
-  fieldset 
+  fieldset
   {
     border: 1px solid #ddd !important;
     margin: 0;
     min-width: 0;
-    padding: 10px;       
+    padding: 10px;
     position: relative;
     border-radius:4px;
     background-color:#f5f5f5;
     padding-left:10px!important;
-  } 
-  
+  }
+
   legend
     {
       font-size:14px;
       font-weight:bold;
-      margin-bottom: 0px; 
-      width: 35%; 
+      margin-bottom: 0px;
+      width: 35%;
       border: 1px solid #ddd;
-      border-radius: 4px; 
-      padding: 5px 5px 5px 10px; 
+      border-radius: 4px;
+      padding: 5px 5px 5px 10px;
       background-color: #ffffff;
     }
 
@@ -60,7 +60,7 @@
     color: black;
   }
   .geadiv{
-    background-color: white; 
+    background-color: white;
   }
   .dont-select {
       /* iOS Safari */
@@ -733,6 +733,18 @@
       height: auto;
   }
 
+  #button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    float: right;
+    padding: 30px;
+    border-radius: 12px;
+
+  }
+
   @media (max-width: 1500px) {
       form {
           margin: auto;
@@ -741,17 +753,7 @@
           border: 1px solid rgba(0, 0, 0, 0.2);
           border-radius: 10px;
       }
-      #bottom {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background-color: #000000;
-        color: #FFFFFF;
-        float: right;
-        padding: 30px;
-        border-radius: 12px;
 
-      }
       #hippo-der {
           min-width: 150px;
       }
