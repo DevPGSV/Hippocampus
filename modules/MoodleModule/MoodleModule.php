@@ -45,7 +45,11 @@ class MoodleModule extends HC_Module {
     //Llamo a la API para autenticar al usuario.
     return [
       'html' => '<p>Module dummy data for service: <em>Moodle</em></p><p data-updatewindowboxservice="moodle2">More....</p>',
-      'title' => 'Campus Virtual',
+      'title' => '<svg class="icon ucm windowicon">
+        <use xlink:href="#ucm">
+        </use>
+      </svg>
+      Campus Virtual',
     ];
   }
 

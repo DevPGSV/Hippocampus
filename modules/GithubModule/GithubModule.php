@@ -43,14 +43,18 @@ class GithubModule extends HC_Module {
   public function GithubWindowCallback() {
     return [
       'html' => '<p>Module dummy data for service: <em>Example</em></p><p data-updatewindowboxservice="example2">More....</p>',
-      'title' => 'Example Title',
+      'title' => '<svg class="icon github windowicon">
+        <use xlink:href="#github">
+        </use>
+      </svg>
+      Github',
     ];
   }
 
   public function GithubWindowCallback2() {
     return [
       'html' => '<p>Second callback!</p><p data-updatewindowboxservice="example">Back....</p>',
-      'title' => 'Example Second Title',
+      'title' => 'Github',
     ];
   }
 

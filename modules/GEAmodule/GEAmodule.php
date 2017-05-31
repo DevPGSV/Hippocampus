@@ -30,7 +30,11 @@ class GEAmodule extends HC_Module {
    // $currentuser = $hc->getUserManager()->getLoggedInUser();
     return [
       'html' => '<div class="geadiv"><object data="https://geaportal.ucm.es"></object></div>',
-      'title' => 'GEA UCM',
+      'title' => '<svg class="icon ucm windowicon">
+        <use xlink:href="#ucm">
+        </use>
+      </svg>
+      GEA UCM',
     ];
   }
 

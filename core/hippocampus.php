@@ -82,17 +82,6 @@ class Hippocampus
 
     public function getSidebarTabs() {
       $sidebarTabs = [
-
-        1 => [
-          'icon' => 'ucm',
-          'text' => 'CV',
-          'id' => 'cv',
-        ],
-        2 => [
-          'icon' => 'library',
-          'text' => 'Biblioteca',
-          'id' => 'library',
-        ],
         3 => [
           'icon' => 'gmail',
           'text' => 'Gmail',
@@ -112,11 +101,6 @@ class Hippocampus
           'icon' => 'classroom',
           'text' => 'Classroom',
           'id' => 'classroom',
-        ],
-        7 => [
-          'icon' => 'github',
-          'text' => 'Github',
-          'id' => 'github',
         ],
         8 => [
           'icon' => 'bolotweet',
