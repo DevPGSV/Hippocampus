@@ -19,6 +19,49 @@
       height: 100%;
   }
 
+  object{
+    height: 100%;
+    width: 100%;
+  }
+
+  fieldset 
+  {
+    border: 1px solid #ddd !important;
+    margin: 0;
+    min-width: 0;
+    padding: 10px;       
+    position: relative;
+    border-radius:4px;
+    background-color:#f5f5f5;
+    padding-left:10px!important;
+  } 
+  
+  legend
+    {
+      font-size:14px;
+      font-weight:bold;
+      margin-bottom: 0px; 
+      width: 35%; 
+      border: 1px solid #ddd;
+      border-radius: 4px; 
+      padding: 5px 5px 5px 10px; 
+      background-color: #ffffff;
+    }
+
+  .identityinputs{
+    display: inline;
+    padding: 0px;
+    width: 50%;
+    font-size: 15px;
+    color: black;
+  }
+
+  .blackfontlabel{
+    color: black;
+  }
+  .geadiv{
+    background-color: white; 
+  }
   .dont-select {
       /* iOS Safari */
       -webkit-touch-callout: none;
@@ -101,6 +144,7 @@
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
       padding: 10px;
+      overflow: auto;
   }
 
   .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-window-toolbar {

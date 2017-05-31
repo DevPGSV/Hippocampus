@@ -263,6 +263,7 @@ function updateBoxContents(box) {
       'row': box.find('.userview-content-column').attr('data-boxrow'),
       'col': box.find('.userview-content-column').attr('data-boxcol'),
       'content': box.find('.userview-content-column').attr('data-boxcontent'),
+      'cbdata': box.data('cbdata') || '',
     },
     success: function(data) {
       box.find('.userview-content-column').html(data.html);
@@ -270,6 +271,14 @@ function updateBoxContents(box) {
       box.find('.userview-window-toolbar').find('.userview-window-toolbar-service').html(data.title);
       box.find('[data-updatewindowboxservice]').css('color', '#4d91de').css('text-decoration', 'underline');
       box.find('[data-updatewindowboxservice]').click(function(e) {
+        var odata = $(this).data();
+        var cbdata = {};
+        for (var key in odata) {
+          if (key.startsWith("cbdata"))
+            cbdata[key.slice("cbdata".length)] = odata[key];
+        }
+        box.data('cbdata', cbdata);
+
         setBoxContents(box, $(this).attr('data-updatewindowboxservice'));
       });
     },
@@ -518,8 +527,8 @@ $(document).ready(function() {
 });
 
 //function for opening text of the index bottom (quiénes somos)
-$(document).ready(function(){
-    $("who").click(function(){
-        $("info").text("Hello world!");
-    });
+$(document).ready(function() {
+  $("who").click(function() {
+    $("info").text("Hello world!");
+  });
 });
