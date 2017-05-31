@@ -43,8 +43,13 @@ class MoodleModule extends HC_Module {
 
   public function MoodleWindowLogin() {
     //Llamo a la API para autenticar al usuario.
+    $url='https://cv4.ucm.es/moodle/';
+    $user='';
+    $password='';
+
     return [
-      'html' => '<p>Module dummy data for service: <em>Moodle</em></p><p data-updatewindowboxservice="moodle2">More....</p>',
+      //'html' => '<iframe src="http://localhost/moodle/login" width="100%" height="100%"></iframe>',
+      'html' => '<iframe src="http://localhost/moodle/" width="100%" height="100%"></iframe>',
       'title' => '<svg class="icon ucm windowicon">
         <use xlink:href="#ucm">
         </use>
