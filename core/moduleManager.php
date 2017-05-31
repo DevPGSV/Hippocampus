@@ -59,13 +59,27 @@ class ModuleManager
                       foreach($aux->getApiRegistrations() as $ar) {
                         $this->apiRegistrations[$ar['identifier']] = [
                           'module' => $t,
-                          'cb' => $wr['cb'],
+                          'cb' => $ar['cb'],
+                          'cbdata' => $ar['cbdata'],
                         ];
                       }
                   }
               }
           }
       }
+  }
+
+  public function apiIdentifierRegistered($identifier) {
+    return !empty($this->apiRegistrations[$identifier]);
+  }
+
+  public function apiIdentifierProcess($identifier, $data) {
+    $apiRegistration = $this->apiRegistrations[$identifier];
+    $modulename = $apiRegistration['module'];
+    $module = $this->modules[$modulename];
+    $cb = $apiRegistration['cb'];
+    $cbdata = $apiRegistration['cbdata'];
+    return $module['class']->$cb($identifier, $data, $cbdata);
   }
 
   public function onCreatingSidebar(&$sidebar) {
@@ -75,7 +89,7 @@ class ModuleManager
     return $sidebar;
   }
 
-  public function onWindowContent($windowIdentifier) {
+  public function onWindowContent($windowIdentifier, $cbdata = []) {
     if (empty($this->windowRegistrations[$windowIdentifier])) {
       return [
         'html' => '<p>No service with name: <em>'.htmlentities($windowIdentifier).'</em></p>',
@@ -83,7 +97,7 @@ class ModuleManager
       ];
     } else {
       $cbD = $this->windowRegistrations[$windowIdentifier];
-      return $this->modules[$cbD['module']]['class']->{$cbD['cb']}();
+      return $this->modules[$cbD['module']]['class']->{$cbD['cb']}($cbdata);
     }
 
   }
@@ -107,10 +121,11 @@ abstract class HC_Module {
   public function getWindowRegistrations() {
     return $this->windowRegistrations;
   }
-  protected function registerApiCallback($identifier, $callback) {
+  protected function registerApiCallback($identifier, $callback, $cbdata = '') {
     $this->apiRegistrations[] = [
       'identifier' => $identifier,
       'cb' => $callback,
+      'cbdata' => $cbdata,
     ];
   }
   public function getApiRegistrations() {
