@@ -65,7 +65,7 @@ function setupBackgroundGradient() {
       colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
     }
   }
-  //setInterval(updateGradient, 40);
+  setInterval(updateGradient, 40);
 }
 
 function validaRegistro(form) {
