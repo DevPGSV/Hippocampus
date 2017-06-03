@@ -20,18 +20,35 @@ class TwitterModule extends HC_Module {
     $this->registerWindowCallback('twitter_oauth', 'TwitterOauthWindowCallback');
     $this->registerWindowCallback('twitter_admin', 'TwitterAdminWindowCallback');
 
+    $this->registerApiCallback('twittermodule_config', 'TwitterConfigApiCallback');
+
     $this->logInUser();
+  }
 
-    $c_consumer_key = $hc->getDB()->getConfigValue('module.TwitterModule.consumer_key');
-    $c_consumer_secret = $hc->getDB()->getConfigValue('module.TwitterModule.consumer_secret');
+  public function logInUser() {
+    $cu = $this->hc->getUserManager()->getLoggedInUser();
 
-    if ($c_consumer_key !== false && $c_consumer_secret !== false)
+    if ($cu === false) {
+      $this->tokensSetup = false;
+      $this->loggedIn = false;
+      $this->twitterApi = false;
+      return;
+    }
+
+    $c_consumer_key = $this->hc->getDB()->getConfigValue('module.TwitterModule.consumer_key');
+    $c_consumer_secret = $this->hc->getDB()->getConfigValue('module.TwitterModule.consumer_secret');
+
+    if ($c_consumer_key === false || $c_consumer_secret === false) {
+      $this->tokensSetup = false;
+    } else {
+      $this->tokensSetup = true;
+    }
 
     $this->loggedIn = false;
     $this->twitterApi = false;
-    $cu = $hc->getUserManager()->getLoggedInUser();
-    if ($cu !== false && $c_consumer_key !== false && $c_consumer_secret !== false) {
-      $stmt = $hc->getDB()->getDBo()->prepare("SELECT * FROM hc_m_TwitterModule_users WHERE user=:id");
+
+    if ($this->tokensSetup) {
+      $stmt = $this->hc->getDB()->getDBo()->prepare("SELECT * FROM hc_m_TwitterModule_users WHERE user=:id");
       $stmt->bindValue(':id', $cu->getId(), PDO::PARAM_INT);
       $stmt->execute();
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -47,11 +64,6 @@ class TwitterModule extends HC_Module {
         $this->loggedIn = true;
       }
     }
-
-  }
-
-  public function logInUser() {
-
   }
 
   public static function setup($hc) {
@@ -162,7 +174,7 @@ class TwitterModule extends HC_Module {
   public function TwitterWindowCallback() {
     if (!$this->loggedIn) return $this->TwitterOauthWindowCallback();
     return [
-      'html' => "<p data-updatewindowboxservice='twitter_hometimeline'>Home timeline</p><p data-updatewindowboxservice='twitter_usertimeline'>User timeline</p><p data-updatewindowboxservice='twitter_userprofile'>User profile</p>",
+      'html' => "<p data-updatewindowboxservice='twitter_hometimeline'>Home timeline</p><p data-updatewindowboxservice='twitter_usertimeline'>User timeline</p><p data-updatewindowboxservice='twitter_userprofile'>User profile</p><p data-updatewindowboxservice='twitter_admin'>Admin</p>",
       'title' => '
       <svg class="icon twitter windowicon">
          <use xlink:href="#twitter">
@@ -251,7 +263,31 @@ class TwitterModule extends HC_Module {
   }
 
   public function TwitterOauthWindowCallback($fields = []) {
+    $cu = $this->hc->getUserManager()->getLoggedInUser();
     if ($this->loggedIn) return $this->TwitterWindowCallback();
+    if (!$this->tokensSetup) {
+      if ($cu === false || !$cu->isAdmin()) {
+        return [
+          'html' => '<p>Not configured. Plase, ask an administrator to configure this module.</p>',
+          'title' => '
+          <svg class="icon twitter windowicon">
+             <use xlink:href="#twitter">
+             </use>
+          </svg> <span class="glyphicon glyphicon-ban-circle navbar-element"></span>
+          Twitter (not available)',
+        ];
+      } else {
+        return [
+          'html' => '<p>Not configured. Plase, <span data-updatewindowboxservice="twitter_admin">configure</span> this module.</p>',
+          'title' => '
+          <svg class="icon twitter windowicon">
+             <use xlink:href="#twitter">
+             </use>
+          </svg> <span class="glyphicon glyphicon-ban-circle navbar-element"></span>
+          Twitter (not available)',
+        ];
+      }
+    }
     $html = '
     <script>
     var popupwindow;
@@ -277,6 +313,125 @@ class TwitterModule extends HC_Module {
       </svg> <span class="glyphicon glyphicon-log-in navbar-element"></span>
       Twitter Login',
     ];
+  }
+
+  public function TwitterAdminWindowCallback($fields = []) {
+    $cu = $this->hc->getUserManager()->getLoggedInUser();
+
+    if ($cu === false || !$cu->isAdmin()) {
+      return [
+        'html' => '<p>Forbidden</p><p>Only administrators can access this view</p>',
+        'title' => '
+        <svg class="icon twitter windowicon">
+           <use xlink:href="#twitter">
+           </use>
+        </svg> <span class="glyphicon glyphicon-ban-circle navbar-element"></span>
+        Twitter (forbidden access)',
+      ];
+    }
+
+    $html = '';
+    if ($this->tokensSetup) {
+      $html .= '<p>Already setup</p>';
+    } else {
+      $html .= '<p>Not setup</p>';
+    }
+
+    $html .= "<p data-updatewindowboxservice='twitter'>Back!....</p>";
+/*
+'oauth_access_token' => $rows[0]['oauth_token'],
+'oauth_access_token_secret' => $rows[0]['oauth_token_secret'],
+'consumer_key' => $c_consumer_key,
+'consumer_secret' => $c_consumer_secret,
+*/
+    $html .= '
+    <p>Create a new app in <a href="https://apps.twitter.com/" target="_blank">Twitter Application Management</a></p>
+    <p>Access the data in the tab "Keys and Access Tokens".</p><br>
+    <input type="text" name="twittermodule_config_oauth_access_token" placeholder="Access Token" style="color:black;"><br>
+    <input type="text" name="twittermodule_config_oauth_access_token_secret" placeholder="Access Token Secret" style="color:black;"><br>
+    <input type="text" name="twittermodule_config_consumer_key" placeholder="Consumer Key (API Key)" style="color:black;"><br>
+    <input type="text" name="twittermodule_config_consumer_secret" placeholder="Consumer Secret (API Secret)" style="color:black;"><br>
+    <p id="twittermodule_config_message"></p>
+    <input type="submit" value="Save Configuration" id="twittermodule_config_submit">
+
+    ';
+
+    $html .= '
+    <script>
+    $("#twittermodule_config_submit").click(function(){
+      var b = this;
+      $.ajax({
+        type: "POST",
+        url: "api.php?action=twittermodule_config",
+        dataType: "json",
+        data: {
+          "oauth_access_token": $("input[name=\'twittermodule_config_oauth_access_token\']").val(),
+          "oauth_access_token_secret": $("input[name=\'twittermodule_config_oauth_access_token_secret\']").val(),
+          "consumer_key": $("input[name=\'twittermodule_config_consumer_key\']").val(),
+          "consumer_secret": $("input[name=\'twittermodule_config_consumer_secret\']").val(),
+        },
+        success: function(data) {
+          $("#twittermodule_config_message").html(data["msg"]);
+          if (data["status"] == "ok") {
+            console.log("twitter configured ok");
+            setTimeout(function(){
+              var wbox = $(b).closest(".userview-content-column").closest(".userview-content-column-wrapper");
+              setBoxContents(wbox, "twitter");
+            }, 1000);
+          }
+        },
+      });
+    });
+    </script>
+    ';
+
+    return [
+      'html' => $html,
+      'title' => '
+      <svg class="icon twitter windowicon">
+         <use xlink:href="#twitter">
+         </use>
+      </svg> <span class="glyphicon glyphicon-cog navbar-element"></span>
+      Twitter Admin',
+    ];
+  }
+  public function TwitterConfigApiCallback($identifier, $data, $cbdata) {
+    $cu = $this->hc->getUserManager()->getLoggedInUser();
+
+    if ($cu === false || !$cu->isAdmin()) {
+      return [false];
+    }
+    $this->twitterApiData = [
+      'oauth_access_token' => $data['oauth_access_token'],
+      'oauth_access_token_secret' => $data['oauth_access_token_secret'],
+      'consumer_key' => $data['consumer_key'],
+      'consumer_secret' => $data['consumer_secret'],
+    ];
+    $this->twitterApi = new TwitterAPIExchange($this->twitterApiData);
+
+    $url = 'https://api.twitter.com/1.1/account/verify_credentials.json';
+    $status = json_decode($this->twitterApi->buildOauth($url, 'GET')->performRequest(), true);
+
+    if (!empty($status['errors']) && !empty($status['errors'][0])) {
+      return [
+        'status' => 'error',
+        'msg' => "({$status['errors'][0]['code']}) {$status['errors'][0]['message']}",
+      ];
+    } else if(!empty($status['screen_name'])) {
+      $this->hc->getDB()->setConfigValue('module.TwitterModule.oauth_access_token', $data['oauth_access_token']);
+      $this->hc->getDB()->setConfigValue('module.TwitterModule.oauth_access_token_secret', $data['oauth_access_token_secret']);
+      $this->hc->getDB()->setConfigValue('module.TwitterModule.consumer_key', $data['consumer_key']);
+      $this->hc->getDB()->setConfigValue('module.TwitterModule.consumer_secret', $data['consumer_secret']);
+      return [
+        'status' => 'ok',
+        'msg' => "Authenticated as {$status['screen_name']}",
+      ];
+    } else {
+      return [
+        'status' => 'error',
+        'msg' => "unknown_error",
+      ];
+    }
   }
 
   public function TwitterMentionNotificationCallback($cbData) {
