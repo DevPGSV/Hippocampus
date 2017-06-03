@@ -31,14 +31,14 @@
     min-width: 0;
     padding: 10px;
     position: relative;
-    border-radius:4px;
-    background-color:#f5f5f5;
-    padding-left:10px!important;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    padding-left: 10px!important;
   }
 
   legend {
-    font-size:14px;
-    font-weight:bold;
+    font-size: 14px;
+    font-weight: bold;
     margin-bottom: 0px;
     width: 35%;
     border: 1px solid #ddd;
@@ -489,7 +489,6 @@
   #mainpage>li.ui-draggable.ui-draggable-dragging a .icon {
     margin-top: 10px;
     margin-right: 10px;
-    text-align: right;
   }
 
   @media only screen and (min-width: 850px) {
@@ -497,8 +496,7 @@
     #mainpage.sidebar-expansible>li.ui-draggable.ui-draggable-dragging a .sidebar-item-text {
       display: inline;
     }
-    .page.sidebar-expansible>.sidebar .sidebar-nav.sidebar-nav-items li a,
-    #mainpage.sidebar-expansible>li.ui-draggable.ui-draggable-dragging a {
+    .page.sidebar-expansible>.sidebar .sidebar-nav.sidebar-nav-items li a {
       text-align: right;
     }
     .page.sidebar-expansible>.sidebar,
@@ -813,7 +811,6 @@
     float: right;
     padding: 30px;
     border-radius: 12px;
-
   }
 
   @media (max-width: 1500px) {
