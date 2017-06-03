@@ -136,7 +136,7 @@ class TwitterModule extends HC_Module {
         'type'    => 'mention',
         'curText' => substr( $tweetText, $mention['indices'][0], ( $mention['indices'][1] - $mention['indices'][0] ) ),
         //'newText' => "<a href='http://twitter.com/".$mention['screen_name']."' target='_blank'>".$string."</a>"
-        'newText' => "<p data-updatewindowboxservice='twitter_userprofile' data-cbdata-Userprofile='{$mention['screen_name']}'>".$string."</p>"
+        'newText' => "<span data-updatewindowboxservice='twitter_userprofile' data-cbdata-Userprofile='{$mention['screen_name']}'>".$string."</span>"
       );
     }  // end foreach
 
@@ -147,7 +147,7 @@ class TwitterModule extends HC_Module {
         'type'    => 'hashtag',
         'curText' => substr( $tweetText, $tag['indices'][0], ( $tag['indices'][1] - $tag['indices'][0] ) ),
         //'newText' => "<a href='http://twitter.com/search?q=%23".$tag['text']."&src=hash' target='_blank'>".$string."</a>"
-        'newText' => "<p data-updatewindowboxservice='twitter_hashtag' data-cbdata-Hashtag='{$tag['text']}'>".$string."</p>"
+        'newText' => "<span data-updatewindowboxservice='twitter_hashtag' data-cbdata-Hashtag='{$tag['text']}'>".$string."</span>"
       );
     }  // end foreach
 
@@ -173,8 +173,14 @@ class TwitterModule extends HC_Module {
 
   public function TwitterWindowCallback() {
     if (!$this->loggedIn) return $this->TwitterOauthWindowCallback();
+    $html = '<ul class="nav nav-tabs">
+              <li><a href="#" data-updatewindowboxservice="twitter_hometimeline">Timeline</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_userprofile">Profile</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_admin">Configure</a></li>
+            </ul>
+    ';
     return [
-      'html' => "<p data-updatewindowboxservice='twitter_hometimeline'>Home timeline</p><p data-updatewindowboxservice='twitter_usertimeline'>User timeline</p><p data-updatewindowboxservice='twitter_userprofile'>User profile</p><p data-updatewindowboxservice='twitter_admin'>Admin</p>",
+      'html' => $html,
       'title' => '
       <svg class="icon twitter windowicon">
          <use xlink:href="#twitter">
@@ -188,11 +194,20 @@ class TwitterModule extends HC_Module {
     if (!$this->loggedIn) return $this->TwitterOauthWindowCallback();
 
     $url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
-    $getfield = '?count=5';
+    $getfield = '?count=10';
     $tweets = json_decode($this->twitterApi->setGetfield($getfield)->buildOauth($url, 'GET')->performRequest(), true);
     $tweetsHtmlFormatted = $this->tweetsToHtmlTable($tweets);
+
+    $html = '<ul class="nav nav-tabs">
+              <li class="active"><a href="#" data-updatewindowboxservice="twitter_hometimeline">Timeline</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_userprofile">Profile</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_admin">Configure</a></li>
+            </ul>
+    ';
+    $html .= $tweetsHtmlFormatted;
+
     return [
-      'html' => "<p data-updatewindowboxservice='twitter'>Back!....</p>\n\n$tweetsHtmlFormatted",
+      'html' => $html,
       'title' => '
       <svg class="icon twitter windowicon">
          <use xlink:href="#twitter">
@@ -208,13 +223,21 @@ class TwitterModule extends HC_Module {
 
     $userTimeline = $fields['Usertimeline'];
     $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-    $getfield = '?screen_name='.$userTimeline.'&count=5';
+    $getfield = '?screen_name='.$userTimeline.'&count=10';
     $tweets = json_decode($this->twitterApi->setGetfield($getfield)
       ->buildOauth($url, 'GET')
       ->performRequest(), true);
     $tweetsHtmlFormatted = $this->tweetsToHtmlTable($tweets);
+
+    $html = '<ul class="nav nav-tabs">
+              <li><a href="#" data-updatewindowboxservice="twitter_hometimeline">Timeline</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_userprofile">Profile</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_admin">Configure</a></li>
+            </ul>
+    ';
+    $html .= $tweetsHtmlFormatted;
     return [
-      'html' => "<p data-updatewindowboxservice='twitter'>Back!....</p>\n\n$tweetsHtmlFormatted",
+      'html' => $html,
       'title' => '
       <svg class="icon twitter windowicon">
          <use xlink:href="#twitter">
@@ -230,9 +253,31 @@ class TwitterModule extends HC_Module {
     $profile = $this->userData['screen_name'];
     if (!empty($fields['Userprofile'])) $profile = $fields['Userprofile'];
 
-    $html = "<p>Profile</p>";
-    $html .= "<p>@{$profile}</p><p data-updatewindowboxservice='twitter_usertimeline' data-cbdata-Usertimeline='{$profile}'>timeline</p>";
-    $html .= "<p data-updatewindowboxservice='twitter'>Back!....</p>";
+    $html = '<ul class="nav nav-tabs">
+              <li><a href="#" data-updatewindowboxservice="twitter_hometimeline">Timeline</a></li>
+              <li class="active"><a href="#" data-updatewindowboxservice="twitter_userprofile">Profile</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_admin">Configure</a></li>
+            </ul>
+    ';
+
+    $url = 'https://api.twitter.com/1.1/users/show.json';
+    $getfield = '?screen_name='.$profile;
+    $profileData = json_decode($this->twitterApi->setGetfield($getfield)
+      ->buildOauth($url, 'GET')
+      ->performRequest(), true);
+
+    $html .= "<img src='{$profileData['profile_image_url']}' style='float:left;'>";
+    $html .= "<br><p><a href='https://twitter.com/{$profileData['screen_name']}' target='_blank'>@{$profileData['screen_name']}</a> ({$profileData['name']})</p>";
+    if (!empty($profileData['description'])) {
+      $html .= "<p style='clear:both;'>{$profileData['description']}</p>";
+    }
+    if (!empty($profileData['url'])) {
+      $html .= "<p><a href='{$profileData['url']}' target='_blank'>Web</a></p>";
+    }
+
+
+    $html .= "<p data-updatewindowboxservice='twitter_usertimeline' data-cbdata-Usertimeline='{$profile}'>Ir al timeline de {$profileData['name']}</p>";
+
     return [
       'html' => $html,
       'title' => '
@@ -248,9 +293,32 @@ class TwitterModule extends HC_Module {
     if (!$this->loggedIn) return $this->TwitterOauthWindowCallback();
 
     if (empty($fields['Hashtag'])) return $this->TwitterWindowCallback();
-    $html = "<p>Hashtag</p>";
-    if (!empty($fields['Hashtag'])) $html .= "#{$fields['Hashtag']}";
-    $html .= "<p data-updatewindowboxservice='twitter'>Back!....</p>";
+    $html = '<ul class="nav nav-tabs">
+              <li><a href="#" data-updatewindowboxservice="twitter_hometimeline">Timeline</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_userprofile">Profile</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_admin">Configure</a></li>
+            </ul>
+    ';
+
+    $query = "#{$fields['Hashtag']}";
+
+    $html .= "<p>$query</p>";
+    $url = 'https://api.twitter.com/1.1/search/tweets.json';
+    $getfield = '?q='.urlencode($query);
+    $queryData = json_decode($this->twitterApi->setGetfield($getfield)
+      ->buildOauth($url, 'GET')
+      ->performRequest(), true);
+
+    $tweetsHtmlFormatted = "<table class='table table-responsive' style='color:white;'>";
+    foreach ($queryData['statuses'] as $i => $tweet) {
+      $tweetText = $this->addTweetEntityLinks($tweet);
+      $tweetsHtmlFormatted .= "<tr><td>{$tweetText}<br>{$tweet['created_at']}</td></tr>";
+      if ($i >= 5) break;
+    }
+    $tweetsHtmlFormatted .= "</table>";
+
+    $html .= $tweetsHtmlFormatted;
+
     return [
       'html' => $html,
       'title' => '
@@ -299,10 +367,12 @@ class TwitterModule extends HC_Module {
     function endLogin() {
       console.log("Endlogin");
       popupwindow.close();
+      var wbox = $("#twittermodule_oauth_loginbutton").closest(".userview-content-column").closest(".userview-content-column-wrapper");
+      setBoxContents(wbox, "twitter");
     }
     </script>
     <a onclick="">
-      <input type="submit" value="LOGIN EN TWITTER" onclick="startLogin()" />
+      <input type="submit" value="LOGIN EN TWITTER" onclick="startLogin()" id="twittermodule_oauth_loginbutton" />
     </a>';
     return [
       'html' => $html,
@@ -318,9 +388,16 @@ class TwitterModule extends HC_Module {
   public function TwitterAdminWindowCallback($fields = []) {
     $cu = $this->hc->getUserManager()->getLoggedInUser();
 
+    $html = '<ul class="nav nav-tabs">
+              <li><a href="#" data-updatewindowboxservice="twitter_hometimeline">Timeline</a></li>
+              <li><a href="#" data-updatewindowboxservice="twitter_userprofile">Profile</a></li>
+              <li class="active"><a href="#" data-updatewindowboxservice="twitter_admin">Configure</a></li>
+            </ul>
+    ';
+
     if ($cu === false || !$cu->isAdmin()) {
       return [
-        'html' => '<p>Forbidden</p><p>Only administrators can access this view</p>',
+        'html' => $html.'<p>Forbidden</p><p>Only administrators can access this view</p>',
         'title' => '
         <svg class="icon twitter windowicon">
            <use xlink:href="#twitter">
@@ -330,20 +407,14 @@ class TwitterModule extends HC_Module {
       ];
     }
 
-    $html = '';
+
+
     if ($this->tokensSetup) {
       $html .= '<p>Already setup</p>';
     } else {
       $html .= '<p>Not setup</p>';
     }
 
-    $html .= "<p data-updatewindowboxservice='twitter'>Back!....</p>";
-/*
-'oauth_access_token' => $rows[0]['oauth_token'],
-'oauth_access_token_secret' => $rows[0]['oauth_token_secret'],
-'consumer_key' => $c_consumer_key,
-'consumer_secret' => $c_consumer_secret,
-*/
     $html .= '
     <p>Create a new app in <a href="https://apps.twitter.com/" target="_blank">Twitter Application Management</a></p>
     <p>Access the data in the tab "Keys and Access Tokens".</p><br>
