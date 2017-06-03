@@ -25,12 +25,29 @@
     width: 100%;
   }
 
-  fieldset {
+  fieldset
+  {
     border: 1px solid #ddd !important;
     margin: 0;
     min-width: 0;
     padding: 10px;
     position: relative;
+    border-radius:4px;
+    background-color:#f5f5f5;
+    padding-left:10px!important;
+  }
+
+  legend
+    {
+      font-size:14px;
+      font-weight:bold;
+      margin-bottom: 0px;
+      width: 35%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px 5px 5px 10px;
+      background-color: #ffffff;
+    }
     border-radius: 4px;
     background-color: #f5f5f5;
     padding-left: 10px!important;
@@ -60,7 +77,6 @@
   .blackfontlabel {
     color: black;
   }
-
   .geadiv {
     background-color: white;
   }
@@ -960,7 +976,7 @@
 
   #accordion1 .panel-default,
   #accordion2 .panel-default {
-    background-color: rgba(30, 28, 28, 0.33);
+    background-color: rgba(142, 138, 138, 0.85);
   }
 
   #accordion1 .panel-default>.panel-heading,
