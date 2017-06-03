@@ -102,10 +102,10 @@ class Hippocampus
           'text' => 'Classroom',
           'id' => 'classroom',
         ],
-        8 => [
-          'icon' => 'bolotweet',
-          'text' => 'Bolotweet',
-          'id' => 'bolotweet',
+        7 => [
+          'icon' => 'github',
+          'text' => 'Github',
+          'id' => 'github',
         ],
         9 => [
           'icon' => 'facebook',
@@ -117,10 +117,10 @@ class Hippocampus
           'text' => 'Mensajes',
           'id' => 'chat',
         ],
-        13 => [
-          'icon' => 'coffee',
-          'text' => 'Cafetería',
-          'id' => 'coffee',
+        14 => [
+          'icon' => 'software',
+          'text' => 'Software',
+          'id' => 'software',
         ],
         99 => [
           'icon' => 'settings',

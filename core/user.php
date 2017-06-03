@@ -56,4 +56,8 @@ class User
     {
         return $this->role;
     }
+
+    public function isAdmin() {
+        return ($this->getRole() === 'root' || $this->getRole() === 'administrator');
+    }
 }
