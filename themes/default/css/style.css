@@ -626,3 +626,479 @@
       border-bottom: solid #a2a0a0;
       border-bottom-width: 1.5px;
   }
+
+  /*** BOTON PERFIL ***/
+
+  #menu3 {
+      background-color: transparent;
+      box-sizing: border-box;
+      color: white;
+      /*rgb(85, 85, 85);*/
+      cursor: pointer;
+      display: block;
+      font-family: "Actor";
+      font-size: 14px;
+      line-height: 20px;
+      list-style-image: none;
+      list-style-position: outside;
+      list-style-type: none;
+      padding-bottom: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 15px;
+      position: relative;
+      text-decoration: rgba(183, 176, 176, 0.31);
+      text-decoration-color: rgba(183, 176, 176, 0.31);
+      text-decoration-line: none;
+      text-decoration-style: solid;
+      /* quitando lo de button */
+      border-bottom-color: rgba(183, 176, 176, 0.31);
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-bottom-style: none;
+      border-bottom-width: 0px;
+      border-image-outset: 0 0 0 0;
+      border-image-repeat: stretch stretch;
+      border-image-slice: 100% 100% 100% 100%;
+      border-image-source: none;
+      border-image-width: 1 1 1 1;
+      border-left-color: rgba(183, 176, 176, 0.31);
+      border-left-style: none;
+      border-left-width: 1px;
+      border-right-color: rgba(183, 176, 176, 0.31);
+      border-right-style: none;
+      border-right-width: 0px;
+      border-top-color: rgba(183, 176, 176, 0.31);
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-top-style: none;
+      border-top-width: 0px;
+  }
+
+  #foto-perfil {
+      max-width: 70%;
+      border-radius: 90px;
+  }
+
+  #pic-column {
+      margin-left: -20px;
+  }
+
+  #perfil-foto-input {
+      margin-left: 19px;
+      margin-right: 33px;
+  }
+
+  #perfil-menu {
+      margin-top: 6px;
+      width: 643px;
+  }
+
+  #info-column {
+      margin-left: -50px;
+      width: auto;
+      margin-bottom: 10px;
+  }
+
+  .part-perfil {
+      margin-bottom: 5px;
+      font-size: 12px;
+  }
+
+  .simple-part {
+      padding-top: 1px;
+      text-align: center;
+  }
+
+  .complex-part {
+      padding-top: 5px;
+      text-align: center;
+  }
+
+/**********************
+   Form login Style
+**********************/
+
+  form {
+      margin: auto;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 30px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+  }
+
+  #logo-ini {
+      max-width: 100%;
+      height: auto;
+  }
+
+  #button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    float: right;
+    padding: 30px;
+    border-radius: 12px;
+
+  }
+
+  @media (max-width: 1500px) {
+      form {
+          margin: auto;
+          background: rgba(255, 255, 255, 0.6);
+          padding: 15px;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+      }
+
+      #hippo-der {
+          min-width: 150px;
+      }
+      #hippo-izq {
+          min-width: 150px;
+      }
+      #logo-ini {
+          max-width: 100%;
+          height: auto;
+      }
+  }
+
+  @media (max-width: 1000px) {
+      form {
+          background: rgba(255, 255, 255, 0.6);
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          margin: auto;
+      }
+      #hippo-der {
+          display: none;
+      }
+      #hippo-izq {
+          display: none;
+      }
+      #bienvenido {
+          display: none;
+      }
+      #logo-ini {
+          display: inline;
+          width: 100%;
+          height: auto;
+      }
+  }
+
+  @media (max-width: 700px) {
+      form {
+          background: rgba(255, 255, 255, 0.6);
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          margin: auto;
+      }
+      #hippo-der {
+          display: none;
+      }
+      #hippo-izq {
+          display: none;
+      }
+      #bienvenido {
+          display: none;
+      }
+      #logo-ini {
+          display: inline;
+          width: 100%;
+          height: auto;
+      }
+  }
+
+  h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: rgba(0, 0, 0, 0.5);
+  }
+
+  input {
+      display: block;
+      padding: 10px;
+      width: 100%;
+      font-size: 20px;
+  }
+
+  input[type="checkbox"] {
+      width: auto;
+      display: inline;
+      cursor: pointer;
+  }
+
+  input[type="submit"] {
+      background: linear-gradient(#41FFD0, #4440FF);
+      border: 0;
+      color: white;
+      opacity: 0.8;
+      cursor: pointer;
+      border-radius: 20px;
+      margin-bottom: 0;
+  }
+
+/**********************
+     Register Style
+**********************/
+
+  input[type="submit"]:hover {
+      opacity: 1;
+  }
+
+  input[type="submit"]:active {
+      /*Momento en el que se hace click*/
+      transform: scale(0.95);
+  }
+
+  @media (max-width:768px) {
+      form {
+          width: 75%;
+      }
+  }
+
+  @media (max-width:480px) {
+      form {
+          width: 95%;
+      }
+  }
+
+  #register {
+      color: white;
+  }
+
+  #register:hover {
+      color: deepskyblue;
+  }
+
+/**********************
+   Admin Panel  Style
+**********************/
+
+  #accordion1, #accordion2 {
+      margin-top: 30 px;
+  }
+
+  #accordion1 .panel-default, #accordion2 .panel-default {
+      background-color: rgba(30, 28, 28, 0.33);
+  }
+
+  #accordion1 .panel-default>.panel-heading, #accordion2 .panel-default>.panel-heading {
+      background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  #accordion1 .panel-title, #accordion2 .panel-title {
+      color: white;
+  }
+
+  #tab-admin {
+      margin-top: 30px;
+  }
+
+  #label-admin {
+      color: #544F4F;
+      font-weight: normal;
+      font-size: 18px;
+  }
+
+  #checkbox-admin {
+      width: 40px;
+  }
+
+  .button-crear {
+      max-width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .glyphs-users {
+      text-align: center;
+  }
+
+  #ul-admin {
+      margin-top: 20px;
+  }
+
+  .admin-title {
+      color: white;
+      font-size: 1.6em;
+  }
+
+  .admin-edit-user, .admin-erase-user, .admin-active-module, .admin-unactive-module, .admin-active-theme, .admin-unactive-theme {
+      color: white;
+      cursor: pointer;
+  }
+
+  #edit-popup>title {
+      color: blue;
+  }
+
+  .table-admin {
+      cursor: default;
+  }
+
+  #homelinkadmin {
+      font-size: 25px;
+      color: white;
+      position: absolute;
+      bottom: 20px;
+      right: 50px;
+  }
+
+/**********************
+     Icons Style
+**********************/
+
+  .icon {
+      display: inline-block;
+      float: left;
+      width: 40px;
+      height: 40px;
+  }
+
+  .notification-icon {
+      display: inline-block;
+      float: left;
+      width: 30px;
+      height: 30px;
+  }
+
+/**********************
+   User Menu Style
+**********************/
+
+  #alerta {
+      text-indent: 290px;
+  }
+
+/**********************
+   Logo div Style
+**********************/
+
+  #toplogo img {
+      width: 100%;
+      height: 150px;
+      opacity: 0.8;
+  }
+
+  #hippo-izq {
+      width: 500px;
+      /* you can use % */
+      height: auto;
+  }
+
+  #hippo-der {
+      width: 500px;
+      /* you can use % */
+      height: auto;
+  }
+
+  .btn-xl1 {
+      padding: 45px 40px;
+      background-image: url('img/rWQafrC.png');
+      background-repeat: no-repeat;
+      background-size: 80px 90px;
+  }
+
+  .btn-xl2 {
+      padding: 45px 40px;
+      background-image: url('img/4hBzcqN.png');
+      background-repeat: no-repeat;
+      background-size: 80px 90px;
+  }
+
+  .btn-xl3 {
+      padding: 45px 40px;
+      background-image: url('img/klTIcC7.png');
+      background-repeat: no-repeat;
+      background-size: 80px 90px;
+  }
+
+  .btn-xl4 {
+      padding: 45px 40px;
+      background-image: url('img/MVwplil.png');
+      background-repeat: no-repeat;
+      background-size: 80px 90px;
+  }
+
+  a.hideDisplay{
+    position: relative; /* This makes everything work.*/
+    /* Allows you to layer overlapping elements. */
+    z-index: 20;
+    color: #000;
+    text-decoration: none
+  }
+
+  a.hideDisplay:hover{
+    /* Allows you to layer overlapping elements. */
+    z-index: 30;
+  }
+
+  a.hideDisplay span.showDisplayOnHover{
+    display: none
+  }
+
+/* This will only display itself when the
+* user hovers the mouse over the anchor. */
+  a.hideDisplay:hover span.showDisplayOnHover{
+    display: block;
+    position: absolute;
+    font-size: 18px;
+
+    /* This sets the height of a line of text in the box. */
+    line-height: 25px;
+
+    /* These position the box where it needs to go. */
+  top: 5px;
+  left: 20px;
+
+  /* These adjust the size of the box when it appears. */
+  width: auto;
+  padding: 10px;
+
+  border: 1px solid #666666;
+  background-color: #c0cedd;
+
+  /* text color */
+  color: #000000;
+  text-align: left;
+  }
+
+  .windowicon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    margin-top: -4px;
+  }
+
+  /**********************
+    Asociaciones module
+  **********************/
+  #asoci{
+    color: blue;
+  }
+
+  #librelab{
+    color: #cc0066;
+  }
+
+  /**********************
+    Bolotweet module
+  **********************/
+
+  .loginbutton {
+      display: block;
+      padding: 10px;
+      width: 100%;
+      font-size: 20px;
+      background: linear-gradient(#41FFD0, #4440FF);
+      border: 0;
+      color: white !important;
+      opacity: 0.8;
+      cursor: pointer;
+      border-radius: 20px;
+      margin-bottom: 0;
+  }
