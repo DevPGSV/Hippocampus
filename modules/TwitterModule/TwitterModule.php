@@ -154,7 +154,11 @@ class TwitterModule extends HC_Module {
     if (!$this->loggedIn) return $this->TwitterOauthWindowCallback();
     return [
       'html' => "<p data-updatewindowboxservice='twitter_hometimeline'>Home timeline</p><p data-updatewindowboxservice='twitter_usertimeline'>User timeline</p><p data-updatewindowboxservice='twitter_userprofile'>User profile</p>",
-      'title' => 'Twitter',
+      'title' => '<svg class="icon twitter windowicon">
+        <use xlink:href="#twitter">
+        </use>
+      </svg>
+      Twitter',
     ];
   }
 

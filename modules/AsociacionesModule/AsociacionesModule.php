@@ -77,7 +77,11 @@ class AsociacionesModule extends HC_Module {
 
       ',
 
-      'title' => '<a href="http://imgur.com/ocjPSnk"><img src="http://i.imgur.com/ocjPSnk.png" title="source: imgur.com" width="25" height="25" /> </a> Información de Asociaciones',
+      'title' => '<svg class="icon asociations windowicon">
+        <use xlink:href="#asociations">
+        </use>
+      </svg>
+       Información de Asociaciones',
     ];
   }
 
