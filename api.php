@@ -35,7 +35,7 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
           } else {
               $answer = [
                 'status' => 'error',
-                'msg' => 'user_not_found',
+                'msg' => 'El usuario no ha sido encontrado.',
               ];
           }
       }
@@ -48,11 +48,11 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
       $answer['msg'] = [];
       if (empty($_POST['username'])) {
           $answer['status'] = 'error';
-          $answer['msg'][] = 'no_user';
+          $answer['msg'][] = 'No se ha introducido el usuario.';
       }
       if (empty($_POST['password'])) {
           $answer['status'] = 'error';
-          $answer['msg'][] = 'no_password';
+          $answer['msg'][] = 'No se ha introducido la contraseña.';
       }
       if ($answer['status'] == 'error') {
           echo json_encode($answer);
@@ -63,7 +63,7 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
           $pw = hash('sha256', $salt.$_POST['password']);
           if ($pw !== $uData['pw']) {
               $answer['status'] = 'error';
-              $answer['msg'][] = 'incorrect_password';
+              $answer['msg'][] = 'Contraseña incorrecta.';
           } else {
               $device = 'DeviceName?';
               $device = trim(substr($device, 0, 64));
@@ -83,15 +83,15 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
                   $_SESSION['device'] = $device;
 
                   $answer['status'] = 'ok';
-                  $answer['msg'][] = 'logged_in';
+                  $answer['msg'][] = 'Usuario logueado.';
               } else {
                   $answer['status'] = 'error';
-                  $answer['msg'][] = 'error_creating_session';
+                  $answer['msg'][] = 'Error creando la sesión.';
               }
           }
       } else {
           $answer['status'] = 'error';
-          $answer['msg'][] = 'user_not_found';
+          $answer['msg'][] = 'El usuario no se ha encontrado.';
       }
       echo json_encode($answer);
       break;
@@ -104,23 +104,23 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
       $answer['status']='ok';
       if (empty($_POST['nombre'])) {
           $answer['status']='error';
-          $answer['msg'][]='no_name';
+          $answer['msg'][]='No se ha introducido el nombre.';
       }
       if (empty($_POST['email'])) {
-          $answer['msg'][]='no_email';
+          $answer['msg'][]='No se ha introducido el correo.';
           $answer['status']='error';
       }
       if (empty($_POST['usuario'])) {
-          $answer['msg'][]='no_user';
+          $answer['msg'][]='No se ha introducido el usuario.';
           $answer['status']='error';
       }
       if (empty($_POST['password'])) {
-          $answer['msg'][]='no_password';
+          $answer['msg'][]='No se ha introducido la contraseña.';
           $answer['status']='error';
       }
       if ($answer['status'] == 'error') {
           if (count($answer['msg']) === 0) {
-              $answer['msg'] = 'unknown';
+              $answer['msg'] = 'Error desconocido.';
           }
           echo json_encode($answer);
           break;
@@ -129,7 +129,7 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
           $gRecaptchaValidation = checkGoogleRecaptcha($hc->getDB()->getConfigValue('site.recaptcha.secret'), $_POST['g-recaptcha-response']);
           if (!$gRecaptchaValidation['success']) {
               $answer['status']='error';
-              $answer['msg'][]='error_recaptcha';
+              $answer['msg'][]='Error con el Captcha.';
               if (!empty($gRecaptchaValidation['error-codes'])) {
                   foreach ($gRecaptchaValidation['error-codes'] as $gCaptchaErrorCode) {
                       $answer['msg'][]='recaptcha_'.$gCaptchaErrorCode;
@@ -165,7 +165,7 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
 
       if ($answer['status'] == 'error') {
           if (count($answer['msg']) === 0) {
-              $answer['msg'] = 'unknown';
+              $answer['msg'] = 'Error desconocido.';
           }
           echo json_encode($answer);
           break;
@@ -179,10 +179,10 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
       unset($_SESSION['csalt']);
       if ($s) {
           $answer['status'] = 'ok';
-          $answer['msg'] = 'user_created';
+          $answer['msg'] = 'Usuario creado correctamente';
       } else {
           $answer['status'] = 'error';
-          $answer['msg'] = 'unknown';
+          $answer['msg'] = 'Error desconocido.';
       }
 
       echo json_encode($answer);
@@ -208,7 +208,7 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
           }
       } else {
           $answer['status'] = 'error';
-          $answer['msg'] = 'not_logged_in';
+          $answer['msg'] = 'No se está logueado.';
       }
       echo json_encode($answer);
       break;
@@ -242,11 +242,11 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
               $answer['msg'] = 'windowbox_updated';
           } else {
               $answer['status'] = 'error';
-              $answer['msg'] = 'unknown';
+              $answer['msg'] = 'Error desconocido.';
           }
       } else {
           $answer['status'] = 'error';
-          $answer['msg'] = 'not_logged_in';
+          $answer['msg'] = 'No se está logueado.';
       }
       echo json_encode($answer);
       break;
@@ -255,10 +255,6 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
       break;
   }
 }
-
-
-
-
 
 function checkGoogleRecaptcha($secret, $response, $remoteip = false)
 {
