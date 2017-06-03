@@ -65,7 +65,10 @@ function setupBackgroundGradient() {
       colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
     }
   }
-  setInterval(updateGradient, 40);
+  //setInterval(updateGradient, 40);
+  $('body').css({
+    background: "lightgreen"
+  });
 }
 
 function validaRegistro(form) {
@@ -329,7 +332,7 @@ $(document).ready(function() {
 
   setTimeout(function() {
     $('#toplogo').fadeOut();
-  }, 1000);
+  }, 100);
 
   $(".admin-edit-user").click(function() {
     var popup = $('<div id="edit-popup" title="Editar"><p>Usuario: </p><input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario" data-toggle="tooltip" data-placement="top" title="Entre 4 y 20 caracteres"><br><p>Rol: </p><input type="text" class="form-control" placeholder="Rol" name="rol" id="rol"><br><p>Email: </p><input type="email" class="form-control" placeholder="Email" name="email" id="email"></div>');
@@ -432,14 +435,15 @@ $(document).ready(function() {
   $("#sidebar.sidebar-nav-items>li").draggable({
     revert: true,
     helper: "clone",
-    appendTo: "body",
+    appendTo: "#mainpage",
   });
 
 
   $(".userview-content-column-wrapper").droppable({
     accept: "#sidebar.sidebar-nav-items>li",
     classes: {
-      "ui-droppable-active": "custom-state-active"
+      "ui-droppable-active": "ui-droppable-active",
+      "ui-droppable-hover": "ui-droppable-hover",
     },
     drop: function(event, ui) {
       console.log(ui.draggable.find('span').attr('data-service'));
