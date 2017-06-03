@@ -8,7 +8,7 @@ class CafeteriaModule extends HC_Module {
     }
 
     public static function setup($hc)  {
-      $sql = "CREATE TABLE hc_m_CafeteriaModule_data(
+      $sql = "CREATE TABLE IF NOT EXISTS hc_m_CafeteriaModule_data(
       id INT NOT NULL AUTO_INCREMENT,
       user INT NOT NULL,
       token VARCHAR(64) NOT NULL,
@@ -63,6 +63,7 @@ class CafeteriaModule extends HC_Module {
       Café: 0,80€ <br>
       Desayuno: 1,50€<br>
       Hamburguesa completa: 4€<br>
+      Bocadillo entero: 3€ <br>
       </p>
       <p id="librelab">
        CONTACTO

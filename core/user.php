@@ -58,6 +58,6 @@ class User
     }
 
     public function isAdmin() {
-        return ($this->getRole() === 'root' || $this->getRole() === 'administrator');
+        return ($this->getRole() <= 2);
     }
 }
