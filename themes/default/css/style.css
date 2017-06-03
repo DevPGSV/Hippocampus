@@ -61,7 +61,9 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px 5px 5px 10px;
-    background-color: #ffffff;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    padding-left: 10px!important;
   }
 
   .identityinputs {
@@ -145,11 +147,41 @@
   }
 
   .page>.container-fluid #userview-content .row .userview-content-column-wrapper {
-    height: calc(100% - 40px);
+    height: 100%;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 50px;
     color: white;
+  }
+
+  .page>.container-fluid #userview-content .row .userview-content-column-wrapper.ui-droppable-active .userview-window-toolbar {
+    -webkit-animation: blueneon-small 1.5s ease-in-out infinite alternate;
+    -moz-animation: blueneon-small 1.5s ease-in-out infinite alternate;
+    animation: blueneon-small 1.5s ease-in-out infinite alternate;
+  }
+
+  .page>.container-fluid #userview-content .row .userview-content-column-wrapper.ui-droppable-hover .userview-window-toolbar {
+    -webkit-animation: blueneon-big 0.5s ease-in-out infinite alternate;
+    -moz-animation: blueneon-big 0.5s ease-in-out infinite alternate;
+    animation: blueneon-big 0.5s ease-in-out infinite alternate;
+  }
+
+  @-webkit-keyframes blueneon-big {
+    from {
+      box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+    }
+    to {
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #9966ff, 0 0 35px #9966ff, 0 0 40px #9966ff, 0 0 50px #9966ff, 0 0 75px #9966ff;
+    }
+  }
+
+  @-webkit-keyframes blueneon-small {
+    from {
+      box-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 16px #fff, 0 0 24px #66b0ff, 0 0 38px #66b0ff, 0 0 46px #66b0ff, 0 0 60px #66b0ff, 0 0 80px #66b0ff;
+    }
+    to {
+      box-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 8px #fff, 0 0 12px #66b0ff, 0 0 19px #66b0ff, 0 0 23px #66b0ff, 0 0 30px #66b0ff, 0 0 40px #66b0ff;
+    }
   }
 
   .page>.container-fluid #userview-content .row .userview-content-column-wrapper:first-child {
@@ -158,7 +190,7 @@
 
   .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-content-column {
     background: rgba(0, 0, 0, 0.7);
-    height: 100%;
+    height: calc(100% - 40px);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 10px;
@@ -446,17 +478,20 @@
     transition: width .5s, margin-left .5s;
   }
 
-  body>li.ui-draggable.ui-draggable-dragging {
+  #mainpage>li.ui-draggable.ui-draggable-dragging {
     background-color: rgb(34, 34, 34);
+    opacity: 0.9;
     color: rgb(238, 238, 238);
-    width: 160px;
+    width: 60px;
     height: 60px;
     line-height: 60px;
     font-size: 1.2em;
     list-style: none;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
-  body>li.ui-draggable.ui-draggable-dragging a {
+  #mainpage>li.ui-draggable.ui-draggable-dragging a {
     padding-right: 10px;
     padding-left: 10px;
     cursor: pointer;
@@ -467,20 +502,21 @@
     height: 60px;
   }
 
-  body>li.ui-draggable.ui-draggable-dragging a .icon {
+  #mainpage>li.ui-draggable.ui-draggable-dragging a .icon {
     margin-top: 10px;
     margin-right: 10px;
-    text-align: right;
   }
 
   @media only screen and (min-width: 850px) {
-    .page.sidebar-expansible>.sidebar .sidebar-nav li a .sidebar-item-text {
+    .page.sidebar-expansible>.sidebar .sidebar-nav li a .sidebar-item-text,
+    #mainpage.sidebar-expansible>li.ui-draggable.ui-draggable-dragging a .sidebar-item-text {
       display: inline;
     }
     .page.sidebar-expansible>.sidebar .sidebar-nav.sidebar-nav-items li a {
       text-align: right;
     }
-    .page.sidebar-expansible>.sidebar {
+    .page.sidebar-expansible>.sidebar,
+    #mainpage.sidebar-expansible>li.ui-draggable.ui-draggable-dragging {
       width: 160px;
     }
     .page.sidebar-expansible>.container-fluid {
@@ -491,7 +527,8 @@
 
   @media only screen and (min-width: 1050px) {
     /* 1150px */
-    .page.sidebar-expansible .sidebar {
+    .page.sidebar-expansible .sidebar,
+    #mainpage.sidebar-expansible>li.ui-draggable.ui-draggable-dragging {
       width: 200px;
     }
     .page.sidebar-expansible>.container-fluid {
@@ -779,6 +816,17 @@
   #logo-ini {
     max-width: 100%;
     height: auto;
+  }
+
+  #button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    float: right;
+    padding: 30px;
+    border-radius: 12px;
   }
 
   @media (max-width: 1500px) {
@@ -1113,10 +1161,10 @@
   }
 
   .windowicon {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
-    margin-top: -4px;
+    /*margin-top: -2px;*/
   }
   /**********************
     Asociaciones module

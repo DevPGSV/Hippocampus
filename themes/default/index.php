@@ -61,7 +61,7 @@
                 </span>
               </span>
             </a>
-            <button id=bottom> ¿QUIÉNES SOMOS? <span class="glyphicon glyphicon-home"><i class="glyphicon glyphicon-leaf"></i></span> </button>
+            <button id=button> ¿QUIÉNES SOMOS? <span class="glyphicon glyphicon-home"><i class="glyphicon glyphicon-leaf"></i></span> </button>
     </div>
 
       <!-- Modal -->
