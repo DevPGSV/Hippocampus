@@ -69,7 +69,11 @@
                 <div class="collapse navbar-collapse" id="barraBasica">
                     <ul class="nav navbar-nav">
                         <li><a href="#"  class=" navbar-element navbar-main-title">Home</a></li>
-                        <li><a href="admin" class="navbar-element navbar-main-title">Administración</a></li>
+                        <?php
+                        if($hc->getUserManager()->getLoggedInUser()->isAdmin()){
+                          echo '<li><a href="admin" class="navbar-element navbar-main-title">Administración</a></li>';
+                        }
+                        ?>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
