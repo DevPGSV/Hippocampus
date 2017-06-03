@@ -162,7 +162,6 @@ class TwitterModule extends HC_Module {
 
   private function tweetsToHtmlTable($tweets) {
     $tweetsHtmlFormatted = "<table class='table table-responsive' style='color:white;'>";
-    //$tweetsHtmlFormatted .= '<tr><td></td></tr>';
     foreach ($tweets as $tweet) {
       $tweetText = $this->addTweetEntityLinks($tweet);
       $tweetsHtmlFormatted .= "<tr><td><p data-updatewindowboxservice='twitter_userprofile' data-cbdata-Userprofile='{$tweet['user']['screen_name']}'>{$tweet['user']['screen_name']}</p>{$tweetText}<br>{$tweet['created_at']}</td></tr>";
