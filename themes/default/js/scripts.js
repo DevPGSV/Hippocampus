@@ -14,17 +14,7 @@ String.prototype.hashCode = function() {
 function setupBackgroundGradient() {
 
   var colors = new Array(
-    [17, 240, 159],
-    [17, 240, 203],
-    [17, 211, 240],
-    [17, 129, 240],
-    [17, 55, 240],
-    [84, 240, 94],
-    [13, 1, 175],
-    [0, 27, 162],
-    [23, 153, 209],
-    [23, 209, 178],
-    [23, 209, 135]
+    [17, 240, 159], [17, 240, 203], [17, 211, 240], [17, 129, 240], [17, 55, 240], [84, 240, 94], [13, 1, 175], [0, 27, 162], [23, 153, 209], [23, 209, 178], [23, 209, 135]
   );
 
   var step = 0;
@@ -169,7 +159,12 @@ function formRegister(e) {
     data: [],
     success: function(data) {
       if (data['status'] == 'ok') {
-        var gresponse = grecaptcha.getResponse();
+        if ($(".g-recaptcha").length) {
+          var gresponse = grecaptcha.getResponse();
+        } else {
+          var gresponse = '';
+        }
+
         SHA256_init();
         SHA256_write(data['csalt'] + $("#form-register input#password").val());
         var hashedPasswordDigest = SHA256_finalize();
