@@ -14,7 +14,7 @@ class ExampleModule extends HC_Module {
    * This function is called once, when the plugin is installed.
    */
   public static function setup($hc) {
-    $sql = "CREATE TABLE hc_m_ExampleModule_data(
+    $sql = "CREATE TABLE IF NOT EXISTS hc_m_ExampleModule_data(
       id INT NOT NULL AUTO_INCREMENT,
       user INT NOT NULL,
       token VARCHAR(64) NOT NULL,
