@@ -5,9 +5,10 @@ require_once(__DIR__ . '/TwitterAPIExchange.php');
 class TwitterModule extends HC_Module {
 
   private $twitterApiData;
+  private $userData;
   private $twitterApi;
   private $loggedIn;
-  private $userData;
+  private $tokensSetup;
   public function __construct($hc) {
     parent::__construct($hc);
 
@@ -19,8 +20,12 @@ class TwitterModule extends HC_Module {
     $this->registerWindowCallback('twitter_oauth', 'TwitterOauthWindowCallback');
     $this->registerWindowCallback('twitter_admin', 'TwitterAdminWindowCallback');
 
+    $this->logInUser();
+
     $c_consumer_key = $hc->getDB()->getConfigValue('module.TwitterModule.consumer_key');
     $c_consumer_secret = $hc->getDB()->getConfigValue('module.TwitterModule.consumer_secret');
+
+    if ($c_consumer_key !== false && $c_consumer_secret !== false)
 
     $this->loggedIn = false;
     $this->twitterApi = false;
@@ -42,6 +47,10 @@ class TwitterModule extends HC_Module {
         $this->loggedIn = true;
       }
     }
+
+  }
+
+  public function logInUser() {
 
   }
 
@@ -154,10 +163,11 @@ class TwitterModule extends HC_Module {
     if (!$this->loggedIn) return $this->TwitterOauthWindowCallback();
     return [
       'html' => "<p data-updatewindowboxservice='twitter_hometimeline'>Home timeline</p><p data-updatewindowboxservice='twitter_usertimeline'>User timeline</p><p data-updatewindowboxservice='twitter_userprofile'>User profile</p>",
-      'title' => '<svg class="icon twitter windowicon">
-        <use xlink:href="#twitter">
-        </use>
-      </svg>
+      'title' => '
+      <svg class="icon twitter windowicon">
+         <use xlink:href="#twitter">
+         </use>
+      </svg> <span class="glyphicon glyphicon-menu-hamburger navbar-element"></span>
       Twitter',
     ];
   }
@@ -171,7 +181,12 @@ class TwitterModule extends HC_Module {
     $tweetsHtmlFormatted = $this->tweetsToHtmlTable($tweets);
     return [
       'html' => "<p data-updatewindowboxservice='twitter'>Back!....</p>\n\n$tweetsHtmlFormatted",
-      'title' => 'Twitter Home Timeline',
+      'title' => '
+      <svg class="icon twitter windowicon">
+         <use xlink:href="#twitter">
+         </use>
+      </svg> <span class="glyphicon glyphicon-time navbar-element"></span>
+      Twitter Home Timeline',
     ];
   }
 
@@ -188,7 +203,12 @@ class TwitterModule extends HC_Module {
     $tweetsHtmlFormatted = $this->tweetsToHtmlTable($tweets);
     return [
       'html' => "<p data-updatewindowboxservice='twitter'>Back!....</p>\n\n$tweetsHtmlFormatted",
-      'title' => 'Twitter User Timeline',
+      'title' => '
+      <svg class="icon twitter windowicon">
+         <use xlink:href="#twitter">
+         </use>
+      </svg> <span class="glyphicon glyphicon-time navbar-element"></span>
+      Twitter User Timeline',
     ];
   }
 
@@ -203,7 +223,12 @@ class TwitterModule extends HC_Module {
     $html .= "<p data-updatewindowboxservice='twitter'>Back!....</p>";
     return [
       'html' => $html,
-      'title' => 'Twitter User Profile',
+      'title' => '
+      <svg class="icon twitter windowicon">
+         <use xlink:href="#twitter">
+         </use>
+      </svg> <span class="glyphicon glyphicon-user navbar-element"></span>
+      Twitter User Profile',
     ];
   }
 
@@ -216,7 +241,12 @@ class TwitterModule extends HC_Module {
     $html .= "<p data-updatewindowboxservice='twitter'>Back!....</p>";
     return [
       'html' => $html,
-      'title' => 'Twitter Hashtag',
+      'title' => '
+      <svg class="icon twitter windowicon">
+         <use xlink:href="#twitter">
+         </use>
+      </svg> <span class="glyphicon glyphicon-filter navbar-element"></span>
+      Twitter Hashtag',
     ];
   }
 
@@ -240,7 +270,12 @@ class TwitterModule extends HC_Module {
     </a>';
     return [
       'html' => $html,
-      'title' => 'Twitter Login',
+      'title' => '
+      <svg class="icon twitter windowicon">
+         <use xlink:href="#twitter">
+         </use>
+      </svg> <span class="glyphicon glyphicon-log-in navbar-element"></span>
+      Twitter Login',
     ];
   }
 
