@@ -3,23 +3,24 @@
 **********************/
 
   * {
-      font-family: 'Actor';
+    font-family: 'Actor';
   }
 
-  body, html {
-      height: 100%;
-      margin: 0;
+  body,
+  html {
+    height: 100%;
+    margin: 0;
   }
 
   body {
-      padding: 0px;
-      margin: 0px;
-      display: flex;
-      background-color: #000000;
-      height: 100%;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    background-color: #000000;
+    height: 100%;
   }
 
-  object{
+  object {
     height: 100%;
     width: 100%;
   }
@@ -47,8 +48,23 @@
       padding: 5px 5px 5px 10px;
       background-color: #ffffff;
     }
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    padding-left: 10px!important;
+  }
 
-  .identityinputs{
+  legend {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    width: 35%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 5px 5px 10px;
+    background-color: #ffffff;
+  }
+
+  .identityinputs {
     display: inline;
     padding: 0px;
     width: 50%;
@@ -56,300 +72,303 @@
     color: black;
   }
 
-  .blackfontlabel{
+  .blackfontlabel {
     color: black;
   }
-  .geadiv{
+  .geadiv {
     background-color: white;
   }
+
   .dont-select {
-      /* iOS Safari */
-      -webkit-touch-callout: none;
-      /* Safari */
-      -webkit-user-select: none;
-      /* Konqueror HTML */
-      -khtml-user-select: none;
-      /* Firefox */
-      -moz-user-select: none;
-      /* Internet Explorer/Edge */
-      -ms-user-select: none;
-      /* Non-prefixed version, currently supported by Chrome and Opera */
-      user-select: none;
+    /* iOS Safari */
+    -webkit-touch-callout: none;
+    /* Safari */
+    -webkit-user-select: none;
+    /* Konqueror HTML */
+    -khtml-user-select: none;
+    /* Firefox */
+    -moz-user-select: none;
+    /* Internet Explorer/Edge */
+    -ms-user-select: none;
+    /* Non-prefixed version, currently supported by Chrome and Opera */
+    user-select: none;
   }
   /**********************
       Page Style
 **********************/
 
   .page {
-      width: 100%;
-      height: 100%;
+    width: 100%;
+    height: 100%;
   }
 
-  .page>.sidebar, .page>.container-fluid {
-      float: left;
+  .page>.sidebar,
+  .page>.container-fluid {
+    float: left;
   }
 
   .page>.container-fluid {
-      padding: 0;
-      width: calc(100% - 60px);
-      margin-left: 60px;
+    padding: 0;
+    width: calc(100% - 60px);
+    margin-left: 60px;
   }
   /**********************
    Page Content Style
 **********************/
 
   .page>.container-fluid>.row {
-      margin-left: 0px;
-      margin-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .page .glyphicon .badge {
-      margin-left: 5px;
+    margin-left: 5px;
   }
 
   #userview-content {
-      height: 99.5vh;
-      padding-bottom: 10px;
+    height: 99.5vh;
+    padding-bottom: 10px;
   }
 
   #main-body-userview {
-      overflow: hidden;
-      height: inherit;
+    overflow: hidden;
+    height: inherit;
   }
 
   .page>.container-fluid #userview-content .row {
-      margin: 10px;
-      margin-top: 50px;
+    margin: 10px;
+    margin-top: 50px;
   }
 
   .page>.container-fluid #userview-content .row:first-child {
-      margin-top: 0px;
+    margin-top: 0px;
   }
 
   .page>.container-fluid #userview-content .row .userview-content-column-wrapper {
-      height: calc(100% - 40px);
-      padding-left: 5px;
-      padding-right: 5px;
-      padding-top: 50px;
-      color: white;
+    height: calc(100% - 40px);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 50px;
+    color: white;
   }
 
   .page>.container-fluid #userview-content .row .userview-content-column-wrapper:first-child {
-      padding-top: 0px;
+    padding-top: 0px;
   }
 
   .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-content-column {
-      background: rgba(0, 0, 0, 0.7);
-      height: 100%;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      padding: 10px;
-      overflow: auto;
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    overflow: auto;
   }
 
   .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-window-toolbar {
-      width: 100%;
-      height: 40px;
-      background-color: #252525;
-      opacity: 0.9;
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
-      padding: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: #252525;
+    opacity: 0.9;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 10px;
   }
 
   .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-window-toolbar .userview-window-toolbar-service {
-      width: 80%;
-      float: left;
-      padding: 2px;
-      cursor: default;
+    width: calc(100% - 55px);
+    float: left;
+    padding: 2px;
+    cursor: default;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-window-toolbar .userview-window-toolbar-icons {
-      width: 20%;
-      float: right;
-      padding: 2px;
-      cursor: pointer;
+    width: 55px;
+    float: right;
+    padding: 2px;
+    cursor: pointer;
   }
 
   .page>.container-fluid #userview-content .userview-content-column-wrapper .userview-window-toolbar .userview-window-toolbar-icons .glyphicon {
-      margin-left: 10px;
-      float: right;
+    margin-left: 10px;
+    float: right;
   }
 
   .userview-window-toolbar-icons a {
-      color: #999999;
+    color: #999999;
   }
 
   @media (min-width: 768px) {
-      .page>.container-fluid #userview-content .row {
-          height: calc(100% - 72px);
-          margin-top: 10px;
-      }
-      .page>.container-fluid #userview-content .row2 {
-          height: calc((100% - 72px) / 2);
-      }
-      .page>.container-fluid #userview-content .row3 {
-          height: calc((100% - 72px) / 3);
-      }
-      .page>.container-fluid #userview-content .row4 {
-          height: calc((100% - 72px) / 4);
-      }
-      .page>.container-fluid #userview-content .row5 {
-          height: calc((100% - 72px) / 5);
-      }
-      .page>.container-fluid #userview-content .row .userview-content-column-wrapper {
-          padding-top: 0px;
-      }
-      .page>.container-fluid #userview-content .row .userview-content-column-wrapper:first-child {
-          padding-top: 0px;
-      }
+    .page>.container-fluid #userview-content .row {
+      height: calc(100% - 72px);
+      margin-top: 10px;
+    }
+    .page>.container-fluid #userview-content .row2 {
+      height: calc((100% - 72px) / 2);
+    }
+    .page>.container-fluid #userview-content .row3 {
+      height: calc((100% - 72px) / 3);
+    }
+    .page>.container-fluid #userview-content .row4 {
+      height: calc((100% - 72px) / 4);
+    }
+    .page>.container-fluid #userview-content .row5 {
+      height: calc((100% - 72px) / 5);
+    }
+    .page>.container-fluid #userview-content .row .userview-content-column-wrapper {
+      padding-top: 0px;
+    }
+    .page>.container-fluid #userview-content .row .userview-content-column-wrapper:first-child {
+      padding-top: 0px;
+    }
   }
-
-/**********************
+  /**********************
      Sidebar Style
 **********************/
 
    ::-webkit-scrollbar {
-      width: 0px;
-      /* remove scrollbar space */
-      background: transparent;
-      /* optional: just make scrollbar invisible */
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */
   }
 
   .sidebar {
-      background: rgba(44, 62, 80, 0.4);
-      opacity: 0.9;
-      color: #eee;
-      width: 60px;
-      height: 100%;
-      top: 0px;
-      position: fixed;
-      overflow: auto;
-      font-size: 1.2em;
+    background: rgba(44, 62, 80, 0.4);
+    opacity: 0.9;
+    color: #eee;
+    width: 60px;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+    overflow: auto;
+    font-size: 1.2em;
   }
   /*Animated menu icon*/
 
   #menu-nav-icon {
-      width: 20%;
-      height: 100%;
-      margin-left: 10%;
-      margin-right: 10%;
-      position: inherit;
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-      -webkit-transition: .5s ease-in-out;
-      -moz-transition: .5s ease-in-out;
-      -o-transition: .5s ease-in-out;
-      transition: .5s ease-in-out;
-      cursor: pointer;
+    width: 20%;
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    position: inherit;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
   }
 
   #menu-nav-icon span:nth-child(1) {
-      top: 0px;
-      -webkit-transform-origin: left center;
-      -moz-transform-origin: left center;
-      -o-transform-origin: left center;
-      transform-origin: left center;
+    top: 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
   }
 
   #menu-nav-icon span:nth-child(2) {
-      top: 33%;
-      -webkit-transform-origin: left center;
-      -moz-transform-origin: left center;
-      -o-transform-origin: left center;
-      transform-origin: left center;
+    top: 33%;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
   }
 
   #menu-nav-icon span:nth-child(3) {
-      top: 66%;
-      -webkit-transform-origin: left center;
-      -moz-transform-origin: left center;
-      -o-transform-origin: left center;
-      transform-origin: left center;
+    top: 66%;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
   }
 
   #menu-nav-icon.open {
-      width: 60%;
+    width: 60%;
   }
 
   #menu-nav-icon.open span:nth-child(1) {
-      width: 25%;
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      transform: rotate(45deg);
-      top: 0%;
-      left: 10%;
+    width: 25%;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 0%;
+    left: 10%;
   }
 
   #menu-nav-icon.open span:nth-child(2) {
-      width: 0%;
-      opacity: 0;
+    width: 0%;
+    opacity: 0;
   }
 
   #menu-nav-icon.open span:nth-child(3) {
-      width: 25%;
-      -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      -o-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      top: 100%;
-      left: 10%;
+    width: 25%;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 100%;
+    left: 10%;
   }
 
   #menu-nav-icon span {
-      display: block;
-      position: absolute;
-      height: 4px;
-      width: 100%;
-      background: #d3531a;
-      border-radius: 9px;
-      opacity: 1;
-      left: 0;
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-      -webkit-transition: .25s ease-in-out;
-      -moz-transition: .25s ease-in-out;
-      -o-transition: .25s ease-in-out;
-      transition: .25s ease-in-out;
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #d3531a;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
   }
 
   .sidebar-wrapper {
-      width: 100%;
-      background: #222;
-      height: 100%;
-      /*transition: all .4s ease 0s;*/
+    width: 100%;
+    background: #222;
+    height: 100%;
+    /*transition: all .4s ease 0s;*/
   }
 
   .sidebar-nav {
-      display: block;
-      float: left;
-      width: 100%;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    display: block;
+    float: left;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .sidebar-nav li {
-      line-height: 60px;
-      opacity: 1;
-      width: 100%;
+    line-height: 60px;
+    opacity: 1;
+    width: 100%;
   }
 
   .sidebar-nav li a {
-      color: #999999;
-      border-top: 1px solid #373737;
-      border-bottom: 1px solid #1A1A1A;
-      display: block;
-      width: 100%;
-      height: 60px;
-      text-decoration: none;
-      align: left;
-      /*
+    color: #999999;
+    border-top: 1px solid #373737;
+    border-bottom: 1px solid #1A1A1A;
+    display: block;
+    width: 100%;
+    height: 60px;
+    text-decoration: none;
+    align: left;
+    /*
     -webkit-transition: background .5s;
     -moz-transition: background .5s;
     -o-transition: background .5s;
@@ -359,710 +378,738 @@
   }
 
   .sidebar-nav li a .icon {
-      margin-top: 10px;
-      margin-right: 10px;
-      text-align: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: right;
   }
 
   .sidebar-nav li a .sidebar-item-text {
-      display: none;
-      width: 50%;
+    display: none;
+    width: 50%;
   }
 
   .sidebar-nav.sidebar-nav-head li {
-      font-size: 18px;
-      text-align: center;
+    font-size: 18px;
+    text-align: center;
   }
 
   .sidebar-nav.sidebar-nav-head li a {
-      background-color: #c3c3c3;
-      color: black;
-      cursor: context-menu;
-      height: 50px;
-      border: 0px;
-      border-bottom-right-radius: 0px;
-      padding: 16px;
+    background-color: #c3c3c3;
+    color: black;
+    cursor: context-menu;
+    height: 50px;
+    border: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 16px;
   }
 
   .sidebar-nav.sidebar-nav-head li a:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
   }
 
   .sidebar-nav.sidebar-nav-items li a .sidebar-item-content {
-      float: left;
-      white-space: nowrap;
-      overflow: hidden;
-      height: 100%;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 100%;
   }
 
   .sidebar-nav.sidebar-nav-items li a {
-      color: #999;
-      background: #252525;
-      padding-right: 10px;
-      padding-left: 10px;
-      cursor: pointer;
+    color: #999;
+    background: #252525;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
   }
 
   .sidebar-nav.sidebar-nav-items li a:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
   }
 
-  .page>.sidebar, .page>.container-fluid {
-      -webkit-transition: width .5s, margin-left .5s;
-      -moz-transition: width .5s, margin-left .5s;
-      -o-transition: width .5s, margin-left .5s;
-      -ms-transition: width .5s, margin-left .5s;
-      transition: width .5s, margin-left .5s;
+  .page>.sidebar,
+  .page>.container-fluid {
+    -webkit-transition: width .5s, margin-left .5s;
+    -moz-transition: width .5s, margin-left .5s;
+    -o-transition: width .5s, margin-left .5s;
+    -ms-transition: width .5s, margin-left .5s;
+    transition: width .5s, margin-left .5s;
   }
 
-  .sidebar>.page, .container-fluid>.page {
-      -webkit-transition: width .5s, margin-left .5s;
-      -moz-transition: width .5s, margin-left .5s;
-      -o-transition: width .5s, margin-left .5s;
-      -ms-transition: width .5s, margin-left .5s;
-      transition: width .5s, margin-left .5s;
+  .sidebar>.page,
+  .container-fluid>.page {
+    -webkit-transition: width .5s, margin-left .5s;
+    -moz-transition: width .5s, margin-left .5s;
+    -o-transition: width .5s, margin-left .5s;
+    -ms-transition: width .5s, margin-left .5s;
+    transition: width .5s, margin-left .5s;
+  }
+
+  body>li.ui-draggable.ui-draggable-dragging {
+    background-color: rgb(34, 34, 34);
+    color: rgb(238, 238, 238);
+    width: 160px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.2em;
+    list-style: none;
+  }
+
+  body>li.ui-draggable.ui-draggable-dragging a {
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+    color: #999;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 60px;
+  }
+
+  body>li.ui-draggable.ui-draggable-dragging a .icon {
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: right;
   }
 
   @media only screen and (min-width: 850px) {
-      .page.sidebar-expansible>.sidebar .sidebar-nav li a .sidebar-item-text {
-          display: inline;
-      }
-      .page.sidebar-expansible>.sidebar .sidebar-nav.sidebar-nav-items li a {
-          text-align: right;
-      }
-      .page.sidebar-expansible>.sidebar {
-          width: 160px;
-      }
-      .page.sidebar-expansible>.container-fluid {
-          width: calc(100% - 160px);
-          margin-left: 160px;
-      }
+    .page.sidebar-expansible>.sidebar .sidebar-nav li a .sidebar-item-text {
+      display: inline;
+    }
+    .page.sidebar-expansible>.sidebar .sidebar-nav.sidebar-nav-items li a {
+      text-align: right;
+    }
+    .page.sidebar-expansible>.sidebar {
+      width: 160px;
+    }
+    .page.sidebar-expansible>.container-fluid {
+      width: calc(100% - 160px);
+      margin-left: 160px;
+    }
   }
 
   @media only screen and (min-width: 1050px) {
-      /* 1150px */
-      .page.sidebar-expansible .sidebar {
-          width: 200px;
-      }
-      .page.sidebar-expansible>.container-fluid {
-          width: calc(100% - 200px);
-          margin-left: 200px;
-      }
+    /* 1150px */
+    .page.sidebar-expansible .sidebar {
+      width: 200px;
+    }
+    .page.sidebar-expansible>.container-fluid {
+      width: calc(100% - 200px);
+      margin-left: 200px;
+    }
   }
 
   @media only screen and (max-width: 768px) {
-      /* 768 */
-
-      #main-body-userview {
-          overflow: auto;
-      }
+    /* 768 */
+    #main-body-userview {
+      overflow: auto;
+    }
   }
 
   @media only screen and (max-width: 600px) {
-      /* 600 */
-      .sidebar {
-          display: none;
-      }
-      .page>.container-fluid {
-          width: 100%;
-          margin-left: 0px;
-      }
-      #main-body-userview {
-          overflow: auto;
-      }
+    /* 600 */
+    .sidebar {
+      display: none;
+    }
+    .page>.container-fluid {
+      width: 100%;
+      margin-left: 0px;
+    }
+    #main-body-userview {
+      overflow: auto;
+    }
   }
-
 
   #register {
-      color: white;
-      font-size: 18px;
+    color: white;
+    font-size: 18px;
   }
-
-/**********************
+  /**********************
     Top navbar Style
 **********************/
 
   .navbar li a {
-      cursor: pointer;
+    cursor: pointer;
   }
 
   .page>.container-fluid .navbar {
-      background-color: rgba(0, 0, 0, 0.14);
-      border-color: transparent;
-      margin: 10px;
+    background-color: rgba(0, 0, 0, 0.14);
+    border-color: transparent;
+    margin: 10px;
   }
 
   .navbar-element {
-      color: white !important;
+    color: white !important;
   }
 
-  .navbar-main-title, .navbar-element {
-      font-size: 18px !important;
+  .navbar-main-title,
+  .navbar-element {
+    font-size: 18px !important;
   }
   /*** BOTON COLUMNAS ***/
 
   #menu1 {
-      background-color: transparent;
-      box-sizing: border-box;
-      color: white;
-      /*rgb(85, 85, 85);*/
-      cursor: pointer;
-      display: block;
-      font-family: "Actor";
-      font-size: 14px;
-      line-height: 20px;
-      list-style-image: none;
-      list-style-position: outside;
-      list-style-type: none;
-      padding-bottom: 15px;
-      padding-left: 15px;
-      padding-right: 15px;
-      padding-top: 15px;
-      position: relative;
-      text-decoration: rgba(183, 176, 176, 0.31);
-      text-decoration-color: rgba(183, 176, 176, 0.31);
-      text-decoration-line: none;
-      text-decoration-style: solid;
-      /* quitando lo de button */
-      border-bottom-color: rgba(183, 176, 176, 0.31);
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
-      border-bottom-style: none;
-      border-bottom-width: 0px;
-      border-image-outset: 0 0 0 0;
-      border-image-repeat: stretch stretch;
-      border-image-slice: 100% 100% 100% 100%;
-      border-image-source: none;
-      border-image-width: 1 1 1 1;
-      border-left-color: rgba(183, 176, 176, 0.31);
-      border-left-style: none;
-      border-left-width: 1px;
-      border-right-color: rgba(183, 176, 176, 0.31);
-      border-right-style: none;
-      border-right-width: 0px;
-      border-top-color: rgba(183, 176, 176, 0.31);
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-top-style: none;
-      border-top-width: 0px;
+    background-color: transparent;
+    box-sizing: border-box;
+    color: white;
+    /*rgb(85, 85, 85);*/
+    cursor: pointer;
+    display: block;
+    font-family: "Actor";
+    font-size: 14px;
+    line-height: 20px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    position: relative;
+    text-decoration: rgba(183, 176, 176, 0.31);
+    text-decoration-color: rgba(183, 176, 176, 0.31);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    /* quitando lo de button */
+    border-bottom-color: rgba(183, 176, 176, 0.31);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: rgba(183, 176, 176, 0.31);
+    border-left-style: none;
+    border-left-width: 1px;
+    border-right-color: rgba(183, 176, 176, 0.31);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgba(183, 176, 176, 0.31);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-style: none;
+    border-top-width: 0px;
   }
 
   #column-menu {
-      padding: 10px;
-      width: -moz-max-content;
-      margin-top: 6px;
-      padding-top: 0px;
+    padding: 10px;
+    width: -moz-max-content;
+    margin-top: 6px;
+    padding-top: 0px;
   }
-
   /*** BOTON NOTIFICACIONES ***/
 
   #menu2 {
-      background-color: transparent;
-      box-sizing: border-box;
-      color: white;
-      /*rgb(85, 85, 85);*/
-      cursor: pointer;
-      display: block;
-      font-family: "Actor";
-      font-size: 14px;
-      line-height: 20px;
-      list-style-image: none;
-      list-style-position: outside;
-      list-style-type: none;
-      padding-bottom: 15px;
-      padding-left: 15px;
-      padding-right: 15px;
-      padding-top: 15px;
-      position: relative;
-      text-decoration: rgba(183, 176, 176, 0.31);
-      text-decoration-color: rgba(183, 176, 176, 0.31);
-      text-decoration-line: none;
-      text-decoration-style: solid;
-      /* quitando lo de button */
-      border-bottom-color: rgba(183, 176, 176, 0.31);
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
-      border-bottom-style: none;
-      border-bottom-width: 0px;
-      border-image-outset: 0 0 0 0;
-      border-image-repeat: stretch stretch;
-      border-image-slice: 100% 100% 100% 100%;
-      border-image-source: none;
-      border-image-width: 1 1 1 1;
-      border-left-color: rgba(183, 176, 176, 0.31);
-      border-left-style: none;
-      border-left-width: 1px;
-      border-right-color: rgba(183, 176, 176, 0.31);
-      border-right-style: none;
-      border-right-width: 0px;
-      border-top-color: rgba(183, 176, 176, 0.31);
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-top-style: none;
-      border-top-width: 0px;
+    background-color: transparent;
+    box-sizing: border-box;
+    color: white;
+    /*rgb(85, 85, 85);*/
+    cursor: pointer;
+    display: block;
+    font-family: "Actor";
+    font-size: 14px;
+    line-height: 20px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    position: relative;
+    text-decoration: rgba(183, 176, 176, 0.31);
+    text-decoration-color: rgba(183, 176, 176, 0.31);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    /* quitando lo de button */
+    border-bottom-color: rgba(183, 176, 176, 0.31);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: rgba(183, 176, 176, 0.31);
+    border-left-style: none;
+    border-left-width: 1px;
+    border-right-color: rgba(183, 176, 176, 0.31);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgba(183, 176, 176, 0.31);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-style: none;
+    border-top-width: 0px;
   }
 
   div#menu2.dropdown {
-      padding: 0px;
+    padding: 0px;
   }
 
-  div#div-menu2.dropdown.open, .navbar-default .navbar-nav>.active>a, div#div-menu1.dropdown.open, .navbar-default .navbar-nav>.active>a, div#div-menu3.dropdown.open, .navbar-default .navbar-nav>.active>a {
-      background-color: rgba(239, 234, 234, 0.35) !important;
+  div#div-menu2.dropdown.open,
+  .navbar-default .navbar-nav>.active>a,
+  div#div-menu1.dropdown.open,
+  .navbar-default .navbar-nav>.active>a,
+  div#div-menu3.dropdown.open,
+  .navbar-default .navbar-nav>.active>a {
+    background-color: rgba(239, 234, 234, 0.35) !important;
   }
 
   div#div-menu2.dropdown.open .dropdown-menu>li {
-      margin-left: 10px;
-      display: -moz-inline-box;
-      margin-bottom: 2px;
+    margin-left: 10px;
+    display: -moz-inline-box;
+    margin-bottom: 2px;
   }
 
   .dropdown-menu>li>a.notification-text {
-      display: inline-block;
+    display: inline-block;
   }
 
   div#div-menu2.dropdown.open .dropdown-menu>li.notification-text-inside {
-      border-bottom: solid #a2a0a0;
-      border-bottom-width: 1.5px;
+    border-bottom: solid #a2a0a0;
+    border-bottom-width: 1.5px;
   }
-
   /*** BOTON PERFIL ***/
 
   #menu3 {
-      background-color: transparent;
-      box-sizing: border-box;
-      color: white;
-      /*rgb(85, 85, 85);*/
-      cursor: pointer;
-      display: block;
-      font-family: "Actor";
-      font-size: 14px;
-      line-height: 20px;
-      list-style-image: none;
-      list-style-position: outside;
-      list-style-type: none;
-      padding-bottom: 15px;
-      padding-left: 15px;
-      padding-right: 15px;
-      padding-top: 15px;
-      position: relative;
-      text-decoration: rgba(183, 176, 176, 0.31);
-      text-decoration-color: rgba(183, 176, 176, 0.31);
-      text-decoration-line: none;
-      text-decoration-style: solid;
-      /* quitando lo de button */
-      border-bottom-color: rgba(183, 176, 176, 0.31);
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
-      border-bottom-style: none;
-      border-bottom-width: 0px;
-      border-image-outset: 0 0 0 0;
-      border-image-repeat: stretch stretch;
-      border-image-slice: 100% 100% 100% 100%;
-      border-image-source: none;
-      border-image-width: 1 1 1 1;
-      border-left-color: rgba(183, 176, 176, 0.31);
-      border-left-style: none;
-      border-left-width: 1px;
-      border-right-color: rgba(183, 176, 176, 0.31);
-      border-right-style: none;
-      border-right-width: 0px;
-      border-top-color: rgba(183, 176, 176, 0.31);
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-top-style: none;
-      border-top-width: 0px;
+    background-color: transparent;
+    box-sizing: border-box;
+    color: white;
+    /*rgb(85, 85, 85);*/
+    cursor: pointer;
+    display: block;
+    font-family: "Actor";
+    font-size: 14px;
+    line-height: 20px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    position: relative;
+    text-decoration: rgba(183, 176, 176, 0.31);
+    text-decoration-color: rgba(183, 176, 176, 0.31);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    /* quitando lo de button */
+    border-bottom-color: rgba(183, 176, 176, 0.31);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: rgba(183, 176, 176, 0.31);
+    border-left-style: none;
+    border-left-width: 1px;
+    border-right-color: rgba(183, 176, 176, 0.31);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgba(183, 176, 176, 0.31);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-style: none;
+    border-top-width: 0px;
   }
 
   #foto-perfil {
-      max-width: 70%;
-      border-radius: 90px;
+    max-width: 70%;
+    border-radius: 90px;
   }
 
   #pic-column {
-      margin-left: -20px;
+    margin-left: -20px;
   }
 
   #perfil-foto-input {
-      margin-left: 19px;
-      margin-right: 33px;
+    margin-left: 19px;
+    margin-right: 33px;
   }
 
   #perfil-menu {
-      margin-top: 6px;
-      width: 643px;
+    margin-top: 6px;
+    width: 643px;
   }
 
   #info-column {
-      margin-left: -50px;
-      width: auto;
-      margin-bottom: 10px;
+    margin-left: -50px;
+    width: auto;
+    margin-bottom: 10px;
   }
 
   .part-perfil {
-      margin-bottom: 5px;
-      font-size: 12px;
+    margin-bottom: 5px;
+    font-size: 12px;
   }
 
   .simple-part {
-      padding-top: 1px;
-      text-align: center;
+    padding-top: 1px;
+    text-align: center;
   }
 
   .complex-part {
-      padding-top: 5px;
-      text-align: center;
+    padding-top: 5px;
+    text-align: center;
   }
-
-/**********************
+  /**********************
    Form login Style
 **********************/
 
   form {
-      margin: auto;
-      max-width: 500px;
-      background: rgba(255, 255, 255, 0.6);
-      padding: 30px;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 20px;
+    margin: auto;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
   }
 
   #logo-ini {
-      max-width: 100%;
-      height: auto;
+    max-width: 100%;
+    height: auto;
   }
 
   @media (max-width: 1500px) {
-      form {
-          margin: auto;
-          background: rgba(255, 255, 255, 0.6);
-          padding: 15px;
-          border: 1px solid rgba(0, 0, 0, 0.2);
-          border-radius: 10px;
-      }
-      #bottom {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background-color: #000000;
-        color: #FFFFFF;
-        float: right;
-        padding: 30px;
-        border-radius: 12px;
-
-      }
-      #hippo-der {
-          min-width: 150px;
-      }
-      #hippo-izq {
-          min-width: 150px;
-      }
-      #logo-ini {
-          max-width: 100%;
-          height: auto;
-      }
+    form {
+      margin: auto;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 15px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+    #bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #000000;
+      color: #FFFFFF;
+      float: right;
+      padding: 30px;
+      border-radius: 12px;
+    }
+    #hippo-der {
+      min-width: 150px;
+    }
+    #hippo-izq {
+      min-width: 150px;
+    }
+    #logo-ini {
+      max-width: 100%;
+      height: auto;
+    }
   }
 
   @media (max-width: 1000px) {
-      form {
-          background: rgba(255, 255, 255, 0.6);
-          border: 1px solid rgba(0, 0, 0, 0.2);
-          border-radius: 10px;
-          margin: auto;
-      }
-      #hippo-der {
-          display: none;
-      }
-      #hippo-izq {
-          display: none;
-      }
-      #bienvenido {
-          display: none;
-      }
-      #logo-ini {
-          display: inline;
-          width: 100%;
-          height: auto;
-      }
+    form {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      margin: auto;
+    }
+    #hippo-der {
+      display: none;
+    }
+    #hippo-izq {
+      display: none;
+    }
+    #bienvenido {
+      display: none;
+    }
+    #logo-ini {
+      display: inline;
+      width: 100%;
+      height: auto;
+    }
   }
 
   @media (max-width: 700px) {
-      form {
-          background: rgba(255, 255, 255, 0.6);
-          border: 1px solid rgba(0, 0, 0, 0.2);
-          border-radius: 10px;
-          margin: auto;
-      }
-      #hippo-der {
-          display: none;
-      }
-      #hippo-izq {
-          display: none;
-      }
-      #bienvenido {
-          display: none;
-      }
-      #logo-ini {
-          display: inline;
-          width: 100%;
-          height: auto;
-      }
+    form {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      margin: auto;
+    }
+    #hippo-der {
+      display: none;
+    }
+    #hippo-izq {
+      display: none;
+    }
+    #bienvenido {
+      display: none;
+    }
+    #logo-ini {
+      display: inline;
+      width: 100%;
+      height: auto;
+    }
   }
 
   h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.5);
   }
 
   input {
-      display: block;
-      padding: 10px;
-      width: 100%;
-      font-size: 20px;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
   }
 
   input[type="checkbox"] {
-      width: auto;
-      display: inline;
-      cursor: pointer;
+    width: auto;
+    display: inline;
+    cursor: pointer;
   }
 
   input[type="submit"] {
-      background: linear-gradient(#41FFD0, #4440FF);
-      border: 0;
-      color: white;
-      opacity: 0.8;
-      cursor: pointer;
-      border-radius: 20px;
-      margin-bottom: 0;
+    background: linear-gradient(#41FFD0, #4440FF);
+    border: 0;
+    color: white;
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 0;
   }
-
-/**********************
+  /**********************
      Register Style
 **********************/
 
   input[type="submit"]:hover {
-      opacity: 1;
+    opacity: 1;
   }
 
   input[type="submit"]:active {
-      /*Momento en el que se hace click*/
-      transform: scale(0.95);
+    /*Momento en el que se hace click*/
+    transform: scale(0.95);
   }
 
   @media (max-width:768px) {
-      form {
-          width: 75%;
-      }
+    form {
+      width: 75%;
+    }
   }
 
   @media (max-width:480px) {
-      form {
-          width: 95%;
-      }
+    form {
+      width: 95%;
+    }
   }
 
   #register {
-      color: white;
+    color: white;
   }
 
   #register:hover {
-      color: deepskyblue;
+    color: deepskyblue;
   }
-
-/**********************
+  /**********************
    Admin Panel  Style
 **********************/
 
-  #accordion1, #accordion2 {
-      margin-top: 30 px;
+  #accordion1,
+  #accordion2 {
+    margin-top: 30 px;
   }
 
-  #accordion1 .panel-default, #accordion2 .panel-default {
-      background-color: rgba(142, 138, 138, 0.85);
+  #accordion1 .panel-default,
+  #accordion2 .panel-default {
+    background-color: rgba(142, 138, 138, 0.85);
   }
 
-  #accordion1 .panel-default>.panel-heading, #accordion2 .panel-default>.panel-heading {
-      background-color: rgba(255, 255, 255, 0.2);
+  #accordion1 .panel-default>.panel-heading,
+  #accordion2 .panel-default>.panel-heading {
+    background-color: rgba(255, 255, 255, 0.2);
   }
 
-  #accordion1 .panel-title, #accordion2 .panel-title {
-      color: white;
+  #accordion1 .panel-title,
+  #accordion2 .panel-title {
+    color: white;
   }
 
   #tab-admin {
-      margin-top: 30px;
+    margin-top: 30px;
   }
 
   #label-admin {
-      color: #544F4F;
-      font-weight: normal;
-      font-size: 18px;
+    color: #544F4F;
+    font-weight: normal;
+    font-size: 18px;
   }
 
   #checkbox-admin {
-      width: 40px;
+    width: 40px;
   }
 
   .button-crear {
-      max-width: 200px;
-      margin-left: auto;
-      margin-right: auto;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .glyphs-users {
-      text-align: center;
+    text-align: center;
   }
 
   #ul-admin {
-      margin-top: 20px;
+    margin-top: 20px;
   }
 
   .admin-title {
-      color: white;
-      font-size: 1.6em;
+    color: white;
+    font-size: 1.6em;
   }
 
-  .admin-edit-user, .admin-erase-user, .admin-active-module, .admin-unactive-module, .admin-active-theme, .admin-unactive-theme {
-      color: white;
-      cursor: pointer;
+  .admin-edit-user,
+  .admin-erase-user,
+  .admin-active-module,
+  .admin-unactive-module,
+  .admin-active-theme,
+  .admin-unactive-theme {
+    color: white;
+    cursor: pointer;
   }
 
   #edit-popup>title {
-      color: blue;
+    color: blue;
   }
 
   .table-admin {
-      cursor: default;
+    cursor: default;
   }
 
   #homelinkadmin {
-      font-size: 25px;
-      color: white;
-      position: absolute;
-      bottom: 20px;
-      right: 50px;
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
   }
-
-/**********************
+  /**********************
      Icons Style
 **********************/
 
   .icon {
-      display: inline-block;
-      float: left;
-      width: 40px;
-      height: 40px;
+    display: inline-block;
+    float: left;
+    width: 40px;
+    height: 40px;
   }
 
   .notification-icon {
-      display: inline-block;
-      float: left;
-      width: 30px;
-      height: 30px;
+    display: inline-block;
+    float: left;
+    width: 30px;
+    height: 30px;
   }
-
-/**********************
+  /**********************
    User Menu Style
 **********************/
 
   #alerta {
-      text-indent: 290px;
+    text-indent: 290px;
   }
-
-/**********************
+  /**********************
    Logo div Style
 **********************/
 
   #toplogo img {
-      width: 100%;
-      height: 150px;
-      opacity: 0.8;
+    width: 100%;
+    height: 150px;
+    opacity: 0.8;
   }
 
   #hippo-izq {
-      width: 500px;
-      /* you can use % */
-      height: auto;
+    width: 500px;
+    /* you can use % */
+    height: auto;
   }
 
   #hippo-der {
-      width: 500px;
-      /* you can use % */
-      height: auto;
+    width: 500px;
+    /* you can use % */
+    height: auto;
   }
 
   .btn-xl1 {
-      padding: 45px 40px;
-      background-image: url('img/rWQafrC.png');
-      background-repeat: no-repeat;
-      background-size: 80px 90px;
+    padding: 45px 40px;
+    background-image: url('img/rWQafrC.png');
+    background-repeat: no-repeat;
+    background-size: 80px 90px;
   }
 
   .btn-xl2 {
-      padding: 45px 40px;
-      background-image: url('img/4hBzcqN.png');
-      background-repeat: no-repeat;
-      background-size: 80px 90px;
+    padding: 45px 40px;
+    background-image: url('img/4hBzcqN.png');
+    background-repeat: no-repeat;
+    background-size: 80px 90px;
   }
 
   .btn-xl3 {
-      padding: 45px 40px;
-      background-image: url('img/klTIcC7.png');
-      background-repeat: no-repeat;
-      background-size: 80px 90px;
+    padding: 45px 40px;
+    background-image: url('img/klTIcC7.png');
+    background-repeat: no-repeat;
+    background-size: 80px 90px;
   }
 
   .btn-xl4 {
-      padding: 45px 40px;
-      background-image: url('img/MVwplil.png');
-      background-repeat: no-repeat;
-      background-size: 80px 90px;
+    padding: 45px 40px;
+    background-image: url('img/MVwplil.png');
+    background-repeat: no-repeat;
+    background-size: 80px 90px;
   }
 
-  a.hideDisplay{
-    position: relative; /* This makes everything work.*/
+  a.hideDisplay {
+    position: relative;
+    /* This makes everything work.*/
     /* Allows you to layer overlapping elements. */
     z-index: 20;
     color: #000;
     text-decoration: none
   }
 
-  a.hideDisplay:hover{
+  a.hideDisplay:hover {
     /* Allows you to layer overlapping elements. */
     z-index: 30;
   }
 
-  a.hideDisplay span.showDisplayOnHover{
+  a.hideDisplay span.showDisplayOnHover {
     display: none
   }
-
-/* This will only display itself when the
+  /* This will only display itself when the
 * user hovers the mouse over the anchor. */
-  a.hideDisplay:hover span.showDisplayOnHover{
+
+  a.hideDisplay:hover span.showDisplayOnHover {
     display: block;
     position: absolute;
     font-size: 18px;
-
     /* This sets the height of a line of text in the box. */
     line-height: 25px;
-
     /* These position the box where it needs to go. */
-  top: 5px;
-  left: 20px;
-
-  /* These adjust the size of the box when it appears. */
-  width: auto;
-  padding: 10px;
-
-  border: 1px solid #666666;
-  background-color: #c0cedd;
-
-  /* text color */
-  color: #000000;
-  text-align: left;
+    top: 5px;
+    left: 20px;
+    /* These adjust the size of the box when it appears. */
+    width: auto;
+    padding: 10px;
+    border: 1px solid #666666;
+    background-color: #c0cedd;
+    /* text color */
+    color: #000000;
+    text-align: left;
   }
 
   .windowicon {
@@ -1071,32 +1118,31 @@
     margin-right: 10px;
     margin-top: -4px;
   }
-
   /**********************
     Asociaciones module
   **********************/
-  #asoci{
+
+  #asoci {
     color: blue;
   }
 
-  #librelab{
+  #librelab {
     color: #cc0066;
   }
-
   /**********************
     Bolotweet module
   **********************/
 
   .loginbutton {
-      display: block;
-      padding: 10px;
-      width: 100%;
-      font-size: 20px;
-      background: linear-gradient(#41FFD0, #4440FF);
-      border: 0;
-      color: white !important;
-      opacity: 0.8;
-      cursor: pointer;
-      border-radius: 20px;
-      margin-bottom: 0;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+    background: linear-gradient(#41FFD0, #4440FF);
+    border: 0;
+    color: white !important;
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 0;
   }

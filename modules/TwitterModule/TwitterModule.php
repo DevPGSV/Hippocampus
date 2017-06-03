@@ -11,14 +11,13 @@ class TwitterModule extends HC_Module {
   public function __construct($hc) {
     parent::__construct($hc);
 
-
-
     $this->registerWindowCallback('twitter', 'TwitterWindowCallback');
     $this->registerWindowCallback('twitter_hometimeline', 'TwitterHomeTimelineWindowCallback');
     $this->registerWindowCallback('twitter_usertimeline', 'TwitterUserTimelineWindowCallback');
     $this->registerWindowCallback('twitter_userprofile', 'TwitterUserProfileWindowCallback');
     $this->registerWindowCallback('twitter_hashtag', 'TwitterHashtagWindowCallback');
     $this->registerWindowCallback('twitter_oauth', 'TwitterOauthWindowCallback');
+    $this->registerWindowCallback('twitter_admin', 'TwitterAdminWindowCallback');
 
     $c_consumer_key = $hc->getDB()->getConfigValue('module.TwitterModule.consumer_key');
     $c_consumer_secret = $hc->getDB()->getConfigValue('module.TwitterModule.consumer_secret');
@@ -47,7 +46,7 @@ class TwitterModule extends HC_Module {
   }
 
   public static function setup($hc) {
-    $sql = "CREATE TABLE hc_m_TwitterModule_users(
+    $sql = "CREATE TABLE IF NOT EXISTS hc_m_TwitterModule_users(
       user INT NOT NULL,
       oauth_token VARCHAR(256) NOT NULL,
       oauth_token_secret VARCHAR(256) NOT NULL,

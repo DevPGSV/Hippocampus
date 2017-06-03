@@ -432,6 +432,7 @@ $(document).ready(function() {
   $("#sidebar.sidebar-nav-items>li").draggable({
     revert: true,
     helper: "clone",
+    appendTo: "body",
   });
 
 
