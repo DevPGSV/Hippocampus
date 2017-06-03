@@ -63,6 +63,7 @@ class CafeteriaModule extends HC_Module {
       Café: 0,80€ <br>
       Desayuno: 1,50€<br>
       Hamburguesa completa: 4€<br>
+      Bocadillo entero: 3€ <br>
       </p>
       <p id="librelab">
        CONTACTO
