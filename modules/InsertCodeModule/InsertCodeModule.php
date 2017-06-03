@@ -42,17 +42,7 @@ class InsertCodeModule extends HC_Module {
 
   public function ExampleWindowCallback() {
     return [
-      'html' => '<p><div class="lesson-middle js-lesson-editor">
-  <div class="waiting-overlay"></div>
-  <div class="lesson-file-tabs js-lesson-file-tabs"><div class="lesson-file-tabs__wrapper">
-  <div>
-  <div class="lesson-file-tabs__tab js-file-tab tab cf active" data-type="script.js" data-state="active">
-  <div class="new-icon--small--center new-icon--lesson-file fl"></div>
-  <div class="fl">script.js</div>
-</div>  </div>
-  <div id="composer-view-project-button-for-narrow-screen">
-  </div>
-</div></p>',
+      'html' => '<p></p>',
       'title' => 'Insert code',
     ];
   }
