@@ -8,7 +8,7 @@ class CafeteriaModule extends HC_Module {
     }
 
     public static function setup($hc)  {
-      $sql = "CREATE TABLE hc_m_CafeteriaModule_data(
+      $sql = "CREATE TABLE IF NOT EXISTS hc_m_CafeteriaModule_data(
       id INT NOT NULL AUTO_INCREMENT,
       user INT NOT NULL,
       token VARCHAR(64) NOT NULL,
