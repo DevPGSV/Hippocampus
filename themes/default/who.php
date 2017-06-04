@@ -3,18 +3,9 @@
     <title>Hippocampus - Miembros</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Actor'>
-    <script src='//www.google.com/recaptcha/api.js'></script>
 
-    <script src="lib/jssha256/jssha256.js"></script>
-    <script src="scripts.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+      <?php echo $hc->getMetacode(); ?>
+
 </head>
 <body>
 
@@ -63,7 +54,7 @@
       <h4>
         <a href="mailto:bldelato@ucm.es">bldelato@ucm.es</a>
       </h4>
-      <img src="img/blanca.jpg" alt="Blanca de la Torre" class="persondata-picture img-responsive img-circle">
+      <img src="img/blanca.jpeg" alt="Blanca de la Torre" class="persondata-picture img-responsive img-circle">
       <p>
           Soy una estudiante de Ingeniería Informática de la UCM, y mis inquietudes van desde cosas relajantes como leer, ir al cine o la música (tanto escucharla como tocar el piano), hasta actividades como ir a la montaña.
           Disfruto la mayor parte del tiempo libre saliendo con amigos o a pasear.
@@ -75,7 +66,7 @@
       <h4>
         <a href="mailto:mapast03@ucm.es">mapast03@ucm.es</a>
       </h4>
-      <img src="img/marta.jpg" alt="Marta Pastor" class="persondata-picture img-responsive img-circle">
+      <img src="img/marta.jpeg" alt="Marta Pastor" class="persondata-picture img-responsive img-circle">
       <p>
           Estudiante de Ingeniería Informática, Diseño y Creación Digitales. Apasionada del teatro, del tiro con arco y de los idiomas.
           Mis intereses profesionales se centran en los ámbitos del desarrollo web, diseño gráfico y ciberseguridad.
@@ -88,7 +79,7 @@
       <h4>
         <a href="mailto:gmonserr@ucm.es">gmonserr@ucm.es</a>
       </h4>
-      <img src="img/guille.jpg" alt="Guillermo Monserrate" class="persondata-picture img-responsive img-circle">
+      <img src="img/guille.jpeg" alt="Guillermo Monserrate" class="persondata-picture img-responsive img-circle">
       <p>
           Actualmente soy un estudiante del grado de Ingeniería Informática de la UCM.
           Soy un gran amante de las nuevas tecnologías, y también disfruto escribiendo.
@@ -102,7 +93,7 @@
       <h4>
         <a href="mailto:pablga05@ucm.es">pablga05@ucm.es</a>
       </h4>
-      <img src="img/pablo.jpg" alt="Pablo García de los Salmones" class="persondata-picture img-responsive img-circle">
+      <img src="img/pablo.jpeg" alt="Pablo García de los Salmones" class="persondata-picture img-responsive img-circle">
       <p>
         Potencial Ingeniero Informático con curiosidad por el conocimiento.
         Amante de la programación, la seguridad informática y del software libre.
@@ -115,7 +106,7 @@
       <h4>
         <a href="mailto:igulyk@ucm.es">igulyk@ucm.es</a>
       </h4>
-      <img src="img/ivan.jpg" alt="Ivan Gulyk" class="persondata-picture img-responsive img-circle">
+      <img src="img/ivan.jpeg" alt="Ivan Gulyk" class="persondata-picture img-responsive img-circle">
       <p>
         Estudiante de Ingeniería Informática en la UCM. Me encanta ver series y también
         soy muy fan de Naruto. En mis ratos libres suelo salir con mis amigos a pasear o jugar al baloncesto.
