@@ -255,41 +255,53 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
       break;
 
       case 'admin':
-        $answer['status'] = 'ok';
-        $answer['msg'] = [];
-        if (empty($_POST['newusuario'])) {
-            $answer['status'] = 'error';
-            $answer['msg'][] = 'No se ha introducido el usuario.';
-        }
-        if (empty($_POST['newpassword'])) {
-            $answer['status'] = 'error';
-            $answer['msg'][] = 'No se ha introducido la contraseña.';
-        }
-        if (empty($_POST['newemail'])) {
-            $answer['status'] = 'error';
-            $answer['msg'][] = 'No se ha introducido el correo.';
-        }
-        if ($answer['status'] == 'error') {
-            echo json_encode($answer);
-            break;
+        $u = $hc->getUserManager()->getLoggedInUser();
+        if ($u !== false && !$u->isAdmin()) {
+          $answer['status'] = 'error';
+          $answer['msg'][] = 'No eres administrador.';
+        } else {
+          $answer['status'] = 'ok';
+          $answer['msg'] = [];
+          if (empty($_POST['newusuario'])) {
+              $answer['status'] = 'error';
+              $answer['msg'][] = 'No se ha introducido el usuario.';
+          }
+          if (empty($_POST['newpassword'])) {
+              $answer['status'] = 'error';
+              $answer['msg'][] = 'No se ha introducido la contraseña.';
+          }
+          if (empty($_POST['newemail'])) {
+              $answer['status'] = 'error';
+              $answer['msg'][] = 'No se ha introducido el correo.';
+          }
+          if ($answer['status'] == 'error') {
+              echo json_encode($answer);
+              break;
+          }
+
+          $username = $_POST['newusuario'];
+          $email = $_POST['newemail'];
+          if (empty($_POST['isadmin'])) $_POST['isadmin'] = false;
+          if ($_POST['isadmin'] === 'true') $_POST['isadmin'] = true;
+          if ($_POST['isadmin'] === 'false') $_POST['isadmin'] = false;
+          if($_POST['isadmin']) {
+            $role = 2;
+          } else {
+            $role = 3;
+          }
+          $password = $_POST['newpassword'];
+
+          $u = new User($hc, -1, $username, $email, false, '-', $role);
+          $salt = Utils::randStr(32);
+          $csalt = Utils::randStr(32);
+          $pw = hash('sha256', $csalt.$password);
+          $pw = hash('sha256', $salt.$pw);
+          $s = $hc->getDB()->registerNewUser($u, $pw, $salt, $csalt );
         }
 
-        $username = $_POST['newusuario'];
-        $email = $_POST['newemail'];
-        if(!empty($_POST['isadmin']) && $_POST['isadmin'] == true){
-          $role = 2;
+        if ($answer['status'] == 'ok') {
+          $answer['msg'] = 'Usuario creado';
         }
-        else {
-          $role = 3;
-        }
-        $password = $_POST['newpassword'];
-
-        $u = new User($hc, -1, $username, $email, false, '-', $role);
-        $salt = Utils::randStr(32);
-        $csalt = Utils::randStr(32);
-        $pw = hash('sha256', $csalt.$password);
-        $pw = hash('sha256', $salt.$pw);
-        $s = $hc->getDB()->registerNewUser($u, $pw, $salt, $csalt );
 
         echo json_encode($answer);
         break;

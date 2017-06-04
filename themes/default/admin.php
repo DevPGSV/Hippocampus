@@ -20,7 +20,7 @@
 			    $.ajax({
 			      type: "POST",
 			      url: "api.php?action=admin",
-			      //dataType: 'json',
+			      dataType: 'json',
 			      data: {
 			        'newusuario': $("#usuario").val(),
 			        'newemail': $("#email").val(),
@@ -28,7 +28,15 @@
 							'isadmin': $("#checkbox-admin").is(":checked"),
 			      },
 			      success: function(data) {
-			        alert(data);
+			        if (data['status'] == 'ok') {
+								$("#usuario").val('');
+								$("#email").val('');
+								$("#passwd").val('');
+								$("#checkbox-admin").prop('checked', false);
+								alert(data['msg']);
+							} else {
+								alert(data['msg']);
+							}
 			      },
 			    });
 			  });
