@@ -52,6 +52,7 @@ class Hippocampus
             break;
           case '/admin':
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('admin'));
+            break;
           case '/style.css':
             header("Content-type: text/css");
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('style'));
