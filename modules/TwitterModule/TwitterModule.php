@@ -161,7 +161,7 @@ class TwitterModule extends HC_Module {
   } // end addTweetEntityLinks()
 
   private function tweetsToHtmlTable($tweets) {
-    $tweetsHtmlFormatted = "<table class='table table-responsive' style='color:white;'>";
+    $tweetsHtmlFormatted = "<table class='table table-responsive twittermodule_tweettable'>";
     foreach ($tweets as $tweet) {
       $tweetText = $this->addTweetEntityLinks($tweet);
       $tweetsHtmlFormatted .= "<tr><td><p data-updatewindowboxservice='twitter_userprofile' data-cbdata-Userprofile='{$tweet['user']['screen_name']}'>{$tweet['user']['screen_name']}</p>{$tweetText}<br>{$tweet['created_at']}</td></tr>";
@@ -265,10 +265,10 @@ class TwitterModule extends HC_Module {
       ->buildOauth($url, 'GET')
       ->performRequest(), true);
 
-    $html .= "<img src='{$profileData['profile_image_url']}' style='float:left;'>";
-    $html .= "<br><p><a href='https://twitter.com/{$profileData['screen_name']}' target='_blank'>@{$profileData['screen_name']}</a> ({$profileData['name']})</p>";
+    $html .= "<img src='{$profileData['profile_image_url']}' class='twittermodule_profilepic'>";
+    $html .= "<br><p><a href='https://twitter.com/{$profileData['screen_name']}' target='_blank'>@{$profileData['screen_name']}</a> ({$profileData['name']})</p><br>";
     if (!empty($profileData['description'])) {
-      $html .= "<p style='clear:both;'>{$profileData['description']}</p>";
+      $html .= "<p>{$profileData['description']}</p>";
     }
     if (!empty($profileData['url'])) {
       $html .= "<p><a href='{$profileData['url']}' target='_blank'>Web</a></p>";
@@ -308,7 +308,7 @@ class TwitterModule extends HC_Module {
       ->buildOauth($url, 'GET')
       ->performRequest(), true);
 
-    $tweetsHtmlFormatted = "<table class='table table-responsive' style='color:white;'>";
+    $tweetsHtmlFormatted = "<table class='table table-responsive twittermodule_tweettable'>";
     foreach ($queryData['statuses'] as $i => $tweet) {
       $tweetText = $this->addTweetEntityLinks($tweet);
       $tweetsHtmlFormatted .= "<tr><td>{$tweetText}<br>{$tweet['created_at']}</td></tr>";
@@ -417,10 +417,10 @@ class TwitterModule extends HC_Module {
     $html .= '
     <p>Create a new app in <a href="https://apps.twitter.com/" target="_blank">Twitter Application Management</a></p>
     <p>Access the data in the tab "Keys and Access Tokens".</p><br>
-    <input type="text" name="twittermodule_config_oauth_access_token" placeholder="Access Token" style="color:black;"><br>
-    <input type="text" name="twittermodule_config_oauth_access_token_secret" placeholder="Access Token Secret" style="color:black;"><br>
-    <input type="text" name="twittermodule_config_consumer_key" placeholder="Consumer Key (API Key)" style="color:black;"><br>
-    <input type="text" name="twittermodule_config_consumer_secret" placeholder="Consumer Secret (API Secret)" style="color:black;"><br>
+    <input type="text" name="twittermodule_config_oauth_access_token" placeholder="Access Token" class="twittermodule_admininput"><br>
+    <input type="text" name="twittermodule_config_oauth_access_token_secret" placeholder="Access Token Secret" class="twittermodule_admininput"><br>
+    <input type="text" name="twittermodule_config_consumer_key" placeholder="Consumer Key (API Key)" class="twittermodule_admininput"><br>
+    <input type="text" name="twittermodule_config_consumer_secret" placeholder="Consumer Secret (API Secret)" class="twittermodule_admininput"><br>
     <p id="twittermodule_config_message"></p>
     <input type="submit" value="Save Configuration" id="twittermodule_config_submit" onclick="twittermodule_config_submit()">
 
@@ -506,6 +506,7 @@ class TwitterModule extends HC_Module {
     });
   }
   </script>';
+    $metacode[] = '<link rel="stylesheet" href="modules/TwitterModule/style.css">';
   }
 
 }
