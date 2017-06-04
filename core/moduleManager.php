@@ -89,6 +89,13 @@ class ModuleManager
     return $sidebar;
   }
 
+  public function onCreatingMetacode(&$metacode) {
+    foreach ($this->modules as $m) {
+      $m['class']->onCreatingMetacode($metacode);
+    }
+    return $metacode;
+  }
+
   public function onWindowContent($windowIdentifier, $cbdata = []) {
     if (empty($this->windowRegistrations[$windowIdentifier])) {
       return [
@@ -133,4 +140,5 @@ abstract class HC_Module {
   }
   public function onCreatingSidebar(&$sidebar) {}
   public function onCreatingNotifications(&$notifications) {}
+  public function onCreatingMetacode(&$metacode) {}
 }

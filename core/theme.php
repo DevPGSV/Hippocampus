@@ -13,14 +13,15 @@ class Theme
         'window'    => false,
         'admin'    => false,
     ];
-
+    private $metacode;
     private $hc;
 
-    public function __construct($hc, $id, $features)
+    public function __construct($hc, $id, $features, $metacode = [])
     {
         $this->hc = $hc;
         $this->id = $id;
         $this->setFeatures($features);
+        $this->metacode = $metacode;
     }
 
     public function setFeatures($features)
@@ -45,32 +46,36 @@ class Theme
 
     public function getFeaturePath($feature)
     {
-        switch ($feature) {
-      case 'index':
-        return $this->getIndexPath();
-      break;
-      case 'register':
-        return $this->getRegisterPath();
-      break;
-      case 'userview':
-        return $this->getUserviewPath();
-      break;
-      case 'style':
-        return $this->getStylePath();
-      break;
-      case 'javascript':
-        return $this->getJavascriptPath();
-      break;
-      case 'window':
-        return $this->getWindowPath();
-      break;
-      case 'admin':
-        return $this->getAdminPath();
-      break;
-      default:
-        return false;
+      switch ($feature) {
+        case 'index':
+          return $this->getIndexPath();
         break;
+        case 'register':
+          return $this->getRegisterPath();
+        break;
+        case 'userview':
+          return $this->getUserviewPath();
+        break;
+        case 'style':
+          return $this->getStylePath();
+        break;
+        case 'javascript':
+          return $this->getJavascriptPath();
+        break;
+        case 'window':
+          return $this->getWindowPath();
+        break;
+        case 'admin':
+          return $this->getAdminPath();
+        break;
+        default:
+          return false;
+          break;
+      }
     }
+
+    public function getMetacode() {
+      return $this->metacode;
     }
 
     public function getIndexPath()
