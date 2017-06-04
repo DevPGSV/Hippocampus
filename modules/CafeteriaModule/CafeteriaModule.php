@@ -71,7 +71,10 @@ class CafeteriaModule extends HC_Module {
       <p>
       Teléfono: 91 394 7569
       </p>',
-      'title' => 'Cafetería',
+      'title' => '<svg class="icon coffee windowicon">
+        <use xlink:href="#coffee">
+        </use>
+      </svg>Cafetería',
     ];
     }
 

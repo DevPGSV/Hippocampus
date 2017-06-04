@@ -140,11 +140,6 @@ class Hippocampus
           'text' => 'Mensajes',
           'id' => 'chat',
         ],
-        14 => [
-          'icon' => 'software',
-          'text' => 'Software',
-          'id' => 'software',
-        ],
         100 => [
           'icon' => 'about',
           'text' => 'Ayuda',

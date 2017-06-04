@@ -4,8 +4,8 @@ class InsertCodeModule extends HC_Module {
   public function __construct($hc) {
     parent::__construct($hc);
 
-    $this->registerWindowCallback('software', 'ExampleWindowCallback');
-    $this->registerWindowCallback('example2', 'ExampleWindowCallback2');
+    $this->registerWindowCallback('software', 'InsertCodeCallback');
+    $this->registerWindowCallback('software2', 'OnlineEditorCallback');
   }
 
   public static function setup($hc) {
@@ -40,17 +40,38 @@ class InsertCodeModule extends HC_Module {
     array_unshift($notifications, $newEntry); // To prepend the entry
   }
 
-  public function ExampleWindowCallback() {
+  public function InsertCodeCallback() {
     return [
-      'html' => '<p></p>',
-      'title' => 'Insert code',
+      'html' => '<form action="" method="post">
+                    <textarea name="comments" id="comments"> Hey... Enter your code!
+
+                         Or make the box bigger! --->
+                    </textarea>
+                    <input type="submit" value="Submit">
+                 </form>
+
+                 <p data-updatewindowboxservice="software2" data-cbdata-F1="v1" data-cbdata-F2="v2">Or try CodeAcademy....</p>',
+      'title' => '<svg class="icon software windowicon">
+                    <use xlink:href="#software">
+                    </use>
+                  </svg>
+                  Insert code',
     ];
   }
 
-  public function ExampleWindowCallback2() {
+  public function onCreatingMetacode(&$metacode) {
+    $metacode[] = '';
+  }
+
+  public function OnlineEditorCallback() {
     return [
-      'html' => '<p>Second callback!</p><p data-updatewindowboxservice="example">Back....</p>',
-      'title' => 'Example Second Title',
+      'html' => '<div class="geadiv"><object data="https://www.quackit.com/html/online-html-editor/">
+                  </object></div><p data-updatewindowboxservice="software">Back....</p>',
+      'title' => '<svg class="icon software windowicon">
+                    <use xlink:href="#software">
+                    </use>
+                  </svg>
+                  Online HTML Editor',
     ];
   }
 

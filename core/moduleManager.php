@@ -46,9 +46,9 @@ class ModuleManager
       foreach (scandir($this->modulesPath, true) as $t) {
           if (is_dir($this->modulesPath.$t)) {
               if ($t != '.' && $t != '..') {
-                  if ($this->hc->getDB()->getConfigValue("module.$t.enable") == 'true') {
-                    $aux = $this->loadModule($t);
-                    if ($aux) {
+                  $aux = $this->loadModule($t);
+                  if ($aux) {
+                      if ($this->hc->getDB()->getConfigValue("module.$t.enable") == 'true') {
                         $this->modules[$t] = [
                           'id' => $t,
                           'class' => $aux,
@@ -66,7 +66,7 @@ class ModuleManager
                             'cbdata' => $ar['cbdata'],
                           ];
                         }
-                    }
+                      }
                   }
               }
           }
