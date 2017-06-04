@@ -145,11 +145,6 @@ class Hippocampus
           'text' => 'Software',
           'id' => 'software',
         ],
-        99 => [
-          'icon' => 'settings',
-          'text' => 'Ajustes',
-          'id' => 'settings',
-        ],
         100 => [
           'icon' => 'about',
           'text' => 'Ayuda',
