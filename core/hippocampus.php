@@ -132,6 +132,8 @@ class Hippocampus
     }
 
     public function getSidebarTabs() {
+      $sidebarTabs = [];
+      /*
       $sidebarTabs = [
         3 => [
           'icon' => 'gmail',
@@ -169,6 +171,7 @@ class Hippocampus
           'id' => 'about',
         ],
       ];
+      */
       $this->moduleManager->onCreatingSidebar($sidebarTabs);
       //ksort($sidebarTabs, SORT_NUMERIC);
       return $sidebarTabs;
