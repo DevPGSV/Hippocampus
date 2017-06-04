@@ -32,6 +32,8 @@ class ModuleManager
   public function setupModule($mid) {
     if ($this->hc->getDB()->getConfigValue('module.'.$mid.'.setup') !== 'true') {
       if ($mid::setup($this->hc)) {
+        $this->hc->getDB()->setConfigValue('module.'.$mid.'.module', $mid);
+        $this->hc->getDB()->setConfigValue('module.'.$mid.'.enable', 'false');
         return $this->hc->getDB()->setConfigValue('module.'.$mid.'.setup', 'true');
       }
       return false;
@@ -44,25 +46,27 @@ class ModuleManager
       foreach (scandir($this->modulesPath, true) as $t) {
           if (is_dir($this->modulesPath.$t)) {
               if ($t != '.' && $t != '..') {
-                  $aux = $this->loadModule($t);
-                  if ($aux) {
-                      $this->modules[$t] = [
-                        'id' => $t,
-                        'class' => $aux,
-                      ];
-                      foreach($aux->getWindowRegistrations() as $wr) {
-                        $this->windowRegistrations[$wr['identifier']] = [
-                          'module' => $t,
-                          'cb' => $wr['cb'],
+                  if ($this->hc->getDB()->getConfigValue("module.$t.enable") == 'true') {
+                    $aux = $this->loadModule($t);
+                    if ($aux) {
+                        $this->modules[$t] = [
+                          'id' => $t,
+                          'class' => $aux,
                         ];
-                      }
-                      foreach($aux->getApiRegistrations() as $ar) {
-                        $this->apiRegistrations[$ar['identifier']] = [
-                          'module' => $t,
-                          'cb' => $ar['cb'],
-                          'cbdata' => $ar['cbdata'],
-                        ];
-                      }
+                        foreach($aux->getWindowRegistrations() as $wr) {
+                          $this->windowRegistrations[$wr['identifier']] = [
+                            'module' => $t,
+                            'cb' => $wr['cb'],
+                          ];
+                        }
+                        foreach($aux->getApiRegistrations() as $ar) {
+                          $this->apiRegistrations[$ar['identifier']] = [
+                            'module' => $t,
+                            'cb' => $ar['cb'],
+                            'cbdata' => $ar['cbdata'],
+                          ];
+                        }
+                    }
                   }
               }
           }
