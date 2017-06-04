@@ -42,9 +42,19 @@ class InsertCodeModule extends HC_Module {
 
   public function ExampleWindowCallback() {
     return [
-      'html' => '<p></p>',
+      'html' => '<form action="" method="post">
+                    <textarea name="comments" id="comments"> Hey... Enter your code!
+
+                         Or make the box bigger! --->
+                    </textarea>
+                    <input type="submit" value="Submit">
+                 </form>',
       'title' => 'Insert code',
     ];
+  }
+
+  public function onCreatingMetacode(&$metacode) {
+    $metacode[] = '';
   }
 
   public function ExampleWindowCallback2() {
