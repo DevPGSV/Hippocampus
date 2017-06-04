@@ -131,6 +131,12 @@ class Hippocampus
         return $this->moduleManager;
     }
 
+    public function getNotifications() {
+        $notifications = [];
+        $this->getModuleManager()->onCreatingNotifications($notifications);
+        return $notifications;
+    }
+
     public function getSidebarTabs() {
       $sidebarTabs = [];
       /*

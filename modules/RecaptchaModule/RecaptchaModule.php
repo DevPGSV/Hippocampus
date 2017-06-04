@@ -22,7 +22,6 @@ class RecaptchaModule extends HC_Module {
     }
   }
 
-
   private function checkGoogleRecaptcha($secret, $response, $remoteip = false) {
       $url = 'https://www.google.com/recaptcha/api/siteverify';
       $params = [

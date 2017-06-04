@@ -48,6 +48,7 @@ class ExampleModule extends HC_Module {
       'text' => 'Tienes {COUNTER} mensajes nuevos',
       'cb' => 'ExampleNotificationCallback',
       'cbData' => [],
+      'icon' => 'twitter',
     ];
     array_unshift($notifications, $newEntry); // To prepend the entry
   }

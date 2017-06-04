@@ -17,16 +17,6 @@ class IdentityModule extends HC_Module {
     array_unshift($sidebar, $newEntry); // To prepend the entry
   }
 
-  public function onCreatingNotifications(&$notifications) {
-    $newEntry = [
-      'notificationCounter' => 2,
-      'text' => 'Tienes {COUNTER} mensajes nuevos',
-      'cb' => 'ExampleNotificationCallback',
-      'cbData' => [],
-    ];
-    array_unshift($notifications, $newEntry); // To prepend the entry
-  }
-
   public function MiIdentidadInicio() {
    $currentuser = $this->hc->getUserManager()->getLoggedInUser();
     return [

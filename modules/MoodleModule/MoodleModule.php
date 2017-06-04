@@ -30,17 +30,7 @@ class MoodleModule extends HC_Module {
     ];
     array_unshift($sidebar, $newEntry); // To prepend the entry
   }
-
-  public function onCreatingNotifications(&$notifications) {
-    $newEntry = [
-      'notificationCounter' => 4,
-      'text' => 'Tienes {COUNTER} mensajes nuevos',
-      'cb' => 'MoodleNotificationCallback',
-      'cbData' => [],
-    ];
-    array_unshift($notifications, $newEntry); // To prepend the entry
-  }
-
+  
   public function MoodleWindowLogin() {
     //Llamo a la API para autenticar al usuario.
     $url='https://cv4.ucm.es/moodle/';
