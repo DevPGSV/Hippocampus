@@ -18,7 +18,7 @@
 </head>
 <body>
 
-  <a href="index.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> HOME </a>
+  <a href="index.php" id="whoHome"><span class="glyphicon glyphicon-circle-arrow-left"></span> HOME </a>
 
   <div id="maincontainer" class="container-fluid">
     <table class="table table-striped table-hover table-condensed table-responsive">
