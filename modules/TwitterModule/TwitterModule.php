@@ -422,37 +422,8 @@ class TwitterModule extends HC_Module {
     <input type="text" name="twittermodule_config_consumer_key" placeholder="Consumer Key (API Key)" style="color:black;"><br>
     <input type="text" name="twittermodule_config_consumer_secret" placeholder="Consumer Secret (API Secret)" style="color:black;"><br>
     <p id="twittermodule_config_message"></p>
-    <input type="submit" value="Save Configuration" id="twittermodule_config_submit">
+    <input type="submit" value="Save Configuration" id="twittermodule_config_submit" onclick="twittermodule_config_submit()">
 
-    ';
-
-    $html .= '
-    <script>
-    $("#twittermodule_config_submit").click(function(){
-      var b = this;
-      $.ajax({
-        type: "POST",
-        url: "api.php?action=twittermodule_config",
-        dataType: "json",
-        data: {
-          "oauth_access_token": $("input[name=\'twittermodule_config_oauth_access_token\']").val(),
-          "oauth_access_token_secret": $("input[name=\'twittermodule_config_oauth_access_token_secret\']").val(),
-          "consumer_key": $("input[name=\'twittermodule_config_consumer_key\']").val(),
-          "consumer_secret": $("input[name=\'twittermodule_config_consumer_secret\']").val(),
-        },
-        success: function(data) {
-          $("#twittermodule_config_message").html(data["msg"]);
-          if (data["status"] == "ok") {
-            console.log("twitter configured ok");
-            setTimeout(function(){
-              var wbox = $(b).closest(".userview-content-column").closest(".userview-content-column-wrapper");
-              setBoxContents(wbox, "twitter");
-            }, 1000);
-          }
-        },
-      });
-    });
-    </script>
     ';
 
     return [
@@ -506,6 +477,35 @@ class TwitterModule extends HC_Module {
 
   public function TwitterMentionNotificationCallback($cbData) {
     return '<p>Twitter Mentions</p><br><pre>'.print_r($cbData, true).'</pre>';
+  }
+
+  public function onCreatingMetacode(&$metacode) {
+    $metacode[] = '<script>
+  function twittermodule_config_submit() {
+    var b = $("#twittermodule_config_submit");
+    $.ajax({
+      type: "POST",
+      url: "api.php?action=twittermodule_config",
+      dataType: "json",
+      data: {
+        "oauth_access_token": $("input[name=\'twittermodule_config_oauth_access_token\']").val(),
+        "oauth_access_token_secret": $("input[name=\'twittermodule_config_oauth_access_token_secret\']").val(),
+        "consumer_key": $("input[name=\'twittermodule_config_consumer_key\']").val(),
+        "consumer_secret": $("input[name=\'twittermodule_config_consumer_secret\']").val(),
+      },
+      success: function(data) {
+        $("#twittermodule_config_message").html(data["msg"]);
+        if (data["status"] == "ok") {
+          console.log("twitter configured ok");
+          setTimeout(function(){
+            var wbox = $(b).closest(".userview-content-column").closest(".userview-content-column-wrapper");
+            setBoxContents(wbox, "twitter");
+          }, 1000);
+        }
+      },
+    });
+  }
+  </script>';
   }
 
 }
