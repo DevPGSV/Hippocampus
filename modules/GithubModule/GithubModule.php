@@ -4,6 +4,7 @@ require_once(__DIR__ . '/client/GitHubClient.php');
 
 class GithubModule extends HC_Module {
 
+  private $client;
   private $loggedIn;
 
   public function __construct($hc) {
@@ -74,11 +75,12 @@ class GithubModule extends HC_Module {
     $owner = 'tan-tan-kanarek';
     $repo = 'github-php-client';
 
-    $client = new GitHubClient();
+    $client = $_SESSION["client"];
     //$client->setPage();
     //$client->setPageSize(2);
-    $commits = $client->repos->commits->listCommitsOnRepository($owner, $repo);
+    //$commits = $client->repos->commits->listCommitsOnRepository($owner, $repo);
 
+    //print_r($commits);
     /*
     echo "Count: " . count($commits) . "\n";
     foreach($commits as $commit)
