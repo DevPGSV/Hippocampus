@@ -10,7 +10,7 @@ class IdentityModule extends HC_Module {
 
   public function onCreatingSidebar(&$sidebar) {
     $newEntry = [
-      'icon' => 'about',
+      'icon' => 'identity',
       'text' => 'Mi identidad',
       'id' => 'ID',
     ];
@@ -35,7 +35,7 @@ class IdentityModule extends HC_Module {
                       <h4>'.$currentuser->getUsername().'</h4>
                       <ul class="nav nav-pills nav-stacked">
                         <li><a data-updatewindowboxservice="ID">Inicio</a></li>
-                        <li><a data-updatewindowboxservice="datospersonales">Mis datos perosnales</a></li>
+                        <li><a data-updatewindowboxservice="datospersonales">Mis datos personales</a></li>
                       </ul><br>
 
                     </div>
@@ -53,8 +53,8 @@ class IdentityModule extends HC_Module {
                     </div>
                   </div>
                 ',
-      'title' => '<svg class="icon about windowicon">
-                    <use xlink:href="#about">
+      'title' => '<svg class="icon identity windowicon">
+                    <use xlink:href="#identity">
                     </use>
                   </svg>
                   Gestor de identidad',

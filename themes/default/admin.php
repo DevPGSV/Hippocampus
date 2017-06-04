@@ -96,27 +96,29 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>John</td>
-															<td>user</td>
-															<td>john@example.com</td>
-															<td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td>
-															<td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user"></span></td>
-                            </tr>
-                            <tr>
-                              <td>Mary</td>
-															<td>user</td>
-															<td>mary@example.com</td>
-															<td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td>
-															<td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user"></span></td>
-                            </tr>
-                            <tr>
-                              <td>July</td>
-															<td>admin</td>
-															<td>july@example.com</td>
-															<td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td>
-															<td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user"></span></td>
-                            </tr>
+														<?php
+														foreach($hc->getDB()->getAllusersData() as $user){
+															echo '<tr>
+	                              <td>'.$user['username'].'</td>
+																<td>';
+																if($user['role'] == 1){
+																	echo 'root';
+																}
+																elseif($user['role'] == 2){
+																	echo 'administrador';
+																}
+																elseif($user['role'] == 3){
+																	echo 'usuario';
+																}
+																echo '</td>
+																<td>'.$user['email'].'</td>
+																<td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td>
+																<td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user" data-user="';
+																echo $user["username"];
+																echo '"></span></td>
+	                            </tr>';
+														}
+														?>
                           </tbody>
                         </table>
                     </div>
