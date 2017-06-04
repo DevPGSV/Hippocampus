@@ -1194,3 +1194,7 @@
     border-radius: 20px;
     margin-bottom: 0;
   }
+
+  .logintext {
+    color: black;
+  }
