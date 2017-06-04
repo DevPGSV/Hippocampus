@@ -131,7 +131,15 @@ class Hippocampus
         return $this->moduleManager;
     }
 
+    public function getNotifications() {
+        $notifications = [];
+        $this->getModuleManager()->onCreatingNotifications($notifications);
+        return $notifications;
+    }
+
     public function getSidebarTabs() {
+      $sidebarTabs = [];
+      /*
       $sidebarTabs = [
         3 => [
           'icon' => 'gmail',
@@ -169,6 +177,7 @@ class Hippocampus
           'id' => 'about',
         ],
       ];
+      */
       $this->moduleManager->onCreatingSidebar($sidebarTabs);
       //ksort($sidebarTabs, SORT_NUMERIC);
       return $sidebarTabs;

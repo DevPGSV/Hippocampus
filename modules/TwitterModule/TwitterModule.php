@@ -91,13 +91,16 @@ class TwitterModule extends HC_Module {
   }
 
   public function onCreatingNotifications(&$notifications) {
-    $newEntry = [
-      'notificationCounter' => 2,
-      'text' => 'Tienes {COUNTER} menciones',
-      'cb' => 'TwitterMentionNotificationCallback',
-      'cbData' => [],
-    ];
-    array_unshift($notifications, $newEntry); // To prepend the entry
+    if (!$this->loggedIn) {
+      $newEntry = [
+        'notificationCounter' => 1,
+        'text' => 'No estás logueado en twitter',
+        'cb' => 'TwitterMentionNotificationCallback',
+        'cbData' => [],
+        'icon' => 'twitter',
+      ];
+      array_unshift($notifications, $newEntry); // To prepend the entry
+    }
   }
 
   /**

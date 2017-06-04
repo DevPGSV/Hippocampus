@@ -81,11 +81,27 @@
                       <!-- END MENU NOTIFICACIONES -->
 
                       <!-- MENU NOTIFICACIONES -->
-                      <li><div class="dropdown" id="div-menu2"><button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn navbar-element"><span class="badge">4</span></span></button>
+                      <?php
+                      $notifications = $hc->getNotifications();
+                      $notificationsNumber = 0;
+                      foreach ($notifications as $notification) {
+                        if (!empty($notification['notificationCounter'])) {
+                          $notificationsNumber += $notification['notificationCounter'];
+                        }
+                      }
+                      ?>
+                      <li><div class="dropdown" id="div-menu2"><button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn navbar-element"><span class="badge"><?php echo $notificationsNumber; ?></span></span></button>
                         <ul class="dropdown-menu" role="menu">
-                          <li role="presentation " class="notification-text-inside"><svg class="notification-icon gmail"><use xlink:href="#gmail"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">  Tienes 1 mensaje nuevo.</a></li>
-                          <li role="presentation " class="notification-text-inside"><svg class="notification-icon bolotweet"><use xlink:href="#bolotweet"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">  Tienes 1 mensaje nuevo.</a></li>
-                          <li role="presentation"><svg class="notification-icon ucm"><use xlink:href="#ucm"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">    Tienes 2 nuevos mensajes.</a></li>
+                          <?php
+                          foreach ($notifications as $notification) {
+                            if (!empty($notification['notificationCounter'])) {
+                              $notification['text'] = str_replace('{COUNTER}', (string)$notification['notificationCounter'], $notification['text']);
+                            }
+                            $icon = '';
+                            if (!empty($notification['icon'])) $icon = $notification['icon'];
+                            echo "<li role='presentation' class='notification-text-inside'><svg class='notification-icon $icon'><use xlink:href='#$icon'></use></svg><a role='menuitem' tabindex='-1' href='#' class='notification-text'>  {$notification['text']}</a></li>";
+                          }
+                          ?>
                         </ul></div></li>
                       <!-- END MENU NOTIFICACIONES -->
 

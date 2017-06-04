@@ -16,16 +16,6 @@ class BibliotecaModule extends HC_Module {
     array_unshift($sidebar, $newEntry); // To prepend the entry
   }
 
-  public function onCreatingNotifications(&$notifications) {
-    $newEntry = [
-      'notificationCounter' => 2,
-      'text' => 'Tienes {COUNTER} mensajes nuevos',
-      'cb' => 'ExampleNotificationCallback',
-      'cbData' => [],
-    ];
-    array_unshift($notifications, $newEntry); // To prepend the entry
-  }
-
   public function functionCallBack() {
    // $currentuser = $hc->getUserManager()->getLoggedInUser();
     return [
