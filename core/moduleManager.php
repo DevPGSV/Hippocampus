@@ -48,7 +48,7 @@ class ModuleManager
               if ($t != '.' && $t != '..') {
                   $aux = $this->loadModule($t);
                   if ($aux) {
-                      if ($this->hc->getDB()->getConfigValue("module.$t.enable") == 'true') {
+                      if ($this->hc->getDB()->getConfigValue("module.$t.enable") == 'true' || $t === 'ModuleManagerModule') {
                         $this->modules[$t] = [
                           'id' => $t,
                           'class' => $aux,
