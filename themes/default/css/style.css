@@ -1198,3 +1198,15 @@
   .logintext {
     color: black;
   }
+
+  /**********************
+    Insert Code module
+  **********************/
+  #comments {
+    width: 96%;
+    height: 90px;
+    padding: 2%;
+    font-size: 1.2em;
+    background-color: white;
+    color: black;
+  }

@@ -49,7 +49,11 @@ class InsertCodeModule extends HC_Module {
                     </textarea>
                     <input type="submit" value="Submit">
                  </form>',
-      'title' => 'Insert code',
+      'title' => '<svg class="icon software windowicon">
+                    <use xlink:href="#software">
+                    </use>
+                  </svg>
+                  Insert code',
     ];
   }
 
