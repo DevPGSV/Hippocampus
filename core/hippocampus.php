@@ -30,39 +30,67 @@ class Hippocampus
         global $hc;
         $this->themeManager->loadAllThemes();
 
+        $page = '';
+        if (!empty($_GET['p'])) {
+          $page = $_GET['p'];
+        }
+        if (empty($page) || strlen($page) === 0) $page = '/';
+        if ($page[0] !== '/') $page = '/'.$page;
 
-        if (!empty($_GET['p']) && ($_GET['p'] === '/register' || $_GET['p'] === 'register')) {
+        $aliases = [
+          '/' => '/home',
+          '/index.php' => '/home'
+        ];
+        if (!empty($aliases[$page])) $page = $aliases[$page];
+
+
+        $u = $this->userManager->getLoggedInUser();
+
+        switch($page) {
+          case '/register':
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('register'));
-        } elseif (!empty($_GET['p']) && ($_GET['p'] === '/admin' || $_GET['p'] === 'admin')) {
+            break;
+          case '/admin':
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('admin'));
-        } elseif (!empty($_GET['p']) && ($_GET['p'] === '/style.css' || $_GET['p'] === 'style.css')) {
+          case '/style.css':
             header("Content-type: text/css");
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('style'));
-        } elseif (!empty($_GET['p']) && ($_GET['p'] === '/scripts.js' || $_GET['p'] === 'scripts.js')) {
+            break;
+          case '/scripts.js':
             header('Content-Type: application/javascript');
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('javascript'));
-        } elseif (empty($_GET['p']) || ($_GET['p'] === '/' || $_GET['p'] === '/index.php' || $_GET['p'] === '/home' || $_GET['p'] === 'home')) {
-            $u = $this->userManager->getLoggedInUser();
+            break;
+          case '/home':
             if ($u) {
                 require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('userview'));
             } else {
                 require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('index'));
             }
-        } elseif (empty($_GET['p']) || ($_GET['p'] === '/logout' || $_GET['p'] === 'logout')) {
+            break;
+          case '/logout':
             $this->userManager->logOutUser();
             header('Location: home');
             echo 'Logged out! <a href="home">Home</a>';
-        } elseif (empty($_GET['p']) || ($_GET['p'] === '/window' || $_GET['p'] === 'window')) {
-            $u = $this->userManager->getLoggedInUser();
+            break;
+          case '/window':
             if ($u) {
                 require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('window'));
             } else {
                 echo '404! Window.';
             }
-        } else {
-            echo "404<br>\n";
+            break;
+          default:
+            header("HTTP/1.0 404 Not Found");
+            echo "404 Not Found\n";
             print_r($_GET);
+            break;
         }
+    }
+
+    public function getMetacode() {
+      $metacodeArr = $this->themeManager->getMetacode();
+      $this->moduleManager->onCreatingMetacode($metacodeArr);
+      return implode("\n  ", $metacodeArr);
     }
 
     public function getDB()
@@ -101,11 +129,6 @@ class Hippocampus
           'icon' => 'classroom',
           'text' => 'Classroom',
           'id' => 'classroom',
-        ],
-        7 => [
-          'icon' => 'github',
-          'text' => 'Github',
-          'id' => 'github',
         ],
         9 => [
           'icon' => 'facebook',

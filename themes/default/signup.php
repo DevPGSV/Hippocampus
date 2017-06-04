@@ -1,5 +1,4 @@
 <html lang="es">
-
 <head>
   <title>Formulario de registro</title>
   <meta charset="UTF-8">

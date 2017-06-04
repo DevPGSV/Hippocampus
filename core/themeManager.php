@@ -19,7 +19,9 @@ class ThemeManager
         if (is_dir($this->themePath.$id)) {
             if (is_file($this->themePath.$id.'/config.php')) {
                 $c = require($this->themePath.$id.'/config.php');
-                $t = new Theme($this->hc, $id, $c['features']);
+                $metacode = [];
+                if (!empty($c['metacode'])) $metacode = $c['metacode'];
+                $t = new Theme($this->hc, $id, $c['features'], $metacode);
                 return $t;
             }
         }
@@ -47,5 +49,13 @@ class ThemeManager
                 return $this->themes[$t]->getFeaturePath($feature);
             }
         }
+    }
+
+    public function getMetacode() {
+      $metacode = [];
+      foreach ($this->themeList as $t) {
+        $metacode = array_merge($metacode, $this->themes[$t]->getMetacode());
+      }
+      return $metacode;
     }
 }

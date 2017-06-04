@@ -29,7 +29,7 @@ class BibliotecaModule extends HC_Module {
   public function functionCallBack() {
    // $currentuser = $hc->getUserManager()->getLoggedInUser();
     return [
-      'html' => '<div class="geadiv"><object data="http://biblioteca.ucm.es/"></object></div>',
+      'html' => '<div class="geadiv"><object data="https://biblioteca.ucm.es/"></object></div>',
       'title' => '<svg class="icon asociations windowicon">
         <use xlink:href="#library">
         </use>
