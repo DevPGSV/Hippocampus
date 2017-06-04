@@ -51,7 +51,8 @@
                 </span>
               </span>
             </a>
-            <button id=button> ¿QUIÉNES SOMOS? <span class="glyphicon glyphicon-home"><i class="glyphicon glyphicon-leaf"></i></span> </button>
+            <a class="button" id="button" href="who"> ¿QUIÉNES SOMOS? <span class="glyphicon glyphicon-home"><i class="glyphicon glyphicon-leaf"></i></span> </button>
+            <a href="" id="profesor">Documentación para el profesor </a>
     </div>
 
       <!-- Modal -->

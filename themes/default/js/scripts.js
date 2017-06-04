@@ -421,6 +421,7 @@ $(document).ready(function() {
   });
 
   $(".admin-erase-user").click(function() {
+    var user = $(this).attr('data-user');
     var popup = $('<div title="Eliminar"><p>¿Está seguro de querer eliminar este usuario? </p></div>');
     popup.dialog({
       modal: true,
@@ -429,6 +430,22 @@ $(document).ready(function() {
       buttons: {
         "Eliminar": function() {
           alert("El usuario ha sido eliminado");
+          $.ajax({
+            type: "POST",
+            url: 'api.php?action=deleteuser',
+            dataType: 'json',
+            data: {
+              'username': user,
+            },
+            success: function(data) {
+              console.log(data);
+              if (data['status'] === 'ok') {
+                location.reload();
+              } else {
+                alert(data['msg']);
+              }
+            },
+          });
           $(this).dialog("close");
         },
       },

@@ -8,7 +8,8 @@ return [
     'javascript',
     'window',
     'register',
-    'admin'
+    'admin',
+    'who'
   ],
   'name' => 'Default',
   'metacode' => [

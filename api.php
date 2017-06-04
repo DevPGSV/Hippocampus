@@ -306,5 +306,16 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
 
         echo json_encode($answer);
         break;
+
+        case 'deleteuser':
+          $username=$_POST['username'];
+          $call = $hc->getDB()->eraseUser($username);
+          
+          $answer = [
+            'status' => 'ok',
+             'msg' => 'usuario borrado',
+          ];
+          echo json_encode($answer);
+          break;
   }
 }
