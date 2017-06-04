@@ -76,7 +76,7 @@ class TwitterModule extends HC_Module {
 
       PRIMARY KEY (`user`)
     )";
-    $db = $stmt = $hc->getDB()->getDBo();
+    $db = $hc->getDB()->getDBo();
     $stmt = $db->prepare($sql);
     return $stmt->execute();
   }
