@@ -297,4 +297,18 @@ class Database
         $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function getAllUsersData()
+    {
+      $stmt = $this->db->prepare("SELECT * FROM users");
+      $stmt->execute();
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      return $rows;
+    }
+    public function eraseUser($user)
+    {
+      $stmt = $this->db->prepare("DELETE FROM `users` WHERE username=?");
+      return   $stmt->execute([$user]);
+    }
 }
