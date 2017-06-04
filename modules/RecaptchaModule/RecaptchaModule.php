@@ -45,7 +45,7 @@ class RecaptchaModule extends HC_Module {
   public function RecaptchaConfigWindowCallback() {
 
     $html = '
-    <p>Create a new app in <a href="https://www.google.com/recaptcha/admin" target="_blank">Manage your reCAPTCHA API keys</a>.</p>
+    <p>Create a new "reCAPTCHA V2" app in <a href="https://www.google.com/recaptcha/admin" target="_blank">Manage your reCAPTCHA API keys</a>.</p>
     <p>Access the data in "Adding reCAPTCHA to your site" > "Keys".</p><br>
     <input type="text" name="recaptchamodule_config_token_public" placeholder="Site key" class="recaptchamodule_admininput"><br>
     <input type="text" name="recaptchamodule_config_token_secret" placeholder="Secret key" class="recaptchamodule_admininput"><br>
