@@ -41,7 +41,7 @@
       </div>
 
       <div id="toplogo" class="container-fluid">
-        <a href="home"><img src="img/yJuHskd.png" title="Hippocampus"></a>
+        <a href="home"><img src="img/yJuHskd.png" title="Hippocampus" alt="Hippocampus"></a>
       </div>
 
       <div class="container-fluid" id="main-body-userview">
@@ -72,8 +72,8 @@
                       <!-- MENU COLUMNAS -->
                       <li><div class="dropdown" id="div-menu1"><button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><span class="glyphicon glyphicon-plus navbar-element"></span></button>
                       <ul class="dropdown-menu" role="menu" id="column-menu">
-                        <h3>Configuración de columnas</h3>
-                        <p> ¿Cuántas columnas quieres mostrar? </p>
+                        <span>Configuración de columnas</span><br>
+                        <span> ¿Cuántas columnas quieres mostrar? </span>
                         <button button type="button" class="btn btn-link btn-xl1" onclick="setBoxLayout([1])"></button>
                         <button button type="button" class="btn btn-link btn-xl2" onclick="setBoxLayout([2])"></button>
                         <button button type="button" class="btn btn-link btn-xl3" onclick="setBoxLayout([3])"></button>
