@@ -12,6 +12,7 @@ class Theme
         'javascript'=> false,
         'window'    => false,
         'admin'    => false,
+        'who'      => false,
     ];
     private $metacode;
     private $hc;
@@ -49,6 +50,9 @@ class Theme
       switch ($feature) {
         case 'index':
           return $this->getIndexPath();
+        break;
+        case 'who':
+          return $this->getWhoPath();
         break;
         case 'register':
           return $this->getRegisterPath();
@@ -111,5 +115,9 @@ class Theme
     public function getAdminPath()
     {
         return "$this->id/admin.php";
+    }
+    public function getWhoPath()
+    {
+        return "$this->id/who.php";
     }
 }

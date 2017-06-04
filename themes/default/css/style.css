@@ -1210,3 +1210,29 @@
     background-color: white;
     color: black;
   }
+
+  div.persondata {
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    max-width: 500px;
+}
+
+div.persondata > h1 {
+  padding-top: 60px;
+}
+
+div.persondata > img.persondata-picture {
+  height:200px;
+  width:200px;
+  margin:20px;
+  display:inline-block;
+}
+
+div.persondata > img.persondata-picture[src=""] {
+  background-color:pink;
+}
+
+table.table-border {
+  border: 1px solid grey;
+}

@@ -50,6 +50,9 @@ class Hippocampus
           case '/register':
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('register'));
             break;
+          case '/who':
+            require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('who'));
+            break;
           case '/admin':
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('admin'));
           case '/style.css':
