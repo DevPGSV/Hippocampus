@@ -21,7 +21,7 @@ class ExampleModule extends HC_Module {
       data VARCHAR(32) NOT NULL,
       PRIMARY KEY (`id`)
     )";
-    $db = $stmt = $hc->getDB()->getDBo();
+    $db = $hc->getDB()->getDBo();
     $stmt = $db->prepare($sql);
     return $stmt->execute();
   }
