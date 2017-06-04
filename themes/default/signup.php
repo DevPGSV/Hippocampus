@@ -52,8 +52,8 @@
     <br>
 
     <?php
-    if ($hc->getDB()->getConfigValue('site.recaptcha.active') == 'true') {
-        echo '<div class="g-recaptcha" align="center" data-sitekey="'.$hc->getDB()->getConfigValue('site.recaptcha.public').'"></div>';
+    if ($hc->getDB()->getConfigValue('module.RecaptchaModule.enable') == 'true') {
+        echo '<div class="g-recaptcha" align="center" data-sitekey="'.$hc->getDB()->getConfigValue('module.RecaptchaModule.token_public').'"></div>';
     }
     ?>
     <br>

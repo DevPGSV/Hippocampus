@@ -38,9 +38,6 @@ INSERT INTO `config` (`varkey`, `value`) VALUES
 ('site.name', 'Hippocampus'),
 ('site.theme', 'default'),
 ('site.url', 'http://hippocampus.dev'),
-('site.recaptcha.public', '6Lcm-hwUAAAAAPMqEpMVBzUgJdQZ7vAjQSys5O4Q'),
-('site.recaptcha.secret', '6Lcm-hwUAAAAAJt1AgOsEkl8VoLEeVnygVkzJT5q'),
-('site.recaptcha.active', 'false'),
 ('db.version', '9');
 
 -- --------------------------------------------------------
