@@ -333,6 +333,14 @@ function setBoxLayout(layout) {
   });
 }
 
+function fullscreenBoxLayout(ui) {
+  $(ui).closest('.userview-content-column-wrapper');
+  var service = $(ui).closest('.userview-content-column-wrapper').find('.userview-content-column').attr('data-boxcontent');
+  var box = $('.userview-content-column-wrapper').first();
+  setBoxContents(box, service);
+  setBoxLayout([1]);
+}
+
 $(document).ready(function() {
 
   setTimeout(function() {
