@@ -12,6 +12,36 @@
 		<title>Panel de Administración</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+
+		<script>
+		$(document).ready(function() {
+			$("#crear-admin").submit(function(e) {
+			    e.preventDefault();
+			    $.ajax({
+			      type: "POST",
+			      url: "api.php?action=admin",
+			      dataType: 'json',
+			      data: {
+			        'newusuario': $("#usuario").val(),
+			        'newemail': $("#email").val(),
+							'newpassword': $("#passwd").val(),
+							'isadmin': $("#checkbox-admin").is(":checked"),
+			      },
+			      success: function(data) {
+			        if (data['status'] == 'ok') {
+								$("#usuario").val('');
+								$("#email").val('');
+								$("#passwd").val('');
+								$("#checkbox-admin").prop('checked', false);
+								alert(data['msg']);
+							} else {
+								alert(data['msg']);
+							}
+			      },
+			    });
+			  });
+			});
+			</script>
 	</head>
 
 	<body>
@@ -34,13 +64,17 @@
                   </div>
                  <div id="crear-admin" class="panel-collapse collapse in active">
                     <div class="panel-body form-group">
-
-                        <input type="text" class="form-control" placeholder="Usuario" name="usuario"  class="tooltip tooltip-top tooltip-arrow"  data-placement="top" title="Entre 4 y 20 caracteres">
+											<form action= "" method="POST">
+                        <input type="text" class="form-control" placeholder="Usuario" name="newusuario"  class="tooltip tooltip-top tooltip-arrow"  data-placement="top" title="Entre 4 y 20 caracteres"
+												id="usuario">
                         <br>
-                				<input type="email" class="form-control" placeholder="Email" name="email" id="email">
+                				<input type="email" class="form-control" placeholder="Email" name="newemail" id="email">
                         <br>
-                        <input type="checkbox" name="rol" value="false" id="checkbox-admin"><label id="label-admin">   Hacer administrador</label><br>
+												<input type="password" class="form-control" placeholder="Contraseña" name="newpassword" id="passwd"  class="tooltip tooltip-top tooltip-arrow"  data-placement="top" title="La contraseña debe contener al menos un número, una letra minúscula, una mayúscula y un caracter espcecial y tener entre 8 y 20 caracteres">
+                        <br>
+                        <input type="checkbox" name="isadmin" value="false" id="checkbox-admin"><label id="label-admin">   Hacer administrador</label><br>
                         <input type="submit" value="Crear" class="button-crear">
+											</form>
                     </div>
                   </div>
                 </div>

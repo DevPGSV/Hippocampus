@@ -46,6 +46,25 @@ class Hippocampus
 
         $u = $this->userManager->getLoggedInUser();
 
+        if ($this->getDB()->getConfigValue("site.maintenance")) {
+          header("HTTP/1.1 503 Service Temporarily Unavailable");
+          header("Status: 503 Service Temporarily Unavailable");
+          header("Retry-After: 3600");
+          echo '
+          <html>
+          <head>
+            <title>Site upgrade in progress</title>
+          </head>
+          <body>
+            <h1>Maintenance Mode</h1>
+            <p>We are currently undergoing scheduled maintenance.<br />
+            Please try back <strong>in 60 minutes</strong>.</p>
+            <p>Sorry for the inconvenience.</p>
+          </body>
+          </html>';
+          exit();
+        }
+
         switch($page) {
           case '/register':
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('register'));
@@ -55,6 +74,7 @@ class Hippocampus
             break;
           case '/admin':
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('admin'));
+            break;
           case '/style.css':
             header("Content-type: text/css");
             require(__DIR__ . '/../themes/'.$this->themeManager->getFeaturePath('style'));
@@ -142,11 +162,6 @@ class Hippocampus
           'icon' => 'chat',
           'text' => 'Mensajes',
           'id' => 'chat',
-        ],
-        99 => [
-          'icon' => 'settings',
-          'text' => 'Ajustes',
-          'id' => 'settings',
         ],
         100 => [
           'icon' => 'about',

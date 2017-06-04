@@ -253,11 +253,62 @@ if ($hc->getModuleManager()->apiIdentifierRegistered($_GET['action'])) {
     default:
       die('unkown_action');
       break;
+
+      case 'admin':
+        $u = $hc->getUserManager()->getLoggedInUser();
+        if ($u !== false && !$u->isAdmin()) {
+          $answer['status'] = 'error';
+          $answer['msg'][] = 'No eres administrador.';
+        } else {
+          $answer['status'] = 'ok';
+          $answer['msg'] = [];
+          if (empty($_POST['newusuario'])) {
+              $answer['status'] = 'error';
+              $answer['msg'][] = 'No se ha introducido el usuario.';
+          }
+          if (empty($_POST['newpassword'])) {
+              $answer['status'] = 'error';
+              $answer['msg'][] = 'No se ha introducido la contraseña.';
+          }
+          if (empty($_POST['newemail'])) {
+              $answer['status'] = 'error';
+              $answer['msg'][] = 'No se ha introducido el correo.';
+          }
+          if ($answer['status'] == 'error') {
+              echo json_encode($answer);
+              break;
+          }
+
+          $username = $_POST['newusuario'];
+          $email = $_POST['newemail'];
+          if (empty($_POST['isadmin'])) $_POST['isadmin'] = false;
+          if ($_POST['isadmin'] === 'true') $_POST['isadmin'] = true;
+          if ($_POST['isadmin'] === 'false') $_POST['isadmin'] = false;
+          if($_POST['isadmin']) {
+            $role = 2;
+          } else {
+            $role = 3;
+          }
+          $password = $_POST['newpassword'];
+
+          $u = new User($hc, -1, $username, $email, false, '-', $role);
+          $salt = Utils::randStr(32);
+          $csalt = Utils::randStr(32);
+          $pw = hash('sha256', $csalt.$password);
+          $pw = hash('sha256', $salt.$pw);
+          $s = $hc->getDB()->registerNewUser($u, $pw, $salt, $csalt );
+        }
+
+        if ($answer['status'] == 'ok') {
+          $answer['msg'] = 'Usuario creado';
+        }
+
+        echo json_encode($answer);
+        break;
   }
 }
 
-function checkGoogleRecaptcha($secret, $response, $remoteip = false)
-{
+function checkGoogleRecaptcha($secret, $response, $remoteip = false) {
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $params = [
       'secret' => $secret,
