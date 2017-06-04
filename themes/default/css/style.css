@@ -69,13 +69,17 @@
   .identityinputs {
     display: inline;
     padding: 0px;
-    width: 50%;
+    width: 75%;
     font-size: 15px;
     color: black;
   }
 
   .blackfontlabel {
     color: black;
+  }
+
+  .whitefont{
+    color: white;
   }
   .geadiv {
     background-color: white;
