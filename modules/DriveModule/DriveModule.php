@@ -29,16 +29,6 @@ class DriveModule extends HC_Module {
     array_unshift($sidebar, $newEntry); // To prepend the entry
   }
 
-  public function onCreatingNotifications(&$notifications) {
-    $newEntry = [
-      'notificationCounter' => 1,
-      'text' => 'Tienes {COUNTER} mensajes nuevos',
-      'cb' => 'DriveNotificationCallback',
-      'cbData' => [],
-    ];
-    array_unshift($notifications, $newEntry); // To prepend the entry
-  }
-
   // Para mostrar la plataforma Moodle desde Hippocampus, la opción allowembbedframe debe estar activada.
   public function DriveWindowCallback() {
     return [

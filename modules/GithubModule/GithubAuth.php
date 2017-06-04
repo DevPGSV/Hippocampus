@@ -25,10 +25,11 @@
     // $sql_add_user = "INSERT INTO hc_m_GithubModule_credentials(username, password) VALUES ('$username', '$encryptedpassword')";
     // $query_add_user = mysqli_query($db, $sql_add_user);
 
-    $client = new GitHubClient();
-    $client->setCredentials($username, $password));
+    //$client = new GitHubClient();
+    //$client->setCredentials($username, $password));
 
-    $_SESSION['client'] = $client;
+    $_SESSION["client"] = new GitHubClient();
+    $_SESSION["client"]->setCredentials($username, $password));
 
     header('Location: ../../home');
 

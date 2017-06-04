@@ -4,6 +4,7 @@ require_once(__DIR__ . '/client/GitHubClient.php');
 
 class GithubModule extends HC_Module {
 
+  private $client;
   private $loggedIn;
 
   public function __construct($hc) {
@@ -54,16 +55,6 @@ class GithubModule extends HC_Module {
     array_unshift($sidebar, $newEntry); // To prepend the entry
   }
 
-  public function onCreatingNotifications(&$notifications) {
-    $newEntry = [
-      'notificationCounter' => 3,
-      'text' => 'Tienes {COUNTER} mensajes nuevos',
-      'cb' => 'GithubNotificationCallback',
-      'cbData' => [],
-    ];
-    array_unshift($notifications, $newEntry); // To prepend the entry
-  }
-
   public function GithubWindowCallback() {
     if (!$this->loggedIn) return $this->GithubAuthWindowCallback();
 
@@ -74,11 +65,12 @@ class GithubModule extends HC_Module {
     $owner = 'tan-tan-kanarek';
     $repo = 'github-php-client';
 
-    $client = new GitHubClient();
+    $client = $_SESSION["client"];
     //$client->setPage();
     //$client->setPageSize(2);
-    $commits = $client->repos->commits->listCommitsOnRepository($owner, $repo);
+    //$commits = $client->repos->commits->listCommitsOnRepository($owner, $repo);
 
+    //print_r($commits);
     /*
     echo "Count: " . count($commits) . "\n";
     foreach($commits as $commit)

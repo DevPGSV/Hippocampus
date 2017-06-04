@@ -16,18 +16,8 @@ class GEAmodule extends HC_Module {
     array_unshift($sidebar, $newEntry); // To prepend the entry
   }
 
-  public function onCreatingNotifications(&$notifications) {
-    $newEntry = [
-      'notificationCounter' => 2,
-      'text' => 'Tienes {COUNTER} mensajes nuevos',
-      'cb' => 'ExampleNotificationCallback',
-      'cbData' => [],
-    ];
-    array_unshift($notifications, $newEntry); // To prepend the entry
-  }
-
   public function MiGeaUcm() {
-   
+
     return [
       'html' => '<div class="geadiv"><object data="https://geaportal.ucm.es"></object></div>',
       'title' => '<svg class="icon ucm windowicon">

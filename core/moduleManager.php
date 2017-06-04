@@ -93,6 +93,13 @@ class ModuleManager
     return $sidebar;
   }
 
+  public function onCreatingNotifications(&$notifications) {
+    foreach ($this->modules as $m) {
+      $m['class']->onCreatingNotifications($notifications);
+    }
+    return $notifications;
+  }
+
   public function onCreatingMetacode(&$metacode) {
     foreach ($this->modules as $m) {
       $m['class']->onCreatingMetacode($metacode);
