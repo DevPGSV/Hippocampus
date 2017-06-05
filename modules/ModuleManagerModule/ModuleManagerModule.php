@@ -93,7 +93,6 @@ class ModuleManagerModule extends HC_Module {
         "doEnable": doEnable,
       },
       success: function(data) {
-        //$("#twittermodule_config_message").html(data["msg"]);
         if (data["status"] == "ok") {
           console.log("module set enabled to " + doEnable + " correctly");
           console.log(uiObject);
