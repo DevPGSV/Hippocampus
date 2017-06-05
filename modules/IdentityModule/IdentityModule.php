@@ -121,8 +121,4 @@ class IdentityModule extends HC_Module {
     ];
   }
 
-  public function ExampleNotificationCallback($cbData) {
-    return '<p>Module dummy data for notification: <em>Example</em></p><br><pre>'.print_r($cbData, true).'</pre>';
-  }
-
 }
