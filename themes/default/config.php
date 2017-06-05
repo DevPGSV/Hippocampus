@@ -9,7 +9,8 @@ return [
     'window',
     'register',
     'admin',
-    'who'
+    'who',
+    'doc'
   ],
   'name' => 'Default',
   'metacode' => [

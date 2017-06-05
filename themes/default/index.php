@@ -42,7 +42,7 @@
             <a><img id="hippo-der" src="img/pQLItby.gif" alt="caballito"></a>
 
             <a class="button" id="button" href="who"> ¿QUIÉNES SOMOS? <span class="glyphicon glyphicon-home"><i class="glyphicon glyphicon-leaf"></i></span> </a>
-            <a href="" id="profesor">Documentación para el profesor </a>
+            <a href="doc" id="profesor">Documentación para el profesor </a>
 
 
       <!-- Modal -->
