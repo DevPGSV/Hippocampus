@@ -42,7 +42,6 @@
      <div id="maincontainer" class="container">
       <ul class="nav nav-pills nav-justified" id="ul-admin">
          <li class="active"><a data-toggle="pill" href="#admin-users"><h5 class="admin-title">Administrar usuarios</h5></a></li>
-         <li><a data-toggle="pill" href="#admin-page"><h5 class="admin-title">Administrar página</h5></a></li>
        </ul>
          <div class="tab-content" id="tab-admin">
 					 <!-- ADMINISTRAR USUARIOS-->
@@ -86,7 +85,7 @@
                       <table class="table table-hover table-condensed table-responsive table-admin">
                           <thead>
                             <tr>
-                              <th>Username</th><th>Rol</th><th>Email</th><th class= "glyphs-users">Editar</th><th class= "glyphs-users">Eliminar</th>
+                              <th>Username</th><th>Rol</th><th>Email</th><th class= "glyphs-users">Eliminar</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -106,7 +105,6 @@
 																}
 																echo '</td>
 																<td>'.$user['email'].'</td>
-																<td class= "glyphs-users"><span class="glyphicon glyphicon-pencil admin-edit-user"></span></td>
 																<td class= "glyphs-users"><span class="glyphicon glyphicon-trash admin-erase-user" data-user="';
 																echo $user["username"];
 																echo '"></span></td>
@@ -122,57 +120,6 @@
                 </div>
            </div>
 				 <!-- END-ADMINISTRAR USUARIOS-->
-
-				 <!-- ADMINISTRAR PAGINA -->
-
-           <div id="admin-page" class="tab-pane fade">
-	             <div class="container panel-group" id="accordion2">
-								 <!-- PANEL NOMBRE-->
-	                <div class="panel panel-default">
-	                  <div class="panel-heading">
-	                    <h2 class="panel-title">
-	                      <a data-toggle="collapse" data-parent="#accordion2" href="#nombre-admin">NOMBRE</a>
-	                    </h2>
-	                  </div>
-	                  <div id="nombre-admin" class="panel-collapse collapse in active">
-	                    <div class="panel-body form-group">
-
-	                        <input type="text" class="form-control" name="nombre">
-	                        <br>
-	                        <input type="submit" value="Guardar" class="button-crear">
-	                    </div>
-	                  </div>
-	                </div>
-
-									<!-- PANEL LOGO-->
-	                <div class="panel panel-default">
-	                  <div class="panel-heading">
-	                    <h2 class="panel-title">
-	                      <a data-toggle="collapse" data-parent="#accordion2" href="#logo-admin">LOGO</a>
-	                    </h2>
-	                  </div>
-	                  <div id="logo-admin" class="panel-collapse collapse">
-	                    <div class="panel-body">
-
-												<h4> Subir un nuevo logo: </h4>
-
-												<div class="input-group">
-													<label class="input-group-btn">
-														 <span class="btn btn-primary">
-																 Buscar&hellip; <input type="file" style="display: none;" multiple>
-														 </span>
-												 	</label>
-												 <input type="text" class="form-control"  accept="image/*">
-                       </div>
-											 <br>
-											<input type="submit" value="Subir" class="button-crear">
-	                    </div>
-	                  </div>
-	                 </div>
-									 <!-- END PANEL LOGO-->
-	           </div>
-
-					 <!-- END-ADMINISTRAR PAGINA -->
 				 </div>
 		  <a href="index.php" id="homelinkadmin"><span class="glyphicon glyphicon-circle-arrow-left"></span> HOME </a>
 		</div>
