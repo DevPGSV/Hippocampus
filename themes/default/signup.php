@@ -50,7 +50,7 @@
     <br>
     <input type="submit" value="Crear cuenta">
     <br>
-    <p align="center"> ¿Ya tienes cuenta?<br><a id="home" href="home">Inicia sesión</a> </p>
+    <p id="align"> ¿Ya tienes cuenta?<br><a id="home" href="home">Inicia sesión</a> </p>
   </form>
 
   <!-- Modal -->

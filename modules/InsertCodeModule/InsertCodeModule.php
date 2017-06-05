@@ -32,13 +32,16 @@ class InsertCodeModule extends HC_Module {
 
   public function InsertCodeCallback() {
     return [
-      'html' => '<form action="" method="post" onclick="myFunction()">
-                    <textarea name="comments" id="comments">
-                    Hey... Enter your code!
+      'html' => '<form action="insert-data.php" method="post" onclick="myFunction()">
 
-                         Or make the box bigger! --->
-                    </textarea>
+                    <input type="hidden" name="submitted" value="true" />
+                    <fildset>
+                      <legend> Hey... Enter your code! </legend>
+                      <label>Code: <input type="text" name="fname" /></label>
+                    </fildset>
+                    <br />
                     <input type="submit" value="Submit">
+
                  </form>
 
                  <p data-updatewindowboxservice="software2" data-cbdata-F1="v1" data-cbdata-F2="v2">Or try CodeAcademy....</p>',
@@ -52,7 +55,7 @@ class InsertCodeModule extends HC_Module {
 
   public function onCreatingMetacode(&$metacode) {
   $metacode[] = '<script>
-    
+
     </script>';
   }
 

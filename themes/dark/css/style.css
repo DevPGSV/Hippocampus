@@ -817,6 +817,10 @@
     border-radius: 20px;
   }
 
+  #align {
+     text-align: center;
+  }
+
   #logo-ini {
     max-width: 100%;
     height: auto;
