@@ -116,16 +116,6 @@
                                 <div class="col-md-3" id="pic-column">
                                   <div class="text-center">
                                     <img src="img/cTCsZeR.png" id="foto-perfil" alt="foto de perfil">
-                                    <h6>Sube una nueva imagen</h6>
-                                    <!--<input class="form-control" type="file">-->
-                                    <div class="input-group" id="perfil-foto-input">
-            													<label class="input-group-btn">
-            														 <span class="btn btn-primary">
-            																 Buscar&hellip; <input type="file" style="display: none;" multiple>
-            														 </span>
-            												 	</label>
-            												 <input type="text" class="form-control"  accept="image/*">
-                                   </div>
                                   </div>
                                 </div>
 
