@@ -1175,6 +1175,27 @@ a.hideDisplay:hover span.showDisplayOnHover {
 }
 
 /**********************
+    Avisos module
+  **********************/
+
+.mediumicon {
+  width: 36px;
+  height: 36px;
+  /*margin-top: -2px;*/
+}
+
+.light-gray-box {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 20px;
+  background: rgba(204, 204, 204, 1) !important;
+  border-radius: 10px;
+}
+
+/**********************
         Who we are
   **********************/
 div.persondata {
