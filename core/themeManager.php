@@ -70,6 +70,6 @@ class ThemeManager
       foreach ($this->themeList as $t) {
         $metacode = array_merge($metacode, $this->themes[$t]->getMetacode());
       }
-      return $metacode;
+      return array_unique($metacode);
     }
 }
