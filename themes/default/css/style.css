@@ -250,6 +250,7 @@ legend {
   }
 }
 
+
 /**********************
      Sidebar Style
 **********************/
@@ -998,6 +999,10 @@ input[type="submit"]:active {
   position: absolute;
   bottom: 20px;
   right: 50px;
+}
+
+.pointercursor {
+  cursor: pointer;
 }
 
 /**********************
