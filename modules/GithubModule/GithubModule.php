@@ -62,11 +62,10 @@ class GithubModule extends HC_Module {
              <br>
     ';
 
-    $owner = 'tan-tan-kanarek';
-    $repo = 'github-php-client';
+    //$owner = 'tan-tan-kanarek';
+    //$repo = 'github-php-client';
 
-    $client = $_SESSION["client"];
-    //$client->setPage();
+    $client->setPage();
     //$client->setPageSize(2);
     //$commits = $client->repos->commits->listCommitsOnRepository($owner, $repo);
 
@@ -101,6 +100,8 @@ class GithubModule extends HC_Module {
   public function GithubAuthWindowCallback() {
      $cu = $this->hc->getUserManager()->getLoggedInUser();
      if ($this->loggedIn) return $this->GithubWindowCallback();
+
+     $client = new GitHubClient();
 
      $html = '
       <form action="modules/GithubModule/GithubAuth.php" method="POST">
