@@ -35,6 +35,7 @@ class MoodleModule extends HC_Module {
       'text' => 'Tienes {COUNTER} mensajes nuevos',
       'cb' => 'MoodleNotificationCallback',
       'cbData' => [],
+      'icon' => 'ucm',
     ];
     array_unshift($notifications, $newEntry); // To prepend the entry
   }

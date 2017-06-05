@@ -6,6 +6,7 @@
     require_once(__DIR__ . '/client/GitHubClient.php');
 
     $hc = new Hippocampus();
+    
     $username = $_POST["username"];
     $password = $_POST["password"];
 
@@ -15,21 +16,20 @@
     $hc->getDB()->setConfigValue('module.GithubModule.username', $username);
     $hc->getDB()->setConfigValue('module.GithubModule.password', $encryptedpassword);
 
+    parse_str($username, $usernameDecoded);
+    parse_str($password, $passwordDecoded);
+
     $cu = $hc->getUserManager()->getLoggedInUser();
     if ($cu !== false) {
-      $stmt = $hc->getDB()->getDBo()->prepare("INSERT INTO hc_m_GithubModule_credentials(username, password) VALUES ('$username', '$encryptedpassword')");
+      $stmt = $hc->getDB()->getDBo()->prepare("INSERT INTO hc_m_GithubModule_credentials(username, password) VALUES (:username, :encryptedpassword)");
+
+      $stmt->bindValue(':username', $usernameDecoded, PDO::PARAM_STR);
+      $stmt->bindValue(':encryptedpassword', $passwordDecoded, PDO::PARAM_STR);
+
       $stmt->execute();
     }
 
-    // Consulta para añadir las credenciales de Github del usuario a la base de datos.
-    // $sql_add_user = "INSERT INTO hc_m_GithubModule_credentials(username, password) VALUES ('$username', '$encryptedpassword')";
-    // $query_add_user = mysqli_query($db, $sql_add_user);
-
-    //$client = new GitHubClient();
-    //$client->setCredentials($username, $password));
-
-    $_SESSION["client"] = new GitHubClient();
-    $_SESSION["client"]->setCredentials($username, $password));
+    $client->setCredentials($username, $password);
 
     header('Location: ../../home');
 
