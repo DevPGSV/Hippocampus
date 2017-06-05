@@ -478,10 +478,6 @@ class TwitterModule extends HC_Module {
     }
   }
 
-  public function TwitterMentionNotificationCallback($cbData) {
-    return '<p>Twitter Mentions</p><br><pre>'.print_r($cbData, true).'</pre>';
-  }
-
   public function onCreatingMetacode(&$metacode) {
     $metacode[] = '<script>
   function twittermodule_config_submit() {

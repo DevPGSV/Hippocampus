@@ -124,10 +124,6 @@ class GithubModule extends HC_Module {
      ];
   }
 
-  public function GithubNotificationCallback($cbData) {
-    return '<p>Module dummy data for notification: <em>Example</em></p><br><pre>'.print_r($cbData, true).'</pre>';
-  }
-
    public function onCreatingMetacode(&$metacode) {
 
      $metacode[] = '<link rel="stylesheet" href="modules/GithubModule/style.css">';

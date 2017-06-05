@@ -20,28 +20,6 @@ class ThemeManagerModule extends HC_Module {
     }
   }
 
-
-  public function onCreatingNotifications(&$notifications) {
-    $newEntry = [
-      'notificationCounter' => 2,
-      'text' => 'Tienes {COUNTER} mensajes nuevos',
-      'cb' => 'ExampleNotificationCallback',
-      'cbData' => [],
-    ];
-    array_unshift($notifications, $newEntry); // To prepend the entry
-  }
-
-
-/*  Puedes obtenerlo con:
-
-  $this->hc->getDB()->getConfigValue("site.theme");
-
-  y cambiarlo con:
-
-  $this->hc->getDB()->setConfigValue("site.theme", 'nuevo valor');
-*/
-
-
   public function ThemeManagerWindowCallback() {
     $themePath = __DIR__ . '/../../themes/';
     $db = $this->hc->getDB();
