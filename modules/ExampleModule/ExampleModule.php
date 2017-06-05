@@ -97,8 +97,4 @@ class ExampleModule extends HC_Module {
     return [$identifier, $data, $cbdata, date('d/m/Y H:i:s')];
   }
 
-  public function ExampleNotificationCallback($cbData) {
-    return '<p>Module dummy data for notification: <em>Example</em></p><br><pre>'.print_r($cbData, true).'</pre>';
-  }
-
 }
