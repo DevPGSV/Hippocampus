@@ -1293,3 +1293,20 @@ table.table-border {
   text-align: center;
   font-size: 250%;
 }
+
+#wiki {
+  position: absolute;
+  bottom: 300px;
+  right: 620px;
+  background-color: #000000;
+  color: #FFFFFF;
+  float: right;
+  padding: 30px;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: white;
+  width: 200px;
+  height: 150px;
+  text-align: center;
+  font-size: 250%;
+}
