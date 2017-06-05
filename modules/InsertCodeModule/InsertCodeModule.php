@@ -23,8 +23,8 @@ class InsertCodeModule extends HC_Module {
 
   public function onCreatingSidebar(&$sidebar) {
     $newEntry = [
-      'icon' => 'software',
-      'text' => 'Software',
+      'icon' => 'code',
+      'text' => 'Insert code',
       'id' => 'software',
     ];
     array_unshift($sidebar, $newEntry); // To prepend the entry
@@ -41,8 +41,8 @@ class InsertCodeModule extends HC_Module {
                  </form>
 
                  <p data-updatewindowboxservice="software2" data-cbdata-F1="v1" data-cbdata-F2="v2">Or try CodeAcademy....</p>',
-      'title' => '<svg class="icon software windowicon">
-                    <use xlink:href="#software">
+      'title' => '<svg class="icon code windowicon">
+                    <use xlink:href="#code">
                     </use>
                   </svg>
                   Insert code',
@@ -57,8 +57,8 @@ class InsertCodeModule extends HC_Module {
     return [
       'html' => '<div class="geadiv"><object data="https://www.quackit.com/html/online-html-editor/">
                   </object></div><p data-updatewindowboxservice="software">Back....</p>',
-      'title' => '<svg class="icon software windowicon">
-                    <use xlink:href="#software">
+      'title' => '<svg class="icon code windowicon">
+                    <use xlink:href="#code">
                     </use>
                   </svg>
                   Online HTML Editor',
