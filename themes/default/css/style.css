@@ -895,13 +895,21 @@ input {
   width: 100%;
   font-size: 20px;
 }
+
 input[type="checkbox"] {
   width: auto;
   display: inline;
   cursor: pointer;
 }
+
+input[type="text"] {
+  color: black;
+}
+
 input[type="submit"] {
   background: linear-gradient(#41FFD0, #4440FF);
+  max-width: 300px;
+  margin: auto;
   border: 0;
   color: white;
   opacity: 0.8;
@@ -1186,14 +1194,29 @@ a.hideDisplay:hover span.showDisplayOnHover {
 
 .light-gray-box {
   display: block;
-  max-width: 300px;
-  width: 100%;
+  width: 93%;
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
   margin-bottom: 20px;
   background: rgba(204, 204, 204, 1) !important;
+  color: black;
   border-radius: 10px;
 }
+
+/**********************
+    Chat module
+  **********************/
+
+
+
+/**********************
+    Software module
+  **********************/
+
+.software-title {
+  color: #cc0066;
+}
+
 
 /**********************
         Who we are
