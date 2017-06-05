@@ -22,7 +22,7 @@ class Database
         $this->host     = $host;
 
         $this->dbConnect();
-        $this->databaseSetup();
+        //$this->databaseSetup();
     }
 
     private function databaseSetup()

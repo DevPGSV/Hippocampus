@@ -2,15 +2,6 @@
 -- Database: `hippocampus`
 --
 
-DROP TABLE IF EXISTS `hc_m_AsociacionesModule_data`;
-DROP TABLE IF EXISTS `hc_m_BolotweetModule_data`;
-DROP TABLE IF EXISTS `hc_m_CafeteriaModule_data`;
-DROP TABLE IF EXISTS `hc_m_ExampleModule_data`;
-DROP TABLE IF EXISTS `hc_m_GithubModule_data`;
-DROP TABLE IF EXISTS `hc_m_InsertCodeModule_data`;
-DROP TABLE IF EXISTS `hc_m_MoodleModule_data`;
-DROP TABLE IF EXISTS `hc_m_TwitterModule_users`;
-
 DROP TABLE IF EXISTS `config`;
 DROP TABLE IF EXISTS `users-1auth`;
 DROP TABLE IF EXISTS `user-sessions`;
@@ -37,8 +28,8 @@ INSERT INTO `config` (`varkey`, `value`) VALUES
 ('site.maintenance', '0'),
 ('site.name', 'Hippocampus'),
 ('site.theme', 'default'),
-('site.url', 'http://hippocampus.dev'),
-('db.version', '9');
+('site.url', '?'),
+('db.version', '10');
 
 -- --------------------------------------------------------
 
@@ -103,11 +94,6 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `confirmedEmail`, `secretToken`, `role`) VALUES
-(1, 'root', 'root@hippocampus.dev', 0, '-', 1),
-(2, 'admin','admin@hippocampus.dev', 0, '-', 2),
-(3, 'user','user@hippocampus.dev', 0, '-', 3);
-
 -- --------------------------------------------------------
 
 --
@@ -125,11 +111,6 @@ CREATE TABLE `users-1auth` (
 --
 -- Dumping data for table `users-1auth`
 --
-
-INSERT INTO `users-1auth` (`id`, `pw`, `salt`, `csalt`) VALUES
-(1, '43c3d78da0e34f4c1c4ee7d663642a47a6bbc4283b8b47be06abf7a1a9efe4ab', '94cdb1a2d74e6a63ba741058c03a79e4', '02fa9bc91c79c547db157d22f0cbdd5e'),
-(2, '43c3d78da0e34f4c1c4ee7d663642a47a6bbc4283b8b47be06abf7a1a9efe4ab', '94cdb1a2d74e6a63ba741058c03a79e4', '02fa9bc91c79c547db157d22f0cbdd5e'),
-(3, '43c3d78da0e34f4c1c4ee7d663642a47a6bbc4283b8b47be06abf7a1a9efe4ab', '94cdb1a2d74e6a63ba741058c03a79e4', '02fa9bc91c79c547db157d22f0cbdd5e');
 
 -- --------------------------------------------------------
 
