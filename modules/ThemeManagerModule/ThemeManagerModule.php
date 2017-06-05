@@ -118,6 +118,10 @@ class ThemeManagerModule extends HC_Module {
               element.checked = false;
             }
           });
+          setTimeout(function(){
+            location.reload();
+          }, 500);
+
         } else {
           setTimeout(function(){
             uiObject.checked = false;
