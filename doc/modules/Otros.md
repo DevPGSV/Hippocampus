@@ -1,7 +1,0 @@
-# OTROS
-
-
-## Ajustes
-
-
-## Sobre nosotros

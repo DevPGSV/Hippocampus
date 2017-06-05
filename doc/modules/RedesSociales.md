@@ -1,7 +1,0 @@
-# REDES SOCIALES
-
-
-## Facebook
-
-
-## Twitter
