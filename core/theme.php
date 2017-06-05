@@ -13,6 +13,7 @@ class Theme
         'window'    => false,
         'admin'    => false,
         'who'      => false,
+        'doc'      => false,
     ];
     private $metacode;
     private $hc;
@@ -53,6 +54,9 @@ class Theme
         break;
         case 'who':
           return $this->getWhoPath();
+        break;
+        case 'doc':
+          return $this->getDocPath();
         break;
         case 'register':
           return $this->getRegisterPath();
@@ -119,5 +123,9 @@ class Theme
     public function getWhoPath()
     {
         return "$this->id/who.php";
+    }
+    public function getDocPath()
+    {
+        return "$this->id/documentation.php";
     }
 }

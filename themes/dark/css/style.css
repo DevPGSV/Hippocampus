@@ -1285,6 +1285,7 @@
 
   #whoHome {
     font-size: 40px;
+    color: white;
   }
 
   #profesor {
@@ -1295,4 +1296,43 @@
     color: white;
     background-color: black;
     border: 1px solid grey;
+  }
+
+
+  /**********************
+        Documentation
+    **********************/
+
+  #memoria {
+    position: absolute;
+    bottom: 300px;
+    left: 300px;
+    background-color: #000000;
+    color: #FFFFFF;
+    float: right;
+    padding: 30px;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: white;
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    font-size: 250%;
+  }
+
+  #github {
+    position: absolute;
+    bottom: 300px;
+    right: 300px;
+    background-color: #000000;
+    color: #FFFFFF;
+    float: right;
+    padding: 30px;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: white;
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    font-size: 250%;
   }
