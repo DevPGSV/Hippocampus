@@ -2,14 +2,8 @@
 
 return [
   'features'=>[
-    'index',
-    'userview',
     'style',
     'javascript',
-    'window',
-    'register',
-    'admin',
-    'who'
   ],
   'name' => 'Default',
   'metacode' => [

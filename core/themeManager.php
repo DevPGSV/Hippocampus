@@ -35,18 +35,25 @@ class ThemeManager
             $this->themes[$t] = $aux;
         }
 
-        /*
         foreach (scandir($this->themePath, true) as $t) {
             if (is_dir($this->themePath.$t)) {
                 if ($t != '.' && $t != '..') {
-                    $aux = $this->loadTheme($t);
-                    if ($aux) {
-                        $this->themes[$t] = $aux;
+                    if (!in_array($t, $this->themeList) && ($t !== 'default')) {
+                        $aux = $this->loadTheme($t);
+                        if ($aux) {
+                            $this->themes[$t] = $aux;
+                        }
                     }
                 }
             }
         }
-        */
+
+        $t = 'default';
+        $aux = $this->loadTheme($t);
+        if ($aux) {
+            $this->themes[$t] = $aux;
+        }
+
     }
 
     public function getFeaturePath($feature)
@@ -63,6 +70,6 @@ class ThemeManager
       foreach ($this->themeList as $t) {
         $metacode = array_merge($metacode, $this->themes[$t]->getMetacode());
       }
-      return $metacode;
+      return array_unique($metacode);
     }
 }
