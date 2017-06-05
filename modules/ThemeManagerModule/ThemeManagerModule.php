@@ -114,10 +114,8 @@ class ThemeManagerModule extends HC_Module {
       success: function(data) {
         if (data["status"] == "ok") {
           $(".checkedtheme").each(function(i, element) {
-            if(element == uiObject){
-              uiObject.checked = true;
-            } else {
-              element.attr("checked", false);
+            if(element != uiObject){
+              element.checked = false;
             }
           });
         } else {
