@@ -71,7 +71,7 @@
                       <!-- MENU COLUMNAS -->
                       <li><div class="dropdown" id="div-menu1"><button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><span class="glyphicon glyphicon-plus navbar-element"></span></button>
                       <ul class="dropdown-menu" role="menu" id="column-menu">
-                        <span>Configuración de columnas</span><br>
+                        <h3>Configuración de columnas</h3>
                         <span> ¿Cuántas columnas quieres mostrar? </span>
                         <button button type="button" class="btn btn-link btn-xl1" onclick="setBoxLayout([1])"></button>
                         <button button type="button" class="btn btn-link btn-xl2" onclick="setBoxLayout([2])"></button>
