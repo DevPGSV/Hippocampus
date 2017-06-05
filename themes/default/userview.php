@@ -16,7 +16,7 @@
       <div class="sidebar dont-select">
         <div class="sidebar-wrapper">
           <ul class="sidebar-nav sidebar-nav-head">
-            <li><a id="mainsidebar-toogle"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
+            <li><a href="#" id="mainsidebar-toogle"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
           </ul>
           <ul class="sidebar-nav sidebar-nav-items" id="sidebar">
             <?php
