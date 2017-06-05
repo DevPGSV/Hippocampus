@@ -1,7 +1,0 @@
-# MENSAJERÍA
-
-
-## Bolotweet
-
-
-## Chat

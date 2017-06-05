@@ -1,6 +1,0 @@
-# APLICACIONES INFORMÁTICAS
-
-## Github
-
-
-## Software
