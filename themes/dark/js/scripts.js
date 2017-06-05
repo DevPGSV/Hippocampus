@@ -14,7 +14,7 @@ String.prototype.hashCode = function() {
 function setupBackgroundGradient() {
 
   var colors = new Array(
-    [17, 240, 159], [17, 240, 203], [17, 211, 240], [17, 129, 240], [17, 55, 240], [84, 240, 94], [13, 1, 175], [0, 27, 162], [23, 153, 209], [23, 209, 178], [23, 209, 135]
+    [4, 60, 40], [4, 60, 50], [4, 52, 120], [4, 32, 60], [4, 13, 60], [21, 60, 23], [3, 0, 42], [0, 6, 40], [5, 38, 105], [5, 52, 44], [5, 52, 13]
   );
 
   var step = 0;
@@ -65,10 +65,7 @@ function setupBackgroundGradient() {
       colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
     }
   }
-  //setInterval(updateGradient, 40);
-  $('body').css({
-    background: "#565353"
-  });
+  setInterval(updateGradient, 40);
 }
 
 function validaRegistro(form) {
