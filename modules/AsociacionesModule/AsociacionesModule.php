@@ -19,37 +19,46 @@ class AsociacionesModule extends HC_Module {
   public function ExampleWindowCallback() {
     return [
       'html' => '
-      <p></p>
-      <p id="librelab">
-      LibreLabUCM (LLU)
-      </p>
-      <p>Asociación de estudiantes gestada en la Facultad de Informática de la Universidad Complutense de Madrid.
-      Nuestra asociación nace con la vocación de usar y promover el software libre, y, al mismo tiempo, aprender con él tanto dentro como fuera de la universidad.
-      Pero no sólo nos queremos quedar en el software libre, también estamos interesados en el hardware libre, las tecnologías libres, la cultura libre, el conocimiento abierto o libre y todo aquello relacionado con éstos.
-      </p>
+      <div class="light-gray-box">
+          <p id="librelab">
+            LibreLabUCM (LLU)
+          </p>
 
-      <a href="mailto:librelab@ucm.es">
-        <input type="submit" value="MANDAR MAIL A LIBRELAB" />
-      </a>
+          <p>
+            Asociación de estudiantes gestada en la Facultad de Informática de la Universidad Complutense de Madrid.
+            Nuestra asociación nace con la vocación de usar y promover el software libre, y, al mismo tiempo, aprender con él tanto dentro como fuera de la universidad.
+            Pero no sólo nos queremos quedar en el software libre, también estamos interesados en el hardware libre, las tecnologías libres, la cultura libre, el conocimiento abierto o libre y todo aquello relacionado con éstos.
+            <br><br>
+          </p>
 
-      <p></p>
-      <p id="librelab">ASCII</p>
-      <p>
-      Asociación sociocultural de ingenierías en informática de la UCM. Realizamos multitud de actividades, ven y conocenos.
-      </p>
+          <a href="mailto:librelab@ucm.es">
+            <input type="submit" value="MANDAR MAIL A LIBRELAB" />
+          </a>
+      </div>
 
-      <a href="mailto:asciifdi@gmail.com">
-        <input type="submit" value="MANDAR MAIL A ASCII" />
-      </a>
+      <div class="light-gray-box">
+        <p id="librelab">ASCII</p>
+        <p>
+        Asociación sociocultural de ingenierías en informática de la UCM. Realizamos multitud de actividades, ven y conocenos.
+        <br><br>
+        </p>
 
-      <p></p>
-      <p id="librelab">LAG</p>
-      <p>
-      Asociación dedicada a los videojuegos.
-      </p>
-      <a href="mailto:LagAsociacion@gmail.com">
-        <input type="submit" value="MANDAR MAIL A LAG" />
-      </a>
+        <a href="mailto:asciifdi@gmail.com">
+          <input type="submit" value="MANDAR MAIL A ASCII" />
+        </a>
+      </div>
+
+      <div class="light-gray-box">
+        <p id="librelab">LAG</p>
+        <p>
+        Asociación dedicada a los videojuegos.
+        <br><br>
+        </p>
+
+        <a href="mailto:LagAsociacion@gmail.com">
+          <input type="submit" value="MANDAR MAIL A LAG" />
+        </a>
+      </div>
 
       ',
 
