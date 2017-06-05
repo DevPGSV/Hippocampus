@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <title>Formulario de login</title>
@@ -9,12 +10,12 @@
 </head>
 
 	<body>
-            <a><img id="hippo-izq" src="img/961SrDv.gif"></a>
+            <a><img id="hippo-izq" src="img/961SrDv.gif" alt="caballito"></a>
 
-            <form action="" method="POST" id="form-login">
+            <form action="api.php" method="POST" id="form-login">
 
               <div class="container-fluid">
-                <a href="home"><img id="logo-ini" src="img/yJuHskd.png" title="Hippocampus"></a>
+                <a href="home"><img id="logo-ini" src="img/yJuHskd.png" title="Hippocampus" alt="Hippocampus"></a>
               </div>
 
               <div class="input-group">
@@ -35,25 +36,14 @@
 
               <input type="submit" value="Ingresar">
               <br>
-              <p align="center"> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
+              <p> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
             </form>
 
-            <a><img id="hippo-der" src="img/pQLItby.gif"></a>
+            <a><img id="hippo-der" src="img/pQLItby.gif" alt="caballito"></a>
 
-            <a class="hideDisplay">
-
-              <span class="showDisplayOnHover">
-                Heading
-                <span class="showBodyOfDisplayOnHover">
-                  <p>
-                    Bienvenido a Hippocampus
-                  </p>
-                </span>
-              </span>
-            </a>
-            <a class="button" id="button" href="who"> ¿QUIÉNES SOMOS? <span class="glyphicon glyphicon-home"><i class="glyphicon glyphicon-leaf"></i></span> </button>
+            <a class="button" id="button" href="who"> ¿QUIÉNES SOMOS? <span class="glyphicon glyphicon-home"><i class="glyphicon glyphicon-leaf"></i></span> </a>
             <a href="" id="profesor">Documentación para el profesor </a>
-    </div>
+  
 
       <!-- Modal -->
       <div class="modal fade" id="dummyModal" role="dialog">

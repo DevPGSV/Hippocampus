@@ -4,9 +4,7 @@ class ThemeManager
 {
     private $themePath = __DIR__ . '/../themes/';
     private $hc;
-    private $themeList = [
-        'default',
-    ];
+    private $themeList = [];
     private $themes=[];
 
     public function __construct($hc)
@@ -22,6 +20,7 @@ class ThemeManager
                 $metacode = [];
                 if (!empty($c['metacode'])) $metacode = $c['metacode'];
                 $t = new Theme($this->hc, $id, $c['features'], $metacode);
+                $this->themeList[] = $id;
                 return $t;
             }
         }
@@ -30,16 +29,31 @@ class ThemeManager
 
     public function loadAllThemes()
     {
+        $t = $this->hc->getDB()->getConfigValue('site.theme');
+        $aux = $this->loadTheme($t);
+        if ($aux) {
+            $this->themes[$t] = $aux;
+        }
+
         foreach (scandir($this->themePath, true) as $t) {
             if (is_dir($this->themePath.$t)) {
                 if ($t != '.' && $t != '..') {
-                    $aux = $this->loadTheme($t);
-                    if ($aux) {
-                        $this->themes[$t] = $aux;
+                    if (!in_array($t, $this->themeList) && ($t !== 'default')) {
+                        $aux = $this->loadTheme($t);
+                        if ($aux) {
+                            $this->themes[$t] = $aux;
+                        }
                     }
                 }
             }
         }
+
+        $t = 'default';
+        $aux = $this->loadTheme($t);
+        if ($aux) {
+            $this->themes[$t] = $aux;
+        }
+
     }
 
     public function getFeaturePath($feature)
@@ -56,6 +70,6 @@ class ThemeManager
       foreach ($this->themeList as $t) {
         $metacode = array_merge($metacode, $this->themes[$t]->getMetacode());
       }
-      return $metacode;
+      return array_unique($metacode);
     }
 }

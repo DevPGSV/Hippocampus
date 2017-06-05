@@ -15,7 +15,7 @@
       <div class="sidebar dont-select">
         <div class="sidebar-wrapper">
           <ul class="sidebar-nav sidebar-nav-head">
-            <li><a id="mainsidebar-toogle"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
+            <li><a href="#" id="mainsidebar-toogle"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
           </ul>
           <ul class="sidebar-nav sidebar-nav-items" id="sidebar">
             <?php
@@ -40,7 +40,7 @@
       </div>
 
       <div id="toplogo" class="container-fluid">
-        <a href="home"><img src="img/yJuHskd.png" title="Hippocampus"></a>
+        <a href="home"><img src="img/yJuHskd.png" title="Hippocampus" alt="Hippocampus"></a>
       </div>
 
       <div class="container-fluid" id="main-body-userview">
@@ -71,8 +71,8 @@
                       <!-- MENU COLUMNAS -->
                       <li><div class="dropdown" id="div-menu1"><button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><span class="glyphicon glyphicon-plus navbar-element"></span></button>
                       <ul class="dropdown-menu" role="menu" id="column-menu">
-                        <h3>Configuración de columnas</h3>
-                        <p> ¿Cuántas columnas quieres mostrar? </p>
+                        <span>Configuración de columnas</span><br>
+                        <span> ¿Cuántas columnas quieres mostrar? </span>
                         <button button type="button" class="btn btn-link btn-xl1" onclick="setBoxLayout([1])"></button>
                         <button button type="button" class="btn btn-link btn-xl2" onclick="setBoxLayout([2])"></button>
                         <button button type="button" class="btn btn-link btn-xl3" onclick="setBoxLayout([3])"></button>
@@ -81,11 +81,27 @@
                       <!-- END MENU NOTIFICACIONES -->
 
                       <!-- MENU NOTIFICACIONES -->
-                      <li><div class="dropdown" id="div-menu2"><button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn navbar-element"><span class="badge">4</span></span></button>
+                      <?php
+                      $notifications = $hc->getNotifications();
+                      $notificationsNumber = 0;
+                      foreach ($notifications as $notification) {
+                        if (!empty($notification['notificationCounter'])) {
+                          $notificationsNumber += $notification['notificationCounter'];
+                        }
+                      }
+                      ?>
+                      <li><div class="dropdown" id="div-menu2"><button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown"><span class="glyphicon glyphicon-bullhorn navbar-element"><span class="badge"><?php echo $notificationsNumber; ?></span></span></button>
                         <ul class="dropdown-menu" role="menu">
-                          <li role="presentation " class="notification-text-inside"><svg class="notification-icon gmail"><use xlink:href="#gmail"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">  Tienes 1 mensaje nuevo.</a></li>
-                          <li role="presentation " class="notification-text-inside"><svg class="notification-icon bolotweet"><use xlink:href="#bolotweet"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">  Tienes 1 mensaje nuevo.</a></li>
-                          <li role="presentation"><svg class="notification-icon ucm"><use xlink:href="#ucm"></use></svg><a role="menuitem" tabindex="-1" href="#" class="notification-text">    Tienes 2 nuevos mensajes.</a></li>
+                          <?php
+                          foreach ($notifications as $notification) {
+                            if (!empty($notification['notificationCounter'])) {
+                              $notification['text'] = str_replace('{COUNTER}', (string)$notification['notificationCounter'], $notification['text']);
+                            }
+                            $icon = '';
+                            if (!empty($notification['icon'])) $icon = $notification['icon'];
+                            echo "<li role='presentation' class='notification-text-inside'><svg class='notification-icon $icon'><use xlink:href='#$icon'></use></svg><a role='menuitem' tabindex='-1' href='#' class='notification-text'>  {$notification['text']}</a></li>";
+                          }
+                          ?>
                         </ul></div></li>
                       <!-- END MENU NOTIFICACIONES -->
 
