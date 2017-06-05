@@ -84,7 +84,7 @@ class ThemeManagerModule extends HC_Module {
     if ($this->hc->getDB()->setConfigValue("site.theme", $data['theme'])) {
       return [
         'status' => 'ok',
-        'msg' => 'theme_updated_',
+        'msg' => 'theme_updated',
       ];
     }
     return [
@@ -97,6 +97,12 @@ class ThemeManagerModule extends HC_Module {
   public function onCreatingMetacode(&$metacode) {
     $metacode[] = '<script>
   function thememanagermodule_setThemeEnable(theme, doEnable, uiObject) {
+    if(!doEnable){
+      setTimeout(function(){
+        uiObject.checked = true;
+      }, 100);
+      return;
+    }
     $.ajax({
       type: "POST",
       url: "api.php?action=thememanagermodule_enabletheme",
@@ -107,10 +113,17 @@ class ThemeManagerModule extends HC_Module {
       },
       success: function(data) {
         if (data["status"] == "ok") {
-          $( ".checkedtheme" ).each(function( element ) {
-            element.attr("checked", false);
+          $(".checkedtheme").each(function(i, element) {
+            if(element == uiObject){
+              uiObject.checked = true;
+            } else {
+              element.attr("checked", false);
+            }
           });
         } else {
+          setTimeout(function(){
+            uiObject.checked = false;
+          }, 200);
         }
       },
     });
