@@ -778,6 +778,11 @@ form {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
 }
+
+#align {
+   text-align: center;
+}
+
 #logo-ini {
   max-width: 100%;
   height: auto;
@@ -890,13 +895,21 @@ input {
   width: 100%;
   font-size: 20px;
 }
+
 input[type="checkbox"] {
   width: auto;
   display: inline;
   cursor: pointer;
 }
+
+input[type="text"] {
+  color: black;
+}
+
 input[type="submit"] {
   background: linear-gradient(#41FFD0, #4440FF);
+  max-width: 300px;
+  margin: auto;
   border: 0;
   color: white;
   opacity: 0.8;
@@ -1168,6 +1181,42 @@ a.hideDisplay:hover span.showDisplayOnHover {
   background-color: white;
   color: black;
 }
+
+/**********************
+    Avisos module
+  **********************/
+
+.mediumicon {
+  width: 36px;
+  height: 36px;
+  /*margin-top: -2px;*/
+}
+
+.light-gray-box {
+  display: block;
+  width: 93%;
+  padding: 10px;
+  margin: 20px;
+  margin-bottom: 20px;
+  background: rgba(204, 204, 204, 1) !important;
+  color: black;
+  border-radius: 10px;
+}
+
+/**********************
+    Chat module
+  **********************/
+
+
+
+/**********************
+    Software module
+  **********************/
+
+.software-title {
+  color: #cc0066;
+}
+
 
 /**********************
         Who we are

@@ -27,8 +27,8 @@ class InsertCodeModule extends HC_Module {
 
   public function onCreatingSidebar(&$sidebar) {
     $newEntry = [
-      'icon' => 'software',
-      'text' => 'Software',
+      'icon' => 'code',
+      'text' => 'Insert code',
       'id' => 'software',
     ];
     array_unshift($sidebar, $newEntry); // To prepend the entry
@@ -42,8 +42,8 @@ class InsertCodeModule extends HC_Module {
     return [
       'html' => $html,
       'title' => '
-      <svg class="icon software windowicon">
-        <use xlink:href="#software">
+      <svg class="icon code windowicon">
+        <use xlink:href="#code">
         </use>
       </svg>
       Insert code',
@@ -73,8 +73,8 @@ class InsertCodeModule extends HC_Module {
     return [
       'html' => $html,
       'title' => '
-      <svg class="icon software windowicon">
-        <use xlink:href="#software">
+      <svg class="icon code windowicon">
+        <use xlink:href="#code">
         </use>
       </svg>
       Insert code',
@@ -101,8 +101,8 @@ class InsertCodeModule extends HC_Module {
     return [
       'html' => $html,
       'title' => '
-      <svg class="icon software windowicon">
-        <use xlink:href="#software">
+      <svg class="icon code windowicon">
+        <use xlink:href="#code">
         </use>
       </svg>
       Insert code',

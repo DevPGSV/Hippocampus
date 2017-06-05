@@ -13,7 +13,7 @@ class RecaptchaModule extends HC_Module {
   public function onCreatingSidebar(&$sidebar) {
     $cu = $this->hc->getUserManager()->getLoggedInUser();
     $newEntry = [
-      'icon' => '',
+      'icon' => 'recaptcha',
       'text' => 'Recaptcha',
       'id' => 'recaptcha_config',
     ];
@@ -55,7 +55,10 @@ class RecaptchaModule extends HC_Module {
 
     return [
       'html' => $html,
-      'title' => 'Recaptcha configuration',
+      'title' => '<svg class="icon recaptcha windowicon">
+                <use xlink:href="#recaptcha">
+                </use>
+                </svg>Recaptcha Configuration',
     ];
   }
 

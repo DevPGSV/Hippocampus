@@ -38,7 +38,7 @@ class AvisosModule extends HC_Module {
           }
         }
 
-        $avisosHtmlFormatted = "Tienes ".$notificationsNumber." notificaciones nuevas.<br><br>";
+        $avisosHtmlFormatted = "<h3>Tienes ".$notificationsNumber." notificaciones nuevas.</h3><br>";
 
         foreach ($notifications as $notification) {
           if (!empty($notification['notificationCounter'])) {
@@ -50,7 +50,15 @@ class AvisosModule extends HC_Module {
               $icon = $notification['icon'];
           }
 
-          $avisosHtmlFormatted .= "<p class='notification-text-inside'><svg class='notification-icon".$icon." mediumicon'><use xlink:href='#$icon'></use></svg><br>{$notification['text']}</p><br>";
+          $avisosHtmlFormatted .= "<div class='light-gray-box'>
+                                    <p class='notification-text-inside'>
+                                        <svg class='notification-icon".$icon." mediumicon'>
+                                            <use xlink:href='#$icon'> </use>
+                                        </svg>
+                                        <br>
+                                        {$notification['text']}
+                                    </p>
+                                   </div>";
         }
 
         return [
@@ -60,13 +68,5 @@ class AvisosModule extends HC_Module {
                 </use>
                 </svg>Avisos',
         ];
-    }
-
-    public function AvisosNotificationCallback($cbData) {
-        return '<p> </p>';
-    }
-
-    public function onCreatingMetacode(&$metacode) {
-        $metacode[] = '<link rel="stylesheet" href="modules/AvisosModule/style.css">';
     }
 }

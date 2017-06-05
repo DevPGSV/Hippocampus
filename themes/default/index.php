@@ -36,14 +36,14 @@
 
               <input type="submit" value="Ingresar">
               <br>
-              <p> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
+              <p id="align"> ¿Aún no tienes tu cuenta?<br><a id="register" href="register">Regístrate</a> </p>
             </form>
 
             <a><img id="hippo-der" src="img/pQLItby.gif" alt="caballito"></a>
 
             <a class="button" id="button" href="who"> ¿QUIÉNES SOMOS? <span class="glyphicon glyphicon-home"><i class="glyphicon glyphicon-leaf"></i></span> </a>
             <a href="" id="profesor">Documentación para el profesor </a>
-  
+
 
       <!-- Modal -->
       <div class="modal fade" id="dummyModal" role="dialog">
