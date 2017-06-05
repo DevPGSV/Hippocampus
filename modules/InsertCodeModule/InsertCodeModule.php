@@ -4,13 +4,16 @@ class InsertCodeModule extends HC_Module {
   public function __construct($hc) {
     parent::__construct($hc);
 
-    $this->registerWindowCallback('software', 'InsertCodeWindowCallback');
-    $this->registerWindowCallback('insertcodemodule_listcodes', 'ListCodesWindowCallback');
-    $this->registerWindowCallback('insertcodemodule_checkcode', 'CheckCodeWindowCallback');
+    $cu = $this->hc->getUserManager()->getLoggedInUser();
+    if ($cu !== false && $cu->isAdmin()) {
+      $this->registerWindowCallback('software', 'InsertCodeWindowCallback');
+      $this->registerWindowCallback('insertcodemodule_listcodes', 'ListCodesWindowCallback');
+      $this->registerWindowCallback('insertcodemodule_checkcode', 'CheckCodeWindowCallback');
 
-    $this->registerApiCallback('insertcodemodule_addCode', 'AddCodeApiCallback');
-    $this->registerApiCallback('insertcodemodule_updateCode', 'UpdateCodeApiCallback');
-    $this->registerApiCallback('insertcodemodule_setEnableCode', 'SetEnableCodeApiCallback');
+      $this->registerApiCallback('insertcodemodule_addCode', 'AddCodeApiCallback');
+      $this->registerApiCallback('insertcodemodule_updateCode', 'UpdateCodeApiCallback');
+      $this->registerApiCallback('insertcodemodule_setEnableCode', 'SetEnableCodeApiCallback');
+    }
   }
 
   public static function setup($hc) {
@@ -26,12 +29,15 @@ class InsertCodeModule extends HC_Module {
   }
 
   public function onCreatingSidebar(&$sidebar) {
-    $newEntry = [
-      'icon' => 'code',
-      'text' => 'Insert code',
-      'id' => 'software',
-    ];
-    array_unshift($sidebar, $newEntry); // To prepend the entry
+    $cu = $this->hc->getUserManager()->getLoggedInUser();
+    if ($cu !== false && $cu->isAdmin()) {
+      $newEntry = [
+        'icon' => 'code',
+        'text' => 'Insert code',
+        'id' => 'software',
+      ];
+      array_unshift($sidebar, $newEntry); // To prepend the entry
+    }
   }
 
   public function InsertCodeWindowCallback() {
