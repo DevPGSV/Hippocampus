@@ -1,12 +1,11 @@
 <?php
-// This hardcoded values will be here during development
 
-$_HARDCODED = [
+$_CONFIG = [
   'db' => [
     'username' => 'hippocampus',
     'password' => 'hippocampus',
     'database' => 'hippocampus',
     'host' => 'localhost',
   ],
-  'siteSecretToken' => 't4s1hj56s6'
+  'siteSecretToken' => 'ha65teh'
 ];
