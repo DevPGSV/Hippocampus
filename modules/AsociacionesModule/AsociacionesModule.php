@@ -5,20 +5,6 @@ class AsociacionesModule extends HC_Module {
     parent::__construct($hc);
 
     $this->registerWindowCallback('asoci', 'ExampleWindowCallback');
-    /*$this->registerWindowCallback('example2', 'ExampleWindowCallback2');*/
-  }
-
-  public static function setup($hc) {
-    $sql = "CREATE TABLE IF NOT EXISTS hc_m_AsociacionesModule_data(
-      id INT NOT NULL AUTO_INCREMENT,
-      user INT NOT NULL,
-      token VARCHAR(64) NOT NULL,
-      data VARCHAR(32) NOT NULL,
-      PRIMARY KEY (`id`)
-    )";
-    $db = $stmt = $hc->getDB()->getDBo();
-    $stmt = $db->prepare($sql);
-    return $stmt->execute();
   }
 
   public function onCreatingSidebar(&$sidebar) {
@@ -73,17 +59,6 @@ class AsociacionesModule extends HC_Module {
       </svg>
        Información de Asociaciones',
     ];
-  }
-
-  /*public function ExampleWindowCallback2() {
-    return [
-      'html' => '<p>Second callback!</p><p data-updatewindowboxservice="example">Back....</p>',
-      'title' => 'Example Second Title',
-    ];
-  }*/
-
-  public function ExampleNotificationCallback($cbData) {
-    return '<p>Module dummy data for notification: <em>Example</em></p><br><pre>'.print_r($cbData, true).'</pre>';
   }
 
 }

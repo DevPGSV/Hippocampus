@@ -35,6 +35,7 @@ class MoodleModule extends HC_Module {
       'text' => 'Tienes {COUNTER} mensajes nuevos',
       'cb' => 'MoodleNotificationCallback',
       'cbData' => [],
+      'icon' => 'ucm',
     ];
     array_unshift($notifications, $newEntry); // To prepend the entry
   }
@@ -49,10 +50,6 @@ class MoodleModule extends HC_Module {
       </svg>
       Campus Virtual',
     ];
-  }
-
-  public function MoodleNotificationCallback($cbData) {
-    return '<p>Module dummy data for notification: <em>Moodle Callback</em></p><br><pre>'.print_r($cbData, true).'</pre>';
   }
 
 }

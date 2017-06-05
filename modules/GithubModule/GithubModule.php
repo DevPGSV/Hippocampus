@@ -62,11 +62,10 @@ class GithubModule extends HC_Module {
              <br>
     ';
 
-    $owner = 'tan-tan-kanarek';
-    $repo = 'github-php-client';
+    //$owner = 'tan-tan-kanarek';
+    //$repo = 'github-php-client';
 
-    $client = $_SESSION["client"];
-    //$client->setPage();
+    $client->setPage();
     //$client->setPageSize(2);
     //$commits = $client->repos->commits->listCommitsOnRepository($owner, $repo);
 
@@ -102,6 +101,8 @@ class GithubModule extends HC_Module {
      $cu = $this->hc->getUserManager()->getLoggedInUser();
      if ($this->loggedIn) return $this->GithubWindowCallback();
 
+     $client = new GitHubClient();
+
      $html = '
       <form action="modules/GithubModule/GithubAuth.php" method="POST">
          <input type="text" name="username" placeholder="Nombre de usuario" class="githubmodule_credentialsinput">
@@ -121,10 +122,6 @@ class GithubModule extends HC_Module {
        </svg>
        Github',
      ];
-  }
-
-  public function GithubNotificationCallback($cbData) {
-    return '<p>Module dummy data for notification: <em>Example</em></p><br><pre>'.print_r($cbData, true).'</pre>';
   }
 
    public function onCreatingMetacode(&$metacode) {

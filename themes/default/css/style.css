@@ -1121,6 +1121,12 @@ a.hideDisplay:hover span.showDisplayOnHover {
   /*margin-top: -2px;*/
 }
 
+.mediumicon {
+  width: 36px;
+  height: 36px;
+  /*margin-top: -2px;*/
+}
+
 /**********************
     Asociaciones module
   **********************/

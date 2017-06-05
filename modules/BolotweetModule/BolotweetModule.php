@@ -9,19 +9,6 @@ class BolotweetModule extends HC_Module {
     $this->registerWindowCallback('bolotweet2', 'BolotweetWindowCallback2');
   }
 
-  public static function setup($hc) {
-    $sql = "CREATE TABLE IF NOT EXISTS hc_m_BolotweetModule_data(
-      id INT NOT NULL AUTO_INCREMENT,
-      user INT NOT NULL,
-      token VARCHAR(64) NOT NULL,
-      data VARCHAR(32) NOT NULL,
-      PRIMARY KEY (`id`)
-    )";
-    $db = $stmt = $hc->getDB()->getDBo();
-    $stmt = $db->prepare($sql);
-    return $stmt->execute();
-  }
-
   public function onCreatingSidebar(&$sidebar) {
     $newEntry = [
       'icon' => 'bolotweet',
@@ -76,12 +63,6 @@ class BolotweetModule extends HC_Module {
         </use>
       </svg>Bolotweet',
     ];
-  }
-
-
-
-  public function ExampleNotificationCallback($cbData) {
-    return '<p>Module dummy data for notification: <em>Example</em></p><br><pre>'.print_r($cbData, true).'</pre>';
   }
 
 }

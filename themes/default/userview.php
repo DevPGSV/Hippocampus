@@ -99,7 +99,7 @@
                             }
                             $icon = '';
                             if (!empty($notification['icon'])) $icon = $notification['icon'];
-                            echo "<li role='presentation' class='notification-text-inside'><svg class='notification-icon $icon'><use xlink:href='#$icon'></use></svg><a role='menuitem' tabindex='-1' href='#' class='notification-text'>  {$notification['text']}</a></li>";
+                            echo "<li role='presentation' class='notification-text-inside'><svg class='notification-icon".$icon." mediumicon'><use xlink:href='#$icon'></use></svg><a role='menuitem' tabindex='-1' href='#' class='notification-text'>  {$notification['text']}</a></li>";
                           }
                           ?>
                         </ul></div></li>
