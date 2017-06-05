@@ -24,8 +24,8 @@ class IdentityModule extends HC_Module {
                     <div class="col-sm-3 sidenav">
                       <h4>'.$currentuser->getUsername().'</h4>
                       <ul class="nav nav-pills nav-stacked">
-                        <li><a data-updatewindowboxservice="ID">Inicio</a></li>
-                        <li><a data-updatewindowboxservice="datospersonales">Mis datos personales</a></li>
+                        <li><a data-updatewindowboxservice="ID" class="pointercursor">Inicio</a></li>
+                        <li><a data-updatewindowboxservice="datospersonales" class="pointercursor">Mis datos personales</a></li>
                       </ul><br>
 
                     </div>
@@ -58,8 +58,8 @@ class IdentityModule extends HC_Module {
                     <div class="col-sm-3 sidenav">
                       <h4>'.$currentuser->getUsername().'</h4>
                       <ul class="nav nav-pills nav-stacked">
-                        <li><a data-updatewindowboxservice="ID">Inicio</a></li>
-                        <li><a data-updatewindowboxservice="datospersonales">Mis datos personales</a></li>
+                        <li><a data-updatewindowboxservice="ID" class="pointercursor">Inicio</a></li>
+                        <li><a data-updatewindowboxservice="datospersonales" class="pointercursor">Mis datos personales</a></li>
                       </ul><br>
 
                     </div>

@@ -1046,6 +1046,10 @@
     cursor: default;
   }
 
+  .pointercursor {
+    cursor: pointer;
+  }
+
   #homelinkadmin {
     font-size: 25px;
     color: white;
