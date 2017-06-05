@@ -32,7 +32,7 @@ class InsertCodeModule extends HC_Module {
 
   public function InsertCodeCallback() {
     return [
-      'html' => '<form action="" method="post">
+      'html' => '<form action="" method="post" onclick="myFunction()">
                     <textarea name="comments" id="comments">
                     Hey... Enter your code!
 
@@ -48,6 +48,12 @@ class InsertCodeModule extends HC_Module {
                   </svg>
                   Insert code',
     ];
+  }
+
+  public function onCreatingMetacode(&$metacode) {
+  $metacode[] = '<script>
+    
+    </script>';
   }
 
   public function OnlineEditorCallback() {
