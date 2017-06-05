@@ -67,7 +67,7 @@ function setupBackgroundGradient() {
   }
   //setInterval(updateGradient, 40);
   $('body').css({
-    background: "darkslategrey"
+    background: "#565353"
   });
 }
 
